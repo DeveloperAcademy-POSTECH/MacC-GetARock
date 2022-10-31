@@ -100,10 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				07D7DA26291087CA00479B6F /* Global */,
-				07D7D9E6290FB8C200479B6F /* ViewController.swift */,
-				07D7D9E8290FB8C200479B6F /* Main.storyboard */,
-				07D7D9EB290FB8C400479B6F /* Assets.xcassets */,
-				07D7D9ED290FB8C400479B6F /* LaunchScreen.storyboard */,
+				07D7DA282910882D00479B6F /* Screen */,
 			);
 			path = GetARock;
 			sourceTree = "<group>";
@@ -129,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				07D7DA27291087CE00479B6F /* Supports */,
+				07D7DA292910883600479B6F /* Resource */,
 			);
 			path = Global;
 			sourceTree = "<group>";
@@ -141,6 +139,32 @@
 				07D7D9E4290FB8C200479B6F /* SceneDelegate.swift */,
 			);
 			path = Supports;
+			sourceTree = "<group>";
+		};
+		07D7DA282910882D00479B6F /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				07D7D9E6290FB8C200479B6F /* ViewController.swift */,
+			);
+			path = Screen;
+			sourceTree = "<group>";
+		};
+		07D7DA292910883600479B6F /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				07D7D9EB290FB8C400479B6F /* Assets.xcassets */,
+				07D7DA2A2910884100479B6F /* Storyboards */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		07D7DA2A2910884100479B6F /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				07D7D9E8290FB8C200479B6F /* Main.storyboard */,
+				07D7D9ED290FB8C400479B6F /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
