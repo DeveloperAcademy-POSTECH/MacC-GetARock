@@ -1,0 +1,21 @@
+name: GetARock Swift-Builder
+
+on:
+  push:
+    branches: [ develop, main ]
+  pull_request:
+    branches: [ develop, release, hotfix ]
+
+jobs:
+  build:
+    name: Build and Test by Swift
+    runs-on: macos-latest
+
+    steps:
+      - name: 🟢 Checkout Source Code 🟢
+        uses: actions/checkout@v1
+        
+      - name: 🔵 Build Test Step 🔵
+        run: |
+          xcodebuild test -project ./GetARock/GetARock.xcodeproj -scheme GetARockTests -destination "platform=iOS Simulator,name=iPhone 12,OS=latest"
+          
