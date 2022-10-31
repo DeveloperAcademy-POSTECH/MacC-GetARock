@@ -9,20 +9,20 @@ on:
 jobs:
   build:
     name: Build and Test by Swift
-    runs-on: macos-12
+    runs-on: macos-latest
 
     steps:
-      - name: Setup Xcode version
-        uses: maxim-lobanov/setup-xcode@v1
-        with:
-          xcode-version: '13.2'
+#      - name: Setup Xcode version
+#        uses: maxim-lobanov/setup-xcode@v1
+#        with:
+#          xcode-version: '13.2'
 
       - name: 🟢 Checkout Source Code 🟢
         uses: actions/checkout@v1
         
       - name: 🔵 Build Test Step 🔵
         run: |
-          xcodebuild clean test -project ./GetARock/GetARock.xcodeproj -scheme GetARock -destination 'platform=iOS Simulator ,name=iPhone 13 Pro ,OS=14.0'
+          xcodebuild clean test -project ./GetARock/GetARock.xcodeproj -scheme GetARock -destination 'platform=iOS Simulator ,name=iPhone 13 Pro ,OS=latest'
           
       - name: Add PR Comment
         if: ${{ success() }}
