@@ -1,0 +1,35 @@
+name: GetARock Swift-Builder
+
+on:
+  push:
+    branches: [ develop, main ]
+  pull_request:
+    branches: [ develop, release, hotfix, feature ]
+
+jobs:
+  build:
+    name: Build and Test by Swift
+    runs-on: macos-latest
+
+    steps:
+      - name: 🟢 Checkout Source Code 🟢
+        uses: actions/checkout@v1
+        
+      - name: 🔵 Build Test Step 🔵
+        run: |
+          xcodebuild test -project ./GetARock/GetARock.xcodeproj -scheme GetARockTests -destination "platform=iOS Simulator,name=iPhone 13 Pro,OS=latest"
+          
+      - name: Add PR Comment
+        if: ${{ success() }}
+        uses: mshick/add-pr-comment@v1
+        env:
+          DIFF_BASE: ${{ github.base_ref }}
+        with:
+          message: |
+           ## All File Checked ✅
+           | ✅     | SwiftBuilder Success!!!!     |
+           |---    |----------------------------------------------    |
+          repo-token: ${{ secrets.ACCESS_TOKEN }}
+          repo-token-user-login: 'github-actions[bot]' # The user.login for temporary GitHub tokens
+          allow-repeats: false # This is the default
+          
