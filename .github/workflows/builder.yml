@@ -19,3 +19,17 @@ jobs:
         run: |
           xcodebuild test -project ./GetARock/GetARock.xcodeproj -scheme GetARockTests -destination "platform=iOS Simulator,name=iPhone 12,OS=latest"
           
+      - name: Add PR Comment
+        if: ${{ success() }}
+        uses: mshick/add-pr-comment@v1
+        env:
+          DIFF_BASE: ${{ github.base_ref }}
+        with:
+          message: |
+           ## All File Checked ✅
+           | ✅     | SwiftBuilder Success!!!!     |
+           |---    |----------------------------------------------    |
+          repo-token: ${{ secrets.ACCESS_TOKEN }}
+          repo-token-user-login: 'github-actions[bot]' # The user.login for temporary GitHub tokens
+          allow-repeats: false # This is the default
+          
