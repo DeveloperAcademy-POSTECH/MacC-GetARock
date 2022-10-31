@@ -16,6 +16,7 @@
 		07D7D9FA290FB8C400479B6F /* GetARockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D7D9F9290FB8C400479B6F /* GetARockTests.swift */; };
 		07D7DA04290FB8C400479B6F /* GetARockUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D7DA03290FB8C400479B6F /* GetARockUITests.swift */; };
 		07D7DA06290FB8C400479B6F /* GetARockUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D7DA05290FB8C400479B6F /* GetARockUITestsLaunchTests.swift */; };
+		07D7DA2D291088EC00479B6F /* NSObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D7DA2C291088EC00479B6F /* NSObject+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		07D7D9FF290FB8C400479B6F /* GetARockUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GetARockUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		07D7DA03290FB8C400479B6F /* GetARockUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetARockUITests.swift; sourceTree = "<group>"; };
 		07D7DA05290FB8C400479B6F /* GetARockUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetARockUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		07D7DA2C291088EC00479B6F /* NSObject+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +127,7 @@
 		07D7DA26291087CA00479B6F /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				07D7DA2B291088CE00479B6F /* Extension */,
 				07D7DA27291087CE00479B6F /* Supports */,
 				07D7DA292910883600479B6F /* Resource */,
 			);
@@ -165,6 +168,14 @@
 				07D7D9ED290FB8C400479B6F /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		07D7DA2B291088CE00479B6F /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				07D7DA2C291088EC00479B6F /* NSObject+Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -301,6 +312,7 @@
 				07D7D9E7290FB8C200479B6F /* ViewController.swift in Sources */,
 				07D7D9E3290FB8C200479B6F /* AppDelegate.swift in Sources */,
 				07D7D9E5290FB8C200479B6F /* SceneDelegate.swift in Sources */,
+				07D7DA2D291088EC00479B6F /* NSObject+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
