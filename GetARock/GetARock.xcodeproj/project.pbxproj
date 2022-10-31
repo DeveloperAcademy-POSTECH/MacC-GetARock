@@ -17,6 +17,8 @@
 		07D7DA06290FB8C400479B6F /* GetARockUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D7DA05290FB8C400479B6F /* GetARockUITestsLaunchTests.swift */; };
 		07D7DA2D291088EC00479B6F /* NSObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D7DA2C291088EC00479B6F /* NSObject+Extension.swift */; };
 		07D7DA302910895000479B6F /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D7DA2F2910895000479B6F /* LandingViewController.swift */; };
+		07D7DA3429108A8300479B6F /* StringLiteral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D7DA3329108A8200479B6F /* StringLiteral.swift */; };
+		07D7DA3629108AB400479B6F /* ImageLiteral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D7DA3529108AB400479B6F /* ImageLiteral.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		07D7DA05290FB8C400479B6F /* GetARockUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetARockUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		07D7DA2C291088EC00479B6F /* NSObject+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Extension.swift"; sourceTree = "<group>"; };
 		07D7DA2F2910895000479B6F /* LandingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
+		07D7DA3329108A8200479B6F /* StringLiteral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringLiteral.swift; sourceTree = "<group>"; };
+		07D7DA3529108AB400479B6F /* ImageLiteral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLiteral.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +131,7 @@
 		07D7DA26291087CA00479B6F /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				07D7DA3129108A5D00479B6F /* Literals */,
 				07D7DA2B291088CE00479B6F /* Extension */,
 				07D7DA27291087CE00479B6F /* Supports */,
 				07D7DA292910883600479B6F /* Resource */,
@@ -184,6 +189,15 @@
 				07D7DA2F2910895000479B6F /* LandingViewController.swift */,
 			);
 			path = Landing;
+			sourceTree = "<group>";
+		};
+		07D7DA3129108A5D00479B6F /* Literals */ = {
+			isa = PBXGroup;
+			children = (
+				07D7DA3329108A8200479B6F /* StringLiteral.swift */,
+				07D7DA3529108AB400479B6F /* ImageLiteral.swift */,
+			);
+			path = Literals;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -318,9 +332,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				07D7D9E3290FB8C200479B6F /* AppDelegate.swift in Sources */,
+				07D7DA3629108AB400479B6F /* ImageLiteral.swift in Sources */,
 				07D7D9E5290FB8C200479B6F /* SceneDelegate.swift in Sources */,
 				07D7DA302910895000479B6F /* LandingViewController.swift in Sources */,
 				07D7DA2D291088EC00479B6F /* NSObject+Extension.swift in Sources */,
+				07D7DA3429108A8300479B6F /* StringLiteral.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
