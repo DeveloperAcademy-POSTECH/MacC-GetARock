@@ -131,9 +131,9 @@
 		07D7DA26291087CA00479B6F /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				07D7DA27291087CE00479B6F /* Supports */,
 				07D7DA3129108A5D00479B6F /* Literals */,
 				07D7DA2B291088CE00479B6F /* Extension */,
-				07D7DA27291087CE00479B6F /* Supports */,
 				07D7DA292910883600479B6F /* Resource */,
 			);
 			path = Global;
