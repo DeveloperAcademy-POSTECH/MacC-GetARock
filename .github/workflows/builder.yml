@@ -17,7 +17,7 @@ jobs:
         
       - name: 🔵 Build Test Step 🔵
         run: |
-          xcodebuild test -project ./GetARock/GetARock.xcodeproj -scheme GetARockTests -destination "platform=iOS Simulator,name=iPhone 13 Pro,OS=15.2"
+          xcodebuild test -project ./GetARock/GetARock.xcodeproj -scheme GetARockTests -destination "platform=iOS Simulator,name=iPhone 13 Pro,OS=latest"
           
       - name: Add PR Comment
         if: ${{ success() }}
