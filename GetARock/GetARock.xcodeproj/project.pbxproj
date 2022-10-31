@@ -23,6 +23,7 @@
 		07D7DA3C29108C9000479B6F /* SampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D7DA3B29108C9000479B6F /* SampleView.swift */; };
 		07D7DA3F29108CF800479B6F /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D7DA3E29108CF800479B6F /* MyPageViewController.swift */; };
 		07D7DA4129108D0500479B6F /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07D7DA4029108D0500479B6F /* MyPage.storyboard */; };
+		07D7DA4429108DCB00479B6F /* SampleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07D7DA4329108DCB00479B6F /* SampleView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		07D7DA3B29108C9000479B6F /* SampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleView.swift; sourceTree = "<group>"; };
 		07D7DA3E29108CF800479B6F /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		07D7DA4029108D0500479B6F /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
+		07D7DA4329108DCB00479B6F /* SampleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SampleView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +175,7 @@
 			children = (
 				07D7D9EB290FB8C400479B6F /* Assets.xcassets */,
 				07D7DA2A2910884100479B6F /* Storyboards */,
+				07D7DA4229108DAE00479B6F /* Xibs */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -234,6 +237,14 @@
 				07D7DA3E29108CF800479B6F /* MyPageViewController.swift */,
 			);
 			path = MyPage;
+			sourceTree = "<group>";
+		};
+		07D7DA4229108DAE00479B6F /* Xibs */ = {
+			isa = PBXGroup;
+			children = (
+				07D7DA4329108DCB00479B6F /* SampleView.xib */,
+			);
+			path = Xibs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -341,6 +352,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				07D7D9EF290FB8C400479B6F /* LaunchScreen.storyboard in Resources */,
+				07D7DA4429108DCB00479B6F /* SampleView.xib in Resources */,
 				07D7D9EC290FB8C400479B6F /* Assets.xcassets in Resources */,
 				07D7D9EA290FB8C200479B6F /* Landing.storyboard in Resources */,
 				07D7DA4129108D0500479B6F /* MyPage.storyboard in Resources */,
