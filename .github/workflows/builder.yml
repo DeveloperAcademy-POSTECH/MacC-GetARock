@@ -16,8 +16,12 @@ jobs:
         uses: actions/checkout@v1
         
       - name: 🔵 Build Test Step 🔵
+        env:
+          matrix:
+           - DESTINATION="platform=iOS Simulator,OS=14.0 ,name=iPhone 13
+           - DESTINATION="platform=iOS Simulator,OS=latest ,name=iPhone 13 Pro"
         run: |
-          xcodebuild test -project ./GetARock/GetARock.xcodeproj -scheme GetARock -destination "platform=iOS Simulator,name=iPhone 13 Pro,OS=14.0"
+          xcodebuild test -project ./GetARock/GetARock.xcodeproj -scheme GetARock -destination "$DESTINATION"
           
       - name: Add PR Comment
         if: ${{ success() }}
