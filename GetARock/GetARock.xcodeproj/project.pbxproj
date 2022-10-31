@@ -43,7 +43,7 @@
 		07D7D9E9290FB8C200479B6F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		07D7D9EB290FB8C400479B6F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		07D7D9EE290FB8C400479B6F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		07D7D9F0290FB8C400479B6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		07D7D9F0290FB8C400479B6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = GetARock/Global/Supports/Info.plist; sourceTree = SOURCE_ROOT; };
 		07D7D9F5290FB8C400479B6F /* GetARockTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GetARockTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		07D7D9F9290FB8C400479B6F /* GetARockTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetARockTests.swift; sourceTree = "<group>"; };
 		07D7D9FF290FB8C400479B6F /* GetARockUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GetARockUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -99,13 +99,11 @@
 		07D7D9E1290FB8C200479B6F /* GetARock */ = {
 			isa = PBXGroup;
 			children = (
-				07D7D9E2290FB8C200479B6F /* AppDelegate.swift */,
-				07D7D9E4290FB8C200479B6F /* SceneDelegate.swift */,
+				07D7DA26291087CA00479B6F /* Global */,
 				07D7D9E6290FB8C200479B6F /* ViewController.swift */,
 				07D7D9E8290FB8C200479B6F /* Main.storyboard */,
 				07D7D9EB290FB8C400479B6F /* Assets.xcassets */,
 				07D7D9ED290FB8C400479B6F /* LaunchScreen.storyboard */,
-				07D7D9F0290FB8C400479B6F /* Info.plist */,
 			);
 			path = GetARock;
 			sourceTree = "<group>";
@@ -125,6 +123,24 @@
 				07D7DA05290FB8C400479B6F /* GetARockUITestsLaunchTests.swift */,
 			);
 			path = GetARockUITests;
+			sourceTree = "<group>";
+		};
+		07D7DA26291087CA00479B6F /* Global */ = {
+			isa = PBXGroup;
+			children = (
+				07D7DA27291087CE00479B6F /* Supports */,
+			);
+			path = Global;
+			sourceTree = "<group>";
+		};
+		07D7DA27291087CE00479B6F /* Supports */ = {
+			isa = PBXGroup;
+			children = (
+				07D7D9F0290FB8C400479B6F /* Info.plist */,
+				07D7D9E2290FB8C200479B6F /* AppDelegate.swift */,
+				07D7D9E4290FB8C200479B6F /* SceneDelegate.swift */,
+			);
+			path = Supports;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -438,7 +454,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = GetARock/Info.plist;
+				INFOPLIST_FILE = GetARock/Global/Supports/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -467,7 +483,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = GetARock/Info.plist;
+				INFOPLIST_FILE = GetARock/Global/Supports/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
