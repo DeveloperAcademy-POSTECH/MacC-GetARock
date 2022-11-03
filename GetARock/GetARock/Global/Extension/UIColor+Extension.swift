@@ -18,6 +18,14 @@ enum AppColor {
     case warningRed
 }
 
+enum GradientColor {
+    
+    case mainGradienBlue
+    case cardGradienPurple
+    case cardGradienblue
+    
+}
+
 extension UIColor {
     
     convenience init(red: Int, green: Int, blue: Int, alpha: Int = 1) {
@@ -56,6 +64,19 @@ extension UIColor {
             return #colorLiteral(red: 0.7921568627, green: 0, blue: 0, alpha: 1)
         }
             
+    }
+    
+    static func gradientColor(_ name: GradientColor) -> UIColor{
+
+        switch name {
+        case .mainGradienBlue:
+            return #colorLiteral(red: 0.4274509804, green: 0.4941176471, blue: 0.968627451, alpha: 1)
+        case .cardGradienPurple:
+            return #colorLiteral(red: 0.2745098039, green: 0.1019607843, blue: 0.3843137255, alpha: 1)
+        case .cardGradienblue:
+            return #colorLiteral(red: 0.1921568627, green: 0.2156862745, blue: 0.537254902, alpha: 1)
+        }
+
     }
     
 }
