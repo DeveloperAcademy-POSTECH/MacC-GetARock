@@ -33,8 +33,8 @@ class MainTabBarController: UITabBarController {
                                                  tag: 0)
         return viewController
     }()
-    let myPageViewController: UIViewController = {
-        let viewController = UIViewController()
+    let myPageViewController: MyPageViewController = {
+        let viewController = MyPageViewController()
         viewController.view.backgroundColor = .yellow
         viewController.tabBarItem = UITabBarItem(title: "마이페이지",
                                                  image: UIImage(systemName: "person"),
