@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		072DEDD029267D9A0046A4A0 /* Band.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072DEDCF29267D9A0046A4A0 /* Band.swift */; };
 		07D7D9E3290FB8C200479B6F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D7D9E2290FB8C200479B6F /* AppDelegate.swift */; };
 		07D7D9E5290FB8C200479B6F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D7D9E4290FB8C200479B6F /* SceneDelegate.swift */; };
 		07D7D9EA290FB8C200479B6F /* Landing.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07D7D9E8290FB8C200479B6F /* Landing.storyboard */; };
@@ -45,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		072DEDCF29267D9A0046A4A0 /* Band.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Band.swift; sourceTree = "<group>"; };
 		07D7D9DF290FB8C200479B6F /* GetARock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GetARock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07D7D9E2290FB8C200479B6F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		07D7D9E4290FB8C200479B6F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -94,6 +96,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		072DEDCD292677090046A4A0 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				072DEDCE2926770F0046A4A0 /* Model */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		072DEDCE2926770F0046A4A0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				072DEDCF29267D9A0046A4A0 /* Band.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		07D7D9D6290FB8C200479B6F = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +136,7 @@
 		07D7D9E1290FB8C200479B6F /* GetARock */ = {
 			isa = PBXGroup;
 			children = (
+				072DEDCD292677090046A4A0 /* Network */,
 				07D7DA26291087CA00479B6F /* Global */,
 				07D7DA282910882D00479B6F /* Screen */,
 			);
@@ -407,6 +426,7 @@
 			files = (
 				07D7DA3C29108C9000479B6F /* SampleView.swift in Sources */,
 				07D7DA3F29108CF800479B6F /* MyPageViewController.swift in Sources */,
+				072DEDD029267D9A0046A4A0 /* Band.swift in Sources */,
 				07D7D9E3290FB8C200479B6F /* AppDelegate.swift in Sources */,
 				07D7DA3629108AB400479B6F /* ImageLiteral.swift in Sources */,
 				07D7D9E5290FB8C200479B6F /* SceneDelegate.swift in Sources */,
