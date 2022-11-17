@@ -7,6 +7,9 @@
 
 import Foundation
 
+struct Band {
+}
+
 enum PlayPosition {
     case vocal
     case guitar
