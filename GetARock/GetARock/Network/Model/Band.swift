@@ -7,6 +7,11 @@
 
 import Foundation
 
+struct BandInfo {
+    let bandID: String
+    var band: Band
+}
+
 struct Band {
     /// 밴드의 이름입니다.
     var name: String
