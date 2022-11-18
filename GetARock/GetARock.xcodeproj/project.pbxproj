@@ -25,6 +25,10 @@
 		07D7DA4129108D0500479B6F /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07D7DA4029108D0500479B6F /* MyPage.storyboard */; };
 		07D7DA4429108DCB00479B6F /* SampleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07D7DA4329108DCB00479B6F /* SampleView.xib */; };
 		07D7DA832911EB7D00479B6F /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 07D7DA822911EB7D00479B6F /* .swiftlint.yml */; };
+		8437618B2927397400BD2C2A /* MyGatherockView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8437618A2927397400BD2C2A /* MyGatherockView.storyboard */; };
+		8437618D29273CF000BD2C2A /* GatherockCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8437618C29273CF000BD2C2A /* GatherockCell.xib */; };
+		8437619029275B3500BD2C2A /* GatherockListCreatedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8437618F29275B3500BD2C2A /* GatherockListCreatedViewController.swift */; };
+		8437619229276FA700BD2C2A /* GatherockListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8437619129276FA700BD2C2A /* GatherockListCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +71,10 @@
 		07D7DA4029108D0500479B6F /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
 		07D7DA4329108DCB00479B6F /* SampleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SampleView.xib; sourceTree = "<group>"; };
 		07D7DA822911EB7D00479B6F /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		8437618A2927397400BD2C2A /* MyGatherockView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyGatherockView.storyboard; sourceTree = "<group>"; };
+		8437618C29273CF000BD2C2A /* GatherockCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GatherockCell.xib; sourceTree = "<group>"; };
+		8437618F29275B3500BD2C2A /* GatherockListCreatedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatherockListCreatedViewController.swift; sourceTree = "<group>"; };
+		8437619129276FA700BD2C2A /* GatherockListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatherockListCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +175,7 @@
 		07D7DA282910882D00479B6F /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				8437618E2927551100BD2C2A /* MyGatherock */,
 				07D7DA2E2910894000479B6F /* Landing */,
 				07D7DA3D29108CC600479B6F /* MyPage */,
 			);
@@ -189,6 +198,7 @@
 				07D7D9E8290FB8C200479B6F /* Landing.storyboard */,
 				07D7D9ED290FB8C400479B6F /* LaunchScreen.storyboard */,
 				07D7DA4029108D0500479B6F /* MyPage.storyboard */,
+				8437618A2927397400BD2C2A /* MyGatherockView.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -246,8 +256,18 @@
 			isa = PBXGroup;
 			children = (
 				07D7DA4329108DCB00479B6F /* SampleView.xib */,
+				8437618C29273CF000BD2C2A /* GatherockCell.xib */,
 			);
 			path = Xibs;
+			sourceTree = "<group>";
+		};
+		8437618E2927551100BD2C2A /* MyGatherock */ = {
+			isa = PBXGroup;
+			children = (
+				8437618F29275B3500BD2C2A /* GatherockListCreatedViewController.swift */,
+				8437619129276FA700BD2C2A /* GatherockListCell.swift */,
+			);
+			path = MyGatherock;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -355,7 +375,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8437618B2927397400BD2C2A /* MyGatherockView.storyboard in Resources */,
 				07D7DA832911EB7D00479B6F /* .swiftlint.yml in Resources */,
+				8437618D29273CF000BD2C2A /* GatherockCell.xib in Resources */,
 				07D7D9EF290FB8C400479B6F /* LaunchScreen.storyboard in Resources */,
 				07D7DA4429108DCB00479B6F /* SampleView.xib in Resources */,
 				07D7D9EC290FB8C400479B6F /* Assets.xcassets in Resources */,
@@ -405,6 +427,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8437619229276FA700BD2C2A /* GatherockListCell.swift in Sources */,
+				8437619029275B3500BD2C2A /* GatherockListCreatedViewController.swift in Sources */,
 				07D7DA3C29108C9000479B6F /* SampleView.swift in Sources */,
 				07D7DA3F29108CF800479B6F /* MyPageViewController.swift in Sources */,
 				07D7D9E3290FB8C200479B6F /* AppDelegate.swift in Sources */,
