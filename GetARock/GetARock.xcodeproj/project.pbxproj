@@ -27,6 +27,8 @@
 		07D7DA832911EB7D00479B6F /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 07D7DA822911EB7D00479B6F /* .swiftlint.yml */; };
 		7BDA8F8B291284FE00BB2D34 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDA8F8A291284FE00BB2D34 /* UIColor+Extension.swift */; };
 		7BDA8F90291296B200BB2D34 /* UIView+Gradation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDA8F8F291296B200BB2D34 /* UIView+Gradation.swift */; };
+		3D0ED2232928667900AE320C /* BandInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0ED2222928667900AE320C /* BandInfoViewController.swift */; };
+		3D565329292855E9003D0C9F /* BandInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D565328292855E9003D0C9F /* BandInfo.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +73,8 @@
 		07D7DA822911EB7D00479B6F /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		7BDA8F8A291284FE00BB2D34 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		7BDA8F8F291296B200BB2D34 /* UIView+Gradation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Gradation.swift"; sourceTree = "<group>"; };
+		3D0ED2222928667900AE320C /* BandInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandInfoViewController.swift; sourceTree = "<group>"; };
+		3D565328292855E9003D0C9F /* BandInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BandInfo.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +176,7 @@
 		07D7DA282910882D00479B6F /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				3D56532A292855F8003D0C9F /* BandInfo */,
 				07D7DA2E2910894000479B6F /* Landing */,
 				07D7DA3D29108CC600479B6F /* MyPage */,
 			);
@@ -194,6 +199,7 @@
 				07D7D9E8290FB8C200479B6F /* Landing.storyboard */,
 				07D7D9ED290FB8C400479B6F /* LaunchScreen.storyboard */,
 				07D7DA4029108D0500479B6F /* MyPage.storyboard */,
+				3D565328292855E9003D0C9F /* BandInfo.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -262,6 +268,12 @@
 				7BDA8F8F291296B200BB2D34 /* UIView+Gradation.swift */,
 			);
 			path = Utils;
+		3D56532A292855F8003D0C9F /* BandInfo */ = {
+			isa = PBXGroup;
+			children = (
+				3D0ED2222928667900AE320C /* BandInfoViewController.swift */,
+			);
+			path = BandInfo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -374,6 +386,7 @@
 				07D7DA4429108DCB00479B6F /* SampleView.xib in Resources */,
 				07D7D9EC290FB8C400479B6F /* Assets.xcassets in Resources */,
 				07D7D9EA290FB8C200479B6F /* Landing.storyboard in Resources */,
+				3D565329292855E9003D0C9F /* BandInfo.storyboard in Resources */,
 				07D7DA4129108D0500479B6F /* MyPage.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -420,6 +433,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				07D7DA3C29108C9000479B6F /* SampleView.swift in Sources */,
+				3D0ED2232928667900AE320C /* BandInfoViewController.swift in Sources */,
 				07D7DA3F29108CF800479B6F /* MyPageViewController.swift in Sources */,
 				07D7D9E3290FB8C200479B6F /* AppDelegate.swift in Sources */,
 				07D7DA3629108AB400479B6F /* ImageLiteral.swift in Sources */,
@@ -614,7 +628,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -644,7 +658,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
