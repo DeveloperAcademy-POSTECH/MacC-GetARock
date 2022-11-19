@@ -14,6 +14,15 @@ struct Event {
         case progressing
         case finished
         case canceled
+        
+        func toKorean() -> String {
+            switch self {
+            case .recruiting: return "모집중"
+            case .progressing: return "진행중"
+            case .finished: return "완료됨"
+            case .canceled: return "취소됨"
+            }
+        }
     }
     
     /// 모임의 제목입니다.
