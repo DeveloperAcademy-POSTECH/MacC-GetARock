@@ -22,6 +22,7 @@ class MainMapViewController: UIViewController {
         latitude: 36.014,
         longitude: 129.32
     )
+    let coordinateRange = 0.03
     
     // MARK: - View Life Cycle
     
@@ -36,8 +37,8 @@ class MainMapViewController: UIViewController {
             MKCoordinateRegion(
                 center: coordinate,
                 span: MKCoordinateSpan(
-                    latitudeDelta: 0.03,
-                    longitudeDelta: 0.03
+                    latitudeDelta: coordinateRange,
+                    longitudeDelta: coordinateRange
                 )
             ),
             animated: false
