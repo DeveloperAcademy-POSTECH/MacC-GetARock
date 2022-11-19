@@ -11,18 +11,21 @@ import CoreLocation
 
 class MainMapViewController: UIViewController {
     
-    let map = MKMapView()
+    // MARK: - Properties
+    
+    @IBOutlet weak var mapView: MKMapView!
+    
     let coordinate = CLLocationCoordinate2D(
         latitude: 36.014,
         longitude: 129.32
     )
     
+    // MARK: - View Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.addSubview(map)
-        map.frame = view.bounds
         
-        map.setRegion(
+        mapView.setRegion(
             MKCoordinateRegion(
                 center: coordinate,
                 span: MKCoordinateSpan(
