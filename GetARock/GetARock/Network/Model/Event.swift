@@ -7,6 +7,11 @@
 
 import Foundation
 
+struct EventInfo {
+    let eventID: String
+    let event: Event
+}
+
 /// 모임 이벤트입니다.
 struct Event {
     enum Status: String {
