@@ -23,7 +23,7 @@
                                 <standardMapConfiguration key="preferredConfiguration"/>
                             </mapView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="lKm-3d-tos">
-                                <rect key="frame" x="72.666666666666686" y="670" width="245" height="90"/>
+                                <rect key="frame" x="72.666666666666686" y="704" width="245" height="90"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CbB-be-MPA">
                                         <rect key="frame" x="0.0" y="0.0" width="75" height="90"/>
@@ -74,7 +74,7 @@
                             <constraint firstItem="hqG-Ca-tqo" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="hTB-m5-ghh"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="sFK-D9-Olb" secondAttribute="trailing" constant="16" id="jv9-Bs-8Q2"/>
                             <constraint firstItem="sFK-D9-Olb" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="24" id="ldu-G6-cSr"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="lKm-3d-tos" secondAttribute="bottom" constant="50" id="pPQ-a5-gWe"/>
+                            <constraint firstAttribute="bottom" secondItem="lKm-3d-tos" secondAttribute="bottom" constant="50" id="pPQ-a5-gWe"/>
                             <constraint firstItem="vTY-ql-DKb" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="x28-Hf-d5H"/>
                         </constraints>
                     </view>
