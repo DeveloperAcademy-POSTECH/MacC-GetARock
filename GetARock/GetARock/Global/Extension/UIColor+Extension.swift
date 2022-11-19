@@ -22,14 +22,6 @@ enum AppColor {
     case warningRed
 }
 
-enum GradientColor {
-    
-    case mainGradienBlue
-    case cardGradienPurple
-    case cardGradienblue
-    
-}
-
 extension UIColor {
     
     convenience init(red: Int, green: Int, blue: Int, alpha: Int = 1) {
