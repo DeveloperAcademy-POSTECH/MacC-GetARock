@@ -57,11 +57,17 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="포항 효자동" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vTY-ql-DKb">
+                                <rect key="frame" x="16" y="71" width="136.33333333333334" height="36"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="lKm-3d-tos" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="7ig-CH-9vv"/>
+                            <constraint firstItem="vTY-ql-DKb" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="24" id="7kF-Bz-P7p"/>
                             <constraint firstItem="hqG-Ca-tqo" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="Gos-gu-oaZ"/>
                             <constraint firstItem="hqG-Ca-tqo" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="KfT-Fj-VGE"/>
                             <constraint firstAttribute="bottom" secondItem="hqG-Ca-tqo" secondAttribute="bottom" id="MaM-tP-ew0"/>
@@ -69,6 +75,7 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="sFK-D9-Olb" secondAttribute="trailing" constant="16" id="jv9-Bs-8Q2"/>
                             <constraint firstItem="sFK-D9-Olb" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="24" id="ldu-G6-cSr"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="lKm-3d-tos" secondAttribute="bottom" constant="50" id="pPQ-a5-gWe"/>
+                            <constraint firstItem="vTY-ql-DKb" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="x28-Hf-d5H"/>
                         </constraints>
                     </view>
                     <connections>
