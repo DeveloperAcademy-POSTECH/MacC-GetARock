@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GatherockListCreatedViewController: UIViewController, UITableViewDelegate {
+class GatherockListCreatedViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -29,4 +29,8 @@ extension GatherockListCreatedViewController: UITableViewDataSource {
 
         return cell
     }
+}
+
+extension GatherockListCreatedViewController: UITableViewDelegate {
+    
 }
