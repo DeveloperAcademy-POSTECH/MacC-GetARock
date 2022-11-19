@@ -28,6 +28,10 @@ class MainMapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setFirstDisplayedRegion()
+    }
+    
+    private func setFirstDisplayedRegion() {
         mapView.setRegion(
             MKCoordinateRegion(
                 center: coordinate,
