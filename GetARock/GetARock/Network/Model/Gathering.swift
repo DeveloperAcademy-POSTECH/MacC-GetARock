@@ -7,13 +7,13 @@
 
 import Foundation
 
-struct EventInfo {
-    let eventID: String
-    let event: Event
+struct GatheringInfo {
+    let gatheringID: String
+    let gathering: Gathering
 }
 
-/// 모임 이벤트입니다.
-struct Event {
+/// 밴드팅 모임입니다.
+struct Gathering {
     enum Status: String {
         case recruiting
         case progressing

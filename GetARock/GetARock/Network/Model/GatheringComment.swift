@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct EventCommentInfo {
+struct GatheringCommentInfo {
     let commentID: String
-    let comment: EventComment
+    let comment: GatheringComment
 }
 
-struct EventComment {
+struct GatheringComment {
     let author: BandInfo
     let content: String
     let createdAt: Date
