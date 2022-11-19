@@ -7,6 +7,11 @@
 
 import Foundation
 
+struct VisitorCommentInfo {
+    let commentID: String
+    var comment: VisitorComment
+}
+
 struct VisitorComment {
     let hostBand: BandInfo
     let guestBand: BandInfo
