@@ -14,7 +14,7 @@ struct VisitorCommentInfo {
 
 struct VisitorComment {
     let hostBand: BandInfo
-    let guestBand: BandInfo
+    let author: BandInfo
     let content: String
     let createdAt: Date
 }
