@@ -14,6 +14,9 @@ class MainMapViewController: UIViewController {
     // MARK: - Properties
     
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var createEventButton: UIButton!
+    @IBOutlet weak var attendedEventListButton: UIButton!
+    @IBOutlet weak var myPageButton: UIButton!
     
     let coordinate = CLLocationCoordinate2D(
         latitude: 36.014,
