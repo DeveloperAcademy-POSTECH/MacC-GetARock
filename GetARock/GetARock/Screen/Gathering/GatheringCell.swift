@@ -7,11 +7,12 @@
 
 import UIKit
 
-class GatherockListCell: UITableViewCell {
+class GatheringCell: UITableViewCell {
 
     @IBOutlet weak var startTime: UILabel!
-    @IBOutlet weak var eventTitle: UILabel!
-    @IBOutlet weak var eventState: UIButton!
+    @IBOutlet weak var title: UILabel!
+    @IBOutlet weak var state: UIButton!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
