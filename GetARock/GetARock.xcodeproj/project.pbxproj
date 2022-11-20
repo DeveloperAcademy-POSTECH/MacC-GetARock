@@ -25,10 +25,12 @@
 		07D7DA4129108D0500479B6F /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07D7DA4029108D0500479B6F /* MyPage.storyboard */; };
 		07D7DA4429108DCB00479B6F /* SampleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07D7DA4329108DCB00479B6F /* SampleView.xib */; };
 		07D7DA832911EB7D00479B6F /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 07D7DA822911EB7D00479B6F /* .swiftlint.yml */; };
-		7BDA8F8B291284FE00BB2D34 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDA8F8A291284FE00BB2D34 /* UIColor+Extension.swift */; };
-		7BDA8F90291296B200BB2D34 /* UIView+Gradation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDA8F8F291296B200BB2D34 /* UIView+Gradation.swift */; };
 		3D0ED2232928667900AE320C /* BandInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0ED2222928667900AE320C /* BandInfoViewController.swift */; };
 		3D565329292855E9003D0C9F /* BandInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D565328292855E9003D0C9F /* BandInfo.storyboard */; };
+		7BDA8F8B291284FE00BB2D34 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDA8F8A291284FE00BB2D34 /* UIColor+Extension.swift */; };
+		7BDA8F90291296B200BB2D34 /* UIView+Gradation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDA8F8F291296B200BB2D34 /* UIView+Gradation.swift */; };
+		B830849929263B780035DB2D /* MainMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B830849829263B780035DB2D /* MainMapViewController.swift */; };
+		B8B9971F29287D3700082462 /* MainMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8B9971E29287D3700082462 /* MainMap.storyboard */; };
 		ABCE15B7292A052F007D30E2 /* CutomSegmentedControlButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCE15B6292A052F007D30E2 /* CutomSegmentedControlButton.swift */; };
 /* End PBXBuildFile section */
 
@@ -52,7 +54,7 @@
 /* Begin PBXFileReference section */
 		07D7D9DF290FB8C200479B6F /* GetARock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GetARock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07D7D9E2290FB8C200479B6F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		07D7D9E4290FB8C200479B6F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		07D7D9E4290FB8C200479B6F /* SceneDelegate.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; tabWidth = 4; };
 		07D7D9E9290FB8C200479B6F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Landing.storyboard; sourceTree = "<group>"; };
 		07D7D9EB290FB8C400479B6F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		07D7D9EE290FB8C400479B6F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -72,10 +74,12 @@
 		07D7DA4029108D0500479B6F /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
 		07D7DA4329108DCB00479B6F /* SampleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SampleView.xib; sourceTree = "<group>"; };
 		07D7DA822911EB7D00479B6F /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
-		7BDA8F8A291284FE00BB2D34 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
-		7BDA8F8F291296B200BB2D34 /* UIView+Gradation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Gradation.swift"; sourceTree = "<group>"; };
 		3D0ED2222928667900AE320C /* BandInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandInfoViewController.swift; sourceTree = "<group>"; };
 		3D565328292855E9003D0C9F /* BandInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BandInfo.storyboard; sourceTree = "<group>"; };
+		7BDA8F8A291284FE00BB2D34 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		7BDA8F8F291296B200BB2D34 /* UIView+Gradation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Gradation.swift"; sourceTree = "<group>"; };
+		B830849829263B780035DB2D /* MainMapViewController.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = MainMapViewController.swift; sourceTree = "<group>"; tabWidth = 4; };
+		B8B9971E29287D3700082462 /* MainMap.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainMap.storyboard; sourceTree = "<group>"; };
 		ABCE15B6292A052F007D30E2 /* CutomSegmentedControlButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutomSegmentedControlButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -179,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				3D56532A292855F8003D0C9F /* BandInfo */,
+				B830849729263B620035DB2D /* MainMap */,
 				07D7DA2E2910894000479B6F /* Landing */,
 				07D7DA3D29108CC600479B6F /* MyPage */,
 			);
@@ -202,6 +207,7 @@
 				07D7D9ED290FB8C400479B6F /* LaunchScreen.storyboard */,
 				07D7DA4029108D0500479B6F /* MyPage.storyboard */,
 				3D565328292855E9003D0C9F /* BandInfo.storyboard */,
+				B8B9971E29287D3700082462 /* MainMap.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -265,6 +271,14 @@
 			path = Xibs;
 			sourceTree = "<group>";
 		};
+		3D56532A292855F8003D0C9F /* BandInfo */ = {
+			isa = PBXGroup;
+			children = (
+				3D0ED2222928667900AE320C /* BandInfoViewController.swift */,
+			);
+			path = BandInfo;
+			sourceTree = "<group>";
+		};
 		7BDA8F8E291296A200BB2D34 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -273,12 +287,12 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		3D56532A292855F8003D0C9F /* BandInfo */ = {
+		B830849729263B620035DB2D /* MainMap */ = {
 			isa = PBXGroup;
 			children = (
-				3D0ED2222928667900AE320C /* BandInfoViewController.swift */,
+				B830849829263B780035DB2D /* MainMapViewController.swift */,
 			);
-			path = BandInfo;
+			path = MainMap;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -387,6 +401,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				07D7DA832911EB7D00479B6F /* .swiftlint.yml in Resources */,
+				B8B9971F29287D3700082462 /* MainMap.storyboard in Resources */,
 				07D7D9EF290FB8C400479B6F /* LaunchScreen.storyboard in Resources */,
 				07D7DA4429108DCB00479B6F /* SampleView.xib in Resources */,
 				07D7D9EC290FB8C400479B6F /* Assets.xcassets in Resources */,
@@ -442,6 +457,7 @@
 				07D7DA3F29108CF800479B6F /* MyPageViewController.swift in Sources */,
 				07D7D9E3290FB8C200479B6F /* AppDelegate.swift in Sources */,
 				07D7DA3629108AB400479B6F /* ImageLiteral.swift in Sources */,
+				B830849929263B780035DB2D /* MainMapViewController.swift in Sources */,
 				07D7D9E5290FB8C200479B6F /* SceneDelegate.swift in Sources */,
 				7BDA8F90291296B200BB2D34 /* UIView+Gradation.swift in Sources */,
 				07D7DA302910895000479B6F /* LandingViewController.swift in Sources */,
