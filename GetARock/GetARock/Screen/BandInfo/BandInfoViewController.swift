@@ -8,21 +8,15 @@
 import UIKit
 
 class BandInfoViewController: UIViewController {
-
+    
+    @IBOutlet weak var bandMemberLabel: UILabel!
+    private var bandMemberNumber: Int = 7
+    
     override func viewDidLoad() {
+        bandMemberLabel.text = "밴드 멤버 (\(bandMemberNumber)명)"
+        
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

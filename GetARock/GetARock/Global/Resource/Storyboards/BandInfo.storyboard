@@ -121,6 +121,9 @@
                         </constraints>
                     </view>
                     <size key="freeformSize" width="393" height="1000"/>
+                    <connections>
+                        <outlet property="bandMemberLabel" destination="B7b-l6-pwI" id="o1G-GU-l1L"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
