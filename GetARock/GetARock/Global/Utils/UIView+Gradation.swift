@@ -9,7 +9,7 @@ import UIKit
 
 extension UIView {
 
-    func setGradient(startColor: UIColor, endColor: UIColor, startPointY: Double, endPointY: Double){
+    func setGradient(startColor: UIColor, endColor: UIColor, startPointY: Double, endPointY: Double) {
         let gradient = CAGradientLayer()
         gradient.colors = [startColor.cgColor, endColor.cgColor]
         gradient.startPoint = CGPoint(x: 0.0, y: startPointY)
