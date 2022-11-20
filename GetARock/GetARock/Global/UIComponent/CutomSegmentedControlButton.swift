@@ -11,6 +11,11 @@ final class CustomSegmentedControlButton: UIView {
     private var buttonTitles: [String]!
     private var buttons: [UIButton]!
     private var selectorView: UIView!
+    private var staticLineView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .appColor(.dividerBlue)
+        return view
+    }()
     var textColor: UIColor = .white
     var selectedColor: UIColor = .appColor(.mainPurple)
     
@@ -88,3 +93,13 @@ final class CustomSegmentedControlButton: UIView {
     }
     
 }
+    private func configStaticLineView() {
+        staticLineView.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(staticLineView)
+        NSLayoutConstraint.activate([
+            staticLineView.topAnchor.constraint(equalTo: self.bottomAnchor),
+            staticLineView.widthAnchor.constraint(equalToConstant: self.frame.width),
+            staticLineView.heightAnchor.constraint(equalToConstant: 1),
+            staticLineView.leadingAnchor.constraint(equalTo: self.leadingAnchor)
+        ])
+    }
