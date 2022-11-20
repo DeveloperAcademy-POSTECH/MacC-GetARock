@@ -7,28 +7,32 @@
 
 import UIKit
 
-// MARK: - sample data
-enum stateType {
-    case finding
-    case active
-    case finish
-    case cancel
-}
-
-struct Gathering {
-    var title: String
-    var date: String
-    var state: stateType
-    
-    init(title: String, date: String, state: stateType){
-        self.title = title
-        self.date = date
-        self.state = state
-    }
-}
-
 class GatheringCreatedViewController: UIViewController {
+    
+    // MARK: - Properties
+    
     @IBOutlet weak var tableView: UITableView!
+    
+    // MARK: - Sample Data
+    
+    enum stateType {
+        case finding
+        case active
+        case finish
+        case cancel
+    }
+
+    struct Gathering {
+        var title: String
+        var date: String
+        var state: stateType
+        
+        init(title: String, date: String, state: stateType){
+            self.title = title
+            self.date = date
+            self.state = state
+        }
+    }
     
     private var gathering = [
         Gathering(title: "동성로 합동 버스킹 합니다!", date: "22.12.05 13:00", state: .finding),
@@ -49,6 +53,8 @@ class GatheringCreatedViewController: UIViewController {
         }
         return text
     }
+    
+    // MARK: - View Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
