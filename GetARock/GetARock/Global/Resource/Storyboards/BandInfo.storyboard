@@ -83,9 +83,9 @@
                                                                     </constraints>
                                                                 </collectionViewCellContentView>
                                                                 <connections>
-                                                                    <outlet property="instrumentImage" destination="1VG-vF-u57" id="5qd-lm-dYe"/>
-                                                                    <outlet property="instrumentName" destination="wFJ-Tl-c6z" id="6AH-EI-MET"/>
-                                                                    <outlet property="instrumentNumber" destination="jcO-ke-eHs" id="Mir-Wd-snX"/>
+                                                                    <outlet property="numberOfPosition" destination="jcO-ke-eHs" id="Mir-Wd-snX"/>
+                                                                    <outlet property="positionImage" destination="1VG-vF-u57" id="5qd-lm-dYe"/>
+                                                                    <outlet property="positionName" destination="wFJ-Tl-c6z" id="6AH-EI-MET"/>
                                                                 </connections>
                                                             </collectionViewCell>
                                                         </cells>

@@ -13,8 +13,8 @@ class BandInfoViewController: UIViewController {
     @IBOutlet var bandMemberCollectionView: UICollectionView!
     
     private var bandMemberNumber: Int = 7
-    fileprivate let instrumentNameArray: [String] = ["보컬", "기타", "키보드", "드럼", "베이스", "그 외"]
-    fileprivate let instrumentNumberArray: [Int] = [1, 2, 1, 1, 1, 0]
+    fileprivate let positionNameArray: [String] = ["보컬", "기타", "키보드", "드럼", "베이스", "그 외"]
+    fileprivate let numberOfPostionArray: [Int] = [1, 2, 1, 1, 1, 0]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,7 +52,7 @@ extension BandInfoViewController {
 
 extension BandInfoViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.instrumentNameArray.count
+        return self.positionNameArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -65,8 +65,8 @@ extension BandInfoViewController: UICollectionViewDataSource {
         cell.contentView.layer.borderWidth = 1
         cell.contentView.layer.borderColor = UIColor.appColor(.dividerBlue).cgColor
         
-        cell.instrumentName.text = self.instrumentNameArray[indexPath.item]
-        cell.instrumentNumber.text = "\(self.instrumentNumberArray[indexPath.item])명"
+        cell.positionName.text = self.positionNameArray[indexPath.item]
+        cell.numberOfPosition.text = "\(self.numberOfPostionArray[indexPath.item])명"
         
         return cell
     }
