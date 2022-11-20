@@ -28,7 +28,7 @@ struct Band {
     /// 밴드의 연령대입니다.
     var ageGroups: [AgeGroup]
     /// 밴드의 합주실 위치입니다.
-    var bandRoomLocation: Location
+    var location: Location
     /// 밴드의 자유소개 글입니다.
     var introduction: String
 }
