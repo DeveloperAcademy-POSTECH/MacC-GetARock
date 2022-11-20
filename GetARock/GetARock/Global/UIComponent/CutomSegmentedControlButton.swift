@@ -34,6 +34,48 @@ final class CustomSegmentedControlButton: UIView {
         updateView()
     }
     
+    private func updateView() {
+        createButton()
+        setLayout()
+    }
+    
+    private func createButton() {
+        buttons = [UIButton]()
+        buttons.removeAll()
+        subviews.forEach({$0.removeFromSuperview()})
+        for buttonTitle in buttonTitles {
+            let button = UIButton(type: .system)
+            button.setTitle(buttonTitle, for: .normal)
+            button.setTitleColor(textColor, for: .normal)
+            button.addTarget(self, action: #selector(CustomSegmentedControlButton.buttonAction(sender:)),
+                             for: .touchUpInside)
+            buttons.append(button)
+        }
+        buttons[0].setTitleColor(selectedColor, for: .normal)
+    }
+    
+    @objc func buttonAction(sender: UIButton) {
+        for (buttonIndex, button) in buttons.enumerated() {
+            button.setTitleColor(textColor, for: .normal)
+            if button == sender {
+                let selectorPosition = frame.width / CGFloat(buttonTitles.count) * CGFloat(buttonIndex)
+                UIView.animate(withDuration: 0.2) {
+                    self.selectorView.frame.origin.x = selectorPosition
+                }
+                button.setTitleColor(selectedColor, for: .normal)
+            }
+        }
+    }
+    
+}
+
+extension CustomSegmentedControlButton {
+    private func setLayout() {
+        configStaticLineView()
+        configSelectorView()
+        configStackView()
+    }
+    
     private func configStackView() {
         let stackView = UIStackView(arrangedSubviews: buttons)
         stackView.axis = .horizontal
@@ -58,41 +100,6 @@ final class CustomSegmentedControlButton: UIView {
         addSubview(selectorView)
     }
     
-    private func createButton() {
-        buttons = [UIButton]()
-        buttons.removeAll()
-        subviews.forEach({$0.removeFromSuperview()})
-        for buttonTitle in buttonTitles {
-            let button = UIButton(type: .system)
-            button.setTitle(buttonTitle, for: .normal)
-            button.setTitleColor(textColor, for: .normal)
-            button.addTarget(self, action: #selector(CustomSegmentedControlButton.buttonAction(sender:)),
-                             for: .touchUpInside)
-            buttons.append(button)
-        }
-        buttons[0].setTitleColor(selectedColor, for: .normal)
-    }
-    
-    private func updateView() {
-        createButton()
-        configSelectorView()
-        configStackView()
-    }
-    
-    @objc func buttonAction(sender: UIButton) {
-        for (buttonIndex, button) in buttons.enumerated() {
-            button.setTitleColor(textColor, for: .normal)
-            if button == sender {
-                let selectorPosition = frame.width / CGFloat(buttonTitles.count) * CGFloat(buttonIndex)
-                UIView.animate(withDuration: 0.3) {
-                    self.selectorView.frame.origin.x = selectorPosition
-                }
-                button.setTitleColor(selectedColor, for: .normal)
-            }
-        }
-    }
-    
-}
     private func configStaticLineView() {
         staticLineView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(staticLineView)
@@ -103,3 +110,4 @@ final class CustomSegmentedControlButton: UIView {
             staticLineView.leadingAnchor.constraint(equalTo: self.leadingAnchor)
         ])
     }
+}
