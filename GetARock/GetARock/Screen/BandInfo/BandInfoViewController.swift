@@ -19,7 +19,7 @@ class BandInfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        bandMemberLabel.text = "밴드 멤버 (\(bandMemberNumber)명)"
+        bandMemberLabel.text = "밴드 멤버 (\(bandMemberNumber)인)"
         
         bandMemberCollectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         bandMemberCollectionView.dataSource = self
@@ -31,8 +31,7 @@ class BandInfoViewController: UIViewController {
 // MARK: - 콜렉션뷰 compositonal layout 관련
 extension BandInfoViewController {
     fileprivate func createCompositionalLayout() -> UICollectionViewLayout {
-        let layout = UICollectionViewCompositionalLayout {
-            (sectionIndex: Int, layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
+        let layout = UICollectionViewCompositionalLayout { (_: Int, _: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
             
             let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1/3), heightDimension: .fractionalHeight(1))
             let item = NSCollectionLayoutItem(layoutSize: itemSize)
