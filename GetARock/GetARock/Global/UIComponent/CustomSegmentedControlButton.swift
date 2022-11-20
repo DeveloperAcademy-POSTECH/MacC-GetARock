@@ -1,5 +1,5 @@
 //
-//  CutomSegmentedControlButton.swift
+//  CustomSegmentedControlButton.swift
 //  GetARock
 //
 //  Created by Somin Park on 2022/11/20.
