@@ -27,16 +27,28 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="393" height="510"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="66" translatesAutoresizingMaskIntoConstraints="NO" id="KVQ-Al-kvw">
-                                                        <rect key="frame" x="16" y="50" width="361" height="34.333333333333343"/>
+                                                        <rect key="frame" x="16" y="50" width="361" height="35"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="모집중" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V4J-7S-Lgl" userLabel="condition">
-                                                                <rect key="frame" x="0.0" y="0.0" width="247.33333333333334" height="34.333333333333336"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <color key="textColor" systemColor="opaqueSeparatorColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xqV-WW-xPL">
+                                                                <rect key="frame" x="0.0" y="0.0" width="70" height="35"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="모집중" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V4J-7S-Lgl" userLabel="condition">
+                                                                        <rect key="frame" x="13.000000000000004" y="7.3333333333333268" width="44.333333333333343" height="20.333333333333329"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                        <color key="textColor" systemColor="opaqueSeparatorColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                </subviews>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="70" id="4wl-9D-AMN"/>
+                                                                    <constraint firstItem="V4J-7S-Lgl" firstAttribute="centerY" secondItem="xqV-WW-xPL" secondAttribute="centerY" id="Osk-rl-vBM"/>
+                                                                    <constraint firstAttribute="height" constant="35" id="WjC-It-yY8"/>
+                                                                    <constraint firstItem="V4J-7S-Lgl" firstAttribute="centerX" secondItem="xqV-WW-xPL" secondAttribute="centerX" id="w2b-Ji-epO"/>
+                                                                </constraints>
+                                                            </view>
                                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z1T-V1-cPf" userLabel="ellipsis">
-                                                                <rect key="frame" x="313.33333333333331" y="0.0" width="47.666666666666686" height="34.333333333333336"/>
+                                                                <rect key="frame" x="136" y="0.0" width="225" height="35"/>
                                                                 <state key="normal" title="Button"/>
                                                                 <buttonConfiguration key="configuration" style="plain" image="ellipsis" catalog="system" title="">
                                                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -45,7 +57,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="동성로 합동 버스킹 합니다!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aYx-ug-1Kh" userLabel="gatheribgTitle">
-                                                        <rect key="frame" x="16" y="94.333333333333343" width="361" height="246.00000000000003"/>
+                                                        <rect key="frame" x="16" y="95.000000000000014" width="361" height="245.33333333333337"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
