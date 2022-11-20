@@ -58,7 +58,8 @@ extension BandInfoViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cellId = String(describing: BandMemberCollectionViewCell.self)
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! BandMemberCollectionViewCell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as?
+                BandMemberCollectionViewCell else { return UICollectionViewCell() }
         
         cell.contentView.backgroundColor = UIColor.appColor(.backgroundBlue)
         cell.contentView.layer.cornerRadius = 14
