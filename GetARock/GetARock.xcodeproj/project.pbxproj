@@ -25,6 +25,7 @@
 		07D7DA4129108D0500479B6F /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07D7DA4029108D0500479B6F /* MyPage.storyboard */; };
 		07D7DA4429108DCB00479B6F /* SampleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07D7DA4329108DCB00479B6F /* SampleView.xib */; };
 		07D7DA832911EB7D00479B6F /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 07D7DA822911EB7D00479B6F /* .swiftlint.yml */; };
+		6667A3202929F5DA0052A53B /* GatherInfoPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6667A31F2929F5DA0052A53B /* GatherInfoPage.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		07D7DA4029108D0500479B6F /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
 		07D7DA4329108DCB00479B6F /* SampleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SampleView.xib; sourceTree = "<group>"; };
 		07D7DA822911EB7D00479B6F /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		6667A31F2929F5DA0052A53B /* GatherInfoPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GatherInfoPage.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +191,7 @@
 				07D7D9E8290FB8C200479B6F /* Landing.storyboard */,
 				07D7D9ED290FB8C400479B6F /* LaunchScreen.storyboard */,
 				07D7DA4029108D0500479B6F /* MyPage.storyboard */,
+				6667A31F2929F5DA0052A53B /* GatherInfoPage.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -358,6 +361,7 @@
 				07D7DA832911EB7D00479B6F /* .swiftlint.yml in Resources */,
 				07D7D9EF290FB8C400479B6F /* LaunchScreen.storyboard in Resources */,
 				07D7DA4429108DCB00479B6F /* SampleView.xib in Resources */,
+				6667A3202929F5DA0052A53B /* GatherInfoPage.storyboard in Resources */,
 				07D7D9EC290FB8C400479B6F /* Assets.xcassets in Resources */,
 				07D7D9EA290FB8C200479B6F /* Landing.storyboard in Resources */,
 				07D7DA4129108D0500479B6F /* MyPage.storyboard in Resources */,
