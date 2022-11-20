@@ -27,8 +27,9 @@
 		07D7DA832911EB7D00479B6F /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 07D7DA822911EB7D00479B6F /* .swiftlint.yml */; };
 		3D0ED2232928667900AE320C /* BandInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0ED2222928667900AE320C /* BandInfoViewController.swift */; };
 		3D565329292855E9003D0C9F /* BandInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D565328292855E9003D0C9F /* BandInfo.storyboard */; };
-		7BB7099329290AE40065136D /* GuestBookListUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB7099229290AE40065136D /* GuestBookListUIView.swift */; };
-		7BB709972929164D0065136D /* GusetBookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB709962929164D0065136D /* GusetBookTableViewCell.swift */; };
+		7BB7099329290AE40065136D /* CommentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB7099229290AE40065136D /* CommentListView.swift */; };
+		7BB709972929164D0065136D /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB709962929164D0065136D /* CommentTableViewCell.swift */; };
+		7BB70999292A419B0065136D /* EmptyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB70998292A419B0065136D /* EmptyListView.swift */; };
 		7BDA8F8B291284FE00BB2D34 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDA8F8A291284FE00BB2D34 /* UIColor+Extension.swift */; };
 		7BDA8F90291296B200BB2D34 /* UIView+Gradation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDA8F8F291296B200BB2D34 /* UIView+Gradation.swift */; };
 /* End PBXBuildFile section */
@@ -75,8 +76,9 @@
 		07D7DA822911EB7D00479B6F /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		3D0ED2222928667900AE320C /* BandInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandInfoViewController.swift; sourceTree = "<group>"; };
 		3D565328292855E9003D0C9F /* BandInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BandInfo.storyboard; sourceTree = "<group>"; };
-		7BB7099229290AE40065136D /* GuestBookListUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestBookListUIView.swift; sourceTree = "<group>"; };
-		7BB709962929164D0065136D /* GusetBookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GusetBookTableViewCell.swift; sourceTree = "<group>"; };
+		7BB7099229290AE40065136D /* CommentListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentListView.swift; sourceTree = "<group>"; };
+		7BB709962929164D0065136D /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
+		7BB70998292A419B0065136D /* EmptyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyListView.swift; sourceTree = "<group>"; };
 		7BDA8F8A291284FE00BB2D34 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		7BDA8F8F291296B200BB2D34 /* UIView+Gradation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Gradation.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -238,6 +240,9 @@
 			isa = PBXGroup;
 			children = (
 				07D7DA3B29108C9000479B6F /* SampleView.swift */,
+				7BB7099229290AE40065136D /* CommentListView.swift */,
+				7BB70998292A419B0065136D /* EmptyListView.swift */,
+				7BB709952929161D0065136D /* Cell */,
 			);
 			path = UIComponent;
 			sourceTree = "<group>";
@@ -269,25 +274,15 @@
 		3D56532A292855F8003D0C9F /* BandInfo */ = {
 			isa = PBXGroup;
 			children = (
-				7BB7099429290D2E0065136D /* Component */,
-				7BB709952929161D0065136D /* Cell */,
 				3D0ED2222928667900AE320C /* BandInfoViewController.swift */,
 			);
 			path = BandInfo;
 			sourceTree = "<group>";
 		};
-		7BB7099429290D2E0065136D /* Component */ = {
-			isa = PBXGroup;
-			children = (
-				7BB7099229290AE40065136D /* GuestBookListUIView.swift */,
-			);
-			path = Component;
-			sourceTree = "<group>";
-		};
 		7BB709952929161D0065136D /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				7BB709962929164D0065136D /* GusetBookTableViewCell.swift */,
+				7BB709962929164D0065136D /* CommentTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -465,11 +460,12 @@
 				7BDA8F90291296B200BB2D34 /* UIView+Gradation.swift in Sources */,
 				07D7DA302910895000479B6F /* LandingViewController.swift in Sources */,
 				07D7DA2D291088EC00479B6F /* NSObject+Extension.swift in Sources */,
-				7BB709972929164D0065136D /* GusetBookTableViewCell.swift in Sources */,
+				7BB709972929164D0065136D /* CommentTableViewCell.swift in Sources */,
 				07D7DA3A29108C5B00479B6F /* BaseViewController.swift in Sources */,
 				07D7DA3429108A8300479B6F /* StringLiteral.swift in Sources */,
 				7BDA8F8B291284FE00BB2D34 /* UIColor+Extension.swift in Sources */,
-				7BB7099329290AE40065136D /* GuestBookListUIView.swift in Sources */,
+				7BB7099329290AE40065136D /* CommentListView.swift in Sources */,
+				7BB70999292A419B0065136D /* EmptyListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
