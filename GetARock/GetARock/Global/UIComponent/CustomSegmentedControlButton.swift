@@ -108,9 +108,10 @@ extension CustomSegmentedControlButton {
         addSubview(staticLineView)
         NSLayoutConstraint.activate([
             staticLineView.topAnchor.constraint(equalTo: self.bottomAnchor),
-            staticLineView.widthAnchor.constraint(equalToConstant: self.frame.width),
+            staticLineView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             staticLineView.heightAnchor.constraint(equalToConstant: 1),
-            staticLineView.leadingAnchor.constraint(equalTo: self.leadingAnchor)
+            staticLineView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            staticLineView.centerXAnchor.constraint(equalTo: self.centerXAnchor)
         ])
     }
 }
