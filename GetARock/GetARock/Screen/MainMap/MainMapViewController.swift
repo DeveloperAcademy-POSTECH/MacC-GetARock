@@ -63,13 +63,13 @@ extension MainMapViewController: CLLocationManagerDelegate {
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         switch manager.authorizationStatus {
-        case .authorizedAlways, .authorizedWhenInUse:  // Location services are available.
+        case .authorizedAlways, .authorizedWhenInUse:
             print("GPS 권한 설정됨")
             centerUserLocation()
-        case .restricted, .denied:  // Location services currently unavailable.
+        case .restricted, .denied:
             print("GPS 권한 요청 거부됨")
             setDefaultLocation()
-        case .notDetermined:        // Authorization not determined yet.
+        case .notDetermined:     
             manager.requestWhenInUseAuthorization()
             print("GPS 권한 설정되지 않음")
             setDefaultLocation()
