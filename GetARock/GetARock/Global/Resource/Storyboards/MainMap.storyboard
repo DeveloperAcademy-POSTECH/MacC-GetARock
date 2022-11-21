@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Map view configurations" minToolsVersion="14.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Main Map View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController id="Y6W-OH-hqX" customClass="MainMapViewController" customModule="GetARock" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hqG-Ca-tqo">
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                                <standardMapConfiguration key="preferredConfiguration"/>
+                            </mapView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="lKm-3d-tos">
+                                <rect key="frame" x="72.666666666666686" y="704" width="245" height="90"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CbB-be-MPA">
+                                        <rect key="frame" x="0.0" y="0.0" width="75" height="90"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="CreateEvent"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="knR-dY-MnG">
+                                        <rect key="frame" x="84.999999999999986" y="0.0" width="75.000000000000014" height="90"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="MyEvent"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CPO-gF-m3Y">
+                                        <rect key="frame" x="170" y="0.0" width="75" height="90"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="MyPage"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="sFK-D9-Olb">
+                                <rect key="frame" x="316" y="71" width="58" height="120"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ND4-h0-aRU">
+                                        <rect key="frame" x="0.0" y="0.0" width="58" height="58"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="Setting"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oa4-9j-sWz">
+                                        <rect key="frame" x="0.0" y="62" width="58" height="58"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="CurrentLocation"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="포항 효자동" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vTY-ql-DKb">
+                                <rect key="frame" x="16" y="71" width="136.33333333333334" height="36"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="lKm-3d-tos" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="7ig-CH-9vv"/>
+                            <constraint firstItem="vTY-ql-DKb" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="24" id="7kF-Bz-P7p"/>
+                            <constraint firstItem="hqG-Ca-tqo" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="Gos-gu-oaZ"/>
+                            <constraint firstItem="hqG-Ca-tqo" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="KfT-Fj-VGE"/>
+                            <constraint firstAttribute="bottom" secondItem="hqG-Ca-tqo" secondAttribute="bottom" id="MaM-tP-ew0"/>
+                            <constraint firstItem="hqG-Ca-tqo" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="hTB-m5-ghh"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="sFK-D9-Olb" secondAttribute="trailing" constant="16" id="jv9-Bs-8Q2"/>
+                            <constraint firstItem="sFK-D9-Olb" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="24" id="ldu-G6-cSr"/>
+                            <constraint firstAttribute="bottom" secondItem="lKm-3d-tos" secondAttribute="bottom" constant="50" id="pPQ-a5-gWe"/>
+                            <constraint firstItem="vTY-ql-DKb" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="x28-Hf-d5H"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="attendedEventListButton" destination="knR-dY-MnG" id="zQz-hF-EXv"/>
+                        <outlet property="createEventButton" destination="CbB-be-MPA" id="wgp-QK-rhW"/>
+                        <outlet property="mapView" destination="hqG-Ca-tqo" id="FvX-hf-hxu"/>
+                        <outlet property="myPageButton" destination="CPO-gF-m3Y" id="Bj2-Eu-vQ8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-92.307692307692307" y="-28.436018957345969"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="CreateEvent" width="75" height="90"/>
+        <image name="CurrentLocation" width="58" height="58"/>
+        <image name="MyEvent" width="75" height="90"/>
+        <image name="MyPage" width="75" height="90"/>
+        <image name="Setting" width="58" height="58"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
