@@ -30,6 +30,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Y6W-OH-hqX" id="2as-Qa-kVx"/>
+                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="eKe-ow-1bC"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
@@ -41,6 +45,9 @@
                             <constraint firstItem="FUY-jI-anN" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="r3r-4k-di2"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="FUY-jI-anN" id="fNG-8B-3et"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
