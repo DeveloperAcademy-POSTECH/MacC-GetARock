@@ -10,9 +10,12 @@ import UIKit
 class BandInfoViewController: UIViewController {
     
     @IBOutlet weak var bandMemberLabel: UILabel!
-    @IBOutlet var bandMemberCollectionView: UICollectionView!
+    @IBOutlet weak var bandMemberCollectionView: UICollectionView!
+    @IBOutlet weak var bandAgeLabel: UILabel!
     
-    private var bandMemberNumber: Int = 7
+    private let bandMemberNumber: Int = 7
+    private let bandAge: [String] = ["20대", "30대"]
+    
     fileprivate let positionNameArray: [String] = ["보컬", "기타", "키보드", "드럼", "베이스", "그 외"]
     fileprivate let numberOfPostionArray: [Int] = [1, 2, 1, 1, 1, 0]
     
