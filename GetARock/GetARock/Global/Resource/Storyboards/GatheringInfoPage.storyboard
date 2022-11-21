@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pOX-0T-t1k">
-                                <rect key="frame" x="0.0" y="59" width="393" height="759.00000000000068"/>
+                                <rect key="frame" x="0.0" y="59" width="393" height="759.00000000000045"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="5bo-Ax-DBq">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="1484.3333333333333"/>
@@ -88,13 +88,13 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="ucN-wY-aMU">
-                                                        <rect key="frame" x="15" y="459" width="362" height="24"/>
+                                                        <rect key="frame" x="18" y="459" width="359" height="24"/>
                                                         <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="ng3-rw-eOd">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GatheringLocatonIcon" translatesAutoresizingMaskIntoConstraints="NO" id="ng3-rw-eOd">
                                                                 <rect key="frame" x="0.0" y="0.0" width="18" height="24"/>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="경북 포항시 남구 연일읍 동문호 40 -1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H4M-sD-ZMG" userLabel="gatheringLocation">
-                                                                <rect key="frame" x="32" y="0.0" width="330" height="24"/>
+                                                                <rect key="frame" x="32" y="0.0" width="327" height="24"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
@@ -106,7 +106,7 @@
                                                     <constraint firstItem="aYx-ug-1Kh" firstAttribute="leading" secondItem="P8F-YO-zZe" secondAttribute="leading" constant="16" id="3Gq-BW-18O"/>
                                                     <constraint firstItem="KVQ-Al-kvw" firstAttribute="leading" secondItem="P8F-YO-zZe" secondAttribute="leading" constant="16" id="7WY-eL-2qr"/>
                                                     <constraint firstItem="aYx-ug-1Kh" firstAttribute="top" secondItem="KVQ-Al-kvw" secondAttribute="bottom" constant="10" id="7wK-FD-Mif"/>
-                                                    <constraint firstItem="ucN-wY-aMU" firstAttribute="leading" secondItem="P8F-YO-zZe" secondAttribute="leading" constant="15" id="Aac-yI-0bM"/>
+                                                    <constraint firstItem="ucN-wY-aMU" firstAttribute="leading" secondItem="P8F-YO-zZe" secondAttribute="leading" constant="18" id="Aac-yI-0bM"/>
                                                     <constraint firstItem="WtD-6T-hta" firstAttribute="leading" secondItem="P8F-YO-zZe" secondAttribute="leading" constant="16" id="DmF-kZ-2Jl"/>
                                                     <constraint firstItem="WtD-6T-hta" firstAttribute="top" secondItem="7Iy-dK-MlB" secondAttribute="bottom" constant="26" id="H6g-8H-a1B"/>
                                                     <constraint firstAttribute="bottom" secondItem="ucN-wY-aMU" secondAttribute="bottom" constant="27" id="Niz-wq-Eik"/>
@@ -271,7 +271,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="1" width="18" height="24"/>
+        <image name="GatheringLocatonIcon" width="18" height="24"/>
         <image name="calendar" catalog="system" width="128" height="107"/>
         <image name="ellipsis" catalog="system" width="128" height="37"/>
         <systemColor name="systemBackgroundColor">
