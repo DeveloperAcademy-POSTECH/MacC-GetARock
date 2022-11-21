@@ -8,6 +8,7 @@
 import Foundation
 
 enum MockData {
+    // MARK: - Bands
     static var bands: [BandInfo] = [
         BandInfo(
             bandID: "bandID-001",
@@ -34,8 +35,10 @@ enum MockData {
                     name: "로젤리아",
                     address: "경북 포항시 남구 시청로 1",
                     additionalAddress: "포항시청",
-                    coordinate: Coordinate(latitude: 36.0191816,
-                                           longitude: 129.3432983)
+                    coordinate: Coordinate(
+                        latitude: 36.0191816,
+                        longitude: 129.3432983
+                    )
                 ),
                 introduction:
                         """
@@ -68,8 +71,10 @@ enum MockData {
                     name: "블랙로즈",
                     address: "경상북도 포항시 남구 효자동 효자동길5번길 14",
                     additionalAddress: nil,
-                    coordinate: Coordinate(latitude: 36.0077063,
-                                           longitude: 129.3287019)
+                    coordinate: Coordinate(
+                        latitude: 36.0077063,
+                        longitude: 129.3287019
+                    )
                 ),
                 introduction:
                         """
@@ -107,8 +112,10 @@ enum MockData {
                     name: "모닝샐러드",
                     address: "경상북도 포항시 남구 중흥로 85",
                     additionalAddress: nil,
-                    coordinate: Coordinate(latitude: 36.0134304,
-                                           longitude: 129.3496776)
+                    coordinate: Coordinate(
+                        latitude: 36.0134304,
+                        longitude: 129.3496776
+                    )
                 ),
                 introduction:
                         """
@@ -140,8 +147,10 @@ enum MockData {
                     name: "직스",
                     address: "경상북도 포항시 남구 중흥로126번길 6",
                     additionalAddress: "2층",
-                    coordinate: Coordinate(latitude: 36.0154461,
-                                           longitude: 129.353048)
+                    coordinate: Coordinate(
+                        latitude: 36.0154461,
+                        longitude: 129.353048
+                    )
                 ),
                 introduction:
                         """
@@ -172,8 +181,10 @@ enum MockData {
                     name: "파란색페스츄리",
                     address: "경상북도 포항시 남구 상도동 617-5",
                     additionalAddress: "4층",
-                    coordinate: Coordinate(latitude: 36.0138495,
-                                           longitude: 129.3572625)
+                    coordinate: Coordinate(
+                        latitude: 36.0138495,
+                        longitude: 129.3572625
+                    )
                 ),
                 introduction:
                         """
