@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="749"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="teO-Fx-L4D">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="teO-Fx-L4D">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="715"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ano-jH-ByV" userLabel="scrollContentView">
@@ -63,6 +63,15 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <datePicker contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="249" contentHorizontalAlignment="leading" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="s35-8k-0gb">
+                                                <rect key="frame" x="82.000000000000014" y="153" width="217.33333333333337" height="34.333333333333343"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" priority="250" constant="200" id="e3c-J5-JwX"/>
+                                                </constraints>
+                                                <locale key="locale" localeIdentifier="ko_KR"/>
+                                            </datePicker>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Th-tF-r4O" userLabel="SeparatorView">
                                                 <rect key="frame" x="16" y="200.33333333333331" width="361" height="1"/>
                                                 <color key="backgroundColor" red="0.52941176469999995" green="0.5568627451" blue="0.68235294120000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -119,21 +128,12 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
-                                            <datePicker contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="249" contentHorizontalAlignment="leading" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="s35-8k-0gb">
-                                                <rect key="frame" x="82" y="153" width="215" height="34.333333333333343"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" priority="250" constant="200" id="e3c-J5-JwX"/>
-                                                </constraints>
-                                                <locale key="locale" localeIdentifier="ko_KR"/>
-                                            </datePicker>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="zaJ-zq-18Z" firstAttribute="top" secondItem="Ano-jH-ByV" secondAttribute="top" constant="40" id="2Ix-uj-Vg3"/>
                                             <constraint firstAttribute="trailing" secondItem="xwe-Si-O3s" secondAttribute="trailing" constant="13" id="2So-G0-7QC"/>
-                                            <constraint firstItem="s35-8k-0gb" firstAttribute="top" relation="greaterThanOrEqual" secondItem="TJH-VW-Tct" secondAttribute="bottom" constant="4" id="3YF-T5-1Re"/>
+                                            <constraint firstItem="s35-8k-0gb" firstAttribute="top" relation="lessThanOrEqual" secondItem="TJH-VW-Tct" secondAttribute="bottom" constant="20" id="3YF-T5-1Re"/>
                                             <constraint firstAttribute="trailing" secondItem="TJH-VW-Tct" secondAttribute="trailing" constant="16" id="4Cu-4C-ewo"/>
                                             <constraint firstAttribute="bottom" secondItem="uNV-iD-x50" secondAttribute="bottom" id="9Cx-dS-ahM"/>
                                             <constraint firstItem="CKs-Sh-Fpq" firstAttribute="leading" secondItem="Ano-jH-ByV" secondAttribute="leading" constant="32" id="C04-yD-GWx"/>
@@ -150,6 +150,7 @@
                                             <constraint firstItem="Vd5-GS-4OI" firstAttribute="leading" secondItem="Ano-jH-ByV" secondAttribute="leading" constant="32" id="RZE-RP-98r"/>
                                             <constraint firstItem="xwe-Si-O3s" firstAttribute="top" secondItem="Vd5-GS-4OI" secondAttribute="bottom" constant="20" id="S8E-cc-cXq"/>
                                             <constraint firstItem="uNV-iD-x50" firstAttribute="top" secondItem="t4V-e7-iLN" secondAttribute="bottom" constant="16" id="TDx-wY-Ar3"/>
+                                            <constraint firstItem="s35-8k-0gb" firstAttribute="top" relation="greaterThanOrEqual" secondItem="TJH-VW-Tct" secondAttribute="bottom" constant="4" id="TlP-R3-wPO"/>
                                             <constraint firstItem="uNV-iD-x50" firstAttribute="leading" secondItem="Ano-jH-ByV" secondAttribute="leading" constant="32" id="VRc-kb-eu2"/>
                                             <constraint firstItem="n7W-To-VFW" firstAttribute="top" secondItem="uot-Mo-luY" secondAttribute="bottom" constant="20" id="YbT-uv-Qx7"/>
                                             <constraint firstItem="3Th-tF-r4O" firstAttribute="top" secondItem="CKs-Sh-Fpq" secondAttribute="bottom" constant="20" id="Ygn-1s-3sm"/>
@@ -163,9 +164,10 @@
                                             <constraint firstAttribute="trailing" secondItem="zaJ-zq-18Z" secondAttribute="trailing" constant="16" id="mu4-Oq-emh"/>
                                             <constraint firstAttribute="height" priority="250" constant="250" id="n3M-CW-o9L"/>
                                             <constraint firstItem="Vd5-GS-4OI" firstAttribute="top" secondItem="3Th-tF-r4O" secondAttribute="bottom" constant="20" id="nH6-QY-w4N"/>
+                                            <constraint firstItem="3Th-tF-r4O" firstAttribute="top" relation="greaterThanOrEqual" secondItem="s35-8k-0gb" secondAttribute="bottom" constant="4" id="ok4-6P-Ty1"/>
                                             <constraint firstItem="TJH-VW-Tct" firstAttribute="top" secondItem="hcj-qa-baG" secondAttribute="bottom" constant="20" id="paE-a6-tYg"/>
                                             <constraint firstItem="hcj-qa-baG" firstAttribute="top" secondItem="uot-Mo-luY" secondAttribute="bottom" constant="20" id="qiM-BM-LGV"/>
-                                            <constraint firstItem="3Th-tF-r4O" firstAttribute="top" relation="greaterThanOrEqual" secondItem="s35-8k-0gb" secondAttribute="bottom" constant="4" id="rFC-Va-ZUr"/>
+                                            <constraint firstItem="3Th-tF-r4O" firstAttribute="top" relation="lessThanOrEqual" secondItem="s35-8k-0gb" secondAttribute="bottom" constant="20" id="rFC-Va-ZUr"/>
                                             <constraint firstItem="n7W-To-VFW" firstAttribute="height" secondItem="hcj-qa-baG" secondAttribute="height" id="ujw-UH-GNQ"/>
                                             <constraint firstAttribute="trailing" secondItem="uNV-iD-x50" secondAttribute="trailing" constant="32" id="vAR-rh-A7q"/>
                                             <constraint firstItem="4ni-Mb-siH" firstAttribute="leading" secondItem="Vd5-GS-4OI" secondAttribute="trailing" constant="20" id="wq2-yX-sjJ"/>
@@ -178,10 +180,12 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="Ano-jH-ByV" secondAttribute="bottom" id="4bV-Cs-2gk"/>
-                                    <constraint firstItem="Ano-jH-ByV" firstAttribute="top" secondItem="teO-Fx-L4D" secondAttribute="top" id="EeS-l6-izR"/>
-                                    <constraint firstItem="Ano-jH-ByV" firstAttribute="centerX" secondItem="teO-Fx-L4D" secondAttribute="centerX" id="i0V-dA-Phz"/>
-                                    <constraint firstItem="Ano-jH-ByV" firstAttribute="width" secondItem="teO-Fx-L4D" secondAttribute="width" id="zTQ-eH-DF4"/>
+                                    <constraint firstItem="Ano-jH-ByV" firstAttribute="top" secondItem="c2I-8I-8DU" secondAttribute="top" id="0L6-qP-L86"/>
+                                    <constraint firstItem="Ano-jH-ByV" firstAttribute="leading" secondItem="lgl-1Z-bpW" secondAttribute="leading" id="6rP-mk-DAN"/>
+                                    <constraint firstItem="lgl-1Z-bpW" firstAttribute="trailing" secondItem="Ano-jH-ByV" secondAttribute="trailing" id="MMj-eU-u5h"/>
+                                    <constraint firstItem="Ano-jH-ByV" firstAttribute="width" secondItem="c2I-8I-8DU" secondAttribute="width" id="fcn-bV-eCU"/>
+                                    <constraint firstItem="Ano-jH-ByV" firstAttribute="bottom" secondItem="c2I-8I-8DU" secondAttribute="bottom" id="fec-tb-wyQ"/>
+                                    <constraint firstItem="Ano-jH-ByV" firstAttribute="centerX" secondItem="c2I-8I-8DU" secondAttribute="centerX" id="qPG-mz-hFu"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="c2I-8I-8DU"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="lgl-1Z-bpW"/>
