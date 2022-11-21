@@ -9,7 +9,7 @@ import CoreLocation
 import MapKit
 import UIKit
 
-class MainMapViewController: UIViewController {
+final class MainMapViewController: UIViewController {
     
     // MARK: - Properties
     
@@ -18,7 +18,10 @@ class MainMapViewController: UIViewController {
     @IBOutlet weak var attendedEventListButton: UIButton!
     @IBOutlet weak var myPageButton: UIButton!
     
-    let coordinate = CLLocationCoordinate2D(
+    var location: CLLocation?
+    private var hasSetRegion = false
+    
+    var coordinate = CLLocationCoordinate2D(
         latitude: 36.014,
         longitude: 129.32
     )
@@ -32,10 +35,10 @@ class MainMapViewController: UIViewController {
         
         locationManager.delegate = self
         self.locationManager.requestWhenInUseAuthorization()
-        setFirstDisplayedRegion()
+        self.locationManager.startUpdatingLocation()
     }
     
-    private func setFirstDisplayedRegion() {
+    private func setDefaultLocation() {
         mapView.setRegion(
             MKCoordinateRegion(
                 center: coordinate,
@@ -44,10 +47,33 @@ class MainMapViewController: UIViewController {
                     longitudeDelta: coordinateRange
                 )
             ),
-            animated: false
+            animated: true
         )
     }
+    
+    func centerUserLocation() {
+        mapView.showsUserLocation = true
+        mapView.setUserTrackingMode(.follow, animated: true)
+    }
+        
+}
 
 extension MainMapViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        switch status {
+        case .authorizedAlways, .authorizedWhenInUse:
+            print("GPS 권한 설정됨")
+            centerUserLocation()
+        case .restricted, .notDetermined:
+            print("GPS 권한 설정되지 않음")
+            setDefaultLocation()
+        case .denied:
+            print("GPS 권한 요청 거부됨")
+            setDefaultLocation()
+        default:
+            print("GPS: Default")
+            setDefaultLocation()
+        }
+    }
     
 }
