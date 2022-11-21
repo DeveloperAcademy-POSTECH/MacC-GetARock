@@ -57,6 +57,8 @@ final class MainMapViewController: UIViewController {
         
 }
 
+// MARK: - CLLocationManagerDelegate
+
 extension MainMapViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         switch status {
