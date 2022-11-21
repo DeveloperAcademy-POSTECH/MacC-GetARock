@@ -11,7 +11,7 @@ class GatheringCell: UITableViewCell {
 
     @IBOutlet weak var startTime: UILabel!
     @IBOutlet weak var title: UILabel!
-    @IBOutlet weak var state: UIButton!
+    @IBOutlet weak var state: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

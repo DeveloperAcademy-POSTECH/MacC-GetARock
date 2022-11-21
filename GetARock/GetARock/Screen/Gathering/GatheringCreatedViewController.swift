@@ -43,7 +43,7 @@ class GatheringCreatedViewController: UIViewController {
         Gathering(title: "두 줄 만들기 대체텍스트 대체텍스트 대체텍스트 대체텍스트 대체텍스트 22", date: "22.11.12 18:00", state: .finish)
     ]
     
-    func buttonType(for type: StateType) -> String {
+    func labelType(for type: StateType) -> String {
         let text: String
         switch type {
         case .finding: text = "모집중"
@@ -77,7 +77,8 @@ extension GatheringCreatedViewController: UITableViewDataSource {
         
         cell.title.text = gathering[indexPath.row].title
         cell.startTime.text = gathering[indexPath.row].date
-        cell.state.setTitle(buttonType(for: gathering[indexPath.row].state), for: .normal)
+        cell.state.text = labelType(for: gathering[indexPath.row].state)
+        
         return cell
     }
 }
