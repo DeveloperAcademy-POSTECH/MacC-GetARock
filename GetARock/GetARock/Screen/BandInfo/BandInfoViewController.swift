@@ -13,14 +13,14 @@ class BandInfoViewController: UIViewController {
     @IBOutlet weak var bandMemberLabel: UILabel!
     @IBOutlet weak var bandMemberCollectionView: UICollectionView!
     
-    fileprivate let bandMemberNumber: Int = 7
+    fileprivate let numberOfBandMember: Int = 7
     fileprivate let positionNameArray: [String] = ["보컬", "기타", "키보드", "드럼", "베이스", "그 외"]
     fileprivate let numberOfPostionArray: [Int] = [1, 2, 1, 1, 1, 0]
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        bandMemberLabel.text = "밴드 멤버 (\(bandMemberNumber)인)"
+        bandMemberLabel.text = "밴드 멤버 (\(numberOfBandMember)인)"
         
         bandMemberCollectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         bandMemberCollectionView.dataSource = self
