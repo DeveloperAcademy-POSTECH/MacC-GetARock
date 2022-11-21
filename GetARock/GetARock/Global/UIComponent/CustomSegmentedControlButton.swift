@@ -19,8 +19,8 @@ final class CustomSegmentedControlButton: UIView {
         view.backgroundColor = .appColor(.dividerBlue)
         return view
     }()
-    var textColor: UIColor = .white
-    var selectedColor: UIColor = .appColor(.mainPurple)
+    let textColor: UIColor = .white
+    let selectedColor: UIColor = .appColor(.mainPurple)
     
     convenience init(buttonTitles: [String]) {
         self.init(frame: .zero)
