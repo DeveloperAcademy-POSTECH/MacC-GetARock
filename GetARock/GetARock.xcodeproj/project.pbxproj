@@ -38,6 +38,11 @@
 		3DF54FCB292A43EA001CD16B /* BandMemberCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF54FCA292A43EA001CD16B /* BandMemberCollectionViewCell.swift */; };
 		7BDA8F8B291284FE00BB2D34 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDA8F8A291284FE00BB2D34 /* UIColor+Extension.swift */; };
 		7BDA8F90291296B200BB2D34 /* UIView+Gradation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDA8F8F291296B200BB2D34 /* UIView+Gradation.swift */; };
+		8437618B2927397400BD2C2A /* GatheringView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8437618A2927397400BD2C2A /* GatheringView.storyboard */; };
+		8437618D29273CF000BD2C2A /* GatheringCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8437618C29273CF000BD2C2A /* GatheringCell.xib */; };
+		8437619029275B3500BD2C2A /* GatheringCreatedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8437618F29275B3500BD2C2A /* GatheringCreatedViewController.swift */; };
+		8437619229276FA700BD2C2A /* GatheringCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8437619129276FA700BD2C2A /* GatheringCell.swift */; };
+		ABCE15B7292A052F007D30E2 /* ViewSwitchedSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCE15B6292A052F007D30E2 /* ViewSwitchedSegmentedControl.swift */; };
 		B830849929263B780035DB2D /* MainMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B830849829263B780035DB2D /* MainMapViewController.swift */; };
 		B8B9971F29287D3700082462 /* MainMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8B9971E29287D3700082462 /* MainMap.storyboard */; };
 /* End PBXBuildFile section */
@@ -95,6 +100,11 @@
 		3DF54FCA292A43EA001CD16B /* BandMemberCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandMemberCollectionViewCell.swift; sourceTree = "<group>"; };
 		7BDA8F8A291284FE00BB2D34 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		7BDA8F8F291296B200BB2D34 /* UIView+Gradation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Gradation.swift"; sourceTree = "<group>"; };
+		8437618A2927397400BD2C2A /* GatheringView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GatheringView.storyboard; sourceTree = "<group>"; };
+		8437618C29273CF000BD2C2A /* GatheringCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GatheringCell.xib; sourceTree = "<group>"; };
+		8437618F29275B3500BD2C2A /* GatheringCreatedViewController.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = GatheringCreatedViewController.swift; sourceTree = "<group>"; tabWidth = 4; };
+		8437619129276FA700BD2C2A /* GatheringCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatheringCell.swift; sourceTree = "<group>"; };
+		ABCE15B6292A052F007D30E2 /* ViewSwitchedSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewSwitchedSegmentedControl.swift; sourceTree = "<group>"; };
 		B830849829263B780035DB2D /* MainMapViewController.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = MainMapViewController.swift; sourceTree = "<group>"; tabWidth = 4; };
 		B8B9971E29287D3700082462 /* MainMap.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainMap.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -224,6 +234,7 @@
 			children = (
 				3D56532A292855F8003D0C9F /* BandInfo */,
 				B830849729263B620035DB2D /* MainMap */,
+				8437618E2927551100BD2C2A /* Gathering */,
 				07D7DA2E2910894000479B6F /* Landing */,
 				07D7DA3D29108CC600479B6F /* MyPage */,
 			);
@@ -248,6 +259,7 @@
 				07D7DA4029108D0500479B6F /* MyPage.storyboard */,
 				3D565328292855E9003D0C9F /* BandInfo.storyboard */,
 				B8B9971E29287D3700082462 /* MainMap.storyboard */,
+				8437618A2927397400BD2C2A /* GatheringView.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -282,6 +294,7 @@
 			isa = PBXGroup;
 			children = (
 				07D7DA3B29108C9000479B6F /* SampleView.swift */,
+				ABCE15B6292A052F007D30E2 /* ViewSwitchedSegmentedControl.swift */,
 			);
 			path = UIComponent;
 			sourceTree = "<group>";
@@ -306,6 +319,7 @@
 			isa = PBXGroup;
 			children = (
 				07D7DA4329108DCB00479B6F /* SampleView.xib */,
+				8437618C29273CF000BD2C2A /* GatheringCell.xib */,
 			);
 			path = Xibs;
 			sourceTree = "<group>";
@@ -325,6 +339,15 @@
 				7BDA8F8F291296B200BB2D34 /* UIView+Gradation.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		8437618E2927551100BD2C2A /* Gathering */ = {
+			isa = PBXGroup;
+			children = (
+				8437618F29275B3500BD2C2A /* GatheringCreatedViewController.swift */,
+				8437619129276FA700BD2C2A /* GatheringCell.swift */,
+			);
+			path = Gathering;
 			sourceTree = "<group>";
 		};
 		B830849729263B620035DB2D /* MainMap */ = {
@@ -440,8 +463,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8437618B2927397400BD2C2A /* GatheringView.storyboard in Resources */,
 				07D7DA832911EB7D00479B6F /* .swiftlint.yml in Resources */,
 				B8B9971F29287D3700082462 /* MainMap.storyboard in Resources */,
+				8437618D29273CF000BD2C2A /* GatheringCell.xib in Resources */,
 				07D7D9EF290FB8C400479B6F /* LaunchScreen.storyboard in Resources */,
 				07D7DA4429108DCB00479B6F /* SampleView.xib in Resources */,
 				07D7D9EC290FB8C400479B6F /* Assets.xcassets in Resources */,
@@ -492,6 +517,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8437619229276FA700BD2C2A /* GatheringCell.swift in Sources */,
+				8437619029275B3500BD2C2A /* GatheringCreatedViewController.swift in Sources */,
 				07D7DA3C29108C9000479B6F /* SampleView.swift in Sources */,
 				3DF54FCB292A43EA001CD16B /* BandMemberCollectionViewCell.swift in Sources */,
 				3D0ED2232928667900AE320C /* BandInfoViewController.swift in Sources */,
@@ -510,6 +537,7 @@
 				072DEDD429268F470046A4A0 /* PlayPosition.swift in Sources */,
 				07D7DA2D291088EC00479B6F /* NSObject+Extension.swift in Sources */,
 				07615093292907A900A0562F /* GatheringComment.swift in Sources */,
+				ABCE15B7292A052F007D30E2 /* ViewSwitchedSegmentedControl.swift in Sources */,
 				07D7DA3A29108C5B00479B6F /* BaseViewController.swift in Sources */,
 				07D7DA3429108A8300479B6F /* StringLiteral.swift in Sources */,
 				7BDA8F8B291284FE00BB2D34 /* UIColor+Extension.swift in Sources */,
