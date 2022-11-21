@@ -19,12 +19,11 @@ final class MainMapViewController: UIViewController {
     @IBOutlet weak var myPageButton: UIButton!
     
     var location: CLLocation?
-    private var hasSetRegion = false
-    
     var coordinate = CLLocationCoordinate2D(
         latitude: 36.014,
         longitude: 129.32
     )
+
     let coordinateRange = 0.03
     let locationManager = CLLocationManager()
     
@@ -51,7 +50,7 @@ final class MainMapViewController: UIViewController {
         )
     }
     
-    func centerUserLocation() {
+    private func centerUserLocation() {
         mapView.showsUserLocation = true
         mapView.setUserTrackingMode(.follow, animated: true)
     }
