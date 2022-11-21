@@ -9,7 +9,8 @@ import UIKit
 
 class CommentTableViewCell: UITableViewCell {
     
-    // MARK: - Properties
+    // MARK: - View
+
     lazy var bandName: UILabel = {
         $0.text = "노엘천재"
         $0.textColor = .white
@@ -20,7 +21,6 @@ class CommentTableViewCell: UITableViewCell {
     lazy var moreButton: UIButton = {
         $0.setImage(UIImage(systemName: "ellipsis"), for: .normal)
         $0.tintColor = .white
-//        $0.addTarget(self, action: #selector(tapMoreButton), for: .touchUpInside)
         return $0
     }(UIButton())
 
@@ -53,6 +53,7 @@ class CommentTableViewCell: UITableViewCell {
     }(UIStackView(arrangedSubviews: [commentInfo, commentText, commentDate]))
 
     // MARK: - Init
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupLayout()
@@ -63,6 +64,7 @@ class CommentTableViewCell: UITableViewCell {
     }
     
     // MARK: - Method
+
     private func setupLayout() {
         self.contentView.addSubview(comment)
         NSLayoutConstraint.activate([

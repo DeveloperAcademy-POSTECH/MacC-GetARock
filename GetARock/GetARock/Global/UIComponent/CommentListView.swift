@@ -9,9 +9,9 @@ import UIKit
 
 class CommentListView: UIView {
 
-    // MARK: - Property
+    // MARK: - View
 
-    lazy var totalListNumber: UILabel = {
+    private var totalListNumber: UILabel = {
         $0.text = "총 11개"
         $0.textColor = .white
         $0.font = UIFont.systemFont(ofSize: 16, weight: .bold)
@@ -40,15 +40,26 @@ class CommentListView: UIView {
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        attribute()
+        setupLayout()
     }
 
     // MARK: - Method
 
     private func attribute() {
         self.backgroundColor = .appColor(.modalBackgroundBlue)
-        setCommentList()
+        setupCommentList()
     }
-    
+
+    func setupCommentList() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(
+            CommentTableViewCell.self,
+            forCellReuseIdentifier: "CommentTableViewCell"
+        )
+    }
+
     private func setupLayout() {
         self.addSubview(totalListNumber)
         NSLayoutConstraint.activate([
@@ -60,7 +71,6 @@ class CommentListView: UIView {
                 constant: 16
             )
         ])
-        
         self.addSubview(tableView)
         tableView.backgroundColor = .appColor(.modalBackgroundBlue)
         NSLayoutConstraint.activate([
@@ -78,22 +88,12 @@ class CommentListView: UIView {
             )
         ])
     }
-
-    func setCommentList() {
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.register(
-            CommentTableViewCell.self,
-            forCellReuseIdentifier: "CommentTableViewCell"
-        )
-    }
 }
 
 // MARK: - UITableViewDelegate
 
 extension CommentListView: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell,
-                   forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell,forRowAt indexPath: IndexPath) {
         cell.backgroundColor = UIColor.clear
     }
 }
@@ -107,7 +107,10 @@ extension CommentListView: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "CommentTableViewCell", for: indexPath) as? CommentTableViewCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: "CommentTableViewCell",
+            for: indexPath
+        ) as? CommentTableViewCell else { return UITableViewCell() }
         cell.selectionStyle = .none
         return cell
     }
