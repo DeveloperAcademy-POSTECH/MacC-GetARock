@@ -15,19 +15,19 @@ class GatheringCreatedViewController: UIViewController {
     
     // MARK: - Sample Data
     
-    enum stateType {
+    enum StateType {
         case finding
         case active
         case finish
         case cancel
     }
-
+    
     struct Gathering {
         var title: String
         var date: String
-        var state: stateType
+        var state: StateType
         
-        init(title: String, date: String, state: stateType){
+        init(title: String, date: String, state: StateType){
             self.title = title
             self.date = date
             self.state = state
@@ -43,7 +43,7 @@ class GatheringCreatedViewController: UIViewController {
         Gathering(title: "두 줄 만들기 대체텍스트 대체텍스트 대체텍스트 대체텍스트 대체텍스트 22", date: "22.11.12 18:00", state: .finish),
     ]
     
-    func buttonType(for type: stateType) -> String {
+    func buttonType(for type: StateType) -> String {
         let text: String
         switch type {
         case .finding: text = "모집중"
@@ -71,7 +71,7 @@ extension GatheringCreatedViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: GatheringCell.className, for: indexPath) as! GatheringCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: GatheringCell.className, for: indexPath) as? GatheringCell else { return UITableViewCell() }
         
         cell.title.text = gathering[indexPath.row].title
         cell.startTime.text = gathering[indexPath.row].date
