@@ -23,12 +23,15 @@ class MainMapViewController: UIViewController {
         longitude: 129.32
     )
     let coordinateRange = 0.03
+    let locationManager = CLLocationManager()
     
     // MARK: - View Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        locationManager.delegate = self
+        self.locationManager.requestWhenInUseAuthorization()
         setFirstDisplayedRegion()
     }
     
@@ -44,4 +47,7 @@ class MainMapViewController: UIViewController {
             animated: false
         )
     }
+
+extension MainMapViewController: CLLocationManagerDelegate {
+    
 }
