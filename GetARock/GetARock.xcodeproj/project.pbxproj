@@ -30,6 +30,7 @@
 		7BB7099329290AE40065136D /* CommentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB7099229290AE40065136D /* CommentListView.swift */; };
 		7BB709972929164D0065136D /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB709962929164D0065136D /* CommentTableViewCell.swift */; };
 		7BB70999292A419B0065136D /* EmptyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB70998292A419B0065136D /* EmptyListView.swift */; };
+		7BB7099B292A47E50065136D /* CommentCreateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB7099A292A47E40065136D /* CommentCreateButton.swift */; };
 		7BDA8F8B291284FE00BB2D34 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDA8F8A291284FE00BB2D34 /* UIColor+Extension.swift */; };
 		7BDA8F90291296B200BB2D34 /* UIView+Gradation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDA8F8F291296B200BB2D34 /* UIView+Gradation.swift */; };
 /* End PBXBuildFile section */
@@ -79,6 +80,7 @@
 		7BB7099229290AE40065136D /* CommentListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentListView.swift; sourceTree = "<group>"; };
 		7BB709962929164D0065136D /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
 		7BB70998292A419B0065136D /* EmptyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyListView.swift; sourceTree = "<group>"; };
+		7BB7099A292A47E40065136D /* CommentCreateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCreateButton.swift; sourceTree = "<group>"; };
 		7BDA8F8A291284FE00BB2D34 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		7BDA8F8F291296B200BB2D34 /* UIView+Gradation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Gradation.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -242,6 +244,7 @@
 				07D7DA3B29108C9000479B6F /* SampleView.swift */,
 				7BB7099229290AE40065136D /* CommentListView.swift */,
 				7BB70998292A419B0065136D /* EmptyListView.swift */,
+				7BB7099A292A47E40065136D /* CommentCreateButton.swift */,
 				7BB709952929161D0065136D /* Cell */,
 			);
 			path = UIComponent;
@@ -458,6 +461,7 @@
 				07D7DA3629108AB400479B6F /* ImageLiteral.swift in Sources */,
 				07D7D9E5290FB8C200479B6F /* SceneDelegate.swift in Sources */,
 				7BDA8F90291296B200BB2D34 /* UIView+Gradation.swift in Sources */,
+				7BB7099B292A47E50065136D /* CommentCreateButton.swift in Sources */,
 				07D7DA302910895000479B6F /* LandingViewController.swift in Sources */,
 				07D7DA2D291088EC00479B6F /* NSObject+Extension.swift in Sources */,
 				7BB709972929164D0065136D /* CommentTableViewCell.swift in Sources */,
