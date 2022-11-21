@@ -65,6 +65,8 @@ class GatheringCreatedViewController: UIViewController {
     
 }
 
+// MARK: - UITableViewDataSource
+
 extension GatheringCreatedViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return gathering.count
@@ -79,6 +81,8 @@ extension GatheringCreatedViewController: UITableViewDataSource {
         return cell
     }
 }
+
+// MARK: - UITableViewDelegate
 
 extension GatheringCreatedViewController: UITableViewDelegate {
     
