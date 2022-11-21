@@ -7,7 +7,9 @@
 
 import UIKit
 
+
 // MARK: - 밴드 정보 영역 View Controller
+
 class BandInfoViewController: UIViewController {
     
     @IBOutlet weak var bandMemberLabel: UILabel!
@@ -29,7 +31,9 @@ class BandInfoViewController: UIViewController {
     }
 }
 
+
 // MARK: - 컬렉션뷰 compositonal layout 관련
+
 extension BandInfoViewController {
     fileprivate func createCompositionalLayout() -> UICollectionViewLayout {
         let layout = UICollectionViewCompositionalLayout { (_: Int, _: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
@@ -51,7 +55,9 @@ extension BandInfoViewController {
     }
 }
 
+
 // MARK: - 컬렉션뷰 데이터 삽입 관련
+
 extension BandInfoViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.positionNameArray.count
