@@ -1,5 +1,5 @@
 //
-//  CustomSegmentedControlButton.swift
+//  ViewSwitchedSegmentedControl.swift
 //  GetARock
 //
 //  Created by Somin Park on 2022/11/20.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class CustomSegmentedControlButton: UIView {
+final class ViewSwitchedSegmentedControl: UIView {
     
     // MARK: - Properties
     
@@ -53,7 +53,7 @@ final class CustomSegmentedControlButton: UIView {
             let button = UIButton(type: .system)
             button.setTitle(buttonTitle, for: .normal)
             button.setTitleColor(textColor, for: .normal)
-            button.addTarget(self, action: #selector(CustomSegmentedControlButton.buttonAction(sender:)),
+            button.addTarget(self, action: #selector(ViewSwitchedSegmentedControl.buttonAction(sender:)),
                              for: .touchUpInside)
             buttons.append(button)
         }
@@ -77,7 +77,7 @@ final class CustomSegmentedControlButton: UIView {
 
 // MARK: - Layout
 
-extension CustomSegmentedControlButton {
+extension ViewSwitchedSegmentedControl {
     private func setupLayout() {
         configStaticLineView()
         configSelectorView()
