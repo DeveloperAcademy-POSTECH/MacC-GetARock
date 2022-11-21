@@ -8,8 +8,16 @@
 import UIKit
 
 final class CustomSegmentedControlButton: UIView {
+    
+    // MARK: - Properties
+    
     private var buttonTitles = [String]()
     private var buttons = [UIButton]()
+    let textColor: UIColor = .white
+    let selectedColor: UIColor = .appColor(.mainPurple)
+    
+    // MARK: - View
+    
     private var selectorView: UIView = {
         let view = UIView()
         return view
@@ -19,8 +27,6 @@ final class CustomSegmentedControlButton: UIView {
         view.backgroundColor = .appColor(.dividerBlue)
         return view
     }()
-    let textColor: UIColor = .white
-    let selectedColor: UIColor = .appColor(.mainPurple)
     
     convenience init(buttonTitles: [String]) {
         self.init(frame: .zero)
@@ -32,17 +38,14 @@ final class CustomSegmentedControlButton: UIView {
         updateView()
     }
     
-    func setButtonTitles(buttonTitles: [String]) {
-        self.buttonTitles = buttonTitles
-        updateView()
-    }
+    // MARK: - Method
     
     private func updateView() {
-        createButton()
+        setupButton()
         setupLayout()
     }
     
-    private func createButton() {
+    private func setupButton() {
         buttons = [UIButton]()
         buttons.removeAll()
         subviews.forEach({$0.removeFromSuperview()})
@@ -71,6 +74,8 @@ final class CustomSegmentedControlButton: UIView {
     }
     
 }
+
+// MARK: - Layout
 
 extension CustomSegmentedControlButton {
     private func setupLayout() {
