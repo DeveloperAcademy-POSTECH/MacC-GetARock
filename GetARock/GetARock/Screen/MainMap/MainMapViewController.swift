@@ -60,19 +60,20 @@ final class MainMapViewController: UIViewController {
 // MARK: - CLLocationManagerDelegate
 
 extension MainMapViewController: CLLocationManagerDelegate {
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        switch status {
-        case .authorizedAlways, .authorizedWhenInUse:
+    
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        switch manager.authorizationStatus {
+        case .authorizedAlways, .authorizedWhenInUse:  // Location services are available.
             print("GPS 권한 설정됨")
             centerUserLocation()
-        case .restricted, .notDetermined:
-            print("GPS 권한 설정되지 않음")
-            setDefaultLocation()
-        case .denied:
+        case .restricted, .denied:  // Location services currently unavailable.
             print("GPS 권한 요청 거부됨")
             setDefaultLocation()
+        case .notDetermined:        // Authorization not determined yet.
+            manager.requestWhenInUseAuthorization()
+            print("GPS 권한 설정되지 않음")
+            setDefaultLocation()
         default:
-            print("GPS: Default")
             setDefaultLocation()
         }
     }
