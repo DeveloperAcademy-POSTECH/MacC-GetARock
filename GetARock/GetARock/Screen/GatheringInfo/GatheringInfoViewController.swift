@@ -8,15 +8,14 @@
 import UIKit
 
 class GatheringInfoViewController: UIViewController {
-
-    @IBOutlet weak var condtion: UIButton!
+    @IBOutlet weak var conditionContainer: UIView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        condtion.backgroundColor = .systemPurple
-        condtion.layer.cornerRadius = 15
-        condtion.layer.borderWidth = 2
-        condtion.layer.borderColor = UIColor.white.cgColor
+        conditionContainer.layer.cornerRadius = 15
+        conditionContainer.layer.borderWidth = 2
+        conditionContainer.layer.borderColor = UIColor.white.cgColor
         
         // Do any additional setup after loading the view.
     }
