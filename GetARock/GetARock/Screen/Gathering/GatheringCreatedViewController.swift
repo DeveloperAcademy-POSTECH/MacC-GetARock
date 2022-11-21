@@ -27,7 +27,7 @@ class GatheringCreatedViewController: UIViewController {
         var date: String
         var state: StateType
         
-        init(title: String, date: String, state: StateType){
+        init(title: String, date: String, state: StateType) {
             self.title = title
             self.date = date
             self.state = state
@@ -40,7 +40,7 @@ class GatheringCreatedViewController: UIViewController {
         Gathering(title: "몰라 아무거나 쳐보는 중입니다.", date: "22.11.20 12:00", state: .active),
         Gathering(title: "두 줄 만들기 해보는 중, 몰라 아무거나 쳐보는 중입니다1234.", date: "22.11.18 21:00", state: .cancel),
         Gathering(title: "대체텍스트 대체텍스트 대체텍스트", date: "22.11.18 16:00", state: .finish),
-        Gathering(title: "두 줄 만들기 대체텍스트 대체텍스트 대체텍스트 대체텍스트 대체텍스트 22", date: "22.11.12 18:00", state: .finish),
+        Gathering(title: "두 줄 만들기 대체텍스트 대체텍스트 대체텍스트 대체텍스트 대체텍스트 22", date: "22.11.12 18:00", state: .finish)
     ]
     
     func buttonType(for type: StateType) -> String {
