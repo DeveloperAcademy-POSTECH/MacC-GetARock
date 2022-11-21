@@ -39,7 +39,7 @@ final class CustomSegmentedControlButton: UIView {
     
     private func updateView() {
         createButton()
-        setLayout()
+        setupLayout()
     }
     
     private func createButton() {
@@ -73,7 +73,7 @@ final class CustomSegmentedControlButton: UIView {
 }
 
 extension CustomSegmentedControlButton {
-    private func setLayout() {
+    private func setupLayout() {
         configStaticLineView()
         configSelectorView()
         configStackView()
