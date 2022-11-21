@@ -41,11 +41,11 @@ final class ViewSwitchedSegmentedControl: UIView {
     // MARK: - Method
     
     private func updateView() {
-        setupButton()
+        setupButtons()
         setupLayout()
     }
     
-    private func setupButton() {
+    private func setupButtons() {
         buttons = [UIButton]()
         buttons.removeAll()
         subviews.forEach({$0.removeFromSuperview()})
@@ -79,12 +79,12 @@ final class ViewSwitchedSegmentedControl: UIView {
 
 extension ViewSwitchedSegmentedControl {
     private func setupLayout() {
-        configStaticLineView()
-        configSelectorView()
-        configStackView()
+        configureStaticLineView()
+        configureSelectorView()
+        configureStackView()
     }
     
-    private func configStackView() {
+    private func configureStackView() {
         let stackView = UIStackView(arrangedSubviews: buttons)
         stackView.axis = .horizontal
         stackView.alignment = .fill
@@ -100,7 +100,7 @@ extension ViewSwitchedSegmentedControl {
         ])
     }
     
-    private func configSelectorView() {
+    private func configureSelectorView() {
         let selectorWidth = frame.width / CGFloat(self.buttonTitles.count)
         
         selectorView = UIView(frame: CGRect(x: 0, y: self.frame.height, width: selectorWidth, height: 3))
@@ -108,7 +108,7 @@ extension ViewSwitchedSegmentedControl {
         addSubview(selectorView)
     }
     
-    private func configStaticLineView() {
+    private func configureStaticLineView() {
         staticLineView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(staticLineView)
         NSLayoutConstraint.activate([
