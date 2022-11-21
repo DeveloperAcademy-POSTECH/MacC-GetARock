@@ -7,17 +7,17 @@
 
 import UIKit
 
+// MARK: - 밴드 정보 영역 View Controller
 class BandInfoViewController: UIViewController {
     
     @IBOutlet weak var bandMemberLabel: UILabel!
     @IBOutlet weak var bandMemberCollectionView: UICollectionView!
     @IBOutlet weak var bandAgeLabel: UILabel!
     
-    private let bandMemberNumber: Int = 7
-    private let bandAge: [String] = ["20대", "30대"]
-    
+    fileprivate let bandMemberNumber: Int = 7
     fileprivate let positionNameArray: [String] = ["보컬", "기타", "키보드", "드럼", "베이스", "그 외"]
     fileprivate let numberOfPostionArray: [Int] = [1, 2, 1, 1, 1, 0]
+    fileprivate let bandAgeArray: [String] = ["20대", "30대", "40대"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,11 +27,13 @@ class BandInfoViewController: UIViewController {
         bandMemberCollectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         bandMemberCollectionView.dataSource = self
         
+        bandAgeLabel.text = setBandAgeLabel()
+        
         self.bandMemberCollectionView.collectionViewLayout = createCompositionalLayout()
     }
 }
 
-// MARK: - 콜렉션뷰 compositonal layout 관련
+// MARK: - 컬렉션뷰 compositonal layout 관련
 extension BandInfoViewController {
     fileprivate func createCompositionalLayout() -> UICollectionViewLayout {
         let layout = UICollectionViewCompositionalLayout { (_: Int, _: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
@@ -53,6 +55,20 @@ extension BandInfoViewController {
     }
 }
 
+// MARK: - 밴드 연령대 Label 관련
+extension BandInfoViewController {
+    fileprivate func setBandAgeLabel() -> String {
+        for num in 0...bandAgeArray.count - 1 {
+            bandAgeLabel.text?.append(bandAgeArray[num])
+            if num != bandAgeArray.count - 1 {
+                bandAgeLabel.text?.append(", ")
+            }
+        }
+        return bandAgeLabel.text ?? ""
+    }
+}
+
+// MARK: - 밴드 컬렉션뷰 데이터 삽입 관련
 extension BandInfoViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.positionNameArray.count

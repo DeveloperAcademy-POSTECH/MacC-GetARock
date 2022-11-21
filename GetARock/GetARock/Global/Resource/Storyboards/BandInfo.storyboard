@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="59" width="393" height="907"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="8kK-3T-isV">
-                                        <rect key="frame" x="16" y="0.0" width="361" height="729.66666666666663"/>
+                                        <rect key="frame" x="16" y="0.0" width="361" height="759.33333333333337"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="le6-6s-08Z">
                                                 <rect key="frame" x="0.0" y="0.0" width="361" height="277.33333333333331"/>
@@ -101,16 +101,16 @@
                                                 <edgeInsets key="layoutMargins" top="20" left="0.0" bottom="30" right="0.0"/>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wpG-uy-RO8">
-                                                <rect key="frame" x="0.0" y="277.33333333333331" width="361" height="50.333333333333314"/>
+                                                <rect key="frame" x="0.0" y="277.33333333333331" width="361" height="80"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="연령대" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FKW-w5-GXn">
-                                                        <rect key="frame" x="0.0" y="0.0" width="319.66666666666669" height="20.333333333333332"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="311" height="50"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QQj-4f-kSX">
-                                                        <rect key="frame" x="319.66666666666669" y="0.0" width="41.333333333333314" height="20.333333333333332"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QQj-4f-kSX">
+                                                        <rect key="frame" x="311" y="0.0" width="50" height="50"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -119,27 +119,27 @@
                                                 <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="30" right="0.0"/>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LiA-2d-x7E">
-                                                <rect key="frame" x="0.0" y="327.66666666666669" width="361" height="1"/>
+                                                <rect key="frame" x="0.0" y="357.33333333333331" width="361" height="1"/>
                                                 <color key="backgroundColor" red="0.52941176469999995" green="0.5568627451" blue="0.68235294120000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="UKk-GJ-H1m"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8qU-NZ-fDu">
-                                                <rect key="frame" x="0.0" y="328.66666666666669" width="361" height="200.00000000000006"/>
+                                                <rect key="frame" x="0.0" y="358.33333333333331" width="361" height="199.99999999999994"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="200" id="OSc-ZC-SDl"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aL0-SH-uYF">
-                                                <rect key="frame" x="0.0" y="528.66666666666663" width="361" height="1"/>
+                                                <rect key="frame" x="0.0" y="558.33333333333337" width="361" height="1"/>
                                                 <color key="backgroundColor" red="0.52941176469999995" green="0.5568627451" blue="0.68235294120000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="Mq4-Tz-FoJ"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GKK-x9-sjo">
-                                                <rect key="frame" x="0.0" y="529.66666666666663" width="361" height="200"/>
+                                                <rect key="frame" x="0.0" y="559.33333333333337" width="361" height="200"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="200" id="pJO-If-sxO"/>
                                                 </constraints>
