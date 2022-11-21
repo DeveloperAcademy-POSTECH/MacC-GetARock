@@ -193,4 +193,98 @@ enum MockData {
             )
         )
     ]
+    
+    // MARK: - Gatherings
+    static var gatherings: [GatheringInfo] = [
+        GatheringInfo(
+            gatheringID: "gatheringID-001",
+            gathering: Gathering(
+                title: "투다리에서 같이 노가리깝시당",
+                host: bands[0],
+                status: .recruiting,
+                date: Date(),
+                location: Location(
+                    name: bands[0].band.name,
+                    address: "경상북도 포항시 남구 대잠동 938",
+                    additionalAddress: "투다리",
+                    coordinate: Coordinate(
+                        latitude: 36.0141708,
+                        longitude: 129.3472287
+                    )
+                ),
+                introduction: "같이 술이나 한잔 하면서 음악 얘기하며 노가리깔 분들 구합니다",
+                createdAt: Date()
+            )
+        ),
+        GatheringInfo(
+            gatheringID: "gatheringID-002",
+            gathering: Gathering(
+                title: "투다리(효자)에서 같이 노가리까요",
+                host: bands[0],
+                status: .progressing,
+                date: Date(),
+                location: Location(
+                    name: bands[0].band.name,
+                    address: "경상북도 포항시 남구 효자동 253-113",
+                    additionalAddress: "투다리 효자점",
+                    coordinate: Coordinate(
+                        latitude: 36.007961,
+                        longitude: 129.3293999
+                    )
+                ),
+                introduction: "같이 술이나 한잔 하면서 음악 얘기하며 노가리깔 분들 구합니다",
+                createdAt: Date()
+            )
+        ),
+        GatheringInfo(
+            gatheringID: "gatheringID-003",
+            gathering: Gathering(
+                title: "오투에서 같이 연습하실 분",
+                host: bands[1],
+                status: .canceled,
+                date: Date(),
+                location: Location(
+                    name: bands[1].band.name,
+                    address: "경상북도 포항시 남구 연일읍 동문로 40-1",
+                    additionalAddress: "오투뮤직스토리 지하",
+                    coordinate: Coordinate(
+                        latitude: 35.9937237,
+                        longitude: 129.3521299
+                    )
+                ),
+                introduction:
+                    """
+                    오투 예약 잡아놨는데 팀원들 시간이 안 맞아서 팀 내 연습은 좀 어려울 것 같아요.
+                    같이 합주하면서 놀 밴드 있나요?
+                    편하게 연락주세요!
+                    """,
+                createdAt: Date()
+            )
+        ),
+        GatheringInfo(
+            gatheringID: "gatheringID-004",
+            gathering: Gathering(
+                title: "이번에 락 페스티벌 가는 분 계시면 같이 가요",
+                host: bands[2],
+                status: .finished,
+                date: Date(),
+                location: Location(
+                    name: bands[2].band.name,
+                    address: "경북 포항시 북구 두호동 685-1",
+                    additionalAddress: "영일대 해수욕장",
+                    coordinate: Coordinate(
+                        latitude: 36.0561507,
+                        longitude: 129.3781717
+                    )
+                ),
+                introduction:
+                    """
+                    페스티벌 구경가는 밴드있나요?
+                    같이 놀아요!
+                    저희는 영일대에서 바로 만나서 입장할 예정입니다!
+                    """,
+                createdAt: Date()
+            )
+        )
+    ]
 }
