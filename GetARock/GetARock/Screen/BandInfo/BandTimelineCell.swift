@@ -11,7 +11,7 @@ class BandTimelineCell: UITableViewCell {
 
     @IBOutlet weak var startTime: UILabel!
     @IBOutlet weak var title: UILabel!
-    @IBOutlet weak var state: UILabel!
+    @IBOutlet weak var status: UILabel!
     @IBOutlet weak var topLine: UIView!
     @IBOutlet weak var bottomLine: UIView!
     

@@ -110,7 +110,7 @@
             <connections>
                 <outlet property="bottomLine" destination="Fpk-HD-t04" id="Dvj-gx-caD"/>
                 <outlet property="startTime" destination="np7-Hm-tCg" id="QJA-NZ-exa"/>
-                <outlet property="state" destination="JSI-YD-u1h" id="Rw1-m3-fCX"/>
+                <outlet property="status" destination="JSI-YD-u1h" id="Rw1-m3-fCX"/>
                 <outlet property="title" destination="Gsv-TT-DTS" id="5M5-YG-3TT"/>
                 <outlet property="topLine" destination="Qwo-tI-wkK" id="g67-Yv-x8B"/>
             </connections>

@@ -74,9 +74,9 @@ extension BandTimelineViewController: UITableViewDataSource {
         cell.startTime.text = gathering[indexPath.row].date
         let labelType = gathering[indexPath.row].status
         if labelType == .recruiting || labelType == .progressing {
-            cell.state.text = labelType.toKorean()
+            cell.status.text = labelType.toKorean()
         } else {
-            cell.state.isHidden = true
+            cell.status.isHidden = true
         }
         
         if indexPath.row == 0 {
