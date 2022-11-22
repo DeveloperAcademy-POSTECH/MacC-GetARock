@@ -31,10 +31,10 @@
                                                         <rect key="frame" x="16" y="50" width="361" height="54.333333333333343"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" horizontalCompressionResistancePriority="800" verticalCompressionResistancePriority="800" translatesAutoresizingMaskIntoConstraints="NO" id="IPq-Y1-Mnd" userLabel="condition Container">
-                                                                <rect key="frame" x="0.0" y="0.0" width="68.333333333333329" height="54.333333333333336"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="111" height="54.333333333333336"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="800" verticalCompressionResistancePriority="800" text="모집중" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sah-zl-Rl3">
-                                                                        <rect key="frame" x="16.000000000000004" y="9" width="36.333333333333343" height="36.333333333333336"/>
+                                                                        <rect key="frame" x="16" y="9" width="79" height="36.333333333333336"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -51,7 +51,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="255" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z1T-V1-cPf" userLabel="ellipsis">
-                                                                <rect key="frame" x="318.33333333333331" y="0.0" width="42.666666666666686" height="54.333333333333336"/>
+                                                                <rect key="frame" x="361" y="0.0" width="0.0" height="54.333333333333336"/>
                                                                 <state key="normal" title="Button"/>
                                                                 <buttonConfiguration key="configuration" style="plain" title="">
                                                                     <imageReference key="image" image="ellipsis" catalog="system" symbolScale="large"/>
@@ -145,7 +145,7 @@
                                                     <constraint firstAttribute="bottom" secondItem="mmH-Jd-uBw" secondAttribute="bottom" constant="15" id="xow-dp-tDC"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="maN-LF-PhL">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="maN-LF-PhL" userLabel="introductionView">
                                                 <rect key="frame" x="0.0" y="678" width="393" height="608.33333333333348"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t8o-3s-pFn" userLabel="introductionContentView">
@@ -194,6 +194,11 @@
                                                             <constraint firstItem="2et-zg-k8K" firstAttribute="top" secondItem="t8o-3s-pFn" secondAttribute="top" constant="20" id="gow-pI-2gz"/>
                                                             <constraint firstItem="2et-zg-k8K" firstAttribute="leading" secondItem="t8o-3s-pFn" secondAttribute="leading" constant="20" id="rvu-IJ-4t6"/>
                                                         </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="15"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
                                                     </view>
                                                 </subviews>
                                                 <constraints>
