@@ -47,6 +47,8 @@
 		ABCE15B7292A052F007D30E2 /* ViewSwitchedSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCE15B6292A052F007D30E2 /* ViewSwitchedSegmentedControl.swift */; };
 		B830849929263B780035DB2D /* MainMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B830849829263B780035DB2D /* MainMapViewController.swift */; };
 		B8B9971F29287D3700082462 /* MainMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8B9971E29287D3700082462 /* MainMap.storyboard */; };
+		C5C7AC6B292A7F7C00698636 /* AddGathering.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5C7AC6A292A7F7C00698636 /* AddGathering.storyboard */; };
+		C5C7AC6D292A7FA200698636 /* AddGatheringViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C7AC6C292A7FA200698636 /* AddGatheringViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +113,8 @@
 		ABCE15B6292A052F007D30E2 /* ViewSwitchedSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewSwitchedSegmentedControl.swift; sourceTree = "<group>"; };
 		B830849829263B780035DB2D /* MainMapViewController.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = MainMapViewController.swift; sourceTree = "<group>"; tabWidth = 4; };
 		B8B9971E29287D3700082462 /* MainMap.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainMap.storyboard; sourceTree = "<group>"; };
+		C5C7AC6A292A7F7C00698636 /* AddGathering.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddGathering.storyboard; sourceTree = "<group>"; };
+		C5C7AC6C292A7FA200698636 /* AddGatheringViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGatheringViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -238,6 +242,7 @@
 			children = (
 				3D56532A292855F8003D0C9F /* BandInfo */,
 				B830849729263B620035DB2D /* MainMap */,
+				C5C7AC69292A7EC000698636 /* AddGathering */,
 				8437618E2927551100BD2C2A /* Gathering */,
 				07D7DA2E2910894000479B6F /* Landing */,
 				07D7DA3D29108CC600479B6F /* MyPage */,
@@ -263,6 +268,7 @@
 				07D7DA4029108D0500479B6F /* MyPage.storyboard */,
 				3D565328292855E9003D0C9F /* BandInfo.storyboard */,
 				B8B9971E29287D3700082462 /* MainMap.storyboard */,
+				C5C7AC6A292A7F7C00698636 /* AddGathering.storyboard */,
 				8437618A2927397400BD2C2A /* GatheringView.storyboard */,
 			);
 			path = Storyboards;
@@ -332,11 +338,27 @@
 		3D56532A292855F8003D0C9F /* BandInfo */ = {
 			isa = PBXGroup;
 			children = (
-				3D0ED2222928667900AE320C /* BandInfoViewController.swift */,
-				3DF54FCE292B9223001CD16B /* RepertoireTableViewCell.swift */,
-				3DF54FCA292A43EA001CD16B /* BandMemberCollectionViewCell.swift */,
+				3DE5CE92292C511E005B448D /* Cell */,
+				3DE5CE91292C5112005B448D /* VC */,
 			);
 			path = BandInfo;
+			sourceTree = "<group>";
+		};
+		3DE5CE91292C5112005B448D /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				3D0ED2222928667900AE320C /* BandInfoViewController.swift */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		3DE5CE92292C511E005B448D /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				3DF54FCA292A43EA001CD16B /* BandMemberCollectionViewCell.swift */,
+				3DF54FCE292B9223001CD16B /* RepertoireTableViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		7BDA8F8E291296A200BB2D34 /* Utils */ = {
@@ -362,6 +384,14 @@
 				B830849829263B780035DB2D /* MainMapViewController.swift */,
 			);
 			path = MainMap;
+			sourceTree = "<group>";
+		};
+		C5C7AC69292A7EC000698636 /* AddGathering */ = {
+			isa = PBXGroup;
+			children = (
+				C5C7AC6C292A7FA200698636 /* AddGatheringViewController.swift */,
+			);
+			path = AddGathering;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -479,6 +509,7 @@
 				07D7D9EC290FB8C400479B6F /* Assets.xcassets in Resources */,
 				07D7D9EA290FB8C200479B6F /* Landing.storyboard in Resources */,
 				3D565329292855E9003D0C9F /* BandInfo.storyboard in Resources */,
+				C5C7AC6B292A7F7C00698636 /* AddGathering.storyboard in Resources */,
 				07D7DA4129108D0500479B6F /* MyPage.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -542,6 +573,7 @@
 				7BDA8F90291296B200BB2D34 /* UIView+Gradation.swift in Sources */,
 				0761508B29276D8200A0562F /* Coordinate.swift in Sources */,
 				07D7DA302910895000479B6F /* LandingViewController.swift in Sources */,
+				C5C7AC6D292A7FA200698636 /* AddGatheringViewController.swift in Sources */,
 				072DEDD429268F470046A4A0 /* PlayPosition.swift in Sources */,
 				07D7DA2D291088EC00479B6F /* NSObject+Extension.swift in Sources */,
 				07615093292907A900A0562F /* GatheringComment.swift in Sources */,
