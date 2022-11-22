@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ReportReasonListController: UITableViewController {
+class ReportReasonListController: UITableViewController, AlertSheet {
     let reportReason = ["폭력 또는 위험한 단체", "거짓 정보", "따돌림 또는 괴롭힘", "지적 재산권 침해", "불법 또는 규제 상품 판매", "기타 문제"]
     
     override func viewDidLoad() {
@@ -33,7 +33,13 @@ class ReportReasonListController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ReportReasonListCell") as? ReportReasonListCell else { return UITableViewCell() }
         cell.reportReason.text = reportReason[indexPath.row]
                 return cell
+//        showAlertSheet(action: "신고하기", reason: reportReason[indexPath.row])
 
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        showAlertSheet(alertTitle: "신고하기", reason: "\(reportReason[indexPath.row])을/(를) 사유로 신고하시겠습니까?")
     }
 
     /*
