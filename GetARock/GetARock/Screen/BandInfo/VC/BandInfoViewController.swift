@@ -78,6 +78,7 @@ extension BandInfoViewController: UICollectionViewDataSource {
 }
 
 // MARK: - 밴드 연령대 Label 관련
+
 extension BandInfoViewController {
     fileprivate func setBandAgeLabel() -> String {
         for num in 0...bandAgeArray.count - 1 {
