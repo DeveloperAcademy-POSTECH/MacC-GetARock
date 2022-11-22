@@ -44,6 +44,7 @@ class AddGatheringViewController: UIViewController {
         setupNavigationBar()
         hostBandNameLabel.text = "블랙로즈" // 추후 유저디폴트 사용 예정
         titleTextField.becomeFirstResponder()
+        getKeyboardNotification()
     }
 
     private func setupNavigationBar() {
@@ -66,5 +67,41 @@ class AddGatheringViewController: UIViewController {
 extension AddGatheringViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         self.placeHolderLabel.textColor = aboutTextView.text.count == 0 ? .lightGray : .clear
+    }
+}
+
+// MARK: - KeyboardNotification
+
+extension AddGatheringViewController {
+    private func getKeyboardNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+
+    @objc func keyboardWillShow(_ sender: Notification) {
+        guard let userInfo: NSDictionary = sender.userInfo as NSDictionary?,
+              let keyboardFrame: NSValue = userInfo.value(forKey: UIResponder.keyboardFrameEndUserInfoKey) as? NSValue else{
+                  return
+              }
+        let keyboardRectangle = keyboardFrame.cgRectValue
+        let keyboardHeight = keyboardRectangle.height
+
+        let contentInset = UIEdgeInsets(
+            top: 0.0,
+            left: 0.0,
+            bottom: keyboardHeight,
+            right: 0.0)
+        scrollView.contentInset = contentInset
+        scrollView.scrollIndicatorInsets = contentInset
+    }
+
+    @objc func keyboardWillHide(_ sender: Notification) {
+        let contentInset = UIEdgeInsets(
+                top: 0.0,
+                left: 0.0,
+                bottom: 0.0,
+                right: 0.0)
+            scrollView.contentInset = contentInset
+            scrollView.scrollIndicatorInsets = contentInset
     }
 }
