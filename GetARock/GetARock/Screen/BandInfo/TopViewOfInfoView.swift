@@ -25,7 +25,7 @@ final class TopViewOfInfoView: UIView {
         return $0
     }(UILabel())
     
-    private var dividedLine: UIView = {
+    private var divider: UIView = {
         $0.backgroundColor = .backgroundBlue
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
@@ -47,7 +47,7 @@ extension TopViewOfInfoView {
     private func attribute() {
         addSubview(bandNameLabel)
         addSubview(bandLocationLabel)
-        addSubview(dividedLine)
+        addSubview(divider)
     }
     private func configureBandNameLabel() {
         NSLayoutConstraint.activate([
@@ -63,10 +63,10 @@ extension TopViewOfInfoView {
     }
     private func configureDividedLine() {
         NSLayoutConstraint.activate([
-            dividedLine.topAnchor.constraint(equalTo: bandLocationLabel.bottomAnchor, constant: 20),
-            dividedLine.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            dividedLine.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            dividedLine.heightAnchor.constraint(equalToConstant: 5)
+            divider.topAnchor.constraint(equalTo: bandLocationLabel.bottomAnchor, constant: 20),
+            divider.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            divider.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            divider.heightAnchor.constraint(equalToConstant: 5)
         ])
     }
     private func setupLayout() {
