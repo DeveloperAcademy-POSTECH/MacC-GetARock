@@ -37,6 +37,8 @@
 		6667A3202929F5DA0052A53B /* GatheringInfoPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6667A31F2929F5DA0052A53B /* GatheringInfoPage.storyboard */; };
 		66E1623F292ADFF5001F0578 /* GatheringInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E1623E292ADFF5001F0578 /* GatheringInfoViewController.swift */; };
 		66E74206292C82E8003C0B02 /* ActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E74205292C82E8003C0B02 /* ActionSheet.swift */; };
+		66E74208292C9F12003C0B02 /* ReportReasonList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66E74207292C9F12003C0B02 /* ReportReasonList.storyboard */; };
+		66E7420A292CA04D003C0B02 /* ReportReasonListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E74209292CA04D003C0B02 /* ReportReasonListController.swift */; };
 		7BDA8F8B291284FE00BB2D34 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDA8F8A291284FE00BB2D34 /* UIColor+Extension.swift */; };
 		7BDA8F90291296B200BB2D34 /* UIView+Gradation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDA8F8F291296B200BB2D34 /* UIView+Gradation.swift */; };
 		8437618B2927397400BD2C2A /* GatheringView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8437618A2927397400BD2C2A /* GatheringView.storyboard */; };
@@ -100,6 +102,8 @@
 		6667A31F2929F5DA0052A53B /* GatheringInfoPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GatheringInfoPage.storyboard; sourceTree = "<group>"; };
 		66E1623E292ADFF5001F0578 /* GatheringInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatheringInfoViewController.swift; sourceTree = "<group>"; };
 		66E74205292C82E8003C0B02 /* ActionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheet.swift; sourceTree = "<group>"; };
+		66E74207292C9F12003C0B02 /* ReportReasonList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ReportReasonList.storyboard; sourceTree = "<group>"; };
+		66E74209292CA04D003C0B02 /* ReportReasonListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportReasonListController.swift; sourceTree = "<group>"; };
 		7BDA8F8A291284FE00BB2D34 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		7BDA8F8F291296B200BB2D34 /* UIView+Gradation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Gradation.swift"; sourceTree = "<group>"; };
 		8437618A2927397400BD2C2A /* GatheringView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GatheringView.storyboard; sourceTree = "<group>"; };
@@ -263,6 +267,7 @@
 				3D565328292855E9003D0C9F /* BandInfo.storyboard */,
 				B8B9971E29287D3700082462 /* MainMap.storyboard */,
 				8437618A2927397400BD2C2A /* GatheringView.storyboard */,
+				66E74207292C9F12003C0B02 /* ReportReasonList.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -340,6 +345,7 @@
 			isa = PBXGroup;
 			children = (
 				66E1623E292ADFF5001F0578 /* GatheringInfoViewController.swift */,
+				66E74209292CA04D003C0B02 /* ReportReasonListController.swift */,
 			);
 			path = GatheringInfo;
 			sourceTree = "<group>";
@@ -475,6 +481,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8437618B2927397400BD2C2A /* GatheringView.storyboard in Resources */,
+				66E74208292C9F12003C0B02 /* ReportReasonList.storyboard in Resources */,
 				07D7DA832911EB7D00479B6F /* .swiftlint.yml in Resources */,
 				B8B9971F29287D3700082462 /* MainMap.storyboard in Resources */,
 				8437618D29273CF000BD2C2A /* GatheringCell.xib in Resources */,
@@ -529,6 +536,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				66E1623F292ADFF5001F0578 /* GatheringInfoViewController.swift in Sources */,
+				66E7420A292CA04D003C0B02 /* ReportReasonListController.swift in Sources */,
 				8437619229276FA700BD2C2A /* GatheringCell.swift in Sources */,
 				8437619029275B3500BD2C2A /* GatheringCreatedViewController.swift in Sources */,
 				07D7DA3C29108C9000479B6F /* SampleView.swift in Sources */,

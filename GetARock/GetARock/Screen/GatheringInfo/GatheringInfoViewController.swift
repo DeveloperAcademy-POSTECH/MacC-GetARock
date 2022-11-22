@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GatheringInfoViewController: UIViewController {
+class GatheringInfoViewController: UIViewController, Reportable {
     
     // MARK: - properties
     @IBOutlet weak var conditionContainer: UIView!
@@ -27,29 +27,30 @@ class GatheringInfoViewController: UIViewController {
     }
    
     @IBAction func ellipsis(_ sender: UIButton) {
-        showActionSheet()
+        let actionSheet = showActionSheet()
+        present(actionSheet, animated: true)
     }
     
 
 //        actionSheet.showActionSheet()
 
-    func showActionSheet() {
-        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        
-        let cancel = UIAlertAction(title: "취소", style: .cancel) { action in
-            
-        }
-        let delete = UIAlertAction(title: "삭제하기", style: .destructive) { action in
-            print("delete")
-        }
-        let report = UIAlertAction(title: "신고하기", style: .default) { action in
-            print("report")
-        }
-        
-        actionSheet.addAction(report)
-        actionSheet.addAction(delete)
-        actionSheet.addAction(cancel)
-        
-        present(actionSheet, animated: true)
-    }
+//    func showActionSheet() {
+//        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+//
+//        let cancel = UIAlertAction(title: "취소", style: .cancel) { action in
+//
+//        }
+//        let delete = UIAlertAction(title: "삭제하기", style: .destructive) { action in
+//            print("delete")
+//        }
+//        let report = UIAlertAction(title: "신고하기", style: .default) { action in
+//            print("report")
+//        }
+//
+//        actionSheet.addAction(report)
+//        actionSheet.addAction(delete)
+//        actionSheet.addAction(cancel)
+//
+//        present(actionSheet, animated: true)
+//    }
 }
