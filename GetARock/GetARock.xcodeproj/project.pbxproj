@@ -327,10 +327,26 @@
 		3D56532A292855F8003D0C9F /* BandInfo */ = {
 			isa = PBXGroup;
 			children = (
-				3D0ED2222928667900AE320C /* BandInfoViewController.swift */,
-				3DF54FCA292A43EA001CD16B /* BandMemberCollectionViewCell.swift */,
+				3DE5CE92292C511E005B448D /* Cell */,
+				3DE5CE91292C5112005B448D /* VC */,
 			);
 			path = BandInfo;
+			sourceTree = "<group>";
+		};
+		3DE5CE91292C5112005B448D /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				3D0ED2222928667900AE320C /* BandInfoViewController.swift */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		3DE5CE92292C511E005B448D /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				3DF54FCA292A43EA001CD16B /* BandMemberCollectionViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		7BDA8F8E291296A200BB2D34 /* Utils */ = {

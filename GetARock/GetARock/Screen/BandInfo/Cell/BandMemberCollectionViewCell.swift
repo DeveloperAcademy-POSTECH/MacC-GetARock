@@ -9,7 +9,7 @@ import UIKit
 
 class BandMemberCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var positionName: UILabel!
-    @IBOutlet weak var numberOfPosition: UILabel!
-    @IBOutlet weak var positionImage: UIImageView!
+    @IBOutlet weak var positionNameLabel: UILabel!
+    @IBOutlet weak var numberOfPositionLabel: UILabel!
+    @IBOutlet weak var positionImageView: UIImageView!
 }
