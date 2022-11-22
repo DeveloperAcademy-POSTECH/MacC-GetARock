@@ -9,7 +9,7 @@ import UIKit
 
 class GatheringInfoViewController: UIViewController {
     
-    //MARK: - properties
+    // MARK: - properties
     @IBOutlet weak var conditionView: UIView!
     @IBOutlet weak var introductionContentView: UIView!
     

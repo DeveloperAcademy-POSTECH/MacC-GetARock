@@ -34,9 +34,9 @@
 		07D7DA832911EB7D00479B6F /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 07D7DA822911EB7D00479B6F /* .swiftlint.yml */; };
 		3D0ED2232928667900AE320C /* BandInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0ED2222928667900AE320C /* BandInfoViewController.swift */; };
 		3D565329292855E9003D0C9F /* BandInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D565328292855E9003D0C9F /* BandInfo.storyboard */; };
+		3DF54FCB292A43EA001CD16B /* BandMemberCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF54FCA292A43EA001CD16B /* BandMemberCollectionViewCell.swift */; };
 		6667A3202929F5DA0052A53B /* GatheringInfoPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6667A31F2929F5DA0052A53B /* GatheringInfoPage.storyboard */; };
 		66E1623F292ADFF5001F0578 /* GatheringInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E1623E292ADFF5001F0578 /* GatheringInfoViewController.swift */; };
-		3DF54FCB292A43EA001CD16B /* BandMemberCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF54FCA292A43EA001CD16B /* BandMemberCollectionViewCell.swift */; };
 		7BDA8F8B291284FE00BB2D34 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDA8F8A291284FE00BB2D34 /* UIColor+Extension.swift */; };
 		7BDA8F90291296B200BB2D34 /* UIView+Gradation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDA8F8F291296B200BB2D34 /* UIView+Gradation.swift */; };
 		8437618B2927397400BD2C2A /* GatheringView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8437618A2927397400BD2C2A /* GatheringView.storyboard */; };
@@ -99,9 +99,9 @@
 		07D7DA822911EB7D00479B6F /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		3D0ED2222928667900AE320C /* BandInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandInfoViewController.swift; sourceTree = "<group>"; };
 		3D565328292855E9003D0C9F /* BandInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BandInfo.storyboard; sourceTree = "<group>"; };
+		3DF54FCA292A43EA001CD16B /* BandMemberCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandMemberCollectionViewCell.swift; sourceTree = "<group>"; };
 		6667A31F2929F5DA0052A53B /* GatheringInfoPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GatheringInfoPage.storyboard; sourceTree = "<group>"; };
 		66E1623E292ADFF5001F0578 /* GatheringInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatheringInfoViewController.swift; sourceTree = "<group>"; };
-		3DF54FCA292A43EA001CD16B /* BandMemberCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandMemberCollectionViewCell.swift; sourceTree = "<group>"; };
 		7BDA8F8A291284FE00BB2D34 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		7BDA8F8F291296B200BB2D34 /* UIView+Gradation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Gradation.swift"; sourceTree = "<group>"; };
 		8437618A2927397400BD2C2A /* GatheringView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GatheringView.storyboard; sourceTree = "<group>"; };
@@ -342,14 +342,6 @@
 			path = BandInfo;
 			sourceTree = "<group>";
 		};
-		66E1623D292ADFC7001F0578 /* GatheringInfo */ = {
-			isa = PBXGroup;
-			children = (
-				66E1623E292ADFF5001F0578 /* GatheringInfoViewController.swift */,
-			);
-			path = GatheringInfo;
-      			sourceTree = "<group>";
-		};
 		3DE5CE91292C5112005B448D /* VC */ = {
 			isa = PBXGroup;
 			children = (
@@ -364,6 +356,14 @@
 				3DF54FCA292A43EA001CD16B /* BandMemberCollectionViewCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		66E1623D292ADFC7001F0578 /* GatheringInfo */ = {
+			isa = PBXGroup;
+			children = (
+				66E1623E292ADFF5001F0578 /* GatheringInfoViewController.swift */,
+			);
+			path = GatheringInfo;
 			sourceTree = "<group>";
 		};
 		7BDA8F8E291296A200BB2D34 /* Utils */ = {
@@ -515,7 +515,6 @@
 				07D7D9EA290FB8C200479B6F /* Landing.storyboard in Resources */,
 				3D565329292855E9003D0C9F /* BandInfo.storyboard in Resources */,
 				C5C7AC6B292A7F7C00698636 /* AddGathering.storyboard in Resources */,
-				07D7DA4129108D0500479B6F /* MyPage.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -538,6 +537,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		07D7DA812911EB1100479B6F /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
