@@ -8,6 +8,7 @@
 import UIKit
 
 // MARK: - 밴드 정보 영역 View Controller
+
 class BandInfoViewController: UIViewController {
     
     @IBOutlet weak var bandMemberLabel: UILabel!
@@ -27,13 +28,14 @@ class BandInfoViewController: UIViewController {
         bandMemberCollectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         bandMemberCollectionView.dataSource = self
         
-        bandAgeLabel.text = setBandAgeLabel()
-        
         self.bandMemberCollectionView.collectionViewLayout = createCompositionalLayout()
+        
+        bandAgeLabel.text = setBandAgeLabel()
     }
 }
 
 // MARK: - 컬렉션뷰 compositonal layout 관련
+
 extension BandInfoViewController {
     fileprivate func createCompositionalLayout() -> UICollectionViewLayout {
         let layout = UICollectionViewCompositionalLayout { (_: Int, _: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
@@ -55,20 +57,8 @@ extension BandInfoViewController {
     }
 }
 
-// MARK: - 밴드 연령대 Label 관련
-extension BandInfoViewController {
-    fileprivate func setBandAgeLabel() -> String {
-        for num in 0...bandAgeArray.count - 1 {
-            bandAgeLabel.text?.append(bandAgeArray[num])
-            if num != bandAgeArray.count - 1 {
-                bandAgeLabel.text?.append(", ")
-            }
-        }
-        return bandAgeLabel.text ?? ""
-    }
-}
-
 // MARK: - 컬렉션뷰 데이터 삽입 관련
+
 extension BandInfoViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.positionNameArray.count
@@ -80,14 +70,22 @@ extension BandInfoViewController: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as?
                 BandMemberCollectionViewCell else { return UICollectionViewCell() }
         
-        cell.contentView.backgroundColor = UIColor.appColor(.backgroundBlue)
-        cell.contentView.layer.cornerRadius = 14
-        cell.contentView.layer.borderWidth = 1
-        cell.contentView.layer.borderColor = UIColor.appColor(.dividerBlue).cgColor
-        
-        cell.positionName.text = self.positionNameArray[indexPath.item]
-        cell.numberOfPosition.text = "\(self.numberOfPostionArray[indexPath.item])명"
+        cell.positionNameLabel.text = self.positionNameArray[indexPath.item]
+        cell.numberOfPositionLabel.text = "\(self.numberOfPostionArray[indexPath.item])명"
         
         return cell
+    }
+}
+
+// MARK: - 밴드 연령대 Label 관련
+extension BandInfoViewController {
+    fileprivate func setBandAgeLabel() -> String {
+        for num in 0...bandAgeArray.count - 1 {
+            bandAgeLabel.text?.append(bandAgeArray[num])
+            if num != bandAgeArray.count - 1 {
+                bandAgeLabel.text?.append(", ")
+            }
+        }
+        return bandAgeLabel.text ?? ""
     }
 }
