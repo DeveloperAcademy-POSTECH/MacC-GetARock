@@ -106,6 +106,8 @@ extension BandPageViewController {
     }
 }
 
+// MARK: - ViewSwitchedSegmentedControlDelegate
+
 extension BandPageViewController: ViewSwitchedSegmentedControlDelegate {
     func segmentValueChanged(to index: Int) {
         currentPage = index
