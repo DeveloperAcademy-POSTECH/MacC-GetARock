@@ -88,9 +88,3 @@ extension BandTimelineViewController: UITableViewDataSource {
         return cell
     }
 }
-
-// MARK: - UITableViewDelegate
-
-extension BandTimelineViewController: UITableViewDelegate {
-    
-}
