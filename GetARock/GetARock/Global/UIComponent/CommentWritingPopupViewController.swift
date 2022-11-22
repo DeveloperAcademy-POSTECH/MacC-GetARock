@@ -8,14 +8,6 @@
 import UIKit
 
 class CommentWritingPopupViewController: UIViewController {
-    
-    // MARK: - Property
-
-    enum Size {
-        static let spacing: CGFloat = 16.0
-        static let height: CGFloat = 300.0
-        static let width: CGFloat = UIScreen.main.bounds.size.width - Size.spacing * 2
-    }
 
     let textViewPlaceHolder = "텍스트를 입력해주세요"
 
@@ -75,6 +67,8 @@ class CommentWritingPopupViewController: UIViewController {
         setupLayout()
     }
 
+    // MARK: - Method
+
     private func attribute() {
         view.backgroundColor = .black.withAlphaComponent(0.3)
     }
@@ -85,8 +79,8 @@ class CommentWritingPopupViewController: UIViewController {
         NSLayoutConstraint.activate([
             popup.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             popup.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            popup.widthAnchor.constraint(equalToConstant: Size.width),
-            popup.heightAnchor.constraint(equalToConstant: Size.height)
+            popup.widthAnchor.constraint(equalToConstant: CommentCreateButton.Size.width),
+            popup.heightAnchor.constraint(equalToConstant: 300)
         ])
         setupCloseButton()
     }
@@ -96,7 +90,7 @@ class CommentWritingPopupViewController: UIViewController {
     }
 
     @objc private func addNewComment(_ sender: Any) {
-           // TO-Do : 텍스트 필드에 입력한 텍스트 방명록 추가
+           // TO-Do : 텍스트 필드에 입력한 텍스트 방명록 리스트에 추가
        }
 
     @objc private func dismissPopup(_ sender: Any) {
