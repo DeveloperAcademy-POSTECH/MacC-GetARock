@@ -52,6 +52,8 @@ class BandTimelineViewController: UIViewController {
         Gathering(title: "두 줄 만들기 대체텍스트 대체텍스트 대체텍스트 대체텍스트 대체텍스트 22", date: "22.11.12 18:00", status: .finished)
     ]
     
+    // MARK: - View Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
