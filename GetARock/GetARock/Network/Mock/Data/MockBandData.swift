@@ -300,7 +300,7 @@ enum MockData {
             )
         ),
         GatheringCommentInfo(
-            commentID: "gatheringCommentID-001",
+            commentID: "gatheringCommentID-002",
             comment: GatheringComment(
                 gathering: gatherings[0].gathering,
                 author: bands[0],
@@ -309,13 +309,26 @@ enum MockData {
             )
         ),
         GatheringCommentInfo(
-            commentID: "gatheringCommentID-001",
+            commentID: "gatheringCommentID-003",
             comment: GatheringComment(
                 gathering: gatherings[0].gathering,
                 author: bands[0],
                 content:
                     """
                     12시쯤에 입구앞에서 만나요!! 저희는 3명 정도 갑니다ㅎㅎ
+                    """,
+                createdAt: Date()
+            )
+        ),
+        GatheringCommentInfo(
+            commentID: "gatheringCommentID-004",
+            comment: GatheringComment(
+                gathering: gatherings[0].gathering,
+                author: bands[1],
+                content:
+                    """
+                    네~~ 좋아요!
+                    그럼 페스티벌 날 만나요!!
                     """,
                 createdAt: Date()
             )
