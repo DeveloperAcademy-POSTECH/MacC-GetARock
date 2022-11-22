@@ -12,6 +12,8 @@ class ReportReasonListController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let nib = UINib(nibName: "ReportReasonListCell", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: "ReportReasonListCell")
     }
 
     // MARK: - Table view data source
@@ -22,20 +24,16 @@ class ReportReasonListController: UITableViewController {
 
      }
 
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return reportReason.count
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-        
-        cell.textLabel?.text = reportReason[indexPath.row]
-        // Configure the cell...
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ReportReasonListCell") as? ReportReasonListCell else { return UITableViewCell() }
+        cell.reportReason.text = reportReason[indexPath.row]
+                return cell
 
-        return cell
     }
 
     /*
