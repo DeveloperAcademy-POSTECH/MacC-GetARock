@@ -211,6 +211,9 @@
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="Qr8-hB-n59">
                         <barButtonItem key="leftBarButtonItem" title="취소" id="2uD-ZZ-kGY">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="cancelButtonAction:" destination="Y6W-OH-hqX" id="7gX-MV-VNY"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="완료" id="741-6a-MrW">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

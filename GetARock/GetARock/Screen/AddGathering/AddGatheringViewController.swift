@@ -35,6 +35,10 @@ class AddGatheringViewController: UIViewController {
 
     // MARK: - Method
 
+    @IBAction func cancelButtonAction(_ sender: UIBarButtonItem) {
+        dismiss(animated: true)
+    }
+
     @IBAction func scrollViewTapRecognizer(_ sender: UITapGestureRecognizer) {
         titleTextField.endEditing(true)
         aboutTextView.endEditing(true)
