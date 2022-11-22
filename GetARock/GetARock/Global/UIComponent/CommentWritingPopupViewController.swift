@@ -28,7 +28,7 @@ class CommentWritingPopupViewController: UIViewController {
 
     lazy var commentTextView: UITextView = {
         $0.textContainerInset = UIEdgeInsets(top: 16.0, left: 16.0, bottom: 16.0, right: 16.0)
-        $0.backgroundColor = .appColor(.backgroundBlue)
+        $0.backgroundColor = .backgroundBlue
         $0.font = UIFont.systemFont(ofSize: 14.0)
         $0.textColor = UIColor.black
         $0.textAlignment = NSTextAlignment.left
@@ -75,7 +75,7 @@ class CommentWritingPopupViewController: UIViewController {
 
     private func setupLayout() {
         view.addSubview(popup)
-        popup.backgroundColor = .appColor(.modalBackgroundBlue)
+        popup.backgroundColor = .modalBackgroundBlue
         NSLayoutConstraint.activate([
             popup.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             popup.centerYAnchor.constraint(equalTo: view.centerYAnchor),
