@@ -15,6 +15,8 @@
 		0761508D29277CBB00A0562F /* VisitorComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0761508C29277CBB00A0562F /* VisitorComment.swift */; };
 		076150912928FB9400A0562F /* Gathering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076150902928FB9400A0562F /* Gathering.swift */; };
 		07615093292907A900A0562F /* GatheringComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07615092292907A900A0562F /* GatheringComment.swift */; };
+		07854FCB292A9156005C8556 /* MockBandData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07854FCA292A9156005C8556 /* MockBandData.swift */; };
+		07C966B9292C463100A59CF5 /* Date+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C966B8292C463100A59CF5 /* Date+String.swift */; };
 		07D7D9E3290FB8C200479B6F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D7D9E2290FB8C200479B6F /* AppDelegate.swift */; };
 		07D7D9E5290FB8C200479B6F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D7D9E4290FB8C200479B6F /* SceneDelegate.swift */; };
 		07D7D9EA290FB8C200479B6F /* Landing.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07D7D9E8290FB8C200479B6F /* Landing.storyboard */; };
@@ -77,6 +79,8 @@
 		0761508C29277CBB00A0562F /* VisitorComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitorComment.swift; sourceTree = "<group>"; };
 		076150902928FB9400A0562F /* Gathering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gathering.swift; sourceTree = "<group>"; };
 		07615092292907A900A0562F /* GatheringComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatheringComment.swift; sourceTree = "<group>"; };
+		07854FCA292A9156005C8556 /* MockBandData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockBandData.swift; sourceTree = "<group>"; };
+		07C966B8292C463100A59CF5 /* Date+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+String.swift"; sourceTree = "<group>"; };
 		07D7D9DF290FB8C200479B6F /* GetARock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GetARock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07D7D9E2290FB8C200479B6F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		07D7D9E4290FB8C200479B6F /* SceneDelegate.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; tabWidth = 4; };
@@ -145,6 +149,7 @@
 		072DEDCD292677090046A4A0 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				07854FC8292A913A005C8556 /* Mock */,
 				072DEDCE2926770F0046A4A0 /* Model */,
 			);
 			path = Network;
@@ -163,6 +168,22 @@
 				072DEDD52926902D0046A4A0 /* AgeGroup.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		07854FC8292A913A005C8556 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				07854FC9292A9141005C8556 /* Data */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
+		07854FC9292A9141005C8556 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				07854FCA292A9156005C8556 /* MockBandData.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 		07D7D9D6290FB8C200479B6F = {
@@ -365,6 +386,7 @@
 			isa = PBXGroup;
 			children = (
 				7BDA8F8F291296B200BB2D34 /* UIView+Gradation.swift */,
+				07C966B8292C463100A59CF5 /* Date+String.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -562,6 +584,7 @@
 				0761508D29277CBB00A0562F /* VisitorComment.swift in Sources */,
 				AB58E007292CB61700868720 /* TopViewOfInfoView.swift in Sources */,
 				072DEDD2292687A70046A4A0 /* Location.swift in Sources */,
+				07854FCB292A9156005C8556 /* MockBandData.swift in Sources */,
 				07D7DA3F29108CF800479B6F /* MyPageViewController.swift in Sources */,
 				072DEDD029267D9A0046A4A0 /* Band.swift in Sources */,
 				07D7D9E3290FB8C200479B6F /* AppDelegate.swift in Sources */,
@@ -582,6 +605,7 @@
 				07D7DA3429108A8300479B6F /* StringLiteral.swift in Sources */,
 				7BDA8F8B291284FE00BB2D34 /* UIColor+Extension.swift in Sources */,
 				072DEDD62926902D0046A4A0 /* AgeGroup.swift in Sources */,
+				07C966B9292C463100A59CF5 /* Date+String.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
