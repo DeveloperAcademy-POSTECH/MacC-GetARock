@@ -15,10 +15,10 @@ class BandInfoViewController: UIViewController {
     @IBOutlet weak var bandMemberCollectionView: UICollectionView!
     @IBOutlet weak var bandAgeLabel: UILabel!
     
-    fileprivate let numberOfBandMember: Int = 7
-    fileprivate let positionNameArray: [String] = ["보컬", "기타", "키보드", "드럼", "베이스", "그 외"]
-    fileprivate let numberOfPostionArray: [Int] = [1, 2, 1, 1, 1, 0]
-    fileprivate let bandAgeArray: [String] = ["20대", "30대", "40대"]
+    private let numberOfBandMember: Int = 7
+    private let positionNameArray: [String] = ["보컬", "기타", "키보드", "드럼", "베이스", "그 외"]
+    private let numberOfPostionArray: [Int] = [1, 2, 1, 1, 1, 0]
+    private let bandAgeArray: [String] = ["20대", "30대", "40대"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,14 +30,14 @@ class BandInfoViewController: UIViewController {
         
         self.bandMemberCollectionView.collectionViewLayout = createCompositionalLayout()
         
-        bandAgeLabel.text = setBandAgeLabel()
+        bandAgeLabel.text = generateBandAgeLabelText()
     }
 }
 
 // MARK: - 컬렉션뷰 compositonal layout 관련
 
 extension BandInfoViewController {
-    fileprivate func createCompositionalLayout() -> UICollectionViewLayout {
+    private func createCompositionalLayout() -> UICollectionViewLayout {
         let layout = UICollectionViewCompositionalLayout { (_: Int, _: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
             
             let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1/3), heightDimension: .fractionalHeight(1))
@@ -80,7 +80,7 @@ extension BandInfoViewController: UICollectionViewDataSource {
 // MARK: - 밴드 연령대 Label 관련
 
 extension BandInfoViewController {
-    fileprivate func setBandAgeLabel() -> String {
+    private func generateBandAgeLabelText() -> String {
         for num in 0...bandAgeArray.count - 1 {
             bandAgeLabel.text?.append(bandAgeArray[num])
             if num != bandAgeArray.count - 1 {
