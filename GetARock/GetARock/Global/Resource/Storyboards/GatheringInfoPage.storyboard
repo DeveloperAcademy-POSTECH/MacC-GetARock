@@ -30,7 +30,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="250" translatesAutoresizingMaskIntoConstraints="NO" id="KVQ-Al-kvw">
                                                         <rect key="frame" x="16" y="50" width="361" height="54.333333333333343"/>
                                                         <subviews>
-                                                            <view contentMode="scaleToFill" horizontalCompressionResistancePriority="800" verticalCompressionResistancePriority="800" translatesAutoresizingMaskIntoConstraints="NO" id="IPq-Y1-Mnd" userLabel="condition Container">
+                                                            <view contentMode="scaleToFill" horizontalCompressionResistancePriority="800" verticalCompressionResistancePriority="800" translatesAutoresizingMaskIntoConstraints="NO" id="IPq-Y1-Mnd" userLabel="conditionView">
                                                                 <rect key="frame" x="0.0" y="0.0" width="111" height="54.333333333333336"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="800" verticalCompressionResistancePriority="800" text="모집중" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sah-zl-Rl3">
