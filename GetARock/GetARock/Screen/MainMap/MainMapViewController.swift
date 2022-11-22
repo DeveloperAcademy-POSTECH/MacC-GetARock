@@ -34,7 +34,6 @@ final class MainMapViewController: UIViewController {
         
         locationManager.delegate = self
         self.locationManager.requestWhenInUseAuthorization()
-        self.locationManager.startUpdatingLocation()
     }
     
     private func setDefaultLocation() {
@@ -50,13 +49,43 @@ final class MainMapViewController: UIViewController {
         )
     }
     
+    // MARK: - Method
+    
     private func centerUserLocation() {
         mapView.showsUserLocation = true
         mapView.setUserTrackingMode(.follow, animated: true)
     }
     
+    private func requestLocationAuthorizationWhenUserDenied() {
+        let alertController = UIAlertController(title: "설정에서 위치 정보 권한을 변경해주세요", message: "위치정보 제공을 허용하면 현재 위치를 기준으로 장소를 보여줄 수 있어요", preferredStyle: .alert)
+        
+        let settingsAction = UIAlertAction(title: "설정", style: .default) { (_) -> Void in
+            guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
+                return
+            }
+            if UIApplication.shared.canOpenURL(settingsUrl) {
+                UIApplication.shared.open(settingsUrl, completionHandler: { (_) in
+                })
+            }
+        }
+        alertController.addAction(settingsAction)
+        let cancelAction = UIAlertAction(title: "취소", style: .default, handler: nil)
+        alertController.addAction(cancelAction)
+        
+        present(alertController, animated: true, completion: nil)
+    }
+    
     @IBAction func moveToUserLocation(_ sender: Any) {
-        locationManagerDidChangeAuthorization(locationManager)
+        switch locationManager.authorizationStatus {
+        case .authorizedAlways, .authorizedWhenInUse:
+            centerUserLocation()
+        case .restricted, .denied:
+            requestLocationAuthorizationWhenUserDenied()
+        case .notDetermined:
+            locationManager.requestWhenInUseAuthorization()
+        default:
+            setDefaultLocation()
+        }
     }
     
 }
@@ -69,8 +98,7 @@ extension MainMapViewController: CLLocationManagerDelegate {
         switch manager.authorizationStatus {
         case .authorizedAlways, .authorizedWhenInUse:
             centerUserLocation()
-        case .restricted, .denied:
-            setDefaultLocation()
+            manager.startUpdatingLocation()
         case .notDetermined:
             manager.requestWhenInUseAuthorization()
             setDefaultLocation()
