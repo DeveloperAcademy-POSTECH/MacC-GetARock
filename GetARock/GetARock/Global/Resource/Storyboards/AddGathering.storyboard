@@ -194,6 +194,9 @@
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="c2I-8I-8DU"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="lgl-1Z-bpW"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="l4z-MO-Q2z" appends="YES" id="dn4-Cq-03H"/>
+                                </connections>
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
@@ -214,8 +217,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="aboutTextView" destination="uNV-iD-x50" id="hNT-BR-jA8"/>
+                        <outlet property="aboutTextView" destination="uNV-iD-x50" id="qel-ZL-s05"/>
                         <outlet property="hostBandNameLabel" destination="n7W-To-VFW" id="RSA-Hm-SvS"/>
+                        <outlet property="scrollView" destination="teO-Fx-L4D" id="Pwm-8O-BPx"/>
                         <outlet property="titleTextField" destination="zaJ-zq-18Z" id="Al4-Ik-WXX"/>
                     </connections>
                 </viewController>
@@ -223,6 +227,11 @@
                 <tapGestureRecognizer id="Cif-I3-r5A" userLabel="locationSelectTapRecognizer">
                     <connections>
                         <segue destination="JXE-kZ-dOE" kind="show" id="9DQ-Is-Tll"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="l4z-MO-Q2z" userLabel="scrollViewTapRecognizer">
+                    <connections>
+                        <action selector="scrollViewTapRecognizer:" destination="Y6W-OH-hqX" id="MlT-sy-UGr"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
