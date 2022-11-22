@@ -90,7 +90,7 @@
             <connections>
                 <outlet property="startTime" destination="np7-Hm-tCg" id="QJA-NZ-exa"/>
                 <outlet property="state" destination="JSI-YD-u1h" id="Rw1-m3-fCX"/>
-                <outlet property="title" destination="vGN-fW-Nbr" id="O2i-TA-bZA"/>
+                <outlet property="title" destination="Gsv-TT-DTS" id="5M5-YG-3TT"/>
             </connections>
             <point key="canvasLocation" x="118.32061068702289" y="45.774647887323944"/>
         </tableViewCell>
