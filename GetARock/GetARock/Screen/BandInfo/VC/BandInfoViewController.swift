@@ -66,10 +66,10 @@ extension BandInfoViewController: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as?
                 BandMemberCollectionViewCell else { return UICollectionViewCell() }
         
-        cell.contentView.backgroundColor = UIColor.appColor(.backgroundBlue)
+        cell.contentView.backgroundColor = UIColor.backgroundBlue
         cell.contentView.layer.cornerRadius = 14
         cell.contentView.layer.borderWidth = 1
-        cell.contentView.layer.borderColor = UIColor.appColor(.dividerBlue).cgColor
+        cell.contentView.layer.borderColor = UIColor.dividerBlue.cgColor
         
         cell.positionNameLabel.text = self.positionNameArray[indexPath.item]
         cell.numberOfPositionLabel.text = "\(self.numberOfPostionArray[indexPath.item])명"
