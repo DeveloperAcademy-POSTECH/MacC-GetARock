@@ -14,6 +14,7 @@ class AddGatheringViewController: UIViewController {
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var hostBandNameLabel: UILabel!
     @IBOutlet weak var aboutTextView: UITextView!
+    @IBOutlet weak var scrollView: UIScrollView!
 
     private let placeHolderLabel: UILabel = {
         $0.text = "내용을 입력하세요"
@@ -33,6 +34,11 @@ class AddGatheringViewController: UIViewController {
     }
 
     // MARK: - Method
+
+    @IBAction func scrollViewTapRecognizer(_ sender: UITapGestureRecognizer) {
+        titleTextField.endEditing(true)
+        aboutTextView.endEditing(true)
+    }
 
     private func attribute() {
         setupNavigationBar()
