@@ -16,13 +16,13 @@ extension UIView {
         gradient.endPoint = CGPoint(x: 1.0, y: endPointY)
         gradient.locations = [0.0, 1.0]
         gradient.frame = self.bounds
-        self.layer.insertSublayer(gradient, at: 0)
+        self.layer.addSublayer(gradient)
     }
 
     func fillMainGradient() {
         setGradient(
-            startColor: UIColor.appColor(.mainPurple),
-            endColor: UIColor.appColor(.gradationBlue),
+            startColor: .mainPurple,
+            endColor: .gradationBlue,
             startPointY: 0.5,
             endPointY: 0.5
         )
@@ -30,7 +30,7 @@ extension UIView {
 
     func fillActiveGradation() {
         setGradient(
-            startColor: UIColor.appColor(.mainPurple).withAlphaComponent(0.3),
+            startColor: UIColor.mainPurple.withAlphaComponent(0.3),
             endColor: UIColor.black.withAlphaComponent(0.0),
             startPointY: 0.0,
             endPointY: 1.0
