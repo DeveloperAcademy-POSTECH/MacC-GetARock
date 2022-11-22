@@ -13,10 +13,13 @@ class BandInfoViewController: UIViewController {
     
     @IBOutlet weak var bandMemberLabel: UILabel!
     @IBOutlet weak var bandMemberCollectionView: UICollectionView!
+    @IBOutlet weak var bandIntroduceLabel: UILabel!
+    @IBOutlet weak var bandIntroduceView: UIView!
     
     fileprivate let numberOfBandMember: Int = 7
     fileprivate let positionNameArray: [String] = ["보컬", "기타", "키보드", "드럼", "베이스", "그 외"]
     fileprivate let numberOfPostionArray: [Int] = [1, 2, 1, 1, 1, 0]
+    fileprivate let bandIntroduceText = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +30,16 @@ class BandInfoViewController: UIViewController {
         bandMemberCollectionView.dataSource = self
         
         self.bandMemberCollectionView.collectionViewLayout = createCompositionalLayout()
+        
+        bandIntroduceLabel.text = bandIntroduceText
+        bandIntroduceView.backgroundColor = UIColor.backgroundBlue
+        bandIntroduceView.layer.cornerRadius = 15
+        bandIntroduceView.layer.borderWidth = 1
+        bandIntroduceView.layer.borderColor = UIColor.dividerBlue.cgColor
+    }
+    
+    override func viewWillLayoutSubviews() {
+            bandIntroduceLabel.sizeToFit()
     }
 }
 

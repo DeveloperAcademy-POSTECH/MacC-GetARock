@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
-    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
@@ -19,10 +19,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f7b-Qa-gAc">
-                                <rect key="frame" x="0.0" y="59" width="393" height="907"/>
+                                <rect key="frame" x="0.0" y="47" width="393" height="919"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="8kK-3T-isV">
-                                        <rect key="frame" x="16" y="0.0" width="361" height="679.33333333333337"/>
+                                        <rect key="frame" x="16" y="0.0" width="361" height="724.66666666666663"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="le6-6s-08Z">
                                                 <rect key="frame" x="0.0" y="0.0" width="361" height="277.33333333333331"/>
@@ -120,18 +120,58 @@
                                                     <constraint firstAttribute="height" constant="1" id="Mq4-Tz-FoJ"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GKK-x9-sjo">
-                                                <rect key="frame" x="0.0" y="479.33333333333337" width="361" height="200"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="igx-Eh-zJy" userLabel="Band Introduce Stack View">
+                                                <rect key="frame" x="0.0" y="479.33333333333331" width="361" height="245.33333333333331"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="밴드 소개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ylh-MI-Oxo">
+                                                        <rect key="frame" x="0.0" y="20" width="361" height="20.333333333333329"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1XB-4X-rtT">
+                                                        <rect key="frame" x="0.0" y="55.333333333333258" width="361" height="160"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rf7-Eq-MP8">
+                                                                <rect key="frame" x="16" y="16" width="329" height="128"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="160" id="e8k-Rd-yRD"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="160" id="Ohd-PZ-0Q0"/>
+                                                            <constraint firstItem="Rf7-Eq-MP8" firstAttribute="leading" secondItem="1XB-4X-rtT" secondAttribute="leading" constant="16" id="brq-33-Nc0"/>
+                                                            <constraint firstAttribute="bottom" secondItem="Rf7-Eq-MP8" secondAttribute="bottom" constant="16" id="fD7-o7-EDj"/>
+                                                            <constraint firstAttribute="trailing" secondItem="Rf7-Eq-MP8" secondAttribute="trailing" constant="16" id="lrk-tH-wGY"/>
+                                                            <constraint firstItem="Rf7-Eq-MP8" firstAttribute="top" secondItem="1XB-4X-rtT" secondAttribute="top" constant="16" id="nd3-Sd-AiI"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="200" id="pJO-If-sxO"/>
+                                                    <constraint firstAttribute="trailing" secondItem="1XB-4X-rtT" secondAttribute="trailing" id="Cnp-Wx-5BZ"/>
+                                                    <constraint firstItem="1XB-4X-rtT" firstAttribute="width" secondItem="igx-Eh-zJy" secondAttribute="width" id="ET7-3A-18I"/>
+                                                    <constraint firstAttribute="bottom" secondItem="1XB-4X-rtT" secondAttribute="bottom" constant="30" id="Usk-5A-z5R"/>
+                                                    <constraint firstItem="1XB-4X-rtT" firstAttribute="leading" secondItem="igx-Eh-zJy" secondAttribute="leading" id="p9s-pB-OzQ"/>
+                                                    <constraint firstItem="1XB-4X-rtT" firstAttribute="top" secondItem="Ylh-MI-Oxo" secondAttribute="bottom" constant="15" id="tgA-FG-ChT"/>
                                                 </constraints>
-                                            </view>
+                                                <edgeInsets key="layoutMargins" top="20" left="0.0" bottom="30" right="0.0"/>
+                                            </stackView>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="le6-6s-08Z" firstAttribute="top" secondItem="8kK-3T-isV" secondAttribute="top" id="1rH-dE-lln"/>
                                             <constraint firstItem="le6-6s-08Z" firstAttribute="width" secondItem="8kK-3T-isV" secondAttribute="width" id="7EF-hL-qzc"/>
                                             <constraint firstAttribute="trailing" secondItem="le6-6s-08Z" secondAttribute="trailing" id="9bM-5T-LED"/>
+                                            <constraint firstItem="igx-Eh-zJy" firstAttribute="leading" secondItem="8kK-3T-isV" secondAttribute="leading" id="FXb-m1-Q2x"/>
+                                            <constraint firstItem="igx-Eh-zJy" firstAttribute="width" secondItem="8kK-3T-isV" secondAttribute="width" id="GKA-Om-uxZ"/>
+                                            <constraint firstAttribute="bottom" secondItem="igx-Eh-zJy" secondAttribute="bottom" id="Xhr-Dx-RUY"/>
                                             <constraint firstItem="le6-6s-08Z" firstAttribute="leading" secondItem="8kK-3T-isV" secondAttribute="leading" id="Zi0-cy-QYJ"/>
+                                            <constraint firstItem="igx-Eh-zJy" firstAttribute="top" secondItem="aL0-SH-uYF" secondAttribute="bottom" id="otB-5L-lDl"/>
+                                            <constraint firstAttribute="trailing" secondItem="igx-Eh-zJy" secondAttribute="trailing" id="qvd-z0-SzV"/>
                                             <constraint firstItem="LiA-2d-x7E" firstAttribute="top" secondItem="le6-6s-08Z" secondAttribute="bottom" id="vQa-PU-1fq"/>
                                         </constraints>
                                     </stackView>
@@ -157,6 +197,8 @@
                     </view>
                     <size key="freeformSize" width="393" height="1000"/>
                     <connections>
+                        <outlet property="bandIntroduceLabel" destination="Rf7-Eq-MP8" id="7Bh-lu-tBf"/>
+                        <outlet property="bandIntroduceView" destination="1XB-4X-rtT" id="RWf-JG-KjJ"/>
                         <outlet property="bandMemberCollectionView" destination="Poe-TS-dJ0" id="DUv-hT-Ke7"/>
                         <outlet property="bandMemberLabel" destination="B7b-l6-pwI" id="o1G-GU-l1L"/>
                     </connections>
