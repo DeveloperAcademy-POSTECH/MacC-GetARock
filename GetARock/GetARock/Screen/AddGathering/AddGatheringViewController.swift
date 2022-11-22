@@ -9,9 +9,17 @@ import UIKit
 
 class AddGatheringViewController: UIViewController {
 
+    // MARK: - Life Cycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        setupNavigationBar()
     }
 
+    // MARK: - Method
+
+    private func setupNavigationBar() {
+        navigationController?.navigationBar.shadowImage = UIImage()
+    }
 }
