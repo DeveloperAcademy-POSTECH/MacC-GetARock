@@ -36,6 +36,8 @@ class AddGatheringViewController: UIViewController {
 
     private func attribute() {
         setupNavigationBar()
+        hostBandNameLabel.text = "블랙로즈" // 추후 유저디폴트 사용 예정
+        titleTextField.becomeFirstResponder()
     }
 
     private func setupNavigationBar() {
