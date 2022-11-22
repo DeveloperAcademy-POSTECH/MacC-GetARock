@@ -7,14 +7,32 @@
 
 import UIKit
 
+enum BandInfoViewList: Int, CaseIterable {
+    case bandInfo
+    case bandTimeLine
+    case visitorComment
+
+    func toKorean() -> String {
+        switch self {
+        case .bandInfo: return "밴드 정보"
+        case .bandTimeLine: return "타임라인"
+        case .visitorComment: return "방명록"
+        }
+    }
+}
+
 class BandPageViewController: UIViewController {
-    
+
     // MARK: - View
-    
+
     private let topView = TopViewOfInfoView(bandName: "블랙로즈", bandLocation: "주소다주소야주소다주소야")
-    
+    private let segmentedControlButtons = ViewSwitchedSegmentedControl(buttonTitles:
+                                                                        [BandInfoViewList.bandInfo.toKorean(),
+                                                                         BandInfoViewList.bandTimeLine.toKorean(),
+                                                                         BandInfoViewList.visitorComment.toKorean()])
+
     // MARK: - View Life Cycle
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLayout()
@@ -25,6 +43,16 @@ class BandPageViewController: UIViewController {
 // MARK: - Layout
 
 extension BandPageViewController {
+    private func configureSegmentedControlButton() {
+        segmentedControlButtons.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(segmentedControlButtons)
+        NSLayoutConstraint.activate([
+            segmentedControlButtons.topAnchor.constraint(equalTo: topView.bottomAnchor),
+            segmentedControlButtons.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            segmentedControlButtons.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            segmentedControlButtons.heightAnchor.constraint(equalToConstant: 40)
+        ])
+    }
     private func configureTopView() {
         topView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(topView)
@@ -38,5 +66,6 @@ extension BandPageViewController {
     private func setupLayout() {
         view.backgroundColor = .modalBackgroundBlue
         configureTopView()
+        configureSegmentedControlButton()
     }
 }
