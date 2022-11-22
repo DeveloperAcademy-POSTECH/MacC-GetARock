@@ -34,7 +34,7 @@ class CommentTableViewCell: UITableViewCell {
 
     private lazy var commentDateLabel: UILabel = {
         $0.text = "2022.11.20"
-        $0.textColor = .appColor(.lightGrey)
+        $0.textColor = .lightGrey
         $0.font = UIFont.systemFont(ofSize: 12)
         return $0
     }(UILabel())

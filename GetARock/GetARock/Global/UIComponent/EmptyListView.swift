@@ -35,7 +35,7 @@ class EmptyListView: UIView {
     // MARK: - Method
 
     private func attribute() {
-        self.backgroundColor = .appColor(.modalBackgroundBlue)
+        self.backgroundColor = .modalBackgroundBlue
     }
 
     private func setupLayout() {

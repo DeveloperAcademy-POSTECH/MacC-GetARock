@@ -23,7 +23,7 @@ class CommentListView: UIView {
         $0.showsVerticalScrollIndicator = false
         $0.separatorInset.left = 16
         $0.separatorInset.right = 16
-        $0.separatorColor = .appColor(.dividerBlue)
+        $0.separatorColor = .dividerBlue
         $0.rowHeight = UITableView.automaticDimension
         $0.estimatedRowHeight = UITableView.automaticDimension
         $0.translatesAutoresizingMaskIntoConstraints = false
@@ -47,7 +47,7 @@ class CommentListView: UIView {
     // MARK: - Method
 
     private func attribute() {
-        self.backgroundColor = .appColor(.modalBackgroundBlue)
+        self.backgroundColor = .modalBackgroundBlue
         setupCommentList()
     }
 
@@ -72,7 +72,7 @@ class CommentListView: UIView {
             )
         ])
         self.addSubview(tableView)
-        tableView.backgroundColor = .appColor(.modalBackgroundBlue)
+        tableView.backgroundColor = .modalBackgroundBlue
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(
                 equalTo: totalListNumber.bottomAnchor

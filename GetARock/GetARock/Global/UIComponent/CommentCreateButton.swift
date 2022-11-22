@@ -39,7 +39,7 @@ class CommentCreateButton: UIView {
     // MARK: - Method
 
     private func attribute() {
-        self.backgroundColor = .appColor(.mainPurple)
+        self.backgroundColor = .mainPurple
         self.layer.masksToBounds = true
         self.layer.cornerRadius = 10
         NSLayoutConstraint.activate([
