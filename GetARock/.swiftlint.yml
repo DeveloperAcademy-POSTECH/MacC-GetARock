@@ -20,6 +20,7 @@ included:
 excluded:
   - GetARock/Global/Supports/AppDelegate.swift
   - GetARock/Global/Supports/SceneDelegate.swift
+  - GetARock/Network/Mock/Data/*
 
 identifier_name:
   excluded:
