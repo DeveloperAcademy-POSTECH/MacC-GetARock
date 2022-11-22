@@ -18,7 +18,6 @@ final class MainMapViewController: UIViewController {
     @IBOutlet weak var attendedEventListButton: UIButton!
     @IBOutlet weak var myPageButton: UIButton!
     
-    var location: CLLocation?
     var coordinate = CLLocationCoordinate2D(
         latitude: 36.014,
         longitude: 129.32
