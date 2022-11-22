@@ -8,8 +8,12 @@
 import UIKit
 
 class BandPageViewController: UIViewController {
-
+    
+    // MARK: - View
+    
     private let topView = TopViewOfInfoView(bandName: "블랙로즈", bandLocation: "주소다주소야주소다주소야")
+    
+    // MARK: - View Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,6 +21,8 @@ class BandPageViewController: UIViewController {
     }
 
 }
+
+// MARK: - Layout
 
 extension BandPageViewController {
     private func configureTopView() {
