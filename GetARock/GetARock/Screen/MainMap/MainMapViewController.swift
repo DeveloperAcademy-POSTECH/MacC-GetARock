@@ -54,7 +54,11 @@ final class MainMapViewController: UIViewController {
         mapView.showsUserLocation = true
         mapView.setUserTrackingMode(.follow, animated: true)
     }
-        
+    
+    @IBAction func moveToUserLocation(_ sender: Any) {
+        locationManagerDidChangeAuthorization(locationManager)
+    }
+    
 }
 
 // MARK: - CLLocationManagerDelegate
@@ -64,14 +68,11 @@ extension MainMapViewController: CLLocationManagerDelegate {
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         switch manager.authorizationStatus {
         case .authorizedAlways, .authorizedWhenInUse:
-            print("GPS 권한 설정됨")
             centerUserLocation()
         case .restricted, .denied:
-            print("GPS 권한 요청 거부됨")
             setDefaultLocation()
-        case .notDetermined:     
+        case .notDetermined:
             manager.requestWhenInUseAuthorization()
-            print("GPS 권한 설정되지 않음")
             setDefaultLocation()
         default:
             setDefaultLocation()
