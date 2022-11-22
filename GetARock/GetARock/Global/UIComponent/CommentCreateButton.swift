@@ -11,7 +11,7 @@ class CommentCreateButton: UIView {
 
     // MARK: - Property
 
-    private enum Size {
+    enum Size {
         static let spacing: CGFloat = 16.0
         static let height: CGFloat = 50.0
         static let width: CGFloat = UIScreen.main.bounds.size.width - Size.spacing * 2
@@ -39,7 +39,7 @@ class CommentCreateButton: UIView {
     // MARK: - Method
 
     private func attribute() {
-        self.backgroundColor = .appColor(.mainPurple)
+        self.backgroundColor = .mainPurple
         self.layer.masksToBounds = true
         self.layer.cornerRadius = 10
         NSLayoutConstraint.activate([
