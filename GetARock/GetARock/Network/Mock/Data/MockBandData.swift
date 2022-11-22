@@ -202,7 +202,7 @@ enum MockData {
                 title: "투다리에서 같이 노가리깝시당",
                 host: bands[0],
                 status: .recruiting,
-                date: Date(),
+                date: "2022.12.12 13:22".toDate(format: DateFormatLiteral.standard) ?? Date(),
                 location: Location(
                     name: bands[0].band.name,
                     address: "경상북도 포항시 남구 대잠동 938",
@@ -213,7 +213,7 @@ enum MockData {
                     )
                 ),
                 introduction: "같이 술이나 한잔 하면서 음악 얘기하며 노가리깔 분들 구합니다",
-                createdAt: Date()
+                createdAt: "2022.11.10 13:22".toDate(format: DateFormatLiteral.standard) ?? Date()
             )
         ),
         GatheringInfo(
@@ -233,7 +233,7 @@ enum MockData {
                     )
                 ),
                 introduction: "같이 술이나 한잔 하면서 음악 얘기하며 노가리깔 분들 구합니다",
-                createdAt: Date()
+                createdAt: "2022.11.10 13:22".toDate(format: DateFormatLiteral.standard) ?? Date()
             )
         ),
         GatheringInfo(
@@ -242,7 +242,7 @@ enum MockData {
                 title: "오투에서 같이 연습하실 분",
                 host: bands[1],
                 status: .canceled,
-                date: Date(),
+                date: "2022.12.10 13:22".toDate(format: DateFormatLiteral.standard) ?? Date(),
                 location: Location(
                     name: bands[1].band.name,
                     address: "경상북도 포항시 남구 연일읍 동문로 40-1",
@@ -258,7 +258,7 @@ enum MockData {
                     같이 합주하면서 놀 밴드 있나요?
                     편하게 연락주세요!
                     """,
-                createdAt: Date()
+                createdAt: "2022.11.10 13:22".toDate(format: DateFormatLiteral.standard) ?? Date()
             )
         ),
         GatheringInfo(
@@ -267,7 +267,7 @@ enum MockData {
                 title: "이번에 락 페스티벌 가는 분 계시면 같이 가요",
                 host: bands[2],
                 status: .finished,
-                date: Date(),
+                date: "2022.11.15 13:22".toDate(format: DateFormatLiteral.standard) ?? Date(),
                 location: Location(
                     name: bands[2].band.name,
                     address: "경북 포항시 북구 두호동 685-1",
@@ -283,7 +283,7 @@ enum MockData {
                     같이 놀아요!
                     저희는 영일대에서 바로 만나서 입장할 예정입니다!
                     """,
-                createdAt: Date()
+                createdAt: "2022.11.10 13:22".toDate(format: DateFormatLiteral.standard) ?? Date()
             )
         )
     ]
@@ -296,7 +296,7 @@ enum MockData {
                 gathering: gatherings[0].gathering,
                 author: bands[1],
                 content: "저희 밴드에서는 저 혼자만 가는데, 혹시 같이가도 괜찮을까요?",
-                createdAt: Date()
+                createdAt: "2022.11.12 13:22".toDate(format: DateFormatLiteral.standard) ?? Date()
             )
         ),
         GatheringCommentInfo(
@@ -305,7 +305,7 @@ enum MockData {
                 gathering: gatherings[0].gathering,
                 author: bands[0],
                 content: "물론이죠!",
-                createdAt: Date()
+                createdAt: "2022.11.13 13:22".toDate(format: DateFormatLiteral.standard) ?? Date()
             )
         ),
         GatheringCommentInfo(
@@ -317,7 +317,7 @@ enum MockData {
                     """
                     12시쯤에 입구앞에서 만나요!! 저희는 3명 정도 갑니다ㅎㅎ
                     """,
-                createdAt: Date()
+                createdAt: "2022.11.14 13:22".toDate(format: DateFormatLiteral.standard) ?? Date()
             )
         ),
         GatheringCommentInfo(
@@ -328,9 +328,9 @@ enum MockData {
                 content:
                     """
                     네~~ 좋아요!
-                    그럼 페스티벌 날 만나요!!
+                    그럼 투다리 앞에서 만나요!!
                     """,
-                createdAt: Date()
+                createdAt: "2022.11.15 13:22".toDate(format: DateFormatLiteral.standard) ?? Date()
             )
         ),
     ]
@@ -346,7 +346,7 @@ enum MockData {
                     """
                     언제 또 저희랑 합주 한 번 더 같이 가시죠~~
                     """,
-                createdAt: Date()
+                createdAt: "2022.11.17 13:22".toDate(format: DateFormatLiteral.standard) ?? Date()
             )
         ),
         VisitorCommentInfo(
@@ -362,7 +362,7 @@ enum MockData {
                     말 걸고 싶은데 못 걸어서 아쉽다고 하더라구요.
                     시간되시면 나중에 밴드 대 밴드로 같이 이야기 나눠볼 수 있을까요?
                     """,
-                createdAt: Date()
+                createdAt: "2022.11.15 13:22".toDate(format: DateFormatLiteral.standard) ?? Date()
             )
         ),
         VisitorCommentInfo(
@@ -376,7 +376,7 @@ enum MockData {
                     저희팀 다음 주에 공연합니다.
                     시간되면 놀려와주세요ㅎㅎ
                     """,
-                createdAt: Date()
+                createdAt: "2022.11.13 13:22".toDate(format: DateFormatLiteral.standard) ?? Date()
             )
         ),
         VisitorCommentInfo(
@@ -389,7 +389,7 @@ enum MockData {
                     안녕하세요~~ \(bands[2].band.name)입니다.
                     잘 부탁드려요.
                     """,
-                createdAt: Date()
+                createdAt: "2022.11.10 13:22".toDate(format: DateFormatLiteral.standard) ?? Date()
             )
         )
     ]
