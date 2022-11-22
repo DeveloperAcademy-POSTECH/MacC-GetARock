@@ -45,15 +45,8 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LzN-xz-yX1">
-                        <rect key="frame" x="201" y="12" width="0.0" height="0.0"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="동성로 합동 버스킹 합니다!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gsv-TT-DTS">
-                        <rect key="frame" x="64.000000000000014" y="45" width="169.33333333333337" height="33"/>
+                        <rect key="frame" x="64.000000000000014" y="50.666666666666664" width="169.33333333333337" height="19.333333333333336"/>
                         <constraints>
                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="210" id="Mqs-78-qLP"/>
                         </constraints>
@@ -62,7 +55,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FlR-MG-Sew">
-                        <rect key="frame" x="64" y="23.333333333333332" width="15" height="12.333333333333339"/>
+                        <rect key="frame" x="64" y="31.333333333333332" width="15" height="12.333333333333339"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="15" id="3JE-hG-e1T"/>
@@ -70,37 +63,34 @@
                         </constraints>
                         <imageReference key="image" image="bolt.fill" catalog="system" symbolScale="small"/>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22.11.20 14:10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tqy-Nk-CyD">
-                        <rect key="frame" x="80" y="22" width="80" height="15"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2022.03.28 23:35" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="np7-Hm-tCg">
+                        <rect key="frame" x="83" y="30" width="102" height="15"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="Gsv-TT-DTS" secondAttribute="bottom" constant="22" id="0xt-h4-sFP"/>
-                    <constraint firstItem="tqy-Nk-CyD" firstAttribute="leading" secondItem="FlR-MG-Sew" secondAttribute="trailing" constant="8" id="B5G-ub-DfS"/>
                     <constraint firstItem="rfp-Pd-07t" firstAttribute="centerY" secondItem="c8z-EJ-itS" secondAttribute="centerY" id="HdT-Gs-IID"/>
-                    <constraint firstItem="Gsv-TT-DTS" firstAttribute="top" secondItem="FlR-MG-Sew" secondAttribute="bottom" constant="8" id="KdT-nM-tRQ"/>
                     <constraint firstItem="rfp-Pd-07t" firstAttribute="leading" secondItem="c8z-EJ-itS" secondAttribute="leading" constant="16" id="LFO-cx-9Nx"/>
-                    <constraint firstItem="Gsv-TT-DTS" firstAttribute="top" secondItem="tqy-Nk-CyD" secondAttribute="bottom" constant="8" id="Qr4-DI-kH2"/>
                     <constraint firstItem="Gsv-TT-DTS" firstAttribute="leading" secondItem="rfp-Pd-07t" secondAttribute="trailing" constant="28" id="TfK-z2-pB2"/>
                     <constraint firstItem="rfp-Pd-07t" firstAttribute="leading" secondItem="c8z-EJ-itS" secondAttribute="leading" constant="16" id="eVg-MT-FHP"/>
-                    <constraint firstItem="FlR-MG-Sew" firstAttribute="top" secondItem="c8z-EJ-itS" secondAttribute="top" constant="22" id="hdU-SD-795"/>
+                    <constraint firstAttribute="bottom" secondItem="Gsv-TT-DTS" secondAttribute="bottom" constant="30" id="gYC-w2-B4z"/>
+                    <constraint firstItem="np7-Hm-tCg" firstAttribute="leading" secondItem="FlR-MG-Sew" secondAttribute="trailing" constant="4" id="ipX-st-2IL"/>
                     <constraint firstItem="Gsv-TT-DTS" firstAttribute="leading" secondItem="FlR-MG-Sew" secondAttribute="leading" id="m5V-AW-SEA"/>
                     <constraint firstItem="FlR-MG-Sew" firstAttribute="leading" secondItem="rfp-Pd-07t" secondAttribute="trailing" constant="28" id="nh2-G6-SWA"/>
+                    <constraint firstItem="np7-Hm-tCg" firstAttribute="top" secondItem="c8z-EJ-itS" secondAttribute="top" constant="30" id="oWM-V2-at2"/>
                     <constraint firstAttribute="trailing" secondItem="JSI-YD-u1h" secondAttribute="trailing" constant="36" id="rnn-7d-TYE"/>
                     <constraint firstItem="JSI-YD-u1h" firstAttribute="centerY" secondItem="c8z-EJ-itS" secondAttribute="centerY" id="tJb-9D-lJw"/>
+                    <constraint firstItem="np7-Hm-tCg" firstAttribute="centerY" secondItem="FlR-MG-Sew" secondAttribute="centerY" id="vGN-fW-Nbr"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" red="0.35294118520000001" green="0.3686274886" blue="0.46274507050000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
             <connections>
-                <outlet property="startTime" destination="Gsv-TT-DTS" id="isb-fr-EkA"/>
                 <outlet property="state" destination="JSI-YD-u1h" id="Rw1-m3-fCX"/>
                 <outlet property="title" destination="Gsv-TT-DTS" id="LIL-l2-hKD"/>
             </connections>
-            <point key="canvasLocation" x="116.79389312977099" y="51.408450704225352"/>
+            <point key="canvasLocation" x="118.32061068702289" y="45.774647887323944"/>
         </tableViewCell>
     </objects>
     <resources>
