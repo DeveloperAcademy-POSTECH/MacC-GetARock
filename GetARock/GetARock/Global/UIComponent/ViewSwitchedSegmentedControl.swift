@@ -14,7 +14,7 @@ final class ViewSwitchedSegmentedControl: UIView {
     private var buttonTitles = [String]()
     private var buttons = [UIButton]()
     let textColor: UIColor = .white
-    let selectedColor: UIColor = .appColor(.mainPurple)
+    let selectedColor: UIColor = .mainPurple
     
     // MARK: - View
     
@@ -24,7 +24,7 @@ final class ViewSwitchedSegmentedControl: UIView {
     }()
     private var staticLineView: UIView = {
         let view = UIView()
-        view.backgroundColor = .appColor(.dividerBlue)
+        view.backgroundColor = .dividerBlue
         return view
     }()
     
