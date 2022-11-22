@@ -18,6 +18,20 @@
                 <rect key="frame" x="0.0" y="0.0" width="393" height="100"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qwo-tI-wkK">
+                        <rect key="frame" x="25.666666666666668" y="0.0" width="1" height="50"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="1" id="Tm1-bc-Q3E"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fpk-HD-t04">
+                        <rect key="frame" x="25.666666666666668" y="50" width="1" height="50"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="1" id="s9F-Wa-wcs"/>
+                        </constraints>
+                    </view>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TimelineDot" translatesAutoresizingMaskIntoConstraints="NO" id="rfp-Pd-07t">
                         <rect key="frame" x="16" y="40" width="20" height="20"/>
                         <constraints>
@@ -72,18 +86,24 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="rfp-Pd-07t" firstAttribute="centerY" secondItem="c8z-EJ-itS" secondAttribute="centerY" id="HdT-Gs-IID"/>
+                    <constraint firstItem="Qwo-tI-wkK" firstAttribute="centerX" secondItem="rfp-Pd-07t" secondAttribute="centerX" id="Is0-24-aej"/>
                     <constraint firstItem="rfp-Pd-07t" firstAttribute="leading" secondItem="c8z-EJ-itS" secondAttribute="leading" constant="16" id="LFO-cx-9Nx"/>
+                    <constraint firstAttribute="bottom" secondItem="Fpk-HD-t04" secondAttribute="bottom" id="LYc-gv-5tF"/>
                     <constraint firstItem="Gsv-TT-DTS" firstAttribute="leading" secondItem="rfp-Pd-07t" secondAttribute="trailing" constant="28" id="TfK-z2-pB2"/>
                     <constraint firstItem="rfp-Pd-07t" firstAttribute="leading" secondItem="c8z-EJ-itS" secondAttribute="leading" constant="16" id="eVg-MT-FHP"/>
                     <constraint firstAttribute="bottom" secondItem="Gsv-TT-DTS" secondAttribute="bottom" constant="30" id="gYC-w2-B4z"/>
+                    <constraint firstItem="Qwo-tI-wkK" firstAttribute="height" secondItem="c8z-EJ-itS" secondAttribute="height" multiplier="0.5" id="giL-JF-P9n"/>
+                    <constraint firstItem="Fpk-HD-t04" firstAttribute="centerX" secondItem="rfp-Pd-07t" secondAttribute="centerX" id="hcf-U9-fa7"/>
                     <constraint firstItem="np7-Hm-tCg" firstAttribute="leading" secondItem="FlR-MG-Sew" secondAttribute="trailing" constant="4" id="ipX-st-2IL"/>
                     <constraint firstItem="Gsv-TT-DTS" firstAttribute="top" secondItem="FlR-MG-Sew" secondAttribute="bottom" constant="5.6699999999999999" id="kRU-ax-5iM"/>
                     <constraint firstItem="Gsv-TT-DTS" firstAttribute="leading" secondItem="FlR-MG-Sew" secondAttribute="leading" id="m5V-AW-SEA"/>
                     <constraint firstItem="FlR-MG-Sew" firstAttribute="leading" secondItem="rfp-Pd-07t" secondAttribute="trailing" constant="28" id="nh2-G6-SWA"/>
                     <constraint firstItem="np7-Hm-tCg" firstAttribute="top" secondItem="c8z-EJ-itS" secondAttribute="top" constant="30" id="oWM-V2-at2"/>
                     <constraint firstAttribute="trailing" secondItem="JSI-YD-u1h" secondAttribute="trailing" constant="36" id="rnn-7d-TYE"/>
+                    <constraint firstItem="Qwo-tI-wkK" firstAttribute="top" secondItem="c8z-EJ-itS" secondAttribute="top" id="tET-eJ-6v5"/>
                     <constraint firstItem="JSI-YD-u1h" firstAttribute="centerY" secondItem="c8z-EJ-itS" secondAttribute="centerY" id="tJb-9D-lJw"/>
                     <constraint firstItem="np7-Hm-tCg" firstAttribute="centerY" secondItem="FlR-MG-Sew" secondAttribute="centerY" id="vGN-fW-Nbr"/>
+                    <constraint firstItem="Fpk-HD-t04" firstAttribute="height" secondItem="c8z-EJ-itS" secondAttribute="height" multiplier="0.5" id="ypo-2f-OCQ"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" red="0.35294118520000001" green="0.3686274886" blue="0.46274507050000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
