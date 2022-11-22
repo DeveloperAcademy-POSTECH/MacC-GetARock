@@ -213,6 +213,11 @@
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="aboutTextView" destination="uNV-iD-x50" id="hNT-BR-jA8"/>
+                        <outlet property="hostBandNameLabel" destination="n7W-To-VFW" id="RSA-Hm-SvS"/>
+                        <outlet property="titleTextField" destination="zaJ-zq-18Z" id="Al4-Ik-WXX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="Cif-I3-r5A" userLabel="locationSelectTapRecognizer">
