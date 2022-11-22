@@ -51,7 +51,7 @@ class CommentListView: UIView {
         setupCommentList()
     }
 
-    func setupCommentList() {
+    private func setupCommentList() {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(
@@ -93,7 +93,7 @@ class CommentListView: UIView {
 // MARK: - UITableViewDelegate
 
 extension CommentListView: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell,forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cell.backgroundColor = UIColor.clear
     }
 }

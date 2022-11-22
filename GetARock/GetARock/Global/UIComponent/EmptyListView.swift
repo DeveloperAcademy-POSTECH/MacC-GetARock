@@ -11,7 +11,7 @@ class EmptyListView: UIView {
 
     // MARK: - Property
 
-    lazy var defaultText: UILabel = {
+    private lazy var defaultTextLabel: UILabel = {
         $0.textColor = .white
         $0.font = UIFont.systemFont(ofSize: 14)
         $0.translatesAutoresizingMaskIntoConstraints = false
@@ -39,10 +39,10 @@ class EmptyListView: UIView {
     }
 
     private func setupLayout() {
-        self.addSubview(defaultText)
+        self.addSubview(defaultTextLabel)
         NSLayoutConstraint.activate([
-            defaultText.centerXAnchor.constraint(equalTo: centerXAnchor),
-            defaultText.centerYAnchor.constraint(equalTo: centerYAnchor)
+            defaultTextLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            defaultTextLabel.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
     }
 }

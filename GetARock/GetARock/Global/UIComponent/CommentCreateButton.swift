@@ -11,7 +11,7 @@ class CommentCreateButton: UIView {
 
     // MARK: - Property
 
-    private enum Size {
+    enum Size {
         static let spacing: CGFloat = 16.0
         static let height: CGFloat = 50.0
         static let width: CGFloat = UIScreen.main.bounds.size.width - Size.spacing * 2
@@ -19,7 +19,7 @@ class CommentCreateButton: UIView {
 
     // MARK: - View
 
-    lazy var buttonTitle: UIButton = {
+    private lazy var buttonTitle: UIButton = {
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
     }(UIButton())
@@ -45,7 +45,6 @@ class CommentCreateButton: UIView {
         NSLayoutConstraint.activate([
             self.centerXAnchor.constraint(equalTo: centerXAnchor),
             self.centerYAnchor.constraint(equalTo: centerYAnchor),
-            self.widthAnchor.constraint(equalToConstant: Size.width),
             self.heightAnchor.constraint(equalToConstant: Size.height)
         ])
     }
