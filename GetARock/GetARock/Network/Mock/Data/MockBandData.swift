@@ -335,4 +335,62 @@ enum MockData {
         ),
     ]
     
+    // MARK: - VisitorComments
+    static var visitorComments: [VisitorCommentInfo] = [
+        VisitorCommentInfo(
+            commentID: "visitorCommentID-001",
+            comment: VisitorComment(
+                hostBand: bands[0],
+                author: bands[2],
+                content:
+                    """
+                    언제 또 저희랑 합주 한 번 더 같이 가시죠~~
+                    """,
+                createdAt: Date()
+            )
+        ),
+        VisitorCommentInfo(
+            commentID: "visitorCommentID-002",
+            comment: VisitorComment(
+                hostBand: bands[0],
+                author: bands[3],
+                content:
+                    """
+                    안녕하세요~~!!
+                    저희는 \(bands[3].band.name)입니다.
+                    저희 팀원이 전에 \(bands[0].band.name) 공연하는 거 봤었는데,
+                    말 걸고 싶은데 못 걸어서 아쉽다고 하더라구요.
+                    시간되시면 나중에 밴드 대 밴드로 같이 이야기 나눠볼 수 있을까요?
+                    """,
+                createdAt: Date()
+            )
+        ),
+        VisitorCommentInfo(
+            commentID: "visitorCommentID-003",
+            comment: VisitorComment(
+                hostBand: bands[0],
+                author: bands[2],
+                content:
+                    """
+                    잘 지내고 계신가요~~!!
+                    저희팀 다음 주에 공연합니다.
+                    시간되면 놀려와주세요ㅎㅎ
+                    """,
+                createdAt: Date()
+            )
+        ),
+        VisitorCommentInfo(
+            commentID: "visitorCommentID-004",
+            comment: VisitorComment(
+                hostBand: bands[0],
+                author: bands[2],
+                content:
+                    """
+                    안녕하세요~~ \(bands[2].band.name)입니다.
+                    잘 부탁드려요.
+                    """,
+                createdAt: Date()
+            )
+        )
+    ]
 }
