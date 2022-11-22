@@ -23,6 +23,16 @@ enum BandInfoViewList: Int, CaseIterable {
 
 class BandPageViewController: UIViewController {
 
+    // MARK: - Properties
+
+    var currentPage: Int = 0 {
+        didSet {
+            let direction: UIPageViewController.NavigationDirection = oldValue <= self.currentPage ? .forward : .reverse
+            self.pageViewController.setViewControllers([viewControllerList[self.currentPage]],
+                                                       direction: direction, animated: true)
+        }
+    }
+
     // MARK: - View
 
     private let topView = TopViewOfInfoView(bandName: "블랙로즈", bandLocation: "주소다주소야주소다주소야")
@@ -30,12 +40,27 @@ class BandPageViewController: UIViewController {
                                                                         [BandInfoViewList.bandInfo.toKorean(),
                                                                          BandInfoViewList.bandTimeLine.toKorean(),
                                                                          BandInfoViewList.visitorComment.toKorean()])
+    private lazy var bandInfoViewController = BandInfoViewController()
+    private lazy var bandTimelineViewController = BandTimelineViewController()
+    private lazy var commentListViewController = CommentListViewController()
+    private lazy var pageViewController: UIPageViewController = {
+        let pageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
+        pageViewController.setViewControllers([self.viewControllerList[0]], direction: .forward, animated: true)
+        pageViewController.dataSource = self
+        pageViewController.delegate = self
+        return pageViewController
+    }()
+
+    var viewControllerList: [UIViewController] {
+        [self.bandInfoViewController, self.bandTimelineViewController, self.commentListViewController]
+    }
 
     // MARK: - View Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLayout()
+        segmentedControlButtons.viewSwitchedSegmentedControldelegate = self
     }
 
 }
@@ -43,6 +68,18 @@ class BandPageViewController: UIViewController {
 // MARK: - Layout
 
 extension BandPageViewController {
+
+    private func configurePageViewController() {
+        pageViewController.view.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(pageViewController.view)
+        NSLayoutConstraint.activate([
+            pageViewController.view.topAnchor.constraint(equalTo: segmentedControlButtons.bottomAnchor),
+            pageViewController.view.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            pageViewController.view.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            pageViewController.view.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
+        ])
+
+    }
     private func configureSegmentedControlButton() {
         segmentedControlButtons.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(segmentedControlButtons)
@@ -67,5 +104,35 @@ extension BandPageViewController {
         view.backgroundColor = .modalBackgroundBlue
         configureTopView()
         configureSegmentedControlButton()
+        configurePageViewController()
     }
+}
+
+extension BandPageViewController: UIPageViewControllerDelegate {
+    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+        guard let viewController = pageViewController.viewControllers?[0],
+              let index = self.viewControllerList.firstIndex(of: viewController) else { return }
+        self.currentPage = index
+
+    }
+}
+
+extension BandPageViewController: UIPageViewControllerDataSource {
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+        guard let index = self.viewControllerList.lastIndex(of: viewController), index + 1 < self.viewControllerList.count
+        else { return nil}
+        return self.viewControllerList[index + 1]
+    }
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+        guard let index = self.viewControllerList.firstIndex(of: viewController), index - 1 >= 0 else { return nil }
+        return self.viewControllerList[index - 1]
+    }
+
+}
+
+extension BandPageViewController: ViewSwitchedSegmentedControlDelegate {
+    func segmentValueChanged(to index: Int) {
+        currentPage = index
+    }
+
 }
