@@ -41,6 +41,7 @@
 		7BB7099B292A47E50065136D /* CommentCreateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB7099A292A47E40065136D /* CommentCreateButton.swift */; };
 		7BDA8F8B291284FE00BB2D34 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDA8F8A291284FE00BB2D34 /* UIColor+Extension.swift */; };
 		7BDA8F90291296B200BB2D34 /* UIView+Gradation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDA8F8F291296B200BB2D34 /* UIView+Gradation.swift */; };
+		7BFDAA91292C94E5002FE744 /* CommentWritingPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFDAA90292C94E5002FE744 /* CommentWritingPopupViewController.swift */; };
 		B830849929263B780035DB2D /* MainMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B830849829263B780035DB2D /* MainMapViewController.swift */; };
 		B8B9971F29287D3700082462 /* MainMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8B9971E29287D3700082462 /* MainMap.storyboard */; };
 /* End PBXBuildFile section */
@@ -101,6 +102,7 @@
 		7BB7099A292A47E40065136D /* CommentCreateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCreateButton.swift; sourceTree = "<group>"; };
 		7BDA8F8A291284FE00BB2D34 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		7BDA8F8F291296B200BB2D34 /* UIView+Gradation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Gradation.swift"; sourceTree = "<group>"; };
+		7BFDAA90292C94E5002FE744 /* CommentWritingPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentWritingPopupViewController.swift; sourceTree = "<group>"; };
 		B830849829263B780035DB2D /* MainMapViewController.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = MainMapViewController.swift; sourceTree = "<group>"; tabWidth = 4; };
 		B8B9971E29287D3700082462 /* MainMap.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainMap.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -291,6 +293,7 @@
 				7BB7099229290AE40065136D /* CommentListView.swift */,
 				7BB70998292A419B0065136D /* EmptyListView.swift */,
 				7BB7099A292A47E40065136D /* CommentCreateButton.swift */,
+				7BFDAA90292C94E5002FE744 /* CommentWritingPopupViewController.swift */,
 				7BB709952929161D0065136D /* Cell */,
 			);
 			path = UIComponent;
@@ -523,6 +526,7 @@
 				7BDA8F90291296B200BB2D34 /* UIView+Gradation.swift in Sources */,
 				0761508B29276D8200A0562F /* Coordinate.swift in Sources */,
 				7BB7099B292A47E50065136D /* CommentCreateButton.swift in Sources */,
+				7BFDAA91292C94E5002FE744 /* CommentWritingPopupViewController.swift in Sources */,
 				07D7DA302910895000479B6F /* LandingViewController.swift in Sources */,
 				072DEDD429268F470046A4A0 /* PlayPosition.swift in Sources */,
 				07D7DA2D291088EC00479B6F /* NSObject+Extension.swift in Sources */,
