@@ -287,4 +287,39 @@ enum MockData {
             )
         )
     ]
+    
+    // MARK: - GatheringComments
+    static var gatheringComments: [GatheringCommentInfo] = [
+        GatheringCommentInfo(
+            commentID: "gatheringCommentID-001",
+            comment: GatheringComment(
+                gathering: gatherings[0].gathering,
+                author: bands[1],
+                content: "저희 밴드에서는 저 혼자만 가는데, 혹시 같이가도 괜찮을까요?",
+                createdAt: Date()
+            )
+        ),
+        GatheringCommentInfo(
+            commentID: "gatheringCommentID-001",
+            comment: GatheringComment(
+                gathering: gatherings[0].gathering,
+                author: bands[0],
+                content: "물론이죠!",
+                createdAt: Date()
+            )
+        ),
+        GatheringCommentInfo(
+            commentID: "gatheringCommentID-001",
+            comment: GatheringComment(
+                gathering: gatherings[0].gathering,
+                author: bands[0],
+                content:
+                    """
+                    12시쯤에 입구앞에서 만나요!! 저희는 3명 정도 갑니다ㅎㅎ
+                    """,
+                createdAt: Date()
+            )
+        ),
+    ]
+    
 }
