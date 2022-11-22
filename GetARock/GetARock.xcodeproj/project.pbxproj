@@ -332,9 +332,8 @@
 		3D56532A292855F8003D0C9F /* BandInfo */ = {
 			isa = PBXGroup;
 			children = (
-				3D0ED2222928667900AE320C /* BandInfoViewController.swift */,
-				84002601292BB3DB0093648A /* BandTimelineViewController.swift */,
-				84002607292BC4BE0093648A /* BandTimelineCell.swift */,
+				84FCD865292CC0430097E17F /* Cell */,
+				84FCD866292CC04A0097E17F /* VC */,
 			);
 			path = BandInfo;
 			sourceTree = "<group>";
@@ -354,6 +353,23 @@
 				8437619129276FA700BD2C2A /* GatheringCell.swift */,
 			);
 			path = Gathering;
+			sourceTree = "<group>";
+		};
+		84FCD865292CC0430097E17F /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				84002607292BC4BE0093648A /* BandTimelineCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		84FCD866292CC04A0097E17F /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				3D0ED2222928667900AE320C /* BandInfoViewController.swift */,
+				84002601292BB3DB0093648A /* BandTimelineViewController.swift */,
+			);
+			path = VC;
 			sourceTree = "<group>";
 		};
 		B830849729263B620035DB2D /* MainMap */ = {
