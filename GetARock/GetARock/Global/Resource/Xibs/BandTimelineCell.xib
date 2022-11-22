@@ -108,9 +108,11 @@
             </tableViewCellContentView>
             <color key="backgroundColor" red="0.35294118520000001" green="0.3686274886" blue="0.46274507050000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
             <connections>
+                <outlet property="bottomLine" destination="Fpk-HD-t04" id="Dvj-gx-caD"/>
                 <outlet property="startTime" destination="np7-Hm-tCg" id="QJA-NZ-exa"/>
                 <outlet property="state" destination="JSI-YD-u1h" id="Rw1-m3-fCX"/>
                 <outlet property="title" destination="Gsv-TT-DTS" id="5M5-YG-3TT"/>
+                <outlet property="topLine" destination="Qwo-tI-wkK" id="g67-Yv-x8B"/>
             </connections>
             <point key="canvasLocation" x="118.32061068702289" y="45.774647887323944"/>
         </tableViewCell>

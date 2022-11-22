@@ -79,6 +79,12 @@ extension BandTimelineViewController: UITableViewDataSource {
             cell.state.isHidden = true
         }
         
+        if indexPath.row == 0 {
+            cell.topLine.isHidden = true
+        } else if indexPath.row == gathering.count - 1 {
+            cell.bottomLine.isHidden = true
+        }
+        
         return cell
     }
 }
