@@ -266,7 +266,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="conditionContainer" destination="IPq-Y1-Mnd" id="cwL-wD-uEF"/>
+                        <outlet property="conditionView" destination="IPq-Y1-Mnd" id="3r6-sJ-KJB"/>
                         <outlet property="introductionContentView" destination="t8o-3s-pFn" id="SGm-Rw-afS"/>
                     </connections>
                 </viewController>
