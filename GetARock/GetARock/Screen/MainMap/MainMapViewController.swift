@@ -80,10 +80,8 @@ final class MainMapViewController: UIViewController {
             centerUserLocation()
         case .restricted, .denied:
             requestLocationAuthorizationWhenUserDenied()
-        case .notDetermined:
-            locationManager.requestWhenInUseAuthorization()
         default:
-            setDefaultLocation()
+            break
         }
     }
     
@@ -100,7 +98,6 @@ extension MainMapViewController: CLLocationManagerDelegate {
             manager.startUpdatingLocation()
         case .notDetermined:
             manager.requestWhenInUseAuthorization()
-            setDefaultLocation()
         default:
             setDefaultLocation()
         }
