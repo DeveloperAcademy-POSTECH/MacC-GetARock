@@ -12,7 +12,7 @@ class GatheringCreatedViewController: UIViewController {
     // MARK: - Properties
     
     @IBOutlet weak var tableView: UITableView!
-    var gatheringType: GatheringType = .gatheringCreated {
+    var gatheringListType: GatheringListType = .gatheringCreated {
         didSet {
             tableView.reloadData()
         }
@@ -70,7 +70,7 @@ class GatheringCreatedViewController: UIViewController {
 
 extension GatheringCreatedViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch gatheringType {
+        switch gatheringListType {
         case .gatheringCreated:
             return gathering.count
         case .gatheringJoined:
@@ -81,7 +81,7 @@ extension GatheringCreatedViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: GatheringCell.className, for: indexPath) as? GatheringCell else { return UITableViewCell() }
         
-        switch gatheringType {
+        switch gatheringListType {
         case .gatheringCreated:
             break
         case .gatheringJoined:

@@ -7,7 +7,7 @@
 
 import UIKit
 
-enum GatheringType: CaseIterable {
+enum GatheringListType: CaseIterable {
     case gatheringCreated
     case gatheringJoined
     
@@ -23,7 +23,7 @@ class GatheringListViewController: UIViewController {
     
     // MARK: - View
     
-    private let segmentedControlButtons = ViewSwitchedSegmentedControl(buttonTitles: [GatheringType.gatheringCreated.toKorean(), GatheringType.gatheringJoined.toKorean()])
+    private let segmentedControlButtons = ViewSwitchedSegmentedControl(buttonTitles: [GatheringListType.gatheringCreated.toKorean(), GatheringListType.gatheringJoined.toKorean()])
 
     private let gatheringListContentViewController: GatheringCreatedViewController = UIStoryboard(name: "GatheringView", bundle: nil).instantiateViewController(withIdentifier: GatheringCreatedViewController.className) as? GatheringCreatedViewController ?? GatheringCreatedViewController()
     
@@ -74,7 +74,7 @@ extension GatheringListViewController {
 
 extension GatheringListViewController: ViewSwitchedSegmentedControlDelegate {
     func segmentValueChanged(to index: Int) {
-        gatheringListContentViewController.gatheringType = GatheringType.allCases[index]
+        gatheringListContentViewController.gatheringListType = GatheringListType.allCases[index]
     }
 
 }
