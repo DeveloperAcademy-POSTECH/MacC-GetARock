@@ -48,9 +48,7 @@ class ReportReasonListController: UITableViewController, AlertSheet {
     // MARK: - TableView data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-
-    return 1
-
+        return 1
      }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -60,7 +58,7 @@ class ReportReasonListController: UITableViewController, AlertSheet {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ReportReasonListCell") as? ReportReasonListCell else { return UITableViewCell() }
         cell.reportReason.text = reportReason[indexPath.row]
-                return cell
+        return cell
     }
     
     // MARK: - TableView delegate

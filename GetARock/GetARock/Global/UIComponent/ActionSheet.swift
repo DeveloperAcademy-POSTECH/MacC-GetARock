@@ -48,7 +48,7 @@ extension AlertSheet {
         alertSheet.addAction(action)
         alertSheet.addAction(cancel)
         
-    present(alertSheet, animated: true)
+        present(alertSheet, animated: true)
         
     }
 }
