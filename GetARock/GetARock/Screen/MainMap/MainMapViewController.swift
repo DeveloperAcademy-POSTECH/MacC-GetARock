@@ -31,6 +31,7 @@ final class MainMapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        mapView.delegate = self
         locationManager.delegate = self
         self.locationManager.requestWhenInUseAuthorization()
         addAnnotationOnMapView()
