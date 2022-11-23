@@ -65,7 +65,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <datePicker contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="249" contentHorizontalAlignment="leading" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="s35-8k-0gb">
-                                                <rect key="frame" x="82.000000000000014" y="153" width="217.33333333333337" height="34.333333333333343"/>
+                                                <rect key="frame" x="82" y="153" width="228" height="34.333333333333343"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -125,7 +125,7 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="uNV-iD-x50">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="uNV-iD-x50" userLabel="Introduction Text View">
                                                 <rect key="frame" x="32" y="319" width="329" height="33"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" red="0.5647059083" green="0.58039218189999997" blue="0.68235301969999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -220,8 +220,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="aboutTextView" destination="uNV-iD-x50" id="qel-ZL-s05"/>
                         <outlet property="hostBandNameLabel" destination="n7W-To-VFW" id="RSA-Hm-SvS"/>
+                        <outlet property="introductionTextView" destination="uNV-iD-x50" id="NuI-MW-yqf"/>
                         <outlet property="scrollView" destination="teO-Fx-L4D" id="Pwm-8O-BPx"/>
                         <outlet property="titleTextField" destination="zaJ-zq-18Z" id="Al4-Ik-WXX"/>
                     </connections>

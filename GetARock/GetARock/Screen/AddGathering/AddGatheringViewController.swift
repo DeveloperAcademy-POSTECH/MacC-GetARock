@@ -13,7 +13,7 @@ class AddGatheringViewController: UIViewController {
 
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var hostBandNameLabel: UILabel!
-    @IBOutlet weak var aboutTextView: UITextView!
+    @IBOutlet weak var introductionTextView: UITextView!
     @IBOutlet weak var scrollView: UIScrollView!
 
     private let placeHolderLabel: UILabel = {
@@ -30,6 +30,7 @@ class AddGatheringViewController: UIViewController {
         super.viewDidLoad()
         
         attribute()
+        setDelegate()
         setupLayout()
     }
 
@@ -40,15 +41,19 @@ class AddGatheringViewController: UIViewController {
     }
 
     @IBAction func scrollViewTapRecognizer(_ sender: UITapGestureRecognizer) {
-        titleTextField.endEditing(true)
-        aboutTextView.endEditing(true)
+        view.endEditing(true)
     }
 
     private func attribute() {
         setupNavigationBar()
         hostBandNameLabel.text = "블랙로즈" // 추후 유저디폴트 사용 예정
         titleTextField.becomeFirstResponder()
+        introductionTextView.delegate = self
         getKeyboardNotification()
+    }
+
+    private func setDelegate() {
+        introductionTextView.delegate = self
     }
 
     private func setupNavigationBar() {
@@ -59,10 +64,9 @@ class AddGatheringViewController: UIViewController {
         view.addSubview(placeHolderLabel)
         placeHolderLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            placeHolderLabel.topAnchor.constraint(equalTo: aboutTextView.topAnchor, constant: 8),
-            placeHolderLabel.leadingAnchor.constraint(equalTo: aboutTextView.leadingAnchor, constant: 4)
+            placeHolderLabel.topAnchor.constraint(equalTo: introductionTextView.topAnchor, constant: 8),
+            placeHolderLabel.leadingAnchor.constraint(equalTo: introductionTextView.leadingAnchor, constant: 4)
         ])
-        aboutTextView.delegate = self
     }
 }
 
@@ -70,11 +74,11 @@ class AddGatheringViewController: UIViewController {
 
 extension AddGatheringViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
-        self.placeHolderLabel.textColor = aboutTextView.text.count == 0 ? .lightGray : .clear
+        self.placeHolderLabel.textColor = introductionTextView.text.count == 0 ? .lightGray : .clear
     }
 }
 
-// MARK: - KeyboardNotification
+// MARK: - KeyboardControl
 
 extension AddGatheringViewController {
     private func getKeyboardNotification() {
@@ -84,7 +88,7 @@ extension AddGatheringViewController {
 
     @objc func keyboardWillShow(_ sender: Notification) {
         guard let userInfo: NSDictionary = sender.userInfo as NSDictionary?,
-              let keyboardFrame: NSValue = userInfo.value(forKey: UIResponder.keyboardFrameEndUserInfoKey) as? NSValue else{
+              let keyboardFrame: NSValue = userInfo.value(forKey: UIResponder.keyboardFrameEndUserInfoKey) as? NSValue else {
                   return
               }
         let keyboardRectangle = keyboardFrame.cgRectValue
