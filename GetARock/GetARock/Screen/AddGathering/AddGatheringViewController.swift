@@ -47,7 +47,11 @@ class AddGatheringViewController: UIViewController {
 
     @IBAction func cancelButtonAction(_ sender: UIBarButtonItem) {
         if introductionTextView.text.count > 0 || (titleTextField?.text ?? "").count > 0 || gatheringLocation != nil {
-            let cancelAlert = UIAlertController(title: nil, message: "작성중인 내용이 있습니다. 작성을 취소하시겠습니까?", preferredStyle: .alert)
+            let cancelAlert = UIAlertController(
+                title: nil,
+                message: "작성중인 내용이 있습니다. 작성을 취소하시겠습니까?",
+                preferredStyle: .alert
+            )
             let cancel = UIAlertAction(title: "아니오", style: .cancel)
             let confirm = UIAlertAction(title: "예", style: .destructive, handler: {_ in
                 self.dismiss(animated: true)
@@ -67,13 +71,20 @@ class AddGatheringViewController: UIViewController {
             alert.addAction(confirm)
             self.present(alert, animated: true)
         } else {
-            let gatheringAddTestGathering = Gathering(title: titleTextField.text ?? "이름없음",
-                                                        host: MockData.bands[0], // 테스트용, 추후 변경
-                                                        status: .recruiting,
-                                                        date: dateTimePicker.date,
-                                                        location: gatheringLocation ?? Location(name: "Default", address: "defaultAddress", additionalAddress: "defaultAdditionalAddress", coordinate: Coordinate(latitude: 36.01900, longitude: 129.34370)),
-                                                        introduction: introductionTextView.text,
-                                                        createdAt: Date())
+            let gatheringAddTestGathering = Gathering(
+                title: titleTextField.text ?? "이름없음",
+                host: MockData.bands[0], // 테스트용, 추후 변경
+                status: .recruiting,
+                date: dateTimePicker.date,
+                location: gatheringLocation ?? Location(
+                    name: "Default",
+                    address: "defaultAddress",
+                    additionalAddress: "defaultAdditionalAddress",
+                    coordinate: Coordinate(latitude: 36.01900, longitude: 129.34370)
+                ),
+                introduction: introductionTextView.text,
+                createdAt: Date()
+            )
             MockData.gatherings.append(GatheringInfo(gatheringID: "testID", gathering: gatheringAddTestGathering)) // 추후 변경
             printMockDataGatheringUpdateToTest() // 추후 삭제
             dismiss(animated: true)
@@ -122,8 +133,17 @@ extension AddGatheringViewController: UITextViewDelegate {
 
 extension AddGatheringViewController {
     private func getKeyboardNotification() {
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillShow(_:)),
+            name: UIResponder.keyboardWillShowNotification, object: nil
+        )
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillHide(_:)),
+            name: UIResponder.keyboardWillHideNotification,
+            object: nil
+        )
     }
 
     @objc func keyboardWillShow(_ sender: Notification) {
@@ -155,6 +175,7 @@ extension AddGatheringViewController {
 }
 
 // MARK: - Trivial utility method
+
 extension AddGatheringViewController {
     private func invalidInputErrorString() -> String? {
         enum Field: String {
