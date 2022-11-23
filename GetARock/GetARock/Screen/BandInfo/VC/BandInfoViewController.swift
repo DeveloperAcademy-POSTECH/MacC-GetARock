@@ -31,9 +31,9 @@ class BandInfoViewController: UIViewController {
         bandMemberCollectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         bandMemberCollectionView.dataSource = self
         
-        bandAgeLabel.text = setBandAgeLabel()
-        
         self.bandMemberCollectionView.collectionViewLayout = createCompositionalLayout()
+        
+        bandAgeLabel.text = generateBandAgeLabelText()
         
         let repertoireTableViewCellNib = UINib(nibName: "RepertoireTableViewCell", bundle: nil)
         self.repertoireTableView.register(repertoireTableViewCellNib, forCellReuseIdentifier: "RepertoireTableViewCell")
@@ -51,7 +51,7 @@ class BandInfoViewController: UIViewController {
 // MARK: - 컬렉션뷰 compositonal layout 관련
 
 extension BandInfoViewController {
-    fileprivate func createCompositionalLayout() -> UICollectionViewLayout {
+    private func createCompositionalLayout() -> UICollectionViewLayout {
         let layout = UICollectionViewCompositionalLayout { (_: Int, _: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
             
             let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1/3), heightDimension: .fractionalHeight(1))
@@ -71,20 +71,6 @@ extension BandInfoViewController {
     }
 }
 
-// MARK: - 밴드 연령대 Label 관련
-
-extension BandInfoViewController {
-    fileprivate func setBandAgeLabel() -> String {
-        for num in 0...bandAgeArray.count - 1 {
-            bandAgeLabel.text?.append(bandAgeArray[num])
-            if num != bandAgeArray.count - 1 {
-                bandAgeLabel.text?.append(", ")
-            }
-        }
-        return bandAgeLabel.text ?? ""
-    }
-}
-
 // MARK: - 컬렉션뷰 데이터 삽입 관련
 
 extension BandInfoViewController: UICollectionViewDataSource {
@@ -101,6 +87,20 @@ extension BandInfoViewController: UICollectionViewDataSource {
         cell.numberOfPositionLabel.text = "\(self.numberOfPostionArray[indexPath.item])명"
         
         return cell
+    }
+}
+
+// MARK: - 밴드 연령대 Label 관련
+
+extension BandInfoViewController {
+    private func generateBandAgeLabelText() -> String {
+        for num in 0...bandAgeArray.count - 1 {
+            bandAgeLabel.text?.append(bandAgeArray[num])
+            if num != bandAgeArray.count - 1 {
+                bandAgeLabel.text?.append(", ")
+            }
+        }
+        return bandAgeLabel.text ?? ""
     }
 }
 
