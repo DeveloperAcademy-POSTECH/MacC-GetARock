@@ -19,12 +19,14 @@ class BandInfoViewController: UIViewController {
     @IBOutlet weak var repertoireTableView: UITableView!
     @IBOutlet weak var tableHeightConstraint: NSLayoutConstraint!
     
-    private let numberOfBandMember: Int = 7
-    private let positionNameArray: [String] = ["보컬", "기타", "키보드", "드럼", "베이스", "그 외"]
-    private let numberOfPostionArray: [Int] = [1, 2, 1, 1, 1, 0]
-    private let bandIntroduceText = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
-    private let bandAgeArray: [String] = ["20대", "30대", "40대"]
-    private let repertoireArray: [String] = ["Bigbang - Haruharu", "빅뱅 - 붉은노을", "이브 - 제목이 짤릴 정도로 긴 노래를 만들어 보았다람쥐"]
+    private lazy var numberOfBandMember: Int = calculateNumberOfBandMemberText()
+    private lazy var positionNameArray: [String] = appendPositionNameArray()
+    private lazy var numberOfPostionArray: [Int] = appendNumberOfPostionArray()
+    private lazy var bandAgeArray: [String] = appendBandAgeArray()
+    private lazy var repertoireArray: [String] = selectedBand.repertoire
+    private lazy var bandIntroduceText = selectedBand.introduction
+    
+    private let selectedBand: Band = MockData.bands[0].band
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -121,7 +123,7 @@ extension BandInfoViewController: UICollectionViewDataSource {
     }
 }
 
-// MARK: - 밴드 연령대 Label 관련
+// MARK: - Label 텍스트에 연결하는 변수 관련
 
 extension BandInfoViewController {
     private func generateBandAgeLabelText() -> String {
@@ -132,6 +134,38 @@ extension BandInfoViewController {
             }
         }
         return bandAgeLabel.text ?? ""
+    }
+    
+    private func calculateNumberOfBandMemberText() -> Int {
+        var sum = 0
+        for num in 0...selectedBand.filledPosition.count - 1 {
+            sum += selectedBand.filledPosition[num].numberOfPerson
+        }
+        return sum
+    }
+    
+    private func appendPositionNameArray() -> [String] {
+        var positionNameArray: [String] = []
+        for num in 0...selectedBand.filledPosition.count - 1 {
+            positionNameArray.append(selectedBand.filledPosition[num].position.toKorean())
+        }
+        return positionNameArray
+    }
+    
+    private func appendNumberOfPostionArray() -> [Int] {
+        var numberOfPositionArray: [Int] = []
+        for num in 0...selectedBand.filledPosition.count - 1 {
+            numberOfPositionArray.append(selectedBand.filledPosition[num].numberOfPerson)
+        }
+        return numberOfPositionArray
+    }
+    
+    private func appendBandAgeArray() -> [String] {
+        var bandAgeArray: [String] = []
+        for num in 0...selectedBand.ageGroups.count - 1 {
+            bandAgeArray.append(selectedBand.ageGroups[num].toKorean())
+        }
+        return bandAgeArray
     }
 }
 
