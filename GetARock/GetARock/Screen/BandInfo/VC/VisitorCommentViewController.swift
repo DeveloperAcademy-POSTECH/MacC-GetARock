@@ -11,20 +11,10 @@ final class VisitorCommentViewController: UIViewController {
 
     // MARK: - View
 
-    private let visitorCommentButton: CommentCreateButton = {
-        $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.setupButtonTitle(title: "방명록 남기기")
-        return $0
-    }(CommentCreateButton())
-
-    private let visitorCommentList = CommentListView(entryPoint: .visitorComment)
-
-    private lazy var commentStackView: UIStackView = {
-        $0.spacing = 20
-        $0.axis = .vertical
+    private let visitorCommentList = {
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
-    }(UIStackView(arrangedSubviews: [visitorCommentButton, visitorCommentList]))
+    }(CommentListView(entryPoint: .visitorComment))
 
     // MARK: - Life Cycle
 
@@ -41,21 +31,21 @@ final class VisitorCommentViewController: UIViewController {
     }
 
     private func setupLayout() {
-        view.addSubview(commentStackView)
+        view.addSubview(visitorCommentList)
         NSLayoutConstraint.activate([
-            commentStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
-            commentStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            commentStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
-            commentStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+            visitorCommentList.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            visitorCommentList.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            visitorCommentList.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            visitorCommentList.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
         setupWritingButton()
         
     }
 
     private func setupWritingButton() {
-        visitorCommentButton.titleButton.addTarget(self, action: #selector(didTapVisitorCommentButton), for: .touchUpInside)
+        visitorCommentList.commentWritingButton.titleButton.addTarget(self, action: #selector(didTapVisitorCommentButton), for: .touchUpInside)
     }
-    
+
     @objc func didTapVisitorCommentButton() {
         let popupViewController = CommentWritingPopupViewController()
         popupViewController.modalPresentationStyle = .overFullScreen
