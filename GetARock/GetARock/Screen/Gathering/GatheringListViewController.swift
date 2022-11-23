@@ -64,3 +64,10 @@ extension GatheringListViewController {
         configureGatheringList()
     }
 }
+
+extension GatheringListViewController: ViewSwitchedSegmentedControlDelegate {
+    func segmentValueChanged(to index: Int) {
+        gatheringListContentViewController.gatheringType = GatheringType.allCases[index]
+    }
+
+}
