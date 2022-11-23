@@ -32,12 +32,13 @@
 		07D7DA3A29108C5B00479B6F /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D7DA3929108C5B00479B6F /* BaseViewController.swift */; };
 		07D7DA3C29108C9000479B6F /* SampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D7DA3B29108C9000479B6F /* SampleView.swift */; };
 		07D7DA3F29108CF800479B6F /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D7DA3E29108CF800479B6F /* MyPageViewController.swift */; };
-		07D7DA4129108D0500479B6F /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07D7DA4029108D0500479B6F /* MyPage.storyboard */; };
 		07D7DA4429108DCB00479B6F /* SampleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07D7DA4329108DCB00479B6F /* SampleView.xib */; };
 		07D7DA832911EB7D00479B6F /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 07D7DA822911EB7D00479B6F /* .swiftlint.yml */; };
 		3D0ED2232928667900AE320C /* BandInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0ED2222928667900AE320C /* BandInfoViewController.swift */; };
 		3D565329292855E9003D0C9F /* BandInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D565328292855E9003D0C9F /* BandInfo.storyboard */; };
 		3DF54FCB292A43EA001CD16B /* BandMemberCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF54FCA292A43EA001CD16B /* BandMemberCollectionViewCell.swift */; };
+		6667A3202929F5DA0052A53B /* GatheringInfoPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6667A31F2929F5DA0052A53B /* GatheringInfoPage.storyboard */; };
+		66E1623F292ADFF5001F0578 /* GatheringInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E1623E292ADFF5001F0578 /* GatheringInfoViewController.swift */; };
 		7BDA8F8B291284FE00BB2D34 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDA8F8A291284FE00BB2D34 /* UIColor+Extension.swift */; };
 		7BDA8F90291296B200BB2D34 /* UIView+Gradation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDA8F8F291296B200BB2D34 /* UIView+Gradation.swift */; };
 		8437618B2927397400BD2C2A /* GatheringView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8437618A2927397400BD2C2A /* GatheringView.storyboard */; };
@@ -100,12 +101,13 @@
 		07D7DA3929108C5B00479B6F /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		07D7DA3B29108C9000479B6F /* SampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleView.swift; sourceTree = "<group>"; };
 		07D7DA3E29108CF800479B6F /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
-		07D7DA4029108D0500479B6F /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
 		07D7DA4329108DCB00479B6F /* SampleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SampleView.xib; sourceTree = "<group>"; };
 		07D7DA822911EB7D00479B6F /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		3D0ED2222928667900AE320C /* BandInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandInfoViewController.swift; sourceTree = "<group>"; };
 		3D565328292855E9003D0C9F /* BandInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BandInfo.storyboard; sourceTree = "<group>"; };
 		3DF54FCA292A43EA001CD16B /* BandMemberCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandMemberCollectionViewCell.swift; sourceTree = "<group>"; };
+		6667A31F2929F5DA0052A53B /* GatheringInfoPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GatheringInfoPage.storyboard; sourceTree = "<group>"; };
+		66E1623E292ADFF5001F0578 /* GatheringInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatheringInfoViewController.swift; sourceTree = "<group>"; };
 		7BDA8F8A291284FE00BB2D34 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		7BDA8F8F291296B200BB2D34 /* UIView+Gradation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Gradation.swift"; sourceTree = "<group>"; };
 		8437618A2927397400BD2C2A /* GatheringView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GatheringView.storyboard; sourceTree = "<group>"; };
@@ -261,6 +263,7 @@
 		07D7DA282910882D00479B6F /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				66E1623D292ADFC7001F0578 /* GatheringInfo */,
 				3D56532A292855F8003D0C9F /* BandInfo */,
 				B830849729263B620035DB2D /* MainMap */,
 				C5C7AC69292A7EC000698636 /* AddGathering */,
@@ -286,7 +289,7 @@
 			children = (
 				07D7D9E8290FB8C200479B6F /* Landing.storyboard */,
 				07D7D9ED290FB8C400479B6F /* LaunchScreen.storyboard */,
-				07D7DA4029108D0500479B6F /* MyPage.storyboard */,
+				6667A31F2929F5DA0052A53B /* GatheringInfoPage.storyboard */,
 				3D565328292855E9003D0C9F /* BandInfo.storyboard */,
 				B8B9971E29287D3700082462 /* MainMap.storyboard */,
 				C5C7AC6A292A7F7C00698636 /* AddGathering.storyboard */,
@@ -380,6 +383,14 @@
 				3DF54FCA292A43EA001CD16B /* BandMemberCollectionViewCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		66E1623D292ADFC7001F0578 /* GatheringInfo */ = {
+			isa = PBXGroup;
+			children = (
+				66E1623E292ADFF5001F0578 /* GatheringInfoViewController.swift */,
+			);
+			path = GatheringInfo;
 			sourceTree = "<group>";
 		};
 		7BDA8F8E291296A200BB2D34 /* Utils */ = {
@@ -527,11 +538,11 @@
 				8437618D29273CF000BD2C2A /* GatheringCell.xib in Resources */,
 				07D7D9EF290FB8C400479B6F /* LaunchScreen.storyboard in Resources */,
 				07D7DA4429108DCB00479B6F /* SampleView.xib in Resources */,
+				6667A3202929F5DA0052A53B /* GatheringInfoPage.storyboard in Resources */,
 				07D7D9EC290FB8C400479B6F /* Assets.xcassets in Resources */,
 				07D7D9EA290FB8C200479B6F /* Landing.storyboard in Resources */,
 				3D565329292855E9003D0C9F /* BandInfo.storyboard in Resources */,
 				C5C7AC6B292A7F7C00698636 /* AddGathering.storyboard in Resources */,
-				07D7DA4129108D0500479B6F /* MyPage.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -554,6 +565,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		07D7DA812911EB1100479B6F /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -576,6 +588,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66E1623F292ADFF5001F0578 /* GatheringInfoViewController.swift in Sources */,
 				8437619229276FA700BD2C2A /* GatheringCell.swift in Sources */,
 				8437619029275B3500BD2C2A /* GatheringCreatedViewController.swift in Sources */,
 				07D7DA3C29108C9000479B6F /* SampleView.swift in Sources */,
