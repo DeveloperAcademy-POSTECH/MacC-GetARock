@@ -33,6 +33,24 @@ final class MainMapViewController: UIViewController {
         
         locationManager.delegate = self
         self.locationManager.requestWhenInUseAuthorization()
+        addAnnotationOnMapView()
+    }
+    
+    // MARK: - Method
+    
+    private func addAnnotationOnMapView() {
+        for band in MockData.bands {
+            let point = MKPointAnnotation()
+            point.coordinate = band.band.location.coordinate.toCLLocationCoordinate2D()
+            point.title = band.band.name
+            mapView.addAnnotation(point)
+        }
+        for gathering in MockData.gatherings {
+            let point = MKPointAnnotation()
+            point.coordinate = gathering.gathering.location.coordinate.toCLLocationCoordinate2D()
+            point.title = gathering.gathering.host.band.name
+            mapView.addAnnotation(point)
+        }
     }
     
     private func setDefaultLocation() {
@@ -47,9 +65,7 @@ final class MainMapViewController: UIViewController {
             animated: true
         )
     }
-    
-    // MARK: - Method
-    
+
     private func centerUserLocation() {
         mapView.showsUserLocation = true
         mapView.setUserTrackingMode(.follow, animated: true)
