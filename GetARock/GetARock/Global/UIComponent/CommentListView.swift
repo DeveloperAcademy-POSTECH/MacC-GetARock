@@ -56,7 +56,7 @@ class CommentListView: UIView {
         tableView.dataSource = self
         tableView.register(
             CommentTableViewCell.self,
-            forCellReuseIdentifier: "CommentTableViewCell"
+            forCellReuseIdentifier: CommentTableViewCell.className
         )
     }
 
@@ -95,7 +95,8 @@ extension CommentListView: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: "CommentTableViewCell",
+
+            withIdentifier: CommentTableViewCell.className,
             for: indexPath
         ) as? CommentTableViewCell else { return UITableViewCell() }
         cell.selectionStyle = .none
