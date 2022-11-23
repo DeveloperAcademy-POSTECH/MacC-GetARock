@@ -40,8 +40,7 @@ class CommentListView: UIView {
     
     private let tableView = {
         $0.showsVerticalScrollIndicator = false
-//        $0.separatorInset.left = 16
-//        $0.separatorInset.right = 16
+        $0.separatorInset.right = 16
         $0.separatorColor = .dividerBlue
         $0.rowHeight = UITableView.automaticDimension
         $0.estimatedRowHeight = UITableView.automaticDimension
