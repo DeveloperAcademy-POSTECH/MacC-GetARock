@@ -13,7 +13,7 @@ class GatheringInfoViewController: UIViewController, Reportable {
     
     @IBOutlet weak var conditionView: UIView!
     @IBOutlet weak var introductionContentView: UIView!
-    @IBOutlet weak var ellipsis: UIButton!
+    @IBOutlet weak var ellipsisForDeleteAndReport: UIButton!
     
     // MARK: - View Life Cycle
     
@@ -31,7 +31,7 @@ class GatheringInfoViewController: UIViewController, Reportable {
         print("삭제에 성공했습니다.")
     }
     
-    @IBAction func ellipsis(_ sender: UIButton) {
+    @IBAction func tabEllipsis(_ sender: UIButton) {
         showActionSheet()
     }
     

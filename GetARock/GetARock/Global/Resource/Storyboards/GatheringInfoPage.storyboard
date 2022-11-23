@@ -58,7 +58,7 @@
                                                                     <color key="baseForegroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 </buttonConfiguration>
                                                                 <connections>
-                                                                    <action selector="ellipsis:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="1L3-eY-sN6"/>
+                                                                    <action selector="tabEllipsis:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="9BM-jZ-sIW"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
@@ -270,6 +270,7 @@
                     </view>
                     <connections>
                         <outlet property="conditionView" destination="IPq-Y1-Mnd" id="3r6-sJ-KJB"/>
+                        <outlet property="ellipsisForDeleteAndReport" destination="z1T-V1-cPf" id="Dzh-eQ-Pq2"/>
                         <outlet property="introductionContentView" destination="t8o-3s-pFn" id="SGm-Rw-afS"/>
                     </connections>
                 </viewController>

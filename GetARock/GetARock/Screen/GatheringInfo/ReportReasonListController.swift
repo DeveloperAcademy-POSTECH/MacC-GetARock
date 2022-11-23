@@ -65,7 +65,7 @@ class ReportReasonListController: UITableViewController, AlertSheet {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        showAlertSheet(alertTitle: "신고하기", reason: "\(reportReason[indexPath.row])을/(를) 사유로 신고하시겠습니까?")
+        showAlertSheet(alertTitle: "신고하기", message: "\(reportReason[indexPath.row])을/(를) 사유로 신고하시겠습니까?")
     }
 
 }

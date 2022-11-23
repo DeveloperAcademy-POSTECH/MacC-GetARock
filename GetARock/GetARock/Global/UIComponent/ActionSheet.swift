@@ -16,7 +16,7 @@ extension Reportable {
         
         let cancel = UIAlertAction(title: "취소", style: .cancel)
         let delete = UIAlertAction(title: "삭제하기", style: .destructive) { _ in
-            self.showAlertSheet(alertTitle: "삭제하기", reason: "삭제하시겠습니까?")
+            self.showAlertSheet(alertTitle: "삭제하기", message: "삭제하시겠습니까?")
         }
         let report = UIAlertAction(title: "신고하기", style: .default) { _ in
             self.present(ReportReasonListController(), animated: true)
@@ -37,8 +37,8 @@ protocol AlertSheet: UIViewController {
 }
 
 extension AlertSheet {
-    func showAlertSheet(alertTitle: String, reason: String) {
-        let alertSheet = UIAlertController(title: alertTitle, message: reason, preferredStyle: .alert)
+    func showAlertSheet(alertTitle: String, message: String) {
+        let alertSheet = UIAlertController(title: alertTitle, message: message, preferredStyle: .alert)
         
         let cancel = UIAlertAction(title: "취소", style: .default)
         let action = UIAlertAction(title: alertTitle, style: .destructive) { _ in
