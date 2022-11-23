@@ -36,15 +36,15 @@
 		07D7DA832911EB7D00479B6F /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 07D7DA822911EB7D00479B6F /* .swiftlint.yml */; };
 		3D0ED2232928667900AE320C /* BandInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0ED2222928667900AE320C /* BandInfoViewController.swift */; };
 		3D565329292855E9003D0C9F /* BandInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D565328292855E9003D0C9F /* BandInfo.storyboard */; };
-		7BB7099329290AE40065136D /* CommentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB7099229290AE40065136D /* CommentListView.swift */; };
-		7BB709972929164D0065136D /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB709962929164D0065136D /* CommentTableViewCell.swift */; };
-		7BB70999292A419B0065136D /* EmptyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB70998292A419B0065136D /* EmptyListView.swift */; };
-		7BB7099B292A47E50065136D /* CommentCreateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB7099A292A47E40065136D /* CommentCreateButton.swift */; };
 		3DF54FCB292A43EA001CD16B /* BandMemberCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF54FCA292A43EA001CD16B /* BandMemberCollectionViewCell.swift */; };
 		3DF54FCF292B9223001CD16B /* RepertoireTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF54FCE292B9223001CD16B /* RepertoireTableViewCell.swift */; };
 		3DF54FD1292BAFA6001CD16B /* RepertoireTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DF54FD0292BAFA6001CD16B /* RepertoireTableViewCell.xib */; };
 		6667A3202929F5DA0052A53B /* GatheringInfoPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6667A31F2929F5DA0052A53B /* GatheringInfoPage.storyboard */; };
 		66E1623F292ADFF5001F0578 /* GatheringInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E1623E292ADFF5001F0578 /* GatheringInfoViewController.swift */; };
+		7BB7099329290AE40065136D /* CommentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB7099229290AE40065136D /* CommentListView.swift */; };
+		7BB709972929164D0065136D /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB709962929164D0065136D /* CommentTableViewCell.swift */; };
+		7BB70999292A419B0065136D /* EmptyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB70998292A419B0065136D /* EmptyListView.swift */; };
+		7BB7099B292A47E50065136D /* CommentCreateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB7099A292A47E40065136D /* CommentCreateButton.swift */; };
 		7BDA8F8B291284FE00BB2D34 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDA8F8A291284FE00BB2D34 /* UIColor+Extension.swift */; };
 		7BDA8F90291296B200BB2D34 /* UIView+Gradation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDA8F8F291296B200BB2D34 /* UIView+Gradation.swift */; };
 		84002600292BB27B0093648A /* BandTimeline.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 840025FF292BB27B0093648A /* BandTimeline.storyboard */; };
@@ -115,15 +115,15 @@
 		07D7DA822911EB7D00479B6F /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		3D0ED2222928667900AE320C /* BandInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandInfoViewController.swift; sourceTree = "<group>"; };
 		3D565328292855E9003D0C9F /* BandInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BandInfo.storyboard; sourceTree = "<group>"; };
-		7BB7099229290AE40065136D /* CommentListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentListView.swift; sourceTree = "<group>"; };
-		7BB709962929164D0065136D /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
-		7BB70998292A419B0065136D /* EmptyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyListView.swift; sourceTree = "<group>"; };
-		7BB7099A292A47E40065136D /* CommentCreateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCreateButton.swift; sourceTree = "<group>"; };
 		3DF54FCA292A43EA001CD16B /* BandMemberCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandMemberCollectionViewCell.swift; sourceTree = "<group>"; };
 		3DF54FCE292B9223001CD16B /* RepertoireTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepertoireTableViewCell.swift; sourceTree = "<group>"; };
 		3DF54FD0292BAFA6001CD16B /* RepertoireTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepertoireTableViewCell.xib; sourceTree = "<group>"; };
 		6667A31F2929F5DA0052A53B /* GatheringInfoPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GatheringInfoPage.storyboard; sourceTree = "<group>"; };
 		66E1623E292ADFF5001F0578 /* GatheringInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatheringInfoViewController.swift; sourceTree = "<group>"; };
+		7BB7099229290AE40065136D /* CommentListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentListView.swift; sourceTree = "<group>"; };
+		7BB709962929164D0065136D /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
+		7BB70998292A419B0065136D /* EmptyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyListView.swift; sourceTree = "<group>"; };
+		7BB7099A292A47E40065136D /* CommentCreateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCreateButton.swift; sourceTree = "<group>"; };
 		7BDA8F8A291284FE00BB2D34 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		7BDA8F8F291296B200BB2D34 /* UIView+Gradation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Gradation.swift"; sourceTree = "<group>"; };
 		840025FF292BB27B0093648A /* BandTimeline.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BandTimeline.storyboard; sourceTree = "<group>"; };
@@ -395,19 +395,11 @@
 			path = BandInfo;
 			sourceTree = "<group>";
 		};
-		7BB709952929161D0065136D /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				7BB709962929164D0065136D /* CommentTableViewCell.swift */,
-                );
-            path = Cell;
-            sourceTree = "<group>";
-        };
 		3DE5CE91292C5112005B448D /* VC */ = {
 			isa = PBXGroup;
 			children = (
 				3D0ED2222928667900AE320C /* BandInfoViewController.swift */,
-        84002601292BB3DB0093648A /* BandTimelineViewController.swift */,
+				84002601292BB3DB0093648A /* BandTimelineViewController.swift */,
 				AB58E002292CB57100868720 /* BandPageViewController.swift */,
 			);
 			path = VC;
@@ -418,7 +410,7 @@
 			children = (
 				3DF54FCA292A43EA001CD16B /* BandMemberCollectionViewCell.swift */,
 				3DF54FCE292B9223001CD16B /* RepertoireTableViewCell.swift */,
-        84002607292BC4BE0093648A /* BandTimelineCell.swift */,
+				84002607292BC4BE0093648A /* BandTimelineCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -429,6 +421,14 @@
 				66E1623E292ADFF5001F0578 /* GatheringInfoViewController.swift */,
 			);
 			path = GatheringInfo;
+			sourceTree = "<group>";
+		};
+		7BB709952929161D0065136D /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				7BB709962929164D0065136D /* CommentTableViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		7BDA8F8E291296A200BB2D34 /* Utils */ = {
@@ -843,6 +843,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GetARock/Global/Supports/Info.plist;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "사용자의 위치 정보를 받아오려고 합니다. ";
@@ -875,6 +876,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GetARock/Global/Supports/Info.plist;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "사용자의 위치 정보를 받아오려고 합니다. ";
