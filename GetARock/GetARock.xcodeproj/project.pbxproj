@@ -36,10 +36,11 @@
 		07D7DA832911EB7D00479B6F /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 07D7DA822911EB7D00479B6F /* .swiftlint.yml */; };
 		3D0ED2232928667900AE320C /* BandInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0ED2222928667900AE320C /* BandInfoViewController.swift */; };
 		3D565329292855E9003D0C9F /* BandInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D565328292855E9003D0C9F /* BandInfo.storyboard */; };
+		3DF54FCB292A43EA001CD16B /* BandMemberCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF54FCA292A43EA001CD16B /* BandMemberCollectionViewCell.swift */; };
 		6606F855292CB38B00A121BF /* ReportReasonListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6606F853292CB38B00A121BF /* ReportReasonListCell.swift */; };
 		6606F856292CB38B00A121BF /* ReportReasonListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6606F854292CB38B00A121BF /* ReportReasonListCell.xib */; };
-		6606F858292DA9D900A121BF /* ReportReasonListHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6606F857292DA9D900A121BF /* ReportReasonListHeader.swift */; };
-		3DF54FCB292A43EA001CD16B /* BandMemberCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF54FCA292A43EA001CD16B /* BandMemberCollectionViewCell.swift */; };
+		66285ABC292DE9D600029213 /* ReportReasonListHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66285ABB292DE9D600029213 /* ReportReasonListHeader.swift */; };
+		66285ABE292DE9F100029213 /* ReportReasonListHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66285ABD292DE9F100029213 /* ReportReasonListHeader.xib */; };
 		6667A3202929F5DA0052A53B /* GatheringInfoPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6667A31F2929F5DA0052A53B /* GatheringInfoPage.storyboard */; };
 		66E1623F292ADFF5001F0578 /* GatheringInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E1623E292ADFF5001F0578 /* GatheringInfoViewController.swift */; };
 		66E74206292C82E8003C0B02 /* ActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E74205292C82E8003C0B02 /* ActionSheet.swift */; };
@@ -111,10 +112,11 @@
 		07D7DA822911EB7D00479B6F /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		3D0ED2222928667900AE320C /* BandInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandInfoViewController.swift; sourceTree = "<group>"; };
 		3D565328292855E9003D0C9F /* BandInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BandInfo.storyboard; sourceTree = "<group>"; };
+		3DF54FCA292A43EA001CD16B /* BandMemberCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandMemberCollectionViewCell.swift; sourceTree = "<group>"; };
 		6606F853292CB38B00A121BF /* ReportReasonListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportReasonListCell.swift; sourceTree = "<group>"; };
 		6606F854292CB38B00A121BF /* ReportReasonListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReportReasonListCell.xib; sourceTree = "<group>"; };
-		6606F857292DA9D900A121BF /* ReportReasonListHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportReasonListHeader.swift; sourceTree = "<group>"; };
-		3DF54FCA292A43EA001CD16B /* BandMemberCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandMemberCollectionViewCell.swift; sourceTree = "<group>"; };
+		66285ABB292DE9D600029213 /* ReportReasonListHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportReasonListHeader.swift; sourceTree = "<group>"; };
+		66285ABD292DE9F100029213 /* ReportReasonListHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReportReasonListHeader.xib; sourceTree = "<group>"; };
 		6667A31F2929F5DA0052A53B /* GatheringInfoPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GatheringInfoPage.storyboard; sourceTree = "<group>"; };
 		66E1623E292ADFF5001F0578 /* GatheringInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatheringInfoViewController.swift; sourceTree = "<group>"; };
 		66E74205292C82E8003C0B02 /* ActionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheet.swift; sourceTree = "<group>"; };
@@ -369,6 +371,7 @@
 				07D7DA4329108DCB00479B6F /* SampleView.xib */,
 				8437618C29273CF000BD2C2A /* GatheringCell.xib */,
 				6606F854292CB38B00A121BF /* ReportReasonListCell.xib */,
+				66285ABD292DE9F100029213 /* ReportReasonListHeader.xib */,
 			);
 			path = Xibs;
 			sourceTree = "<group>";
@@ -406,7 +409,7 @@
 				66E1623E292ADFF5001F0578 /* GatheringInfoViewController.swift */,
 				66E74209292CA04D003C0B02 /* ReportReasonListController.swift */,
 				6606F853292CB38B00A121BF /* ReportReasonListCell.swift */,
-				6606F857292DA9D900A121BF /* ReportReasonListHeader.swift */,
+				66285ABB292DE9D600029213 /* ReportReasonListHeader.swift */,
 			);
 			path = GatheringInfo;
 			sourceTree = "<group>";
@@ -554,6 +557,7 @@
 				66E74208292C9F12003C0B02 /* ReportReasonList.storyboard in Resources */,
 				07D7DA832911EB7D00479B6F /* .swiftlint.yml in Resources */,
 				B8B9971F29287D3700082462 /* MainMap.storyboard in Resources */,
+				66285ABE292DE9F100029213 /* ReportReasonListHeader.xib in Resources */,
 				8437618D29273CF000BD2C2A /* GatheringCell.xib in Resources */,
 				07D7D9EF290FB8C400479B6F /* LaunchScreen.storyboard in Resources */,
 				07D7DA4429108DCB00479B6F /* SampleView.xib in Resources */,
@@ -612,7 +616,6 @@
 				6606F855292CB38B00A121BF /* ReportReasonListCell.swift in Sources */,
 				66E7420A292CA04D003C0B02 /* ReportReasonListController.swift in Sources */,
 				8437619229276FA700BD2C2A /* GatheringCell.swift in Sources */,
-				6606F858292DA9D900A121BF /* ReportReasonListHeader.swift in Sources */,
 				8437619029275B3500BD2C2A /* GatheringCreatedViewController.swift in Sources */,
 				07D7DA3C29108C9000479B6F /* SampleView.swift in Sources */,
 				3DF54FCB292A43EA001CD16B /* BandMemberCollectionViewCell.swift in Sources */,
@@ -620,6 +623,7 @@
 				0761508D29277CBB00A0562F /* VisitorComment.swift in Sources */,
 				AB58E007292CB61700868720 /* TopViewOfInfoView.swift in Sources */,
 				072DEDD2292687A70046A4A0 /* Location.swift in Sources */,
+				66285ABC292DE9D600029213 /* ReportReasonListHeader.swift in Sources */,
 				07854FCB292A9156005C8556 /* MockBandData.swift in Sources */,
 				07D7DA3F29108CF800479B6F /* MyPageViewController.swift in Sources */,
 				072DEDD029267D9A0046A4A0 /* Band.swift in Sources */,

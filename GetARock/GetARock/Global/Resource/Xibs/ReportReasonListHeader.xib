@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner">
+            <connections>
+                <outlet property="subtitle" destination="DQX-lw-Qag" id="nJm-vf-CsY"/>
+                <outlet property="title" destination="eHE-87-MfX" id="U6p-og-AKS"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="reportReasonListHeader" id="b4x-fn-7T3" customClass="ReportReasonListHeader" customModule="GetARock" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="100"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="b4x-fn-7T3" id="ujP-Ea-2LQ">
+                <rect key="frame" x="0.0" y="0.0" width="393" height="100"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="이 게시물을 신고하는 이유" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eHE-87-MfX">
+                        <rect key="frame" x="27" y="15" width="144" height="17"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="지식 재산권 침해를 신고하는 경우를 제외하고 회원님의 신고는 익명으로 처리됩니다." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DQX-lw-Qag">
+                        <rect key="frame" x="27" y="38" width="300" height="50"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="highlightedColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" red="0.4039215686" green="0.42745098040000001" blue="0.54117647059999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <constraints>
+                    <constraint firstItem="DQX-lw-Qag" firstAttribute="top" secondItem="eHE-87-MfX" secondAttribute="bottom" constant="6" id="IyB-zN-pm6"/>
+                    <constraint firstAttribute="bottom" secondItem="DQX-lw-Qag" secondAttribute="bottom" constant="12" id="KgD-Jn-VF5"/>
+                    <constraint firstAttribute="trailing" secondItem="DQX-lw-Qag" secondAttribute="trailing" constant="66" id="dHp-aI-3k5"/>
+                    <constraint firstItem="eHE-87-MfX" firstAttribute="leading" secondItem="ujP-Ea-2LQ" secondAttribute="leading" constant="27" id="gRn-Lf-IIA"/>
+                    <constraint firstItem="eHE-87-MfX" firstAttribute="top" secondItem="ujP-Ea-2LQ" secondAttribute="top" constant="15" id="gm1-ls-hGV"/>
+                    <constraint firstItem="DQX-lw-Qag" firstAttribute="leading" secondItem="ujP-Ea-2LQ" secondAttribute="leading" constant="27" id="iBW-ea-wuR"/>
+                </constraints>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="316.79389312977099" y="-108.45070422535211"/>
+        </tableViewCell>
+    </objects>
+</document>

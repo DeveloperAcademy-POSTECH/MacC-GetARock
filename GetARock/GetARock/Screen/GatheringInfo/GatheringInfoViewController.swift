@@ -28,8 +28,7 @@ class GatheringInfoViewController: UIViewController, Reportable {
    
     @IBAction func ellipsis(_ sender: UIButton) {
          showActionSheet()
-        
-        
+    
     }
     
 }

@@ -12,6 +12,24 @@ class ReportReasonListController: UITableViewController, AlertSheet {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let header = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 50))
+        header.backgroundColor = .modalBackgroundBlue
+        
+        let headerLabel = UILabel(frame: header.bounds)
+        headerLabel.text = "신고"
+        headerLabel.textAlignment = .center
+        headerLabel.textColor = .white
+        headerLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        header.addSubview(headerLabel)
+        
+        NSLayoutConstraint.activate([
+            headerLabel.centerXAnchor.constraint(equalTo: header.centerXAnchor),
+            headerLabel.centerYAnchor.constraint(equalTo: header.centerYAnchor)
+        ])
+        tableView.tableHeaderView = header
+        
         let nib = UINib(nibName: "ReportReasonListCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "ReportReasonListCell")
     }
@@ -23,6 +41,7 @@ class ReportReasonListController: UITableViewController, AlertSheet {
     return 1
 
      }
+    
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
