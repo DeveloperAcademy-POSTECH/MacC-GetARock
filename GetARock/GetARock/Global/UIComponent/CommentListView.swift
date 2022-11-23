@@ -63,29 +63,16 @@ class CommentListView: UIView {
     private func setupLayout() {
         self.addSubview(totalListNumber)
         NSLayoutConstraint.activate([
-            totalListNumber.topAnchor.constraint(
-                equalTo: self.topAnchor
-            ),
-            totalListNumber.leadingAnchor.constraint(
-                equalTo: self.leadingAnchor,
-                constant: 16
-            )
+            totalListNumber.topAnchor.constraint(equalTo: self.topAnchor),
+            totalListNumber.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16)
         ])
         self.addSubview(tableView)
         tableView.backgroundColor = .modalBackgroundBlue
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(
-                equalTo: totalListNumber.bottomAnchor
-            ),
-            tableView.leadingAnchor.constraint(
-                equalTo: self.leadingAnchor
-            ),
-            tableView.trailingAnchor.constraint(
-                equalTo: self.trailingAnchor
-            ),
-            tableView.bottomAnchor.constraint(
-                equalTo: self.bottomAnchor
-            )
+            tableView.topAnchor.constraint(equalTo: totalListNumber.bottomAnchor),
+            tableView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ])
     }
 }

@@ -19,7 +19,7 @@ class CommentCreateButton: UIView {
 
     // MARK: - View
 
-    private lazy var buttonTitle: UIButton = {
+    private lazy var buttonTitleButton: UIButton = {
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
     }(UIButton())
@@ -50,14 +50,14 @@ class CommentCreateButton: UIView {
     }
 
     private func setupLayout() {
-        self.addSubview(buttonTitle)
+        self.addSubview(buttonTitleButton)
         NSLayoutConstraint.activate([
-            buttonTitle.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            buttonTitle.centerYAnchor.constraint(equalTo: self.centerYAnchor)
+            buttonTitleButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            buttonTitleButton.centerYAnchor.constraint(equalTo: self.centerYAnchor)
         ])
     }
 
     func setupButtonTitle(title: String) {
-        buttonTitle.setTitle(title, for: .normal)
+        buttonTitleButton.setTitle(title, for: .normal)
     }
 }
