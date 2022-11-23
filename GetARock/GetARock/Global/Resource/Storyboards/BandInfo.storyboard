@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="59" width="393" height="907"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="8kK-3T-isV">
-                                        <rect key="frame" x="16" y="0.0" width="361" height="766.66666666666663"/>
+                                        <rect key="frame" x="16" y="0.0" width="361" height="754.33333333333337"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="le6-6s-08Z" userLabel="Band Member Stack View">
                                                 <rect key="frame" x="0.0" y="0.0" width="361" height="277.33333333333331"/>
@@ -125,20 +125,20 @@
                                                     <constraint firstAttribute="height" constant="1" id="UKk-GJ-H1m"/>
                                                 </constraints>
                                             </view>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="6Zv-qE-ddF">
-                                                <rect key="frame" x="0.0" y="358.33333333333331" width="361" height="207.33333333333331"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="6Zv-qE-ddF" userLabel="Repertoire Stack View">
+                                                <rect key="frame" x="0.0" y="358.33333333333331" width="361" height="194.99999999999994"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="합주곡" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="laU-cB-s0V">
-                                                        <rect key="frame" x="0.0" y="20" width="361" height="20.333333333333329"/>
-                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                        <rect key="frame" x="0.0" y="20" width="361" height="17"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <tableView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="InU-Dg-pyu">
-                                                        <rect key="frame" x="0.0" y="52.333333333333371" width="361" height="128"/>
+                                                        <rect key="frame" x="0.0" y="49" width="361" height="128"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="128" id="knb-bN-Isu"/>
+                                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="128" id="knb-bN-Isu"/>
                                                         </constraints>
                                                         <connections>
                                                             <outlet property="dataSource" destination="Y6W-OH-hqX" id="cOT-gu-Rkk"/>
@@ -151,20 +151,20 @@
                                                     <constraint firstItem="InU-Dg-pyu" firstAttribute="width" secondItem="6Zv-qE-ddF" secondAttribute="width" id="CdD-5u-iGU"/>
                                                     <constraint firstAttribute="trailing" secondItem="InU-Dg-pyu" secondAttribute="trailing" id="H3t-cJ-Njg"/>
                                                     <constraint firstItem="InU-Dg-pyu" firstAttribute="leading" secondItem="6Zv-qE-ddF" secondAttribute="leading" id="ISd-Qj-fvc"/>
-                                                    <constraint firstAttribute="bottom" secondItem="InU-Dg-pyu" secondAttribute="bottom" constant="27" id="n91-Ti-Apr"/>
+                                                    <constraint firstAttribute="bottom" secondItem="InU-Dg-pyu" secondAttribute="bottom" constant="18" id="n91-Ti-Apr"/>
                                                     <constraint firstItem="InU-Dg-pyu" firstAttribute="top" secondItem="laU-cB-s0V" secondAttribute="bottom" constant="12" id="wyt-5g-ZfS"/>
                                                 </constraints>
-                                                <edgeInsets key="layoutMargins" top="20" left="0.0" bottom="27" right="0.0"/>
+                                                <edgeInsets key="layoutMargins" top="20" left="0.0" bottom="18" right="0.0"/>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aL0-SH-uYF">
-                                                <rect key="frame" x="0.0" y="565.66666666666663" width="361" height="1"/>
+                                                <rect key="frame" x="0.0" y="553.33333333333337" width="361" height="1"/>
                                                 <color key="backgroundColor" red="0.52941176469999995" green="0.5568627451" blue="0.68235294120000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="Mq4-Tz-FoJ"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GKK-x9-sjo">
-                                                <rect key="frame" x="0.0" y="566.66666666666663" width="361" height="200"/>
+                                                <rect key="frame" x="0.0" y="554.33333333333337" width="361" height="200"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="200" id="pJO-If-sxO"/>
                                                 </constraints>
