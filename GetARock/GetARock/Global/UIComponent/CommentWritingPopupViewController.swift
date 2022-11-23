@@ -9,6 +9,8 @@ import UIKit
 
 class CommentWritingPopupViewController: UIViewController {
 
+    // MARK: - Property
+
     private let textViewPlaceHolder = "텍스트를 입력해주세요"
 
     // MARK: - View
@@ -30,7 +32,6 @@ class CommentWritingPopupViewController: UIViewController {
         $0.textContainerInset = UIEdgeInsets(top: 16.0, left: 16.0, bottom: 16.0, right: 16.0)
         $0.backgroundColor = .backgroundBlue
         $0.font = UIFont.systemFont(ofSize: 14.0)
-        $0.textColor = UIColor.black
         $0.textAlignment = NSTextAlignment.left
         $0.dataDetectorTypes = UIDataDetectorTypes.all
         $0.text = textViewPlaceHolder
@@ -90,12 +91,12 @@ class CommentWritingPopupViewController: UIViewController {
     }
 
     @objc private func addNewComment(_ sender: Any) {
-           // TO-Do : 텍스트 필드에 입력한 텍스트 방명록 리스트에 추가
-       }
+        // TO-Do : 텍스트 필드에 입력한 텍스트 방명록 리스트에 추가
+    }
 
     @objc private func dismissPopup(_ sender: Any) {
-           dismiss(animated: false, completion: nil)
-       }
+        dismiss(animated: false, completion: nil)
+    }
 }
 
 // MARK: - UITextViewDelegate
