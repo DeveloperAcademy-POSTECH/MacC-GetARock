@@ -293,7 +293,7 @@ enum MockData {
         GatheringCommentInfo(
             commentID: "gatheringCommentID-001",
             comment: GatheringComment(
-                gathering: gatherings[0].gathering,
+                gathering: gatherings[0],
                 author: bands[1],
                 content: "저희 밴드에서는 저 혼자만 가는데, 혹시 같이가도 괜찮을까요?",
                 createdAt: "2022.11.12 13:22".toDate(format: DateFormatLiteral.standard) ?? Date()
@@ -302,7 +302,7 @@ enum MockData {
         GatheringCommentInfo(
             commentID: "gatheringCommentID-002",
             comment: GatheringComment(
-                gathering: gatherings[0].gathering,
+                gathering: gatherings[0],
                 author: bands[0],
                 content: "물론이죠!",
                 createdAt: "2022.11.13 13:22".toDate(format: DateFormatLiteral.standard) ?? Date()
@@ -311,7 +311,7 @@ enum MockData {
         GatheringCommentInfo(
             commentID: "gatheringCommentID-003",
             comment: GatheringComment(
-                gathering: gatherings[0].gathering,
+                gathering: gatherings[0],
                 author: bands[0],
                 content:
                     """
@@ -323,7 +323,7 @@ enum MockData {
         GatheringCommentInfo(
             commentID: "gatheringCommentID-004",
             comment: GatheringComment(
-                gathering: gatherings[0].gathering,
+                gathering: gatherings[0],
                 author: bands[1],
                 content:
                     """
