@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BandTimelineCell" rowHeight="100" id="liT-dL-AzV" customClass="BandTimelineCell" customModule="GetARock" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="100"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="liT-dL-AzV" id="c8z-EJ-itS">
+                <rect key="frame" x="0.0" y="0.0" width="393" height="100"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qwo-tI-wkK">
+                        <rect key="frame" x="25.666666666666668" y="0.0" width="1" height="50"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="1" id="Tm1-bc-Q3E"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fpk-HD-t04">
+                        <rect key="frame" x="25.666666666666668" y="50" width="1" height="50"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="1" id="s9F-Wa-wcs"/>
+                        </constraints>
+                    </view>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TimelineDot" translatesAutoresizingMaskIntoConstraints="NO" id="rfp-Pd-07t">
+                        <rect key="frame" x="16" y="40" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="20" id="E8i-QJ-9qW"/>
+                            <constraint firstAttribute="height" constant="20" id="wEf-us-mq3"/>
+                        </constraints>
+                    </imageView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FlR-MG-Sew">
+                        <rect key="frame" x="64" y="31.333333333333332" width="15" height="12.333333333333339"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="15" id="3JE-hG-e1T"/>
+                            <constraint firstAttribute="width" constant="15" id="FVt-dS-b0y"/>
+                        </constraints>
+                        <imageReference key="image" image="bolt.fill" catalog="system" symbolScale="small"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2022.03.28 23:35" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="np7-Hm-tCg">
+                        <rect key="frame" x="83" y="30" width="102" height="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="동성로 합동 버스킹 합니다!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gsv-TT-DTS">
+                        <rect key="frame" x="64.000000000000014" y="50.666666666666664" width="169.33333333333337" height="19.333333333333336"/>
+                        <constraints>
+                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="210" id="Mqs-78-qLP"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JSI-YD-u1h">
+                        <rect key="frame" x="287" y="32.666666666666664" width="70" height="34.999999999999993"/>
+                        <color key="backgroundColor" systemColor="systemPurpleColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="35" id="WTc-Aa-D4b"/>
+                            <constraint firstAttribute="width" constant="70" id="ha0-hb-XRs"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="18"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                <integer key="value" value="2"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="rfp-Pd-07t" firstAttribute="centerY" secondItem="c8z-EJ-itS" secondAttribute="centerY" id="HdT-Gs-IID"/>
+                    <constraint firstItem="Qwo-tI-wkK" firstAttribute="centerX" secondItem="rfp-Pd-07t" secondAttribute="centerX" id="Is0-24-aej"/>
+                    <constraint firstItem="rfp-Pd-07t" firstAttribute="leading" secondItem="c8z-EJ-itS" secondAttribute="leading" constant="16" id="LFO-cx-9Nx"/>
+                    <constraint firstAttribute="bottom" secondItem="Fpk-HD-t04" secondAttribute="bottom" id="LYc-gv-5tF"/>
+                    <constraint firstItem="Gsv-TT-DTS" firstAttribute="leading" secondItem="rfp-Pd-07t" secondAttribute="trailing" constant="28" id="TfK-z2-pB2"/>
+                    <constraint firstItem="rfp-Pd-07t" firstAttribute="leading" secondItem="c8z-EJ-itS" secondAttribute="leading" constant="16" id="eVg-MT-FHP"/>
+                    <constraint firstAttribute="bottom" secondItem="Gsv-TT-DTS" secondAttribute="bottom" constant="30" id="gYC-w2-B4z"/>
+                    <constraint firstItem="Qwo-tI-wkK" firstAttribute="height" secondItem="c8z-EJ-itS" secondAttribute="height" multiplier="0.5" id="giL-JF-P9n"/>
+                    <constraint firstItem="Fpk-HD-t04" firstAttribute="centerX" secondItem="rfp-Pd-07t" secondAttribute="centerX" id="hcf-U9-fa7"/>
+                    <constraint firstItem="np7-Hm-tCg" firstAttribute="leading" secondItem="FlR-MG-Sew" secondAttribute="trailing" constant="4" id="ipX-st-2IL"/>
+                    <constraint firstItem="Gsv-TT-DTS" firstAttribute="top" secondItem="FlR-MG-Sew" secondAttribute="bottom" constant="5.6699999999999999" id="kRU-ax-5iM"/>
+                    <constraint firstItem="Gsv-TT-DTS" firstAttribute="leading" secondItem="FlR-MG-Sew" secondAttribute="leading" id="m5V-AW-SEA"/>
+                    <constraint firstItem="FlR-MG-Sew" firstAttribute="leading" secondItem="rfp-Pd-07t" secondAttribute="trailing" constant="28" id="nh2-G6-SWA"/>
+                    <constraint firstItem="np7-Hm-tCg" firstAttribute="top" secondItem="c8z-EJ-itS" secondAttribute="top" constant="30" id="oWM-V2-at2"/>
+                    <constraint firstAttribute="trailing" secondItem="JSI-YD-u1h" secondAttribute="trailing" constant="36" id="rnn-7d-TYE"/>
+                    <constraint firstItem="Qwo-tI-wkK" firstAttribute="top" secondItem="c8z-EJ-itS" secondAttribute="top" id="tET-eJ-6v5"/>
+                    <constraint firstItem="JSI-YD-u1h" firstAttribute="centerY" secondItem="c8z-EJ-itS" secondAttribute="centerY" id="tJb-9D-lJw"/>
+                    <constraint firstItem="np7-Hm-tCg" firstAttribute="centerY" secondItem="FlR-MG-Sew" secondAttribute="centerY" id="vGN-fW-Nbr"/>
+                    <constraint firstItem="Fpk-HD-t04" firstAttribute="height" secondItem="c8z-EJ-itS" secondAttribute="height" multiplier="0.5" id="ypo-2f-OCQ"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" red="0.35294118520000001" green="0.3686274886" blue="0.46274507050000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <connections>
+                <outlet property="bottomLine" destination="Fpk-HD-t04" id="Dvj-gx-caD"/>
+                <outlet property="startTime" destination="np7-Hm-tCg" id="QJA-NZ-exa"/>
+                <outlet property="status" destination="JSI-YD-u1h" id="Rw1-m3-fCX"/>
+                <outlet property="title" destination="Gsv-TT-DTS" id="5M5-YG-3TT"/>
+                <outlet property="topLine" destination="Qwo-tI-wkK" id="g67-Yv-x8B"/>
+            </connections>
+            <point key="canvasLocation" x="118.32061068702289" y="45.774647887323944"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="TimelineDot" width="20" height="20"/>
+        <image name="bolt.fill" catalog="system" width="100" height="128"/>
+        <systemColor name="systemPurpleColor">
+            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
