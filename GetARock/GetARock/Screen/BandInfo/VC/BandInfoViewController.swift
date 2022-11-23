@@ -135,6 +135,8 @@ extension BandInfoViewController {
     }
 }
 
+// MARK: - 테이블뷰 데이터 삽입 관련
+
 extension BandInfoViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.repertoireArray.count
