@@ -18,6 +18,19 @@ class ReportReasonListController: UITableViewController, AlertSheet {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.tableHeaderView = makingHeader()
+        
+        let nib = UINib(nibName: "ReportReasonListCell", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: "ReportReasonListCell")
+    }
+    
+    // MARK: - Method
+    
+    func alertActionButtonPressed() {
+        print("신고에 성공했습니다.")
+    }
+    
+    func makingHeader() -> UIView {
         let header = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 50))
         header.backgroundColor = .modalBackgroundBlue
         
@@ -33,16 +46,7 @@ class ReportReasonListController: UITableViewController, AlertSheet {
             headerLabel.centerXAnchor.constraint(equalTo: header.centerXAnchor),
             headerLabel.centerYAnchor.constraint(equalTo: header.centerYAnchor)
         ])
-        tableView.tableHeaderView = header
-        
-        let nib = UINib(nibName: "ReportReasonListCell", bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: "ReportReasonListCell")
-    }
-    
-    // MARK: - Method
-    
-    func alertActionButtonPressed() {
-        print("신고에 성공했습니다.")
+        return header
     }
 
     // MARK: - TableView data source
