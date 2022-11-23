@@ -24,6 +24,7 @@ final class MainMapViewController: UIViewController {
     )
     
     let coordinateRange = 0.03
+    let zoomInRange = 0.015
     let locationManager = CLLocationManager()
     
     // MARK: - View Life Cycle
@@ -103,6 +104,16 @@ final class MainMapViewController: UIViewController {
         present(alertController, animated: true, completion: nil)
     }
     
+    func focusOnSelectedLocation(latitudeValue: CLLocationDegrees,
+                                 longitudeValue: CLLocationDegrees,
+                                 delta span: Double) {
+        let currentLocation = CLLocationCoordinate2DMake(latitudeValue, longitudeValue)
+        let spanValue = MKCoordinateSpan(latitudeDelta: zoomInRange,
+                                         longitudeDelta: zoomInRange)
+        let currentRegion = MKCoordinateRegion(center: currentLocation, span: spanValue)
+        mapView.setRegion(currentRegion, animated: true)
+    }
+    
     @IBAction func moveToUserLocation(_ sender: Any) {
         switch locationManager.authorizationStatus {
         case .authorizedAlways, .authorizedWhenInUse:
@@ -154,6 +165,7 @@ extension MainMapViewController: MKMapViewDelegate {
         guard let selectedAnnotation = view.annotation as? CustomAnnotation else {
             return
         }
+        focusOnSelectedLocation(latitudeValue: selectedAnnotation.coordinate.latitude - 0.005, longitudeValue: selectedAnnotation.coordinate.longitude, delta: zoomInRange)
         let placeName = selectedAnnotation.title
         let data = selectedAnnotation.bandInfo
         
@@ -164,6 +176,10 @@ extension MainMapViewController: MKMapViewDelegate {
     }
     
     func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
+        guard let selectedAnnotation = view.annotation as? CustomAnnotation else {
+            return
+        }
+        focusOnSelectedLocation(latitudeValue: selectedAnnotation.coordinate.latitude, longitudeValue: selectedAnnotation.coordinate.longitude, delta: zoomInRange)
         // TODO: 핀 선택 취소하면(지도에서 다른 부분 선택하면) 반모달 내려야 함
     }
     
