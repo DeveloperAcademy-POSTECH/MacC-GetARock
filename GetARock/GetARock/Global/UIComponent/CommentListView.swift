@@ -11,7 +11,7 @@ class CommentListView: UIView {
 
     // MARK: - View
 
-    private var totalListNumber: UILabel = {
+    private var totalListNumberLabel: UILabel = {
         $0.text = "총 11개"
         $0.textColor = .white
         $0.font = UIFont.systemFont(ofSize: 16, weight: .bold)
@@ -61,15 +61,15 @@ class CommentListView: UIView {
     }
 
     private func setupLayout() {
-        self.addSubview(totalListNumber)
+        self.addSubview(totalListNumberLabel)
         NSLayoutConstraint.activate([
-            totalListNumber.topAnchor.constraint(equalTo: self.topAnchor),
-            totalListNumber.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16)
+            totalListNumberLabel.topAnchor.constraint(equalTo: self.topAnchor),
+            totalListNumberLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16)
         ])
         self.addSubview(tableView)
         tableView.backgroundColor = .modalBackgroundBlue
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: totalListNumber.bottomAnchor),
+            tableView.topAnchor.constraint(equalTo: totalListNumberLabel.bottomAnchor),
             tableView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
@@ -88,14 +88,12 @@ extension CommentListView: UITableViewDelegate {
 // MARK: - UITableViewDataSource
 
 extension CommentListView: UITableViewDataSource {
-
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 5
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(
-
             withIdentifier: CommentTableViewCell.className,
             for: indexPath
         ) as? CommentTableViewCell else { return UITableViewCell() }

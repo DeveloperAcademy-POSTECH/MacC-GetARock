@@ -39,18 +39,18 @@ class CommentTableViewCell: UITableViewCell {
         return $0
     }(UILabel())
 
-    private lazy var commentInfoStack: UIStackView = {
+    private lazy var commentInfoStackView: UIStackView = {
         $0.axis = .horizontal
         $0.distribution = .equalSpacing
         return $0
     }(UIStackView(arrangedSubviews: [bandNameLabel, moreButton]))
 
-    private lazy var commentStack: UIStackView = {
+    private lazy var commentStackView: UIStackView = {
         $0.axis = .vertical
         $0.spacing = 10
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
-    }(UIStackView(arrangedSubviews: [commentInfoStack, commentTextLabel, commentDateLabel]))
+    }(UIStackView(arrangedSubviews: [commentInfoStackView, commentTextLabel, commentDateLabel]))
 
     // MARK: - Init
 
@@ -66,12 +66,12 @@ class CommentTableViewCell: UITableViewCell {
     // MARK: - Method
 
     private func setupLayout() {
-        self.contentView.addSubview(commentStack)
+        self.contentView.addSubview(commentStackView)
         NSLayoutConstraint.activate([
-            commentStack.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 30),
-            commentStack.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 36),
-            commentStack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -36),
-            commentStack.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -30)
+            commentStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 30),
+            commentStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 36),
+            commentStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -36),
+            commentStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -30)
         ])
     }
     
