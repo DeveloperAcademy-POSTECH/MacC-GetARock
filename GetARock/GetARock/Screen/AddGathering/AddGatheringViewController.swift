@@ -65,7 +65,7 @@ class AddGatheringViewController: UIViewController {
     }
 
     @IBAction func saveButtonAction(_ sender: UIBarButtonItem) {
-        if let errorString = invalidInputErrorString() {
+        if let errorString = addGatheringInputErrorMessage() {
             let alert = UIAlertController(title: nil, message: errorString, preferredStyle: .alert)
             let confirm = UIAlertAction(title: "확인", style: .default)
             alert.addAction(confirm)
@@ -99,6 +99,7 @@ class AddGatheringViewController: UIViewController {
         setupNavigationBar()
         hostBandName = MockData.bands[0].band.name // 추후 변경: 유저디폴트 사용 예정
         hostBandNameLabel.text = hostBandName
+        dateTimePicker.minimumDate = Date()
         titleTextField.becomeFirstResponder()
         getKeyboardNotification()
     }
@@ -174,33 +175,54 @@ extension AddGatheringViewController {
     }
 }
 
-// MARK: - Trivial utility method
+// MARK: - custom errors
 
 extension AddGatheringViewController {
-    private func invalidInputErrorString() -> String? {
-        enum Field: String {
-            case title = "이름"
-            case dateTime = "시작 시간"
-            case location = "장소"
-        }
-        
-        var invalidFields: [String] = []
+    enum AddGatheringInputError: Error {
+        case noTitle
+        case noLocation
+        case noMultipleFields
+    }
+
+    private func validateInputs() throws {
+        var errors: [AddGatheringInputError] = []
         if titleTextField.text == nil || (titleTextField.text ?? "").count <= 0 {
-            invalidFields.append(Field.title.rawValue)
-        }
-        if dateTimePicker.date < Date() {
-            invalidFields.append(Field.dateTime.rawValue)
+            errors.append(.noTitle)
         }
         if gatheringLocation == nil {
-            invalidFields.append(Field.location.rawValue)
+            errors.append(.noLocation)
         }
-        if invalidFields.count == 0 {
-            return nil
-        } else {
-            return "모여락의 \(invalidFields.description) 를 입력해주세요"
+        
+        if errors.count > 1 {
+            throw AddGatheringInputError.noMultipleFields
+        } else if errors.count == 1 {
+            throw errors[0]
         }
     }
 
+    private func addGatheringInputErrorMessage() -> String? {
+        var errorString = ""
+        do {
+            try validateInputs()
+        } catch AddGatheringInputError.noMultipleFields {
+            errorString = "모여락의 이름, 장소를 입력해주세요"
+        } catch AddGatheringInputError.noTitle {
+            errorString = "모여락의 이름을 입력해주세요"
+        } catch AddGatheringInputError.noLocation {
+            errorString = "모여락의 장소를 입력해주세요"
+        } catch {
+            errorString = "입력을 확인하는 중 알 수 없는 문제가 발생했습니다"
+        }
+        if errorString.count <= 0 {
+            return nil
+        }
+        return errorString
+    }
+}
+
+// MARK: - Trivial utility method
+
+extension AddGatheringViewController {
     #if DEBUG
     // 로그를 보고 싶을 경우 주석 해제
     private func printMockDataGatheringUpdateToTest() {
