@@ -13,61 +13,62 @@ enum CommentListEntryPoint {
 }
 
 class CommentListView: UIView {
-    
+
     // MARK: - Properties
-    
+
     private var vistorCommentData: VisitorCommentInfo?
     private var gatheringComment: GatheringCommentInfo?
     private var entryPoint: CommentListEntryPoint
-    
+
     // MARK: - View
-    
+
     private let totalListNumberLabel: UILabel = {
         $0.textColor = .white
         $0.font = UIFont.systemFont(ofSize: 16, weight: .bold)
-        $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
     }(UILabel())
-    
-    // MARK: - View
-    
-    private let visitorCommentButton: CommentCreateButton = {
-        $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.setupButtonTitle(title: "방명록 남기기")
+
+    let commentWritingButton: CommentCreateButton = {
         return $0
     }(CommentCreateButton())
-    
+
     private let tableView = {
         $0.showsVerticalScrollIndicator = false
         $0.separatorInset.right = 16
         $0.separatorColor = .dividerBlue
         $0.rowHeight = UITableView.automaticDimension
         $0.estimatedRowHeight = UITableView.automaticDimension
-        $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
     }(UITableView())
-    
+
+    private lazy var commentStackView: UIStackView = {
+        $0.spacing = 20
+        $0.axis = .vertical
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        return $0
+    }(UIStackView(arrangedSubviews: [commentWritingButton, totalListNumberLabel, tableView]))
+
     // MARK: - Init
-    
+
     init(entryPoint: CommentListEntryPoint) {
         self.entryPoint = entryPoint
         super.init(frame: .zero)
         attribute()
         setupLayout()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     // MARK: - Method
-    
+
     private func attribute() {
         self.backgroundColor = .modalBackgroundBlue
         setupCommentList()
         setuptotalListNumberLabel()
     }
-    
+
     private func setupCommentList() {
         tableView.delegate = self
         tableView.dataSource = self
@@ -76,21 +77,17 @@ class CommentListView: UIView {
             forCellReuseIdentifier: CommentTableViewCell.className
         )
     }
-    
+
     private func setupLayout() {
-        self.addSubview(totalListNumberLabel)
+        self.addSubview(commentStackView)
         NSLayoutConstraint.activate([
-            totalListNumberLabel.topAnchor.constraint(equalTo: self.topAnchor),
-            totalListNumberLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16)
+            commentStackView.topAnchor.constraint(equalTo: self.topAnchor),
+            commentStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            commentStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            commentStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ])
-        self.addSubview(tableView)
         tableView.backgroundColor = .modalBackgroundBlue
-        NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: totalListNumberLabel.bottomAnchor),
-            tableView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
-        ])
+        setupCommentWritingButton()
     }
 
     private func setuptotalListNumberLabel() {
@@ -99,6 +96,15 @@ class CommentListView: UIView {
             totalListNumberLabel.text = "총 \(MockData.visitorComments.count)개"
         case .gatheringComment:
             totalListNumberLabel.text = "총 \(MockData.gatheringComments.count)개"
+        }
+    }
+
+    private func setupCommentWritingButton() {
+        switch entryPoint {
+        case .visitorComment:
+            commentWritingButton.setupButtonTitle(title: "방명록 작성")
+        case .gatheringComment:
+            commentWritingButton.setupButtonTitle(title: "댓글 작성")
         }
     }
 }
