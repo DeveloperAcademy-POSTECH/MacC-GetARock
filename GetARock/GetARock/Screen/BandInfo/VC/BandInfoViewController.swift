@@ -41,7 +41,7 @@ class BandInfoViewController: UIViewController {
     }
     
     override func viewWillLayoutSubviews() {
-            bandIntroduceLabel.sizeToFit()
+        bandIntroduceLabel.sizeToFit()
     }
 }
 
