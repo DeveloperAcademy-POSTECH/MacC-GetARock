@@ -49,14 +49,11 @@ final class VisitorCommentViewController: UIViewController {
             commentStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
         setupWritingButton()
+        
     }
 
     private func setupWritingButton() {
-        let tapWritingButtonGesture: UITapGestureRecognizer = UITapGestureRecognizer(
-            target: self,
-            action: #selector(didTapVisitorCommentButton)
-        )
-        visitorCommentButton.addGestureRecognizer(tapWritingButtonGesture)
+        visitorCommentButton.titleButton.addTarget(self, action: #selector(didTapVisitorCommentButton), for: .touchUpInside)
     }
     
     @objc func didTapVisitorCommentButton() {

@@ -19,7 +19,7 @@ class CommentCreateButton: UIView {
 
     // MARK: - View
 
-    private lazy var titleButton: UIButton = {
+    let titleButton: UIButton = {
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
     }(UIButton())
