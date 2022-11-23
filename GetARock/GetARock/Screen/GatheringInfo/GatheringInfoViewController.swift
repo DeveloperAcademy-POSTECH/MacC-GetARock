@@ -10,9 +10,8 @@ import UIKit
 class GatheringInfoViewController: UIViewController, Reportable {
     var viewControllerToPresentWhenReported: UIViewController = ReportReasonListController()
     
-    
     // MARK: - properties
-    @IBOutlet weak var conditionContainer: UIView!
+    @IBOutlet weak var conditionView: UIView!
     @IBOutlet weak var introductionContentView: UIView!
     
     @IBOutlet weak var ellipsis: UIButton!
@@ -21,9 +20,9 @@ class GatheringInfoViewController: UIViewController, Reportable {
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        conditionContainer.layer.cornerRadius = 15
-        conditionContainer.layer.borderWidth = 2
-        conditionContainer.layer.borderColor = UIColor.white.cgColor
+        conditionView.layer.cornerRadius = 15
+        conditionView.layer.borderWidth = 2
+        conditionView.layer.borderColor = UIColor.white.cgColor
         
     }
    
