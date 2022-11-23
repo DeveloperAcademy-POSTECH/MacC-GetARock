@@ -9,24 +9,24 @@ import UIKit
 
 class CommentWritingPopupViewController: UIViewController {
 
-    let textViewPlaceHolder = "텍스트를 입력해주세요"
+    private let textViewPlaceHolder = "텍스트를 입력해주세요"
 
     // MARK: - View
 
-    let popupTitleLabel: UILabel = {
+    private let popupTitleLabel: UILabel = {
         $0.text = "방명록 작성"
         $0.font = .systemFont(ofSize: 16, weight: .bold)
         $0.textColor = .white
         return $0
     }(UILabel())
 
-    let closeButton: UIButton = {
+    private let closeButton: UIButton = {
         $0.setImage(UIImage(systemName: "xmark"), for: .normal)
         $0.tintColor = .white
         return $0
     }(UIButton())
 
-    lazy var commentTextView: UITextView = {
+    private lazy var commentTextView: UITextView = {
         $0.textContainerInset = UIEdgeInsets(top: 16.0, left: 16.0, bottom: 16.0, right: 16.0)
         $0.backgroundColor = .backgroundBlue
         $0.font = UIFont.systemFont(ofSize: 14.0)
@@ -39,18 +39,18 @@ class CommentWritingPopupViewController: UIViewController {
         return $0
     }(UITextView())
 
-    let confirmButton: CommentCreateButton = {
+    private let confirmButton: CommentCreateButton = {
         $0.setupButtonTitle(title: "작성 완료")
         return $0
     }(CommentCreateButton())
 
-    lazy var popUpHeaderStackView: UIStackView = {
+    private lazy var popUpHeaderStackView: UIStackView = {
         $0.axis = .horizontal
         $0.distribution = .equalSpacing
         return $0
     }(UIStackView(arrangedSubviews: [popupTitleLabel, closeButton]))
 
-    lazy var commentWritingPopupStackView: UIStackView = {
+    private lazy var commentWritingPopupStackView: UIStackView = {
         $0.layoutMargins = UIEdgeInsets(top: 15.0, left: 15.0, bottom: 15.0, right: 15.0)
         $0.spacing = 15
         $0.axis = .vertical
