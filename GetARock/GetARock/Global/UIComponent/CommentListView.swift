@@ -11,7 +11,7 @@ class CommentListView: UIView {
 
     // MARK: - View
 
-    private var totalListNumberLabel: UILabel = {
+    private let totalListNumberLabel: UILabel = {
         $0.text = "총 11개"
         $0.textColor = .white
         $0.font = UIFont.systemFont(ofSize: 16, weight: .bold)

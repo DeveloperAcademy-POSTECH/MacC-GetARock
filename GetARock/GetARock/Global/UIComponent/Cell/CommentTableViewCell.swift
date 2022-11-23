@@ -11,20 +11,20 @@ class CommentTableViewCell: UITableViewCell {
     
     // MARK: - View
 
-    private lazy var bandNameLabel: UILabel = {
+    private let bandNameLabel: UILabel = {
         $0.text = "노엘천재"
         $0.textColor = .white
         $0.font = UIFont.systemFont(ofSize: 16, weight: .bold)
         return $0
     }(UILabel())
 
-    private lazy var moreButton: UIButton = {
+    private let moreButton: UIButton = {
         $0.setImage(UIImage(systemName: "ellipsis"), for: .normal)
         $0.tintColor = .white
         return $0
     }(UIButton())
 
-    private lazy var commentTextLabel: UILabel = {
+    private let commentTextLabel: UILabel = {
         $0.text = "노엘천재(본문)노엘천재(본문)노엘천재(본문)노엘천재(본문)노엘천재(본문)노엘천재(본문)노엘천재(본문)노엘천재(본문)노엘천재(본문)노엘천재(본문)노엘천재(본문)노엘천재(본문)노엘천재(본문)노엘천재(본문)"
         $0.numberOfLines = 0
         $0.textColor = .white
@@ -32,7 +32,7 @@ class CommentTableViewCell: UITableViewCell {
         return $0
     }(UILabel())
 
-    private lazy var commentDateLabel: UILabel = {
+    private let commentDateLabel: UILabel = {
         $0.text = "2022.11.20"
         $0.textColor = .lightGrey
         $0.font = UIFont.systemFont(ofSize: 12)
@@ -45,7 +45,7 @@ class CommentTableViewCell: UITableViewCell {
         return $0
     }(UIStackView(arrangedSubviews: [bandNameLabel, moreButton]))
 
-    private lazy var commentStackView: UIStackView = {
+    private lazy var commentStack: UIStackView = {
         $0.axis = .vertical
         $0.spacing = 10
         $0.translatesAutoresizingMaskIntoConstraints = false
@@ -66,12 +66,12 @@ class CommentTableViewCell: UITableViewCell {
     // MARK: - Method
 
     private func setupLayout() {
-        self.contentView.addSubview(commentStackView)
+        self.contentView.addSubview(commentStack)
         NSLayoutConstraint.activate([
-            commentStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 30),
-            commentStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 36),
-            commentStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -36),
-            commentStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -30)
+            commentStack.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 30),
+            commentStack.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 36),
+            commentStack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -36),
+            commentStack.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -30)
         ])
     }
     
