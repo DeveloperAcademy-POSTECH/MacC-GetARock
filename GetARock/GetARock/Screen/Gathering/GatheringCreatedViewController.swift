@@ -59,6 +59,8 @@ class GatheringCreatedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.backgroundColor = .modalBackgroundBlue
+        tableView.backgroundColor = .modalBackgroundBlue
         let nibName = UINib(nibName: "GatheringCell", bundle: nil)
         tableView.register(nibName, forCellReuseIdentifier: GatheringCell.className)
     }
