@@ -13,15 +13,15 @@ enum CommentListEntryPoint {
 }
 
 class CommentListView: UIView {
-
+    
     // MARK: - Properties
-
+    
     private var vistorCommentData: VisitorCommentInfo?
     private var gatheringComment: GatheringCommentInfo?
     private var entryPoint: CommentListEntryPoint
-
+    
     // MARK: - View
-
+    
     private let totalListNumberLabel: UILabel = {
         $0.text = "총 \(MockData.visitorComments.count)개"
         $0.textColor = .white
@@ -67,7 +67,7 @@ class CommentListView: UIView {
         self.backgroundColor = .modalBackgroundBlue
         setupCommentList()
     }
-
+    
     private func setupCommentList() {
         tableView.delegate = self
         tableView.dataSource = self
@@ -113,12 +113,12 @@ extension CommentListView: UITableViewDataSource {
             return MockData.gatheringComments.count
         }
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell( withIdentifier: "CommentTableViewCell", for: indexPath) as? CommentTableViewCell else { return UITableViewCell() }
-       
+        guard let cell = tableView.dequeueReusableCell( withIdentifier: CommentTableViewCell.className, for: indexPath) as? CommentTableViewCell else { return UITableViewCell() }
+
         cell.selectionStyle = .none
-        
+
         switch entryPoint {
         case .visitorComment:
             cell.bandNameLabel.text = MockData.visitorComments[indexPath.row].comment.author.band.name
