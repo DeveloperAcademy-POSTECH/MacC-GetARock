@@ -23,7 +23,6 @@ class CommentTableViewCell: UITableViewCell {
         return $0
     }(UIButton())
 
-
     let commentTextLabel: UILabel = {
         $0.numberOfLines = 0
         $0.textColor = .white
@@ -68,8 +67,8 @@ class CommentTableViewCell: UITableViewCell {
         self.contentView.addSubview(commentStackView)
         NSLayoutConstraint.activate([
             commentStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 30),
-            commentStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 36),
-            commentStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -36),
+            commentStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+            commentStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
             commentStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -30)
         ])
     }
