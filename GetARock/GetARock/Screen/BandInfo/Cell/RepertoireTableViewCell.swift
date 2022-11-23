@@ -9,10 +9,16 @@ import UIKit
 
 class RepertoireTableViewCell: UITableViewCell {
     
+    @IBOutlet weak var repertoireCellView: UIView!
     @IBOutlet weak var repertoireLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        repertoireCellView.backgroundColor = UIColor.backgroundBlue
+        repertoireCellView.layer.cornerRadius = 15
+        repertoireCellView.layer.borderWidth = 1
+        repertoireCellView.layer.borderColor = UIColor.dividerBlue.cgColor
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -20,10 +26,4 @@ class RepertoireTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 3, left: 3, bottom: 3, right: 3))
-    }
-
 }

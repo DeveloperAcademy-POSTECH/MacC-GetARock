@@ -35,10 +35,10 @@ class BandInfoViewController: UIViewController {
         
         bandAgeLabel.text = generateBandAgeLabelText()
         
-        let repertoireTableViewCellNib = UINib(nibName: "RepertoireTableViewCell", bundle: nil)
-        self.repertoireTableView.register(repertoireTableViewCellNib, forCellReuseIdentifier: "RepertoireTableViewCell")
+        let repertoireTableViewCellNib = UINib(nibName: RepertoireTableViewCell.className, bundle: nil)
+        self.repertoireTableView.register(repertoireTableViewCellNib, forCellReuseIdentifier: RepertoireTableViewCell.className)
         self.repertoireTableView.rowHeight = UITableView.automaticDimension
-        self.repertoireTableView.estimatedRowHeight = 50
+        self.repertoireTableView.estimatedRowHeight = 60
         self.repertoireTableView.dataSource = self
     }
     
@@ -110,14 +110,9 @@ extension BandInfoViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = repertoireTableView.dequeueReusableCell(withIdentifier: "RepertoireTableViewCell", for: indexPath) as? RepertoireTableViewCell else { return UITableViewCell() }
+        guard let cell = repertoireTableView.dequeueReusableCell(withIdentifier: RepertoireTableViewCell.className, for: indexPath) as? RepertoireTableViewCell else { return UITableViewCell() }
         
         cell.repertoireLabel.text = repertoireArray[indexPath.row]
-        
-        cell.contentView.backgroundColor = UIColor.backgroundBlue
-        cell.contentView.layer.cornerRadius = 15
-        cell.contentView.layer.borderWidth = 1
-        cell.contentView.layer.borderColor = UIColor.dividerBlue.cgColor
         
         return cell
     }

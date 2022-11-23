@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -16,25 +17,43 @@
                 <rect key="frame" x="0.0" y="0.0" width="393" height="54"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5v0-h4-9Al">
-                        <rect key="frame" x="16" y="16" width="361" height="22"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zBK-jj-gPu">
+                        <rect key="frame" x="3" y="3" width="387" height="48"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EF9-9u-ygQ">
+                                <rect key="frame" x="16" y="16" width="355" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="EF9-9u-ygQ" secondAttribute="trailing" constant="16" id="1YS-bz-0rR"/>
+                            <constraint firstItem="EF9-9u-ygQ" firstAttribute="top" secondItem="zBK-jj-gPu" secondAttribute="top" constant="16" id="AOI-c7-llX"/>
+                            <constraint firstAttribute="bottom" secondItem="EF9-9u-ygQ" secondAttribute="bottom" constant="16" id="ZJ5-aU-TrX"/>
+                            <constraint firstItem="EF9-9u-ygQ" firstAttribute="leading" secondItem="zBK-jj-gPu" secondAttribute="leading" constant="16" id="lhg-XF-NiW"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="5v0-h4-9Al" firstAttribute="leading" secondItem="Uev-Lh-vVh" secondAttribute="leading" constant="16" id="9mu-Y1-0Z7"/>
-                    <constraint firstAttribute="trailing" secondItem="5v0-h4-9Al" secondAttribute="trailing" constant="16" id="GA5-3h-6N2"/>
-                    <constraint firstAttribute="bottom" secondItem="5v0-h4-9Al" secondAttribute="bottom" constant="16" id="gR5-cd-mUI"/>
-                    <constraint firstItem="5v0-h4-9Al" firstAttribute="top" secondItem="Uev-Lh-vVh" secondAttribute="top" constant="16" id="pDM-XE-Psq"/>
+                    <constraint firstItem="zBK-jj-gPu" firstAttribute="leading" secondItem="Uev-Lh-vVh" secondAttribute="leading" constant="3" id="e1x-NZ-9qQ"/>
+                    <constraint firstAttribute="bottom" secondItem="zBK-jj-gPu" secondAttribute="bottom" constant="3" id="mb3-C1-yqi"/>
+                    <constraint firstAttribute="trailing" secondItem="zBK-jj-gPu" secondAttribute="trailing" constant="3" id="vci-lA-MPE"/>
+                    <constraint firstItem="zBK-jj-gPu" firstAttribute="top" secondItem="Uev-Lh-vVh" secondAttribute="top" constant="3" id="xhQ-my-94v"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
-                <outlet property="repertoireLabel" destination="5v0-h4-9Al" id="kUw-jv-L2g"/>
+                <outlet property="repertoireCellView" destination="zBK-jj-gPu" id="yQ2-jq-rc0"/>
+                <outlet property="repertoireLabel" destination="EF9-9u-ygQ" id="N6N-uN-qbh"/>
             </connections>
             <point key="canvasLocation" x="43.511450381679388" y="9.1549295774647899"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
