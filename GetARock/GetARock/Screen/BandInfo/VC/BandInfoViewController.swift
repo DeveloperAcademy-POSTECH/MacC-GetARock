@@ -17,11 +17,11 @@ class BandInfoViewController: UIViewController {
     @IBOutlet weak var repertoireTableView: UITableView!
     @IBOutlet weak var tableHeightConstraint: NSLayoutConstraint!
     
-    fileprivate let numberOfBandMember: Int = 7
-    fileprivate let positionNameArray: [String] = ["보컬", "기타", "키보드", "드럼", "베이스", "그 외"]
-    fileprivate let numberOfPostionArray: [Int] = [1, 2, 1, 1, 1, 0]
-    fileprivate let bandAgeArray: [String] = ["20대", "30대", "40대"]
-    fileprivate let repertoireArray: [String] = ["빅뱅 - 하루하루", "빅뱅 - 붉은노을", "이브 - 제목이 짤릴 정도로 긴 노래를 만들어 보았다"]
+    private let numberOfBandMember: Int = 7
+    private let positionNameArray: [String] = ["보컬", "기타", "키보드", "드럼", "베이스", "그 외"]
+    private let numberOfPostionArray: [Int] = [1, 2, 1, 1, 1, 0]
+    private let bandAgeArray: [String] = ["20대", "30대", "40대"]
+    private let repertoireArray: [String] = ["Bigbang - Haruharu", "빅뱅 - 붉은노을", "이브 - 제목이 짤릴 정도로 긴 노래를 만들어 보았다람쥐"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
