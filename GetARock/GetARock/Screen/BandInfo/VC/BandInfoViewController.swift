@@ -19,36 +19,20 @@ class BandInfoViewController: UIViewController {
     @IBOutlet weak var repertoireTableView: UITableView!
     @IBOutlet weak var tableHeightConstraint: NSLayoutConstraint!
     
-    fileprivate let numberOfBandMember: Int = 7
-    fileprivate let positionNameArray: [String] = ["보컬", "기타", "키보드", "드럼", "베이스", "그 외"]
-    fileprivate let numberOfPostionArray: [Int] = [1, 2, 1, 1, 1, 0]
-    fileprivate let bandIntroduceText = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+    private let numberOfBandMember: Int = 7
+    private let positionNameArray: [String] = ["보컬", "기타", "키보드", "드럼", "베이스", "그 외"]
+    private let numberOfPostionArray: [Int] = [1, 2, 1, 1, 1, 0]
+    private let bandIntroduceText = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
     private let bandAgeArray: [String] = ["20대", "30대", "40대"]
     private let repertoireArray: [String] = ["Bigbang - Haruharu", "빅뱅 - 붉은노을", "이브 - 제목이 짤릴 정도로 긴 노래를 만들어 보았다람쥐"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        bandMemberLabel.text = "밴드 멤버 (\(numberOfBandMember)인)"
         
-        bandMemberCollectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        bandMemberCollectionView.dataSource = self
-        
-        self.bandMemberCollectionView.collectionViewLayout = createCompositionalLayout()
-        
-        bandAgeLabel.text = generateBandAgeLabelText()
-        
-        let repertoireTableViewCellNib = UINib(nibName: RepertoireTableViewCell.className, bundle: nil)
-        self.repertoireTableView.register(repertoireTableViewCellNib, forCellReuseIdentifier: RepertoireTableViewCell.className)
-        self.repertoireTableView.rowHeight = UITableView.automaticDimension
-        self.repertoireTableView.estimatedRowHeight = 60
-        self.repertoireTableView.dataSource = self
-        
-        bandIntroduceLabel.text = bandIntroduceText
-        bandIntroduceView.backgroundColor = UIColor.backgroundBlue
-        bandIntroduceView.layer.cornerRadius = 15
-        bandIntroduceView.layer.borderWidth = 1
-        bandIntroduceView.layer.borderColor = UIColor.dividerBlue.cgColor
+        setBandMemberAreaUI()
+        setBandAgeAreaUI()
+        setRepertoireAreaUI()
+        setBandIntroduceAreaUI()
     }
     
     override func updateViewConstraints() {
@@ -58,6 +42,40 @@ class BandInfoViewController: UIViewController {
     
     override func viewWillLayoutSubviews() {
             bandIntroduceLabel.sizeToFit()
+    }
+}
+
+// MARK: - UI 설정 관련
+
+extension BandInfoViewController {
+    func setBandMemberAreaUI() {
+        bandMemberLabel.text = "밴드 멤버 (\(numberOfBandMember)인)"
+        
+        bandMemberCollectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        bandMemberCollectionView.dataSource = self
+        bandMemberCollectionView.collectionViewLayout = createCompositionalLayout()
+    }
+    
+    func setBandAgeAreaUI() {
+        bandAgeLabel.text = generateBandAgeLabelText()
+    }
+    
+    func setRepertoireAreaUI() {
+        let repertoireTableViewCellNib = UINib(nibName: RepertoireTableViewCell.className, bundle: nil)
+        
+        repertoireTableView.register(repertoireTableViewCellNib, forCellReuseIdentifier: RepertoireTableViewCell.className)
+        repertoireTableView.rowHeight = UITableView.automaticDimension
+        repertoireTableView.estimatedRowHeight = 60
+        repertoireTableView.dataSource = self
+    }
+    
+    func setBandIntroduceAreaUI() {
+        bandIntroduceLabel.text = bandIntroduceText
+        
+        bandIntroduceView.backgroundColor = UIColor.backgroundBlue
+        bandIntroduceView.layer.cornerRadius = 15
+        bandIntroduceView.layer.borderWidth = 1
+        bandIntroduceView.layer.borderColor = UIColor.dividerBlue.cgColor
     }
 }
 
