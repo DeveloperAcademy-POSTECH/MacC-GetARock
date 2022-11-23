@@ -48,10 +48,6 @@ class CommentListView: UIView {
         return $0
     }(UITableView())
     
-    private var vistorCommentData: VisitorCommentInfo?
-    private var gatheringComment: GatheringCommentInfo?
-    private var entryPoint: CommentListEntryPoint
-    
     // MARK: - Init
     
     init(entryPoint: CommentListEntryPoint) {
