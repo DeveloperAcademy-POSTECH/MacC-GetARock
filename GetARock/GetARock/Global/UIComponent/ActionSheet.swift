@@ -7,11 +7,10 @@
 
 import UIKit
 
+
 protocol Reportable: UIViewController, AlertSheet {
-    var viewControllerToPresentWhenReported: UIViewController { get }
 
 }
-
 extension Reportable {
     func showActionSheet() {
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
@@ -21,7 +20,7 @@ extension Reportable {
             self.showAlertSheet(alertTitle: "삭제하기", reason: "삭제하시겠습니까?")
         }
         let report = UIAlertAction(title: "신고하기", style: .default) { _ in
-            self.present(self.viewControllerToPresentWhenReported, animated: true)
+            self.present(ReportReasonListController(), animated: true)
             
         }
         
@@ -34,8 +33,9 @@ extension Reportable {
     }
 }
 
+
 protocol AlertSheet: UIViewController {
-    
+    func alertActionButtonPressed()
 }
 
 extension AlertSheet {
@@ -43,8 +43,8 @@ extension AlertSheet {
         let alertSheet = UIAlertController(title: alertTitle, message: reason, preferredStyle: .alert)
         
         let cancel = UIAlertAction(title: "취소", style: .default)
-        let action = UIAlertAction(title: alertTitle, style: .destructive)  { what in
-            print(alertTitle)
+        let action = UIAlertAction(title: alertTitle, style: .destructive)  { _ in
+            self.alertActionButtonPressed()
         }
         
         alertSheet.addAction(action)

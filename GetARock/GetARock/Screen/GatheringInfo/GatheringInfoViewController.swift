@@ -8,12 +8,11 @@
 import UIKit
 
 class GatheringInfoViewController: UIViewController, Reportable {
-    var viewControllerToPresentWhenReported: UIViewController = ReportReasonListController()
-    
+
     // MARK: - properties
+    
     @IBOutlet weak var conditionView: UIView!
     @IBOutlet weak var introductionContentView: UIView!
-    
     @IBOutlet weak var ellipsis: UIButton!
     //    var actionSheet = ActionSheet()
 
@@ -25,10 +24,15 @@ class GatheringInfoViewController: UIViewController, Reportable {
         conditionView.layer.borderColor = UIColor.white.cgColor
         
     }
-   
+    
+    // MARK: - Method
+    
+    func alertActionButtonPressed() {
+        print("삭제에 성공했습니다.")
+    }
+    
     @IBAction func ellipsis(_ sender: UIButton) {
          showActionSheet()
-    
     }
     
 }

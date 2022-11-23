@@ -8,6 +8,9 @@
 import UIKit
 
 class ReportReasonListCell: UITableViewCell {
+    
+    // MARK: - property
+    
     @IBOutlet weak var reportReason: UILabel!
     
     override func awakeFromNib() {
