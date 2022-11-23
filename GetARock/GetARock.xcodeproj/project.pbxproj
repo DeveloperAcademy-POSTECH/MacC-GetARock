@@ -351,12 +351,12 @@
 			isa = PBXGroup;
 			children = (
 				07D7DA3B29108C9000479B6F /* SampleView.swift */,
+				ABCE15B6292A052F007D30E2 /* ViewSwitchedSegmentedControl.swift */,
 				7BB7099229290AE40065136D /* CommentListView.swift */,
 				7BB70998292A419B0065136D /* EmptyListView.swift */,
 				7BB7099A292A47E40065136D /* CommentCreateButton.swift */,
 				7BFDAA90292C94E5002FE744 /* CommentWritingPopupViewController.swift */,
 				7BB709952929161D0065136D /* Cell */,
-				ABCE15B6292A052F007D30E2 /* ViewSwitchedSegmentedControl.swift */,
 			);
 			path = UIComponent;
 			sourceTree = "<group>";
