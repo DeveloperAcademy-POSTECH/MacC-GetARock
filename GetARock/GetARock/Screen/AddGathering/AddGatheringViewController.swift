@@ -9,6 +9,11 @@ import UIKit
 
 class AddGatheringViewController: UIViewController {
 
+    // MARK: - Property
+
+    private var hostBandName: String?
+    private var gatheringLocation: Location?
+
     // MARK: - View
 
     @IBOutlet weak var titleTextField: UITextField!
@@ -17,8 +22,6 @@ class AddGatheringViewController: UIViewController {
     @IBOutlet weak var introductionTextView: UITextView!
     @IBOutlet weak var scrollView: UIScrollView!
 
-    private var gatheringLocation: Location?
-    private var hostBandName: String?
     private let placeHolderLabel: UILabel = {
         $0.text = "내용을 입력하세요"
         $0.textColor = .lightGray
