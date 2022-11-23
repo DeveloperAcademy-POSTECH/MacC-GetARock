@@ -71,7 +71,11 @@ final class MainMapViewController: UIViewController {
     }
     
     private func requestLocationAuthorizationWhenUserDenied() {
-        let alertController = UIAlertController(title: "설정에서 위치 정보 권한을 변경해주세요", message: "위치정보 제공을 허용하면 현재 위치를 기준으로 장소를 보여줄 수 있어요", preferredStyle: .alert)
+        let alertController = UIAlertController(
+            title: "설정에서 위치 정보 권한을 변경해주세요",
+            message: "위치정보 제공을 허용하면 현재 위치를 기준으로 장소를 보여줄 수 있어요",
+            preferredStyle: .alert
+        )
         
         let settingsAction = UIAlertAction(title: "설정", style: .default) { (_) -> Void in
             guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
