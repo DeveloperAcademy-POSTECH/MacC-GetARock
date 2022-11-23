@@ -44,20 +44,20 @@ class CommentWritingPopupViewController: UIViewController {
         return $0
     }(CommentCreateButton())
 
-    lazy var popUpHeaderStackView: UIStackView = {
+    lazy var popUpHeader: UIStackView = {
         $0.axis = .horizontal
         $0.distribution = .equalSpacing
         return $0
     }(UIStackView(arrangedSubviews: [popupTitleLabel, closeButton]))
 
-    lazy var CommentWritingPopupStackView: UIStackView = {
+    lazy var popup: UIStackView = {
         $0.layoutMargins = UIEdgeInsets(top: 15.0, left: 15.0, bottom: 15.0, right: 15.0)
         $0.spacing = 15
         $0.axis = .vertical
         $0.isLayoutMarginsRelativeArrangement = true
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
-    }(UIStackView(arrangedSubviews: [popUpHeaderStackView, commentTextView, confirmButton]))
+    }(UIStackView(arrangedSubviews: [popUpHeader, commentTextView, confirmButton]))
 
     // MARK: - Life Cycle
 
@@ -70,17 +70,17 @@ class CommentWritingPopupViewController: UIViewController {
     // MARK: - Method
 
     private func attribute() {
-        view.backgroundColor = .black.withAlphaComponent(0.5)
+        view.backgroundColor = .black.withAlphaComponent(0.3)
     }
 
     private func setupLayout() {
-        view.addSubview(CommentWritingPopupStackView)
-        CommentWritingPopupStackView.backgroundColor = .modalBackgroundBlue
+        view.addSubview(popup)
+        popup.backgroundColor = .modalBackgroundBlue
         NSLayoutConstraint.activate([
-            CommentWritingPopupStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            CommentWritingPopupStackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            CommentWritingPopupStackView.widthAnchor.constraint(equalToConstant: CommentCreateButton.Size.width),
-            CommentWritingPopupStackView.heightAnchor.constraint(equalToConstant: 300)
+            popup.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            popup.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            popup.widthAnchor.constraint(equalToConstant: CommentCreateButton.Size.width),
+            popup.heightAnchor.constraint(equalToConstant: 300)
         ])
         setupCloseButton()
     }
