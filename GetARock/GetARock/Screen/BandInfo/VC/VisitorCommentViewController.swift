@@ -7,47 +7,51 @@
 
 import UIKit
 
-class VisitorCommentViewController: UIViewController {
+final class VisitorCommentViewController: UIViewController {
+
     // MARK: - View
+
     private let visitorCommentButton: CommentCreateButton = {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.setupButtonTitle(title: "방명록 남기기")
         return $0
     }(CommentCreateButton())
-    
+
     private let visitorCommentList = CommentListView(entryPoint: .visitorComment)
-    
-    private lazy var comment: UIStackView = {
-        $0.axis = .vertical
+
+    private lazy var commentStackView: UIStackView = {
         $0.spacing = 20
+        $0.axis = .vertical
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
     }(UIStackView(arrangedSubviews: [visitorCommentButton, visitorCommentList]))
 
     // MARK: - Life Cycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         attribute()
         setupLayout()
     }
-    
+
     // MARK: - Method
+
     private func attribute() {
         view.backgroundColor = .modalBackgroundBlue
     }
-    
+
     private func setupLayout() {
-        view.addSubview(comment)
+        view.addSubview(commentStackView)
         NSLayoutConstraint.activate([
-            comment.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
-            comment.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            comment.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
-            comment.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+            commentStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            commentStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            commentStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            commentStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
-        setupButton()
+        setupWritingButton()
     }
-    
-    private func setupButton() {
+
+    private func setupWritingButton() {
         let tapWritingButtonGesture: UITapGestureRecognizer = UITapGestureRecognizer(
             target: self,
             action: #selector(didTapVisitorCommentButton)
@@ -61,31 +65,3 @@ class VisitorCommentViewController: UIViewController {
         self.present(popupViewController, animated: false)
     }
 }
-
-//extension VisitorCommentViewController: UITableViewDelegate {
-//    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-//        let delete = UIContextualAction(style: .destructive, title: "Delete") { (_, _, _) in
-//            self.categories.remove(at: indexPath.section)
-//            let indexSet = IndexSet(arrayLiteral: indexPath.section)
-//            self.tableView.deleteSections(indexSet, with: .automatic )
-//        }
-//        let swipeActions = UISwipeActionsConfiguration(actions: [delete])
-//        return swipeActions
-//    }
-//}
-
-//extension CommentListView: UITableViewDataSource {
-//
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return MockData.visitorComments.count
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        guard let cell = tableView.dequeueReusableCell(
-//            withIdentifier: "CommentTableViewCell",
-//            for: indexPath
-//        ) as? CommentTableViewCell else { return UITableViewCell() }
-//        cell.selectionStyle = .none
-//        return cell
-//    }
-//}
