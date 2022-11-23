@@ -23,7 +23,6 @@ class CommentListView: UIView {
     // MARK: - View
     
     private let totalListNumberLabel: UILabel = {
-        $0.text = "총 \(MockData.visitorComments.count)개"
         $0.textColor = .white
         $0.font = UIFont.systemFont(ofSize: 16, weight: .bold)
         $0.translatesAutoresizingMaskIntoConstraints = false
@@ -66,6 +65,7 @@ class CommentListView: UIView {
     private func attribute() {
         self.backgroundColor = .modalBackgroundBlue
         setupCommentList()
+        setuptotalListNumberLabel()
     }
     
     private func setupCommentList() {
@@ -91,6 +91,15 @@ class CommentListView: UIView {
             tableView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ])
+    }
+
+    private func setuptotalListNumberLabel() {
+        switch entryPoint {
+        case .visitorComment:
+            totalListNumberLabel.text = "총 \(MockData.visitorComments.count)개"
+        case .gatheringComment:
+            totalListNumberLabel.text = "총 \(MockData.gatheringComments.count)개"
+        }
     }
 }
 
