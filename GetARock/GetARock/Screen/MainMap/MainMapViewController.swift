@@ -42,19 +42,21 @@ final class MainMapViewController: UIViewController {
     // MARK: - Method
     
     private func addAnnotationOnMapView() {
-        for band in MockData.bands {
+        for bandData in MockData.bands {
             let point = CustomAnnotation(
-                title: band.band.name,
-                coordinate: band.band.location.coordinate.toCLLocationCoordinate2D(),
-                category: .band
+                title: bandData.band.name,
+                coordinate: bandData.band.location.coordinate.toCLLocationCoordinate2D(),
+                category: .band,
+                band: bandData
             )
             mapView.addAnnotation(point)
         }
-        for gathering in MockData.gatherings {
+        for gatheringData in MockData.gatherings {
             let point = CustomAnnotation(
-                title: gathering.gathering.host.band.name,
-                coordinate: gathering.gathering.location.coordinate.toCLLocationCoordinate2D(),
-                category: .gathering
+                title: gatheringData.gathering.host.band.name,
+                coordinate: gatheringData.gathering.location.coordinate.toCLLocationCoordinate2D(),
+                category: .gathering,
+                gathering: gatheringData
             )
             mapView.addAnnotation(point)
         }
@@ -140,7 +142,7 @@ extension MainMapViewController: MKMapViewDelegate {
         if annotation as? MKUserLocation != nil {
             return MKUserLocationView()
         }
-        
+
         guard let marker = mapView.dequeueReusableAnnotationView(withIdentifier: CustomAnnotationView.className) as? CustomAnnotationView else {
             return CustomAnnotationView()
         }
@@ -149,8 +151,11 @@ extension MainMapViewController: MKMapViewDelegate {
     }
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        let selectedAnnotation = view.annotation
-        let placeName = selectedAnnotation?.title
+        guard let selectedAnnotation = view.annotation as? CustomAnnotation else {
+            return
+        }
+        let placeName = selectedAnnotation.title
+        let data = selectedAnnotation.bandInfo
         
         // TODO: 머피가 반모달 연결할 곳
         let testAlert = UIAlertController(title: placeName!, message: "짜잔", preferredStyle: .alert)
