@@ -13,14 +13,14 @@ class CommentWritingPopupViewController: UIViewController {
 
     // MARK: - View
 
-    lazy var popupTitleLabel: UILabel = {
+    let popupTitleLabel: UILabel = {
         $0.text = "방명록 작성"
         $0.font = .systemFont(ofSize: 16, weight: .bold)
         $0.textColor = .white
         return $0
     }(UILabel())
 
-    lazy var closeButton: UIButton = {
+    let closeButton: UIButton = {
         $0.setImage(UIImage(systemName: "xmark"), for: .normal)
         $0.tintColor = .white
         return $0
@@ -39,25 +39,25 @@ class CommentWritingPopupViewController: UIViewController {
         return $0
     }(UITextView())
 
-    lazy var confirmButton: CommentCreateButton = {
+    let confirmButton: CommentCreateButton = {
         $0.setupButtonTitle(title: "작성 완료")
         return $0
     }(CommentCreateButton())
 
-    lazy var popUpHeader: UIStackView = {
+    lazy var popUpHeaderStackView: UIStackView = {
         $0.axis = .horizontal
         $0.distribution = .equalSpacing
         return $0
     }(UIStackView(arrangedSubviews: [popupTitleLabel, closeButton]))
 
-    lazy var popup: UIStackView = {
+    lazy var commentWritingPopupStackView: UIStackView = {
         $0.layoutMargins = UIEdgeInsets(top: 15.0, left: 15.0, bottom: 15.0, right: 15.0)
         $0.spacing = 15
         $0.axis = .vertical
         $0.isLayoutMarginsRelativeArrangement = true
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
-    }(UIStackView(arrangedSubviews: [popUpHeader, commentTextView, confirmButton]))
+    }(UIStackView(arrangedSubviews: [popUpHeaderStackView, commentTextView, confirmButton]))
 
     // MARK: - Life Cycle
 
@@ -70,17 +70,17 @@ class CommentWritingPopupViewController: UIViewController {
     // MARK: - Method
 
     private func attribute() {
-        view.backgroundColor = .black.withAlphaComponent(0.3)
+        view.backgroundColor = .black.withAlphaComponent(0.6)
     }
 
     private func setupLayout() {
-        view.addSubview(popup)
-        popup.backgroundColor = .modalBackgroundBlue
+        view.addSubview(commentWritingPopupStackView)
+        commentWritingPopupStackView.backgroundColor = .modalBackgroundBlue
         NSLayoutConstraint.activate([
-            popup.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            popup.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            popup.widthAnchor.constraint(equalToConstant: CommentCreateButton.Size.width),
-            popup.heightAnchor.constraint(equalToConstant: 300)
+            commentWritingPopupStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            commentWritingPopupStackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            commentWritingPopupStackView.widthAnchor.constraint(equalToConstant: CommentCreateButton.Size.width),
+            commentWritingPopupStackView.heightAnchor.constraint(equalToConstant: 300)
         ])
         setupCloseButton()
     }
