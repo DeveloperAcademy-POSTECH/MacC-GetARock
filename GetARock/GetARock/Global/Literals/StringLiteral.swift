@@ -12,3 +12,7 @@ enum StringLiteral {
     static let exampleString = "안녕하세요"
 
 }
+
+enum DateFormatLiteral {
+    static let standard = "yyyy.MM.dd hh:mm"
+}
