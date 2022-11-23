@@ -43,11 +43,19 @@ final class MainMapViewController: UIViewController {
     
     private func addAnnotationOnMapView() {
         for band in MockData.bands {
-            let point = CustomAnnotation(title: band.band.name, coordinate: band.band.location.coordinate.toCLLocationCoordinate2D(), category: .band)
+            let point = CustomAnnotation(
+                title: band.band.name,
+                coordinate: band.band.location.coordinate.toCLLocationCoordinate2D(),
+                category: .band
+            )
             mapView.addAnnotation(point)
         }
         for gathering in MockData.gatherings {
-            let point = CustomAnnotation(title: gathering.gathering.host.band.name, coordinate: gathering.gathering.location.coordinate.toCLLocationCoordinate2D(), category: .gathering)
+            let point = CustomAnnotation(
+                title: gathering.gathering.host.band.name,
+                coordinate: gathering.gathering.location.coordinate.toCLLocationCoordinate2D(),
+                category: .gathering
+            )
             mapView.addAnnotation(point)
         }
     }
