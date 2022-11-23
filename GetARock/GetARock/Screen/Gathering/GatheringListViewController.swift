@@ -7,7 +7,7 @@
 
 import UIKit
 
-enum GatheringCategory: Int, CaseIterable {
+enum GatheringType: CaseIterable {
     case gatheringCreated
     case gatheringJoined
     
@@ -20,33 +20,38 @@ enum GatheringCategory: Int, CaseIterable {
 }
 
 class GatheringListViewController: UIViewController {
-
-    private let segmentedControlButtons = ViewSwitchedSegmentedControl(buttonTitles: [GatheringCategory.gatheringCreated.toKorean(), GatheringCategory.gatheringJoined.toKorean()])
     
-    private let gatheringListViewController = UIStoryboard(name: "GatheringView", bundle: nil).instantiateViewController(withIdentifier: GatheringCreatedViewController.className)
+    // MARK: - View
+    
+    private let segmentedControlButtons = ViewSwitchedSegmentedControl(buttonTitles: [GatheringType.gatheringCreated.toKorean(), GatheringType.gatheringJoined.toKorean()])
+
+    private let gatheringListContentViewController: GatheringCreatedViewController = UIStoryboard(name: "GatheringView", bundle: nil).instantiateViewController(withIdentifier: GatheringCreatedViewController.className) as? GatheringCreatedViewController ?? GatheringCreatedViewController()
     
     // MARK: - View Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLayout()
+        segmentedControlButtons.viewSwitchedSegmentedControldelegate = self
     }
 
 }
 
+// MARK: - Layout
+
 extension GatheringListViewController {
     private func attributes() {
         view.addSubview(segmentedControlButtons)
-        view.addSubview(gatheringListViewController.view)
+        view.addSubview(gatheringListContentViewController.view)
         view.backgroundColor = .modalBackgroundBlue
     }
     private func configureGatheringList() {
-        gatheringListViewController.view.translatesAutoresizingMaskIntoConstraints = false
+        gatheringListContentViewController.view.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            gatheringListViewController.view.topAnchor.constraint(equalTo: segmentedControlButtons.bottomAnchor, constant: 3),
-            gatheringListViewController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            gatheringListViewController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            gatheringListViewController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            gatheringListContentViewController.view.topAnchor.constraint(equalTo: segmentedControlButtons.bottomAnchor, constant: 3),
+            gatheringListContentViewController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            gatheringListContentViewController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            gatheringListContentViewController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
     private func configureButton() {
@@ -64,6 +69,8 @@ extension GatheringListViewController {
         configureGatheringList()
     }
 }
+
+// MARK: - ViewSwitchedSegmentedControlDelegate
 
 extension GatheringListViewController: ViewSwitchedSegmentedControlDelegate {
     func segmentValueChanged(to index: Int) {

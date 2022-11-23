@@ -12,6 +12,11 @@ class GatheringCreatedViewController: UIViewController {
     // MARK: - Properties
     
     @IBOutlet weak var tableView: UITableView!
+    var gatheringType: GatheringType = .gatheringCreated {
+        didSet {
+            tableView.reloadData()
+        }
+    }
     
     // MARK: - Sample Data
     
@@ -26,12 +31,6 @@ class GatheringCreatedViewController: UIViewController {
         var title: String
         var date: String
         var state: StateType
-        
-        init(title: String, date: String, state: StateType) {
-            self.title = title
-            self.date = date
-            self.state = state
-        }
     }
     
     private var gathering = [
@@ -71,12 +70,23 @@ class GatheringCreatedViewController: UIViewController {
 
 extension GatheringCreatedViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return gathering.count
+        switch gatheringType {
+        case .gatheringCreated:
+            return gathering.count
+        case .gatheringJoined:
+            return gathering.count > 2 ? gathering.count - 2 : gathering.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: GatheringCell.className, for: indexPath) as? GatheringCell else { return UITableViewCell() }
         
+        switch gatheringType {
+        case .gatheringCreated:
+            break
+        case .gatheringJoined:
+            break
+        }
         cell.title.text = gathering[indexPath.row].title
         cell.startTime.text = gathering[indexPath.row].date
         cell.state.text = labelType(for: gathering[indexPath.row].state)
