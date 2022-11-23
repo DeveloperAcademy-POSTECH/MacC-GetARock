@@ -58,7 +58,7 @@
                                                                     <color key="baseForegroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 </buttonConfiguration>
                                                                 <connections>
-                                                                    <action selector="ellipsis:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="1L3-eY-sN6"/>
+                                                                    <action selector="touchUpInsideEllipsis:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="aLI-Hv-nt1"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>

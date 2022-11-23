@@ -19,7 +19,19 @@ class ReportReasonListController: UITableViewController, AlertSheet {
         super.viewDidLoad()
         
         view.backgroundColor = .modalBackgroundBlue
+        tableView.tableHeaderView = makingHeader()
         
+        let nib = UINib(nibName: "ReportReasonListCell", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: "ReportReasonListCell")
+    }
+    
+    // MARK: - Method
+    
+    func alertActionButtonPressed() {
+        print("신고에 성공했습니다.")
+    }
+    
+    func makingHeader() -> UIView {
         let header = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 50))
         header.backgroundColor = .modalBackgroundBlue
         
@@ -35,25 +47,10 @@ class ReportReasonListController: UITableViewController, AlertSheet {
             headerLabel.centerXAnchor.constraint(equalTo: header.centerXAnchor),
             headerLabel.centerYAnchor.constraint(equalTo: header.centerYAnchor)
         ])
-        tableView.tableHeaderView = header
-        
-        let nib = UINib(nibName: "ReportReasonListCell", bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: "ReportReasonListCell")
-    }
-    
-    // MARK: - Method
-    
-    func alertActionButtonPressed() {
-        print("신고에 성공했습니다.")
+        return header
     }
 
     // MARK: - TableView data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-
-    return 1
-
-     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return reportReason.count
@@ -62,14 +59,14 @@ class ReportReasonListController: UITableViewController, AlertSheet {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ReportReasonListCell") as? ReportReasonListCell else { return UITableViewCell() }
         cell.reportReason.text = reportReason[indexPath.row]
-                return cell
+        return cell
     }
     
     // MARK: - TableView delegate
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        showAlertSheet(alertTitle: "신고하기", reason: "\(reportReason[indexPath.row])을/(를) 사유로 신고하시겠습니까?")
+        showAlertSheet(alertTitle: "신고하기", message: "\(reportReason[indexPath.row])을/(를) 사유로 신고하시겠습니까?")
     }
 
 }

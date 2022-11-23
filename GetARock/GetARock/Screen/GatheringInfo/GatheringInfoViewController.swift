@@ -22,6 +22,7 @@ class GatheringInfoViewController: UIViewController, Reportable {
     var gatheringInfo: GatheringInfo = MockData.gatherings[3]
     
     // MARK: - View Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         conditionView.layer.cornerRadius = 15
@@ -45,7 +46,7 @@ class GatheringInfoViewController: UIViewController, Reportable {
         print("삭제에 성공했습니다.")
     }
     
-    @IBAction func ellipsis(_ sender: UIButton) {
+    @IBAction func touchUpInsideEllipsis(_ sender: UIButton) {
         showActionSheet()
     }
     
