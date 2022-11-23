@@ -48,7 +48,7 @@ class BandInfoViewController: UIViewController {
 // MARK: - UI 설정 관련
 
 extension BandInfoViewController {
-    func setBandMemberAreaUI() {
+    private func setBandMemberAreaUI() {
         bandMemberLabel.text = "밴드 멤버 (\(numberOfBandMember)인)"
         
         bandMemberCollectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -56,11 +56,11 @@ extension BandInfoViewController {
         bandMemberCollectionView.collectionViewLayout = createCompositionalLayout()
     }
     
-    func setBandAgeAreaUI() {
+    private func setBandAgeAreaUI() {
         bandAgeLabel.text = generateBandAgeLabelText()
     }
     
-    func setRepertoireAreaUI() {
+    private func setRepertoireAreaUI() {
         let repertoireTableViewCellNib = UINib(nibName: RepertoireTableViewCell.className, bundle: nil)
         
         repertoireTableView.register(repertoireTableViewCellNib, forCellReuseIdentifier: RepertoireTableViewCell.className)
@@ -69,7 +69,7 @@ extension BandInfoViewController {
         repertoireTableView.dataSource = self
     }
     
-    func setBandIntroduceAreaUI() {
+    private func setBandIntroduceAreaUI() {
         bandIntroduceLabel.text = bandIntroduceText
         
         bandIntroduceView.backgroundColor = UIColor.backgroundBlue
