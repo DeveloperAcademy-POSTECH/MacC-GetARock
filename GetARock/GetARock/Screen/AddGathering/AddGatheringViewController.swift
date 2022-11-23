@@ -86,7 +86,6 @@ class AddGatheringViewController: UIViewController {
                 createdAt: Date()
             )
             MockData.gatherings.append(GatheringInfo(gatheringID: "testID", gathering: gatheringAddTestGathering)) // 추후 변경
-            printMockDataGatheringUpdateToTest() // 추후 삭제
             dismiss(animated: true)
         }
     }
@@ -220,23 +219,10 @@ extension AddGatheringViewController {
     }
 }
 
-// MARK: - Trivial utility method
-
-extension AddGatheringViewController {
-    #if DEBUG
-    // 로그를 보고 싶을 경우 주석 해제
-    private func printMockDataGatheringUpdateToTest() {
-//        print("before count: \(MockData.gatherings.count)")
-//        print("마지막: \(MockData.gatherings[MockData.gatherings.count-1])")
-    }
-    #endif
-}
-
 // MARK: - Mock data set & test (위치 선택 구현 후 삭제 예정)
 
 extension AddGatheringViewController {
     private func setAddGatheringTestData() {
         gatheringLocation = MockData.bands[1].band.location // 일부러 다른 밴드의 위치로 함
-        printMockDataGatheringUpdateToTest()
     }
 }
