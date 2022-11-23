@@ -184,6 +184,17 @@ extension AddGatheringViewController {
         case noTitle
         case noLocation
         case noMultipleFields
+        
+        var errorMessage: String {
+            switch self {
+            case .noTitle:
+                return "모여락의 이름을 입력해주세요"
+            case .noLocation:
+                return "모여락의 장소를 입력해주세요"
+            case .noMultipleFields:
+                return "모여락의 이름, 장소를 입력해주세요"
+            }
+        }
     }
 
     private func validateInputs() throws {
@@ -203,22 +214,18 @@ extension AddGatheringViewController {
     }
 
     private func addGatheringInputErrorMessage() -> String? {
-        var errorString = ""
         do {
             try validateInputs()
         } catch AddGatheringInputError.noMultipleFields {
-            errorString = "모여락의 이름, 장소를 입력해주세요"
+            return AddGatheringInputError.noMultipleFields.errorMessage
         } catch AddGatheringInputError.noTitle {
-            errorString = "모여락의 이름을 입력해주세요"
+            return AddGatheringInputError.noTitle.errorMessage
         } catch AddGatheringInputError.noLocation {
-            errorString = "모여락의 장소를 입력해주세요"
+            return AddGatheringInputError.noLocation.errorMessage
         } catch {
-            errorString = "입력을 확인하는 중 알 수 없는 문제가 발생했습니다"
+            return "입력을 확인하는 중 알 수 없는 문제가 발생했습니다"
         }
-        if errorString.count <= 0 {
-            return nil
-        }
-        return errorString
+        return nil
     }
 }
 
