@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 protocol Reportable: UIViewController, AlertSheet {
 
 }
@@ -33,7 +32,6 @@ extension Reportable {
     }
 }
 
-
 protocol AlertSheet: UIViewController {
     func alertActionButtonPressed()
 }
@@ -43,7 +41,7 @@ extension AlertSheet {
         let alertSheet = UIAlertController(title: alertTitle, message: reason, preferredStyle: .alert)
         
         let cancel = UIAlertAction(title: "취소", style: .default)
-        let action = UIAlertAction(title: alertTitle, style: .destructive)  { _ in
+        let action = UIAlertAction(title: alertTitle, style: .destructive) { _ in
             self.alertActionButtonPressed()
         }
         

@@ -8,14 +8,14 @@
 import UIKit
 
 class GatheringInfoViewController: UIViewController, Reportable {
-
+    
     // MARK: - properties
     
     @IBOutlet weak var conditionView: UIView!
     @IBOutlet weak var introductionContentView: UIView!
     @IBOutlet weak var ellipsis: UIButton!
     //    var actionSheet = ActionSheet()
-
+    
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +32,7 @@ class GatheringInfoViewController: UIViewController, Reportable {
     }
     
     @IBAction func ellipsis(_ sender: UIButton) {
-         showActionSheet()
+        showActionSheet()
     }
     
 }
