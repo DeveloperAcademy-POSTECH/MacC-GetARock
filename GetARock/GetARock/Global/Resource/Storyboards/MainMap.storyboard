@@ -54,6 +54,9 @@
                                         <rect key="frame" x="0.0" y="62" width="58" height="58"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" image="CurrentLocation"/>
+                                        <connections>
+                                            <action selector="moveToUserLocation:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Qbk-cX-BgS"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>

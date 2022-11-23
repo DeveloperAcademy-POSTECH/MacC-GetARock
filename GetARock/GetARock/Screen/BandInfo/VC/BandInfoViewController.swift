@@ -15,11 +15,13 @@ class BandInfoViewController: UIViewController {
     @IBOutlet weak var bandMemberCollectionView: UICollectionView!
     @IBOutlet weak var bandIntroduceLabel: UILabel!
     @IBOutlet weak var bandIntroduceView: UIView!
+    @IBOutlet weak var bandAgeLabel: UILabel!
     
     fileprivate let numberOfBandMember: Int = 7
     fileprivate let positionNameArray: [String] = ["보컬", "기타", "키보드", "드럼", "베이스", "그 외"]
     fileprivate let numberOfPostionArray: [Int] = [1, 2, 1, 1, 1, 0]
     fileprivate let bandIntroduceText = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+    private let bandAgeArray: [String] = ["20대", "30대", "40대"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +32,8 @@ class BandInfoViewController: UIViewController {
         bandMemberCollectionView.dataSource = self
         
         self.bandMemberCollectionView.collectionViewLayout = createCompositionalLayout()
+        
+        bandAgeLabel.text = generateBandAgeLabelText()
         
         bandIntroduceLabel.text = bandIntroduceText
         bandIntroduceView.backgroundColor = UIColor.backgroundBlue
@@ -46,7 +50,7 @@ class BandInfoViewController: UIViewController {
 // MARK: - 컬렉션뷰 compositonal layout 관련
 
 extension BandInfoViewController {
-    fileprivate func createCompositionalLayout() -> UICollectionViewLayout {
+    private func createCompositionalLayout() -> UICollectionViewLayout {
         let layout = UICollectionViewCompositionalLayout { (_: Int, _: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
             
             let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1/3), heightDimension: .fractionalHeight(1))
@@ -83,5 +87,19 @@ extension BandInfoViewController: UICollectionViewDataSource {
         cell.numberOfPositionLabel.text = "\(self.numberOfPostionArray[indexPath.item])명"
         
         return cell
+    }
+}
+
+// MARK: - 밴드 연령대 Label 관련
+
+extension BandInfoViewController {
+    private func generateBandAgeLabelText() -> String {
+        for num in 0...bandAgeArray.count - 1 {
+            bandAgeLabel.text?.append(bandAgeArray[num])
+            if num != bandAgeArray.count - 1 {
+                bandAgeLabel.text?.append(", ")
+            }
+        }
+        return bandAgeLabel.text ?? ""
     }
 }
