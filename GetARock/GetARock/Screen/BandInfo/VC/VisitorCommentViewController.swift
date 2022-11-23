@@ -7,8 +7,6 @@
 
 import UIKit
 
-
-
 class VisitorCommentViewController: UIViewController {
     // MARK: - View
     private let visitorCommentButton: CommentCreateButton = {
@@ -17,7 +15,7 @@ class VisitorCommentViewController: UIViewController {
         return $0
     }(CommentCreateButton())
     
-    private let visitorCommentList = CommentListView()
+    private let visitorCommentList = CommentListView(entryPoint: .visitorComment)
     
     private lazy var comment: UIStackView = {
         $0.axis = .vertical
@@ -73,5 +71,21 @@ class VisitorCommentViewController: UIViewController {
 //        }
 //        let swipeActions = UISwipeActionsConfiguration(actions: [delete])
 //        return swipeActions
+//    }
+//}
+
+//extension CommentListView: UITableViewDataSource {
+//
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return MockData.visitorComments.count
+//    }
+//
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        guard let cell = tableView.dequeueReusableCell(
+//            withIdentifier: "CommentTableViewCell",
+//            for: indexPath
+//        ) as? CommentTableViewCell else { return UITableViewCell() }
+//        cell.selectionStyle = .none
+//        return cell
 //    }
 //}

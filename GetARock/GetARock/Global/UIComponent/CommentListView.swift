@@ -7,41 +7,57 @@
 
 import UIKit
 
+enum CommentListEntryPoint {
+    case visitorComment
+    case gatheringComment
+}
+
 class CommentListView: UIView {
+
+    // MARK: - Properties
+
+    private var vistorCommentData: VisitorCommentInfo?
+    private var gatheringComment: GatheringCommentInfo?
+    private var entryPoint: CommentListEntryPoint
 
     // MARK: - View
 
     private let totalListNumberLabel: UILabel = {
-        $0.text = "총 11개"
+        $0.text = "총 \(MockData.visitorComments.count)개"
         $0.textColor = .white
         $0.font = UIFont.systemFont(ofSize: 16, weight: .bold)
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
     }(UILabel())
 
+    private let visitorCommentButton: CommentCreateButton = {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.setupButtonTitle(title: "방명록 남기기")
+        return $0
+    }(CommentCreateButton())
+
     private let tableView = {
         $0.showsVerticalScrollIndicator = false
-        $0.separatorInset.left = 16
-        $0.separatorInset.right = 16
+//        $0.separatorInset.left = 16
+//        $0.separatorInset.right = 16
         $0.separatorColor = .dividerBlue
         $0.rowHeight = UITableView.automaticDimension
         $0.estimatedRowHeight = UITableView.automaticDimension
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
     }(UITableView())
-
+    
     // MARK: - Init
 
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    init(entryPoint: CommentListEntryPoint) {
+        self.entryPoint = entryPoint
+        super.init(frame: .zero)
         attribute()
         setupLayout()
     }
 
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        attribute()
-        setupLayout()
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 
     // MARK: - Method
@@ -89,15 +105,30 @@ extension CommentListView: UITableViewDelegate {
 
 extension CommentListView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        switch entryPoint {
+        case .visitorComment :
+            return MockData.visitorComments.count
+        case .gatheringComment:
+            return MockData.gatheringComments.count
+        }
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: CommentTableViewCell.className,
-            for: indexPath
-        ) as? CommentTableViewCell else { return UITableViewCell() }
+                    withIdentifier: "CommentTableViewCell", for: indexPath) as? CommentTableViewCell else { return UITableViewCell() }
+        
         cell.selectionStyle = .none
+        
+        switch entryPoint {
+        case .visitorComment :
+            cell.bandNameLabel.text = MockData.bands[indexPath.row].band.name
+            cell.commentTextLabel.text = MockData.visitorComments[indexPath.row].comment.content
+//            cell.commentDate.text = MockData.visitorComments[indexPath.row].comment.createdAt
+        case .gatheringComment:
+//            cell.bandName.text = MockData.bands[indexPath.row].band.name
+            cell.bandNameLabel.text = MockData.gatheringComments[indexPath.row].comment.author.band.name
+            cell.commentTextLabel.text = MockData.gatheringComments[indexPath.row].comment.content
+        }
         return cell
     }
 }
