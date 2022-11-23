@@ -13,15 +13,15 @@ enum CommentListEntryPoint {
 }
 
 class CommentListView: UIView {
-
+    
     // MARK: - View
-
+    
     private let visitorCommentButton: CommentCreateButton = {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.setupButtonTitle(title: "방명록 남기기")
         return $0
     }(CommentCreateButton())
-
+    
     private var totalListNumber: UILabel = {
         $0.text = "총 \(MockData.visitorComments.count)개"
         $0.textColor = .white
@@ -29,7 +29,7 @@ class CommentListView: UIView {
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
     }(UILabel())
-
+    
     private let tableView = {
         $0.showsVerticalScrollIndicator = false
         $0.separatorInset.left = 16
@@ -40,31 +40,31 @@ class CommentListView: UIView {
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
     }(UITableView())
-
+    
     private var vistorCommentData: VisitorCommentInfo?
     private var gatheringComment: GatheringCommentInfo?
     private var entryPoint: CommentListEntryPoint
     
     // MARK: - Init
-
+    
     init(entryPoint: CommentListEntryPoint) {
         self.entryPoint = entryPoint
         super.init(frame: .zero)
         attribute()
         setupLayout()
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     // MARK: - Method
-
+    
     private func attribute() {
         self.backgroundColor = .modalBackgroundBlue
         setupCommentList()
     }
-
+    
     func setupCommentList() {
         tableView.delegate = self
         tableView.dataSource = self
@@ -73,7 +73,7 @@ class CommentListView: UIView {
             forCellReuseIdentifier: "CommentTableViewCell"
         )
     }
-
+    
     private func setupLayout() {
         self.addSubview(totalListNumber)
         NSLayoutConstraint.activate([
@@ -115,7 +115,7 @@ extension CommentListView: UITableViewDelegate {
 // MARK: - UITableViewDataSource
 
 extension CommentListView: UITableViewDataSource {
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch entryPoint {
         case .visitorComment :
@@ -124,21 +124,22 @@ extension CommentListView: UITableViewDataSource {
             return MockData.gatheringComments.count
         }
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(
             withIdentifier: "CommentTableViewCell", for: indexPath) as? CommentTableViewCell else { return UITableViewCell() }
+       
         cell.selectionStyle = .none
         
         switch entryPoint {
         case .visitorComment :
-            cell.bandName.text = MockData.bands[indexPath.row].band.name
+            cell.bandName.text = MockData.visitorComments[indexPath.row].comment.author.band.name
             cell.commentText.text = MockData.visitorComments[indexPath.row].comment.content
-//            cell.commentDate.text = MockData.visitorComments[indexPath.row].comment.createdAt
-        case .gatheringComment:
-//            cell.bandName.text = MockData.bands[indexPath.row].band.name
+            cell.commentDate.text = MockData.visitorComments[indexPath.row].comment.createdAt.toString(format: DateFormatLiteral.standard)
+        case .gatheringComment :
             cell.bandName.text = MockData.gatheringComments[indexPath.row].comment.author.band.name
             cell.commentText.text = MockData.gatheringComments[indexPath.row].comment.content
+            cell.commentDate.text = MockData.gatheringComments[indexPath.row].comment.createdAt.toString(format: DateFormatLiteral.standard)
         }
         return cell
     }
