@@ -26,6 +26,7 @@ class CustomAnnotationView: MKMarkerAnnotationView {
 }
 
 class CustomAnnotation: NSObject, MKAnnotation {
+    
     enum Category {
         case band
         case gathering
@@ -47,10 +48,9 @@ class CustomAnnotation: NSObject, MKAnnotation {
         }
     }
     
+    let title: String?
     let coordinate: CLLocationCoordinate2D
     let category: Category
-    
-    var title: String?
     
     init(title: String?, coordinate: CLLocationCoordinate2D, category: Category) {
         self.title = title
