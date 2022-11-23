@@ -18,6 +18,7 @@ class ReportReasonListController: UITableViewController, AlertSheet {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.backgroundColor = .modalBackgroundBlue
         tableView.tableHeaderView = makingHeader()
         
         let nib = UINib(nibName: "ReportReasonListCell", bundle: nil)
@@ -50,10 +51,6 @@ class ReportReasonListController: UITableViewController, AlertSheet {
     }
 
     // MARK: - TableView data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return reportReason.count
