@@ -32,7 +32,7 @@ class GatheringListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLayout()
-        segmentedControlButtons.viewSwitchedSegmentedControldelegate = self
+        segmentedControlButtons.delegate = self
     }
 
 }

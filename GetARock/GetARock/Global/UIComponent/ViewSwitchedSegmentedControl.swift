@@ -15,7 +15,7 @@ final class ViewSwitchedSegmentedControl: UIView {
     
     // MARK: - Properties
     
-    weak var viewSwitchedSegmentedControldelegate: ViewSwitchedSegmentedControlDelegate?
+    weak var delegate: ViewSwitchedSegmentedControlDelegate?
     private var buttonTitles = [String]()
     private var buttons = [UIButton]()
     let textColor: UIColor = .white
@@ -69,7 +69,7 @@ final class ViewSwitchedSegmentedControl: UIView {
         for (buttonIndex, button) in buttons.enumerated() {
             button.setTitleColor(textColor, for: .normal)
             if button == sender {
-                viewSwitchedSegmentedControldelegate?.segmentValueChanged(to: buttonIndex)
+                delegate?.segmentValueChanged(to: buttonIndex)
                 let selectorPosition = frame.width / CGFloat(buttonTitles.count) * CGFloat(buttonIndex)
                 UIView.animate(withDuration: 0.2) {
                     self.selectorView.frame.origin.x = selectorPosition
