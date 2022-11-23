@@ -22,7 +22,7 @@ final class MainMapViewController: UIViewController {
         latitude: 36.014,
         longitude: 129.32
     )
-
+    
     let coordinateRange = 0.03
     let locationManager = CLLocationManager()
     
@@ -72,7 +72,7 @@ final class MainMapViewController: UIViewController {
             animated: true
         )
     }
-
+    
     private func centerUserLocation() {
         mapView.showsUserLocation = true
         mapView.setUserTrackingMode(.follow, animated: true)
@@ -135,6 +135,7 @@ extension MainMapViewController: CLLocationManagerDelegate {
 // MARK: - CLLocationManagerDelegate
 
 extension MainMapViewController: MKMapViewDelegate {
+    
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if annotation as? MKUserLocation != nil {
             return MKUserLocationView()
@@ -146,4 +147,19 @@ extension MainMapViewController: MKMapViewDelegate {
         
         return marker
     }
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        let selectedAnnotation = view.annotation
+        let placeName = selectedAnnotation?.title
+        
+        // TODO: 머피가 반모달 연결할 곳
+        let testAlert = UIAlertController(title: placeName!, message: "짜잔", preferredStyle: .alert)
+        testAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(testAlert, animated: true, completion: nil)
+    }
+    
+    func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
+        // TODO: 핀 선택 취소하면(지도에서 다른 부분 선택하면) 반모달 내려야 함
+    }
+    
 }
