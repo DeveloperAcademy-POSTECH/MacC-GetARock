@@ -8,19 +8,17 @@
 import UIKit
 
 class CommentWritingPopupViewController: UIViewController {
-
-    let textViewPlaceHolder = "텍스트를 입력해주세요"
-
+    private let textViewPlaceHolder = "텍스트를 입력해주세요"
     // MARK: - View
 
-    lazy var popupTitleLabel: UILabel = {
+    private let popupTitleLabel: UILabel = {
         $0.text = "방명록 작성"
         $0.font = .systemFont(ofSize: 16, weight: .bold)
         $0.textColor = .white
         return $0
     }(UILabel())
 
-    lazy var closeButton: UIButton = {
+    private let closeButton: UIButton = {
         $0.setImage(UIImage(systemName: "xmark"), for: .normal)
         $0.tintColor = .white
         return $0
@@ -39,26 +37,26 @@ class CommentWritingPopupViewController: UIViewController {
         return $0
     }(UITextView())
 
-    lazy var confirmButton: CommentCreateButton = {
+    private let confirmButton: CommentCreateButton = {
         $0.setupButtonTitle(title: "작성 완료")
         return $0
     }(CommentCreateButton())
 
-    lazy var popUpHeader: UIStackView = {
+    private lazy var popUpHeaderStackView: UIStackView = {
         $0.axis = .horizontal
         $0.distribution = .equalSpacing
         return $0
     }(UIStackView(arrangedSubviews: [popupTitleLabel, closeButton]))
 
-    lazy var popup: UIStackView = {
+    private lazy var popupStackView: UIStackView = {
         $0.layoutMargins = UIEdgeInsets(top: 15.0, left: 15.0, bottom: 15.0, right: 15.0)
         $0.spacing = 15
         $0.axis = .vertical
         $0.isLayoutMarginsRelativeArrangement = true
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
-    }(UIStackView(arrangedSubviews: [popUpHeader, commentTextView, confirmButton]))
 
+    }(UIStackView(arrangedSubviews: [popUpHeaderStackView, commentTextView, confirmButton]))
     // MARK: - Life Cycle
 
     override func viewDidLoad() {
@@ -74,13 +72,13 @@ class CommentWritingPopupViewController: UIViewController {
     }
 
     private func setupLayout() {
-        view.addSubview(popup)
-        popup.backgroundColor = .modalBackgroundBlue
+        view.addSubview(popupStackView)
+        popupStackView.backgroundColor = .modalBackgroundBlue
         NSLayoutConstraint.activate([
-            popup.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            popup.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            popup.widthAnchor.constraint(equalToConstant: CommentCreateButton.Size.width),
-            popup.heightAnchor.constraint(equalToConstant: 300)
+            popupStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            popupStackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            popupStackView.widthAnchor.constraint(equalToConstant: CommentCreateButton.Size.width),
+            popupStackView.heightAnchor.constraint(equalToConstant: 300)
         ])
         setupCloseButton()
     }
@@ -90,12 +88,12 @@ class CommentWritingPopupViewController: UIViewController {
     }
 
     @objc private func addNewComment(_ sender: Any) {
-           // TO-Do : 텍스트 필드에 입력한 텍스트 방명록 리스트에 추가
-       }
-
+        // TO-Do : 텍스트 필드에 입력한 텍스트 방명록 리스트에 추가
+    }
+    
     @objc private func dismissPopup(_ sender: Any) {
-           dismiss(animated: false, completion: nil)
-       }
+        dismiss(animated: false, completion: nil)
+    }
 }
 
 // MARK: - UITextViewDelegate

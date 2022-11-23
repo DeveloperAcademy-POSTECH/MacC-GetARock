@@ -66,7 +66,8 @@ class CommentListView: UIView {
     private func attribute() {
         self.backgroundColor = .modalBackgroundBlue
         setupCommentList()
-        setuptotalListNumberLabel()
+        setupTotalListNumberLabel()
+        setupCommentWritingButton()
     }
 
     private func setupCommentList() {
@@ -87,10 +88,10 @@ class CommentListView: UIView {
             commentStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ])
         tableView.backgroundColor = .modalBackgroundBlue
-        setupCommentWritingButton()
+
     }
 
-    private func setuptotalListNumberLabel() {
+    private func setupTotalListNumberLabel() {
         switch entryPoint {
         case .visitorComment:
             totalListNumberLabel.text = "총 \(MockData.visitorComments.count)개"
