@@ -37,9 +37,9 @@ extension GatheringListViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: GatheringListCell.className, for: indexPath) as? GatheringListCell else { return UITableViewCell() }
         
         let gathering = gatheringInfos[indexPath.row].gathering
-        cell.title.text = gathering.title
-        cell.startTime.text = gathering.date.toString(format: DateFormatLiteral.standard)
-        cell.state.text = gathering.status.toKorean()
+        cell.titleLabel.text = gathering.title
+        cell.dateLabel.text = gathering.date.toString(format: DateFormatLiteral.standard)
+        cell.statusLabel.text = gathering.status.toKorean()
         
         return cell
     }
