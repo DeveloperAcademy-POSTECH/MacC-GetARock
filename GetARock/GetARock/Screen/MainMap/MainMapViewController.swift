@@ -27,6 +27,7 @@ final class MainMapViewController: UIViewController {
     )
 
     let coordinateRange = 0.03
+    let zoomInRange = 0.015
     let locationManager = CLLocationManager()
     
     // MARK: - View Life Cycle
@@ -82,6 +83,16 @@ final class MainMapViewController: UIViewController {
     private func centerUserLocation() {
         mapView.showsUserLocation = true
         mapView.setUserTrackingMode(.follow, animated: true)
+    }
+    
+    func focusOnSelectedLocation(latitudeValue: CLLocationDegrees,
+                                 longitudeValue: CLLocationDegrees,
+                                 delta span: Double) {
+        let currentLocation = CLLocationCoordinate2DMake(latitudeValue, longitudeValue)
+        let spanValue = MKCoordinateSpan(latitudeDelta: zoomInRange,
+                                         longitudeDelta: zoomInRange)
+        let currentRegion = MKCoordinateRegion(center: currentLocation, span: spanValue)
+        mapView.setRegion(currentRegion, animated: true)
     }
     
     private func requestLocationAuthorizationWhenUserDenied() {
@@ -171,18 +182,18 @@ extension MainMapViewController: CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let currentLocation = locations.last
+        let currentLocation = locations.last ?? nil
         
         CLGeocoder().reverseGeocodeLocation(
             currentLocation!,
             completionHandler: {(placemarks, _) -> Void in
-                let currentPlacemark = placemarks!.first
+                let currentPlacemark = placemarks?.first
                 var address: String = ""
-                if currentPlacemark!.locality != nil {
+                if currentPlacemark?.locality != nil {
                     address += " "
                     address += currentPlacemark!.locality!
                 }
-                if currentPlacemark!.thoroughfare != nil {
+                if currentPlacemark?.thoroughfare != nil {
                     address += " "
                     address += currentPlacemark!.thoroughfare!
                 }
@@ -213,6 +224,8 @@ extension MainMapViewController: MKMapViewDelegate {
         
         guard let selectedAnnotation = view.annotation as? CustomAnnotation else { return }
         let placeName = selectedAnnotation.title
+        
+        focusOnSelectedLocation(latitudeValue: selectedAnnotation.coordinate.latitude - 0.005, longitudeValue: selectedAnnotation.coordinate.longitude, delta: zoomInRange)
 
         switch selectedAnnotation.category {
         case .band :
@@ -245,6 +258,10 @@ extension MainMapViewController: MKMapViewDelegate {
     }
     
     func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
+        guard let selectedAnnotation = view.annotation as? CustomAnnotation else {
+                   return
+               }
         nextVC?.dismiss(animated: true)
+        focusOnSelectedLocation(latitudeValue: selectedAnnotation.coordinate.latitude, longitudeValue: selectedAnnotation.coordinate.longitude, delta: zoomInRange)
     }
 }

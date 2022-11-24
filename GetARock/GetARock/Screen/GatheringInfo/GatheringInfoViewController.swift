@@ -39,6 +39,7 @@ class GatheringInfoViewController: UIViewController, Reportable {
         conditionView.layer.borderColor = UIColor.white.cgColor
         connectWithData()
         setupLayout()
+        view.backgroundColor = .modalBackgroundBlue
     }
     
     // MARK: - Method

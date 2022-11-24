@@ -31,6 +31,7 @@ class BandInfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.backgroundColor = .modalBackgroundBlue
         setBandMemberAreaUI()
         setBandAgeAreaUI()
         setRepertoireAreaUI()
