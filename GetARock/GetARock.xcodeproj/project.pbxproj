@@ -37,6 +37,8 @@
 		3D0ED2232928667900AE320C /* BandInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0ED2222928667900AE320C /* BandInfoViewController.swift */; };
 		3D565329292855E9003D0C9F /* BandInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D565328292855E9003D0C9F /* BandInfo.storyboard */; };
 		3DF54FCB292A43EA001CD16B /* BandMemberCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF54FCA292A43EA001CD16B /* BandMemberCollectionViewCell.swift */; };
+		3DF54FCF292B9223001CD16B /* RepertoireTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF54FCE292B9223001CD16B /* RepertoireTableViewCell.swift */; };
+		3DF54FD1292BAFA6001CD16B /* RepertoireTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DF54FD0292BAFA6001CD16B /* RepertoireTableViewCell.xib */; };
 		6667A3202929F5DA0052A53B /* GatheringInfoPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6667A31F2929F5DA0052A53B /* GatheringInfoPage.storyboard */; };
 		66E1623F292ADFF5001F0578 /* GatheringInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E1623E292ADFF5001F0578 /* GatheringInfoViewController.swift */; };
 		7BB7099329290AE40065136D /* CommentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB7099229290AE40065136D /* CommentListView.swift */; };
@@ -58,6 +60,7 @@
 		AB58E003292CB57100868720 /* BandPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB58E002292CB57100868720 /* BandPageViewController.swift */; };
 		AB58E007292CB61700868720 /* TopViewOfInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB58E006292CB61700868720 /* TopViewOfInfoView.swift */; };
 		ABCE15B7292A052F007D30E2 /* ViewSwitchedSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCE15B6292A052F007D30E2 /* ViewSwitchedSegmentedControl.swift */; };
+		7BFDAA91292C94E5002FE744 /* CommentWritingPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFDAA90292C94E5002FE744 /* CommentWritingPopupViewController.swift */; };
 		B830849929263B780035DB2D /* MainMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B830849829263B780035DB2D /* MainMapViewController.swift */; };
 		B8B9971F29287D3700082462 /* MainMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8B9971E29287D3700082462 /* MainMap.storyboard */; };
 		B8BE496E292E14C800E8E774 /* CustomAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BE496D292E14C800E8E774 /* CustomAnnotationView.swift */; };
@@ -117,6 +120,8 @@
 		3D0ED2222928667900AE320C /* BandInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandInfoViewController.swift; sourceTree = "<group>"; };
 		3D565328292855E9003D0C9F /* BandInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BandInfo.storyboard; sourceTree = "<group>"; };
 		3DF54FCA292A43EA001CD16B /* BandMemberCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandMemberCollectionViewCell.swift; sourceTree = "<group>"; };
+		3DF54FCE292B9223001CD16B /* RepertoireTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepertoireTableViewCell.swift; sourceTree = "<group>"; };
+		3DF54FD0292BAFA6001CD16B /* RepertoireTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepertoireTableViewCell.xib; sourceTree = "<group>"; };
 		6667A31F2929F5DA0052A53B /* GatheringInfoPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GatheringInfoPage.storyboard; sourceTree = "<group>"; };
 		66E1623E292ADFF5001F0578 /* GatheringInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatheringInfoViewController.swift; sourceTree = "<group>"; };
 		7BB7099229290AE40065136D /* CommentListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentListView.swift; sourceTree = "<group>"; };
@@ -138,6 +143,7 @@
 		AB58E002292CB57100868720 /* BandPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandPageViewController.swift; sourceTree = "<group>"; };
 		AB58E006292CB61700868720 /* TopViewOfInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopViewOfInfoView.swift; sourceTree = "<group>"; };
 		ABCE15B6292A052F007D30E2 /* ViewSwitchedSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewSwitchedSegmentedControl.swift; sourceTree = "<group>"; };
+		7BFDAA90292C94E5002FE744 /* CommentWritingPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentWritingPopupViewController.swift; sourceTree = "<group>"; };
 		B830849829263B780035DB2D /* MainMapViewController.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = MainMapViewController.swift; sourceTree = "<group>"; tabWidth = 4; };
 		B8B9971E29287D3700082462 /* MainMap.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainMap.storyboard; sourceTree = "<group>"; };
 		B8BE496D292E14C800E8E774 /* CustomAnnotationView.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = CustomAnnotationView.swift; sourceTree = "<group>"; tabWidth = 4; };
@@ -354,6 +360,7 @@
 				7BB7099229290AE40065136D /* CommentListView.swift */,
 				7BB70998292A419B0065136D /* EmptyListView.swift */,
 				7BB7099A292A47E40065136D /* CommentCreateButton.swift */,
+				7BFDAA90292C94E5002FE744 /* CommentWritingPopupViewController.swift */,
 				7BB709952929161D0065136D /* Cell */,
 				ABCE15B6292A052F007D30E2 /* ViewSwitchedSegmentedControl.swift */,
 				7BE60DA2292F333D00BD7492 /* CommentWritingPopupViewController.swift */,
@@ -381,6 +388,7 @@
 			isa = PBXGroup;
 			children = (
 				07D7DA4329108DCB00479B6F /* SampleView.xib */,
+				3DF54FD0292BAFA6001CD16B /* RepertoireTableViewCell.xib */,
 				84002605292BB75C0093648A /* BandTimelineCell.xib */,
 				8437618C29273CF000BD2C2A /* GatheringCell.xib */,
 			);
@@ -412,6 +420,7 @@
 			isa = PBXGroup;
 			children = (
 				3DF54FCA292A43EA001CD16B /* BandMemberCollectionViewCell.swift */,
+				3DF54FCE292B9223001CD16B /* RepertoireTableViewCell.swift */,
 				84002607292BC4BE0093648A /* BandTimelineCell.swift */,
 			);
 			path = Cell;
@@ -575,6 +584,7 @@
 			files = (
 				8437618B2927397400BD2C2A /* GatheringView.storyboard in Resources */,
 				07D7DA832911EB7D00479B6F /* .swiftlint.yml in Resources */,
+				3DF54FD1292BAFA6001CD16B /* RepertoireTableViewCell.xib in Resources */,
 				B8B9971F29287D3700082462 /* MainMap.storyboard in Resources */,
 				84002600292BB27B0093648A /* BandTimeline.storyboard in Resources */,
 				8437618D29273CF000BD2C2A /* GatheringCell.xib in Resources */,
@@ -636,6 +646,7 @@
 				8437619029275B3500BD2C2A /* GatheringCreatedViewController.swift in Sources */,
 				07D7DA3C29108C9000479B6F /* SampleView.swift in Sources */,
 				3DF54FCB292A43EA001CD16B /* BandMemberCollectionViewCell.swift in Sources */,
+				3DF54FCF292B9223001CD16B /* RepertoireTableViewCell.swift in Sources */,
 				3D0ED2232928667900AE320C /* BandInfoViewController.swift in Sources */,
 				B8BE496E292E14C800E8E774 /* CustomAnnotationView.swift in Sources */,
 				0761508D29277CBB00A0562F /* VisitorComment.swift in Sources */,
@@ -655,6 +666,7 @@
 				7BDA8F90291296B200BB2D34 /* UIView+Gradation.swift in Sources */,
 				0761508B29276D8200A0562F /* Coordinate.swift in Sources */,
 				7BB7099B292A47E50065136D /* CommentCreateButton.swift in Sources */,
+				7BFDAA91292C94E5002FE744 /* CommentWritingPopupViewController.swift in Sources */,
 				07D7DA302910895000479B6F /* LandingViewController.swift in Sources */,
 				7BE60DA1292F32E200BD7492 /* VisitorCommentViewController.swift in Sources */,
 				C5C7AC6D292A7FA200698636 /* AddGatheringViewController.swift in Sources */,
@@ -847,6 +859,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GetARock/Global/Supports/Info.plist;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "사용자의 위치 정보를 받아오려고 합니다. ";
@@ -879,6 +892,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GetARock/Global/Supports/Info.plist;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "사용자의 위치 정보를 받아오려고 합니다. ";

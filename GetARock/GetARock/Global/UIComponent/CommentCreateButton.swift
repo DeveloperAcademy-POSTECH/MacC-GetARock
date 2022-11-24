@@ -8,36 +8,36 @@
 import UIKit
 
 class CommentCreateButton: UIView {
-
+    
     // MARK: - Property
-
+    
     enum Size {
         static let spacing: CGFloat = 16.0
         static let height: CGFloat = 50.0
         static let width: CGFloat = UIScreen.main.bounds.size.width - Size.spacing * 2
     }
-
+    
     // MARK: - View
 
     let titleButton: UIButton = {
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
     }(UIButton())
-
+    
     // MARK: - Init
-
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         attribute()
         setupLayout()
     }
-
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-
+    
     // MARK: - Method
-
+    
     private func attribute() {
         self.backgroundColor = .mainPurple
         self.layer.masksToBounds = true
@@ -48,7 +48,7 @@ class CommentCreateButton: UIView {
             superView.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
     }
-
+    
     private func setupLayout() {
         self.addSubview(titleButton)
         titleButton.invalidateIntrinsicContentSize()
