@@ -10,9 +10,8 @@ import UIKit
 class CommentWritingPopupViewController: UIViewController {
     
     // MARK: - Properties
-    var entryPoint: CommentListEntryPoint = .visitorComment
+    var entryPoint: CommentListEntryPoint
     private let textViewPlaceHolder = "텍스트를 입력해주세요"
-
     // MARK: - View
     
     private let popupTitleLabel: UILabel = {
@@ -62,6 +61,17 @@ class CommentWritingPopupViewController: UIViewController {
         
     }(UIStackView(arrangedSubviews: [popUpHeaderStackView, commentTextView, confirmButton]))
     
+    // MARK: - Init
+    
+    init(entryPoint: CommentListEntryPoint) {
+        self.entryPoint = entryPoint
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
@@ -110,7 +120,6 @@ class CommentWritingPopupViewController: UIViewController {
     @objc private func addNewComment(_ sender: Any) {
         switch entryPoint {
         case .visitorComment:
-            print("눌림")
             if let text = commentTextView.text {
                 let saveData = VisitorCommentInfo(
                     commentID: "visitorCommentID-005",
@@ -125,15 +134,16 @@ class CommentWritingPopupViewController: UIViewController {
                 self.dismiss(animated: false, completion: nil)
             }
         case .gatheringComment:
-                if let text = commentTextView.text {
-                    let saveData = GatheringCommentInfo(
-                        commentID: "gatheringID-005",
-                        comment: GatheringComment(
-                            gathering: MockData.gatheringComments[0].comment.gathering,
-                            author: MockData.gatheringComments[0].comment.author,
-                            content: text,
-                            createdAt: Date()))
-                    MockData.gatheringComments.append(saveData)
+            if let text = commentTextView.text {
+                let saveData = GatheringCommentInfo(
+                    commentID: "gatheringID-005",
+                    comment: GatheringComment(
+                        gathering: MockData.gatheringComments[0].comment.gathering,
+                        author: MockData.gatheringComments[0].comment.author,
+                        content: text,
+                        createdAt: Date()))
+                MockData.gatheringComments.append(saveData)
+                self.dismiss(animated: false, completion: nil)
             }
         }
     }

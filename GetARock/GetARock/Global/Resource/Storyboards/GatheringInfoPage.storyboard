@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="5bo-Ax-DBq">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="1042.6666666666667"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="1592.6666666666667"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P8F-YO-zZe" userLabel="summaryView">
                                                 <rect key="frame" x="0.0" y="0.0" width="393" height="279"/>
@@ -225,8 +225,11 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gEW-FV-4ab" userLabel="commentsView">
-                                                <rect key="frame" x="0.0" y="992.66666666666674" width="393" height="50"/>
-                                                <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                                <rect key="frame" x="0.0" y="992.66666666666674" width="393" height="600"/>
+                                                <color key="backgroundColor" red="0.34901960780000002" green="0.36862745099999999" blue="0.47058823529999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="600" id="kWm-AK-IwT"/>
+                                                </constraints>
                                             </view>
                                         </subviews>
                                         <constraints>
@@ -236,13 +239,9 @@
                                             <constraint firstItem="P8F-YO-zZe" firstAttribute="leading" secondItem="5bo-Ax-DBq" secondAttribute="leading" id="NUG-gn-7XC"/>
                                             <constraint firstAttribute="trailing" secondItem="dms-kr-rnZ" secondAttribute="trailing" id="ZUg-7J-Ia8"/>
                                             <constraint firstItem="byY-ip-F60" firstAttribute="leading" secondItem="5bo-Ax-DBq" secondAttribute="leading" id="agE-Bb-ixM"/>
-                                            <constraint firstAttribute="trailing" secondItem="byY-ip-F60" secondAttribute="trailing" id="bSh-GH-Qut"/>
                                             <constraint firstItem="P8F-YO-zZe" firstAttribute="top" secondItem="5bo-Ax-DBq" secondAttribute="top" id="djn-EY-5F4"/>
                                             <constraint firstAttribute="trailing" secondItem="nsI-qg-4vQ" secondAttribute="trailing" id="kNG-UD-zHl"/>
-                                            <constraint firstAttribute="trailing" secondItem="byY-ip-F60" secondAttribute="trailing" id="ksS-7X-c6x"/>
                                             <constraint firstAttribute="trailing" secondItem="P8F-YO-zZe" secondAttribute="trailing" id="nep-Vf-dml"/>
-                                            <constraint firstItem="byY-ip-F60" firstAttribute="leading" secondItem="5bo-Ax-DBq" secondAttribute="leading" id="oQ6-ID-Ob9"/>
-                                            <constraint firstItem="byY-ip-F60" firstAttribute="leading" secondItem="5bo-Ax-DBq" secondAttribute="leading" id="vej-xK-yAY"/>
                                         </constraints>
                                     </stackView>
                                 </subviews>
@@ -270,6 +269,7 @@
                     </view>
                     <connections>
                         <outlet property="bandNameLabel" destination="7Iy-dK-MlB" id="jdN-L8-5um"/>
+                        <outlet property="commentsView" destination="gEW-FV-4ab" id="Myy-7b-ERP"/>
                         <outlet property="conditionView" destination="IPq-Y1-Mnd" id="bD9-RR-jfj"/>
                         <outlet property="describtionLabel" destination="2et-zg-k8K" id="5M1-rU-UQR"/>
                         <outlet property="ellipsisButton" destination="z1T-V1-cPf" id="Uzq-Fo-00z"/>
@@ -289,9 +289,6 @@
         <image name="ellipsis" catalog="system" width="128" height="37"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemIndigoColor">
-            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemPurpleColor">
             <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

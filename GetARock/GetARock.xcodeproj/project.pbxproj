@@ -71,6 +71,7 @@
 		B830849929263B780035DB2D /* MainMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B830849829263B780035DB2D /* MainMapViewController.swift */; };
 		B8B9971F29287D3700082462 /* MainMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8B9971E29287D3700082462 /* MainMap.storyboard */; };
 		B8BE496E292E14C800E8E774 /* CustomAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BE496D292E14C800E8E774 /* CustomAnnotationView.swift */; };
+		C57974DB292F557D00471DC9 /* SelectLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57974DA292F557D00471DC9 /* SelectLocationViewController.swift */; };
 		C5C7AC6B292A7F7C00698636 /* AddGathering.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5C7AC6A292A7F7C00698636 /* AddGathering.storyboard */; };
 		C5C7AC6D292A7FA200698636 /* AddGatheringViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C7AC6C292A7FA200698636 /* AddGatheringViewController.swift */; };
 /* End PBXBuildFile section */
@@ -161,6 +162,7 @@
 		B830849829263B780035DB2D /* MainMapViewController.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = MainMapViewController.swift; sourceTree = "<group>"; tabWidth = 4; };
 		B8B9971E29287D3700082462 /* MainMap.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainMap.storyboard; sourceTree = "<group>"; };
 		B8BE496D292E14C800E8E774 /* CustomAnnotationView.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = CustomAnnotationView.swift; sourceTree = "<group>"; tabWidth = 4; };
+		C57974DA292F557D00471DC9 /* SelectLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectLocationViewController.swift; sourceTree = "<group>"; };
 		C5C7AC6A292A7F7C00698636 /* AddGathering.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddGathering.storyboard; sourceTree = "<group>"; };
 		C5C7AC6C292A7FA200698636 /* AddGatheringViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGatheringViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -376,10 +378,10 @@
 				7BB70998292A419B0065136D /* EmptyListView.swift */,
 				7BB7099A292A47E40065136D /* CommentCreateButton.swift */,
 				7BFDAA90292C94E5002FE744 /* CommentWritingPopupViewController.swift */,
-				7BB709952929161D0065136D /* Cell */,
 				ABCE15B6292A052F007D30E2 /* ViewSwitchedSegmentedControl.swift */,
 				7BE60DA2292F333D00BD7492 /* CommentWritingPopupViewController.swift */,
 				66E74205292C82E8003C0B02 /* ActionSheet.swift */,
+				7BB709952929161D0065136D /* Cell */,
 			);
 			path = UIComponent;
 			sourceTree = "<group>";
@@ -494,6 +496,7 @@
 			isa = PBXGroup;
 			children = (
 				C5C7AC6C292A7FA200698636 /* AddGatheringViewController.swift */,
+				C57974DA292F557D00471DC9 /* SelectLocationViewController.swift */,
 			);
 			path = AddGathering;
 			sourceTree = "<group>";
@@ -701,6 +704,7 @@
 				072DEDD429268F470046A4A0 /* PlayPosition.swift in Sources */,
 				07D7DA2D291088EC00479B6F /* NSObject+Extension.swift in Sources */,
 				07615093292907A900A0562F /* GatheringComment.swift in Sources */,
+				C57974DB292F557D00471DC9 /* SelectLocationViewController.swift in Sources */,
 				7BB709972929164D0065136D /* CommentTableViewCell.swift in Sources */,
 				AB58E003292CB57100868720 /* BandPageViewController.swift in Sources */,
 				ABCE15B7292A052F007D30E2 /* ViewSwitchedSegmentedControl.swift in Sources */,
