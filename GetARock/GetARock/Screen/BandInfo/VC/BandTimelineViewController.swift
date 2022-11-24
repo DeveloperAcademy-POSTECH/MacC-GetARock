@@ -51,7 +51,8 @@ extension BandTimelineViewController: UITableViewDataSource {
 
         if indexPath.row == 0 {
             cell.topLine.isHidden = true
-        } else if indexPath.row == (gatheringInfos.count) - 1 {
+        }
+        if indexPath.row == (gatheringInfos.count) - 1 {
             cell.bottomLine.isHidden = true
         }
         
