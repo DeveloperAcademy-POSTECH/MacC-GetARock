@@ -40,7 +40,7 @@
                                                                         <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     </label>
                                                                 </subviews>
-                                                                <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                                                <color key="backgroundColor" systemColor="systemPurpleColor"/>
                                                                 <constraints>
                                                                     <constraint firstItem="Sah-zl-Rl3" firstAttribute="top" secondItem="IPq-Y1-Mnd" secondAttribute="top" constant="9" id="6yP-Z0-94O"/>
                                                                     <constraint firstAttribute="trailing" secondItem="Sah-zl-Rl3" secondAttribute="trailing" constant="16" id="7i8-ax-xC5"/>
@@ -57,10 +57,13 @@
                                                                     <imageReference key="image" image="ellipsis" catalog="system" symbolScale="large"/>
                                                                     <color key="baseForegroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 </buttonConfiguration>
+                                                                <connections>
+                                                                    <action selector="touchUpInsideEllipsis:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="aLI-Hv-nt1"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="동성로 합동 버스킹 합니다!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aYx-ug-1Kh" userLabel="gatheribgTitle">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="동성로 합동 버스킹 합니다!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aYx-ug-1Kh" userLabel="gatheringTitle">
                                                         <rect key="frame" x="16" y="114.33333333333334" width="361" height="26.333333333333343"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -151,7 +154,7 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t8o-3s-pFn" userLabel="introductionContentView">
                                                         <rect key="frame" x="16" y="0.0" width="361" height="608.33333333333337"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="1000" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2et-zg-k8K" userLabel="freeDescrition">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="1000" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2et-zg-k8K" userLabel="freeDescribtion">
                                                                 <rect key="frame" x="20" y="20" width="321" height="568.33333333333337"/>
                                                                 <string key="text">편견에 갇힌 여자가
 저를 가둔 가타부타를 깨다 못해 박살을 내는 이야기.
@@ -266,8 +269,13 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="conditionView" destination="IPq-Y1-Mnd" id="3r6-sJ-KJB"/>
-                        <outlet property="introductionContentView" destination="t8o-3s-pFn" id="SGm-Rw-afS"/>
+                        <outlet property="bandNameLabel" destination="7Iy-dK-MlB" id="jdN-L8-5um"/>
+                        <outlet property="conditionView" destination="IPq-Y1-Mnd" id="bD9-RR-jfj"/>
+                        <outlet property="describtionLabel" destination="2et-zg-k8K" id="5M1-rU-UQR"/>
+                        <outlet property="ellipsisButton" destination="z1T-V1-cPf" id="Uzq-Fo-00z"/>
+                        <outlet property="gatheringDateLabel" destination="1I3-XG-1pd" id="tgd-i4-AaI"/>
+                        <outlet property="gatheringLocationLabel" destination="H4M-sD-ZMG" id="FOl-33-4OG"/>
+                        <outlet property="gatheringTitleLabel" destination="aYx-ug-1Kh" id="Tsx-mr-85R"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -282,11 +290,11 @@
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
-        <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemIndigoColor">
             <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPurpleColor">
+            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
