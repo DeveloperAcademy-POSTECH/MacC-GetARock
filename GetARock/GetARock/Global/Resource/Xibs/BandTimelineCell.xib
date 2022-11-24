@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -109,9 +107,9 @@
             <color key="backgroundColor" red="0.35294118520000001" green="0.3686274886" blue="0.46274507050000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
             <connections>
                 <outlet property="bottomLine" destination="Fpk-HD-t04" id="Dvj-gx-caD"/>
-                <outlet property="startTime" destination="np7-Hm-tCg" id="QJA-NZ-exa"/>
-                <outlet property="status" destination="JSI-YD-u1h" id="Rw1-m3-fCX"/>
-                <outlet property="title" destination="Gsv-TT-DTS" id="5M5-YG-3TT"/>
+                <outlet property="dateLabel" destination="np7-Hm-tCg" id="QJA-NZ-exa"/>
+                <outlet property="statusLabel" destination="JSI-YD-u1h" id="Rw1-m3-fCX"/>
+                <outlet property="titleLabel" destination="Gsv-TT-DTS" id="5M5-YG-3TT"/>
                 <outlet property="topLine" destination="Qwo-tI-wkK" id="g67-Yv-x8B"/>
             </connections>
             <point key="canvasLocation" x="118.32061068702289" y="45.774647887323944"/>

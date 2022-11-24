@@ -39,14 +39,14 @@ extension BandTimelineViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: BandTimelineCell.className, for: indexPath) as? BandTimelineCell else { return UITableViewCell() }
         
         let gathering = gatheringInfos[indexPath.row].gathering
-        cell.title.text = gathering.title
-        cell.startTime.text = gathering.date.toString(format: DateFormatLiteral.standard)
+        cell.titleLabel.text = gathering.title
+        cell.dateLabel.text = gathering.date.toString(format: DateFormatLiteral.standard)
         
         let statusType = gathering.status
         if statusType == .recruiting || statusType == .progressing {
-            cell.status.text = statusType.toKorean()
+            cell.statusLabel.text = statusType.toKorean()
         } else {
-            cell.status.isHidden = true
+            cell.statusLabel.isHidden = true
         }
 
         if indexPath.row == 0 {
