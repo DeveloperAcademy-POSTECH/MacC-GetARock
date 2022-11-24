@@ -13,6 +13,7 @@ final class MainMapViewController: UIViewController {
     
     // MARK: - Properties
     
+    @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var createEventButton: UIButton!
     @IBOutlet weak var attendedEventListButton: UIButton!
@@ -130,6 +131,28 @@ extension MainMapViewController: CLLocationManagerDelegate {
         }
     }
     
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let currentLocation = locations.last
+        
+        CLGeocoder().reverseGeocodeLocation(
+            currentLocation!,
+            completionHandler: {(placemarks, _) -> Void in
+                let currentPlacemark = placemarks!.first
+                var address: String = ""
+                if currentPlacemark!.locality != nil {
+                    address += " "
+                    address += currentPlacemark!.locality!
+                }
+                if currentPlacemark!.thoroughfare != nil {
+                    address += " "
+                    address += currentPlacemark!.thoroughfare!
+                }
+                
+                self.locationLabel.text = address
+            }
+        )
+    }
+
 }
 
 // MARK: - CLLocationManagerDelegate
