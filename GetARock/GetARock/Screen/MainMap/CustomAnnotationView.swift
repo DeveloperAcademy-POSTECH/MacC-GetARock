@@ -51,10 +51,28 @@ class CustomAnnotation: NSObject, MKAnnotation {
     let title: String?
     let coordinate: CLLocationCoordinate2D
     let category: Category
+    let bandInfo: BandInfo?
+    let gatheringInfo: GatheringInfo?
     
-    init(title: String?, coordinate: CLLocationCoordinate2D, category: Category) {
+    init(title: String?,
+         coordinate: CLLocationCoordinate2D,
+         category: Category,
+         band: BandInfo?) {
         self.title = title
         self.coordinate = coordinate
         self.category = category
+        self.bandInfo = band
+        self.gatheringInfo = nil
+    }
+    
+    init(title: String?,
+         coordinate: CLLocationCoordinate2D,
+         category: Category,
+         gathering: GatheringInfo?) {
+        self.title = title
+        self.coordinate = coordinate
+        self.category = category
+        self.bandInfo = nil
+        self.gatheringInfo = gathering
     }
 }

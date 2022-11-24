@@ -56,7 +56,8 @@ class BandTimelineViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        view.backgroundColor = .modalBackgroundBlue
+        tableView.backgroundColor = .modalBackgroundBlue
         let nibName = UINib(nibName: "BandTimelineCell", bundle: nil)
         tableView.register(nibName, forCellReuseIdentifier: BandTimelineCell.className)
     }

@@ -58,4 +58,3 @@ final class VisitorCommentViewController: UIViewController {
         self.present(popupViewController, animated: false)
     }
 }
-

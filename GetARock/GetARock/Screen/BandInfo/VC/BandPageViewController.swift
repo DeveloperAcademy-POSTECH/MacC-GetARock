@@ -32,23 +32,36 @@ class BandPageViewController: UIViewController {
                                                        direction: direction, animated: true)
         }
     }
+    
     private var bandinfo: BandInfo = MockData.bands[0]
     
-    convenience init(bandInfo: BandInfo) {
+    init(bandInfo: BandInfo) {
+        super.init(nibName: nil, bundle: nil)
         self.bandinfo = bandInfo
     }
     
-    // MARK: - View
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+//    convenience init(bandInfo: BandInfo) {
 //
-//    private let topView = TopViewOfInfoView(bandName: bandinfo.band.name,
-//                                            bandLocation: bandinfo.band.location.address ?? "" + bandinfo.band.location.additionalAddress ?? "")
+//
+//        self.init()
+//        self.bandinfo = bandInfo
+//    }
+    
+    // MARK: - View
+
+    private lazy var topView = TopViewOfInfoView(bandName: self.bandinfo.band.name,
+                                                 bandLocation: self.bandinfo.band.location.address ?? "")
     private let segmentedControlButtons = ViewSwitchedSegmentedControl(buttonTitles:
                                                                         [BandInfoViewList.bandInfo.toKorean(),
                                                                          BandInfoViewList.bandTimeLine.toKorean(),
                                                                          BandInfoViewList.visitorComment.toKorean()])
     private lazy var bandInfoViewController = UIStoryboard(name: "BandInfo", bundle: nil).instantiateViewController(withIdentifier: BandInfoViewController.className)
     private lazy var bandTimelineViewController = UIStoryboard(name: "BandTimeline", bundle: nil).instantiateViewController(withIdentifier: BandTimelineViewController.className)
-    private lazy var commentListViewController = UIStoryboard(name: "AddGathering", bundle: nil).instantiateViewController(withIdentifier: "AddGathering")
+    private lazy var commentListViewController = UIStoryboard(name: "AddGathering", bundle: nil).instantiateViewController(withIdentifier: AddGatheringViewController.className) //방명록뷰
     
     private lazy var pageViewController: UIPageViewController = {
         let pageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)

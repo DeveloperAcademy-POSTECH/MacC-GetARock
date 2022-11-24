@@ -13,7 +13,7 @@
         <!--Add Gathering View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="AddGathering" id="Y6W-OH-hqX" customClass="AddGatheringViewController" customModule="GetARock" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddGatheringViewController" id="Y6W-OH-hqX" customClass="AddGatheringViewController" customModule="GetARock" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="749"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -65,7 +65,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <datePicker contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="249" contentHorizontalAlignment="leading" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="s35-8k-0gb">
-                                                <rect key="frame" x="82" y="153" width="228" height="34.333333333333343"/>
+                                                <rect key="frame" x="81.999999999999986" y="153" width="217.66666666666663" height="34.333333333333343"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>

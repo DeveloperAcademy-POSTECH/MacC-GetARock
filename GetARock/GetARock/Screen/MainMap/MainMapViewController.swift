@@ -19,6 +19,8 @@ final class MainMapViewController: UIViewController {
     @IBOutlet weak var attendedEventListButton: UIButton!
     @IBOutlet weak var myPageButton: UIButton!
     
+    var nextVC: UIViewController?
+    
     let coordinate = CLLocationCoordinate2D(
         latitude: 36.014,
         longitude: 129.32
@@ -47,7 +49,9 @@ final class MainMapViewController: UIViewController {
             let point = CustomAnnotation(
                 title: band.band.name,
                 coordinate: band.band.location.coordinate.toCLLocationCoordinate2D(),
-                category: .band
+                category: .band,
+                band: band
+                
             )
             mapView.addAnnotation(point)
         }
@@ -55,7 +59,8 @@ final class MainMapViewController: UIViewController {
             let point = CustomAnnotation(
                 title: gathering.gathering.host.band.name,
                 coordinate: gathering.gathering.location.coordinate.toCLLocationCoordinate2D(),
-                category: .gathering
+                category: .gathering,
+                gathering: gathering
             )
             mapView.addAnnotation(point)
         }
@@ -113,6 +118,40 @@ final class MainMapViewController: UIViewController {
         }
     }
     
+    @IBAction func addGetARockButtonClicked(_ sender: UIButton) {
+        let addGatheringViewController = UIStoryboard(name: "AddGathering", bundle: nil).instantiateViewController(withIdentifier: AddGatheringViewController.className)
+        addGatheringViewController.modalPresentationStyle = .pageSheet
+        if let sheet = addGatheringViewController.sheetPresentationController {
+            sheet.detents = [.large()]
+            sheet.prefersGrabberVisible = true
+        }
+        nextVC = addGatheringViewController
+        present(addGatheringViewController, animated: true, completion: nil)
+    }
+    
+    @IBAction func getARockListButtonClicked(_ sender: UIButton) {
+        let gatheringListViewController = GatheringListViewController()
+        gatheringListViewController.modalPresentationStyle = .pageSheet
+        if let sheet = gatheringListViewController.sheetPresentationController {
+            sheet.detents = [.medium(), .large()]
+            sheet.prefersGrabberVisible = true
+            sheet.largestUndimmedDetentIdentifier = .medium
+        }
+        nextVC = gatheringListViewController
+        present(gatheringListViewController, animated: true, completion: nil)
+    }
+    @IBAction func myPageButtonClicked(_ sender: UIButton) {
+        let myPageViewController = BandPageViewController(bandInfo: MockData.bands[0])
+        myPageViewController.modalPresentationStyle = .pageSheet
+        if let sheet = myPageViewController.sheetPresentationController {
+            sheet.detents = [.medium(), .large()]
+            sheet.prefersGrabberVisible = true
+            sheet.largestUndimmedDetentIdentifier = .medium
+        }
+        nextVC = myPageViewController
+        present(myPageViewController, animated: true, completion: nil)
+    }
+    
 }
 
 // MARK: - CLLocationManagerDelegate
@@ -168,5 +207,44 @@ extension MainMapViewController: MKMapViewDelegate {
         }
         
         return marker
+    }
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        
+        guard let selectedAnnotation = view.annotation as? CustomAnnotation else { return }
+        let placeName = selectedAnnotation.title
+
+        switch selectedAnnotation.category {
+        case .band :
+            guard let bandData = selectedAnnotation.bandInfo else { return }
+            let bandViewController = BandPageViewController(bandInfo: bandData)
+            bandViewController.modalPresentationStyle = .pageSheet
+            if let sheet = bandViewController.sheetPresentationController {
+                sheet.detents = [.medium(), .large()]
+                sheet.prefersGrabberVisible = true
+                sheet.largestUndimmedDetentIdentifier = .medium
+            }
+            nextVC = bandViewController
+            present(bandViewController, animated: true, completion: nil)
+        case .gathering :
+            //guard let gatheringData = selectedAnnotation.gatheringInfo else { return }
+            let gatheringViewController = UIStoryboard(name: "GatheringInfoPage", bundle: nil).instantiateViewController(withIdentifier: GatheringInfoViewController.className)
+            gatheringViewController.modalPresentationStyle = .pageSheet
+            if let sheet = gatheringViewController.sheetPresentationController {
+                sheet.detents = [.medium(), .large()]
+                sheet.prefersGrabberVisible = true
+                sheet.largestUndimmedDetentIdentifier = .medium
+            }
+            nextVC = gatheringViewController
+            present(gatheringViewController, animated: true, completion: nil)
+        }
+        
+        let testAlert = UIAlertController(title: placeName!, message: "짜잔", preferredStyle: .alert)
+        testAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(testAlert, animated: true, completion: nil)
+    }
+    
+    func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
+        nextVC?.dismiss(animated: true)
     }
 }
