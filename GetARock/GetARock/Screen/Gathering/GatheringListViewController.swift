@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GatheringCreatedViewController: UIViewController {
+class GatheringListViewController: UIViewController {
     
     // MARK: - Properties
     
@@ -59,21 +59,21 @@ class GatheringCreatedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let nibName = UINib(nibName: "GatheringCell", bundle: nil)
-        tableView.register(nibName, forCellReuseIdentifier: GatheringCell.className)
+        let nibName = UINib(nibName: "GatheringListCell", bundle: nil)
+        tableView.register(nibName, forCellReuseIdentifier: GatheringListCell.className)
     }
     
 }
 
 // MARK: - UITableViewDataSource
 
-extension GatheringCreatedViewController: UITableViewDataSource {
+extension GatheringListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return gathering.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: GatheringCell.className, for: indexPath) as? GatheringCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: GatheringListCell.className, for: indexPath) as? GatheringListCell else { return UITableViewCell() }
         
         cell.title.text = gathering[indexPath.row].title
         cell.startTime.text = gathering[indexPath.row].date
@@ -85,6 +85,6 @@ extension GatheringCreatedViewController: UITableViewDataSource {
 
 // MARK: - UITableViewDelegate
 
-extension GatheringCreatedViewController: UITableViewDelegate {
+extension GatheringListViewController: UITableViewDelegate {
     
 }

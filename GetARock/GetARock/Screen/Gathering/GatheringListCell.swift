@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GatheringCell: UITableViewCell {
+class GatheringListCell: UITableViewCell {
 
     @IBOutlet weak var startTime: UILabel!
     @IBOutlet weak var title: UILabel!
