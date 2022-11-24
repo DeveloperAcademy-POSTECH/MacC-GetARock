@@ -19,6 +19,7 @@ class AddGatheringViewController: UIViewController {
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var hostBandNameLabel: UILabel!
     @IBOutlet weak var dateTimePicker: UIDatePicker!
+    @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var introductionTextView: UITextView!
     @IBOutlet weak var scrollView: UIScrollView!
 
@@ -38,7 +39,12 @@ class AddGatheringViewController: UIViewController {
         attribute()
         setDelegate()
         setupLayout()
-        setAddGatheringTestData() // 테스트용, 추후 삭제
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let selectLocationViewController = segue.destination as? SelectLocationViewController
+        selectLocationViewController?.delegate = self
+        selectLocationViewController?.textFieldText = (gatheringLocation?.address ?? "") + (gatheringLocation?.additionalAddress ?? "")
     }
 
     deinit {
@@ -129,6 +135,16 @@ class AddGatheringViewController: UIViewController {
 extension AddGatheringViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         self.placeHolderLabel.textColor = introductionTextView.text.count == 0 ? .lightGray : .clear
+    }
+}
+
+// MARK: - selectLocationDelegate
+
+extension AddGatheringViewController: selectLocationDelegate {
+    func setLocation(address: Location) {
+        gatheringLocation = address
+        addressLabel.text = (gatheringLocation?.address ?? "") + (gatheringLocation?.additionalAddress ?? "")
+        addressLabel.textColor = .white
     }
 }
 
@@ -226,13 +242,5 @@ extension AddGatheringViewController {
             return "입력을 확인하는 중 알 수 없는 문제가 발생했습니다"
         }
         return nil
-    }
-}
-
-// MARK: - Mock data set & test (위치 선택 구현 후 삭제 예정)
-
-extension AddGatheringViewController {
-    private func setAddGatheringTestData() {
-        gatheringLocation = MockData.bands[1].band.location // 일부러 다른 밴드의 위치로 함
     }
 }

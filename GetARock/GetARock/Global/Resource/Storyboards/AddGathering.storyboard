@@ -6,7 +6,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -65,7 +64,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <datePicker contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="249" contentHorizontalAlignment="leading" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="s35-8k-0gb">
-                                                <rect key="frame" x="82" y="153" width="228" height="34.333333333333343"/>
+                                                <rect key="frame" x="81.999999999999986" y="153" width="217.66666666666663" height="34.333333333333343"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -223,6 +222,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addressLabel" destination="cyd-eb-cyK" id="2q0-tt-51t"/>
                         <outlet property="dateTimePicker" destination="s35-8k-0gb" id="LcY-0P-YHf"/>
                         <outlet property="hostBandNameLabel" destination="n7W-To-VFW" id="RSA-Hm-SvS"/>
                         <outlet property="introductionTextView" destination="uNV-iD-x50" id="NuI-MW-yqf"/>
@@ -244,21 +244,53 @@
             </objects>
             <point key="canvasLocation" x="936.64122137404581" y="-34.507042253521128"/>
         </scene>
-        <!--View Controller-->
+        <!--Select Location View Controller-->
         <scene sceneID="tZe-x4-f5c">
             <objects>
-                <viewController id="JXE-kZ-dOE" sceneMemberID="viewController">
+                <viewController id="JXE-kZ-dOE" customClass="SelectLocationViewController" customModule="GetARock" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XwN-hz-0Db">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="749"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" misplaced="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qCl-kL-g6t">
+                                <rect key="frame" x="31" y="215" width="274" height="38"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X9H-5t-OZ0">
+                                <rect key="frame" x="317" y="215" width="60" height="38"/>
+                                <buttonConfiguration key="configuration" style="gray" title="입력">
+                                    <fontDescription key="titleFontDescription" style="UICTFontTextStyleHeadline"/>
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="submitButtonAction:" destination="JXE-kZ-dOE" eventType="touchUpInside" id="Ow4-a7-t14"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="XZi-Sq-Q9v"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.35294118520000001" green="0.3686274886" blue="0.46274507050000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="qCl-kL-g6t" firstAttribute="leading" secondItem="XZi-Sq-Q9v" secondAttribute="leading" constant="31" id="CUi-Mq-vHm"/>
+                            <constraint firstItem="X9H-5t-OZ0" firstAttribute="height" secondItem="XwN-hz-0Db" secondAttribute="height" multiplier="0.06" id="Ei3-E3-Ul0"/>
+                            <constraint firstItem="qCl-kL-g6t" firstAttribute="height" secondItem="X9H-5t-OZ0" secondAttribute="height" id="G10-8D-qQu"/>
+                            <constraint firstItem="qCl-kL-g6t" firstAttribute="top" secondItem="XZi-Sq-Q9v" secondAttribute="top" constant="215" id="b2N-H0-LhW"/>
+                            <constraint firstItem="X9H-5t-OZ0" firstAttribute="top" secondItem="XZi-Sq-Q9v" secondAttribute="top" constant="215" id="eUE-3E-5nK"/>
+                            <constraint firstItem="X9H-5t-OZ0" firstAttribute="leading" secondItem="qCl-kL-g6t" secondAttribute="trailing" constant="12" id="jpd-4o-iOm"/>
+                            <constraint firstItem="qCl-kL-g6t" firstAttribute="height" secondItem="XwN-hz-0Db" secondAttribute="height" multiplier="0.06" id="mfR-0H-0ba"/>
+                            <constraint firstItem="XZi-Sq-Q9v" firstAttribute="trailing" secondItem="X9H-5t-OZ0" secondAttribute="trailing" constant="16" id="npH-PM-2qm"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="heY-lu-3aH"/>
+                    <connections>
+                        <outlet property="addressTextField" destination="qCl-kL-g6t" id="A8W-XD-lOe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1ZL-bc-2KO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1705" y="-35"/>
+            <point key="canvasLocation" x="1704.5801526717557" y="-35.211267605633807"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="CX7-OJ-5BG">
@@ -294,8 +326,5 @@
         <namedColor name="TestColor">
             <color red="0.34901960784313724" green="0.36862745098039218" blue="0.47058823529411764" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>
