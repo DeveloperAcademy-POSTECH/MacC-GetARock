@@ -269,13 +269,13 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="bandName" destination="7Iy-dK-MlB" id="rF9-BZ-wUE"/>
-                        <outlet property="conditionView" destination="IPq-Y1-Mnd" id="3r6-sJ-KJB"/>
-                        <outlet property="describtion" destination="2et-zg-k8K" id="Sv9-sC-zEO"/>
-                        <outlet property="ellipsis" destination="z1T-V1-cPf" id="dLe-M0-Iik"/>
-                        <outlet property="gatheringDate" destination="1I3-XG-1pd" id="yg1-4z-KA4"/>
-                        <outlet property="gatheringLocation" destination="H4M-sD-ZMG" id="XNr-QI-ZYM"/>
-                        <outlet property="gatheringTitle" destination="aYx-ug-1Kh" id="hfQ-T6-Bit"/>
+                        <outlet property="bandNameLabel" destination="7Iy-dK-MlB" id="jdN-L8-5um"/>
+                        <outlet property="conditionView" destination="IPq-Y1-Mnd" id="bD9-RR-jfj"/>
+                        <outlet property="describtionLabel" destination="2et-zg-k8K" id="5M1-rU-UQR"/>
+                        <outlet property="ellipsisButton" destination="z1T-V1-cPf" id="Uzq-Fo-00z"/>
+                        <outlet property="gatheringDateLabel" destination="1I3-XG-1pd" id="tgd-i4-AaI"/>
+                        <outlet property="gatheringLocationLabel" destination="H4M-sD-ZMG" id="FOl-33-4OG"/>
+                        <outlet property="gatheringTitleLabel" destination="aYx-ug-1Kh" id="Tsx-mr-85R"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

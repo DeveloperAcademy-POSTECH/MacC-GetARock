@@ -22,7 +22,7 @@ extension Reportable {
             self.present(ReportReasonListController(), animated: true)
             
         }
-        
+    
         actionSheet.addAction(report)
         actionSheet.addAction(delete)
         actionSheet.addAction(cancel)

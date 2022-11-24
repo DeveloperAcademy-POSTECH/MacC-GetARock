@@ -12,12 +12,12 @@ class GatheringInfoViewController: UIViewController, Reportable {
     // MARK: - properties
     
     @IBOutlet weak var conditionView: UIView!
-    @IBOutlet weak var gatheringTitle: UILabel!
-    @IBOutlet weak var bandName: UILabel!
-    @IBOutlet weak var gatheringDate: UILabel!
-    @IBOutlet weak var gatheringLocation: UILabel!
-    @IBOutlet weak var describtion: UILabel!
-    @IBOutlet weak var ellipsis: UIButton!
+    @IBOutlet weak var gatheringTitleLabel: UILabel!
+    @IBOutlet weak var bandNameLabel: UILabel!
+    @IBOutlet weak var gatheringDateLabel: UILabel!
+    @IBOutlet weak var gatheringLocationLabel: UILabel!
+    @IBOutlet weak var describtionLabel: UILabel!
+    @IBOutlet weak var ellipsisButton: UIButton!
     
     var gatheringInfo: GatheringInfo = MockData.gatherings[3]
     
@@ -35,11 +35,11 @@ class GatheringInfoViewController: UIViewController, Reportable {
     // MARK: - Method
     
     func connectWithData() {
-        gatheringTitle.text = gatheringInfo.gathering.title
-        bandName.text = gatheringInfo.gathering.host.band.name
-        gatheringDate.text = gatheringInfo.gathering.date.toString(format: DateFormatLiteral.standard )
-        gatheringLocation.text = gatheringInfo.gathering.location.address
-        describtion.text = gatheringInfo.gathering.introduction
+        gatheringTitleLabel.text = gatheringInfo.gathering.title
+        bandNameLabel.text = gatheringInfo.gathering.host.band.name
+        gatheringDateLabel.text = gatheringInfo.gathering.date.toString(format: DateFormatLiteral.standard )
+        gatheringLocationLabel.text = gatheringInfo.gathering.location.address
+        describtionLabel.text = gatheringInfo.gathering.introduction
     }
     
     func alertActionButtonPressed() {
