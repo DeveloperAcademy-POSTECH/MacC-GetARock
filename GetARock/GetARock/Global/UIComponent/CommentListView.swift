@@ -16,9 +16,11 @@ class CommentListView: UIView {
 
     // MARK: - Properties
 
-    private var vistorCommentData: VisitorCommentInfo?
-    private var gatheringComment: GatheringCommentInfo?
-    private var entryPoint: CommentListEntryPoint
+//    private var vistorCommentData: VisitorCommentInfo?
+//    private var gatheringComment: GatheringCommentInfo?
+    var entryPoint: CommentListEntryPoint
+    var visitorCommentInfo: [VisitorCommentInfo]?
+    var gatheringCommentInfo: [GatheringCommentInfo]?
 
     // MARK: - View
 
@@ -32,7 +34,7 @@ class CommentListView: UIView {
         return $0
     }(CommentCreateButton())
 
-    private let tableView = {
+    let tableView = {
         $0.showsVerticalScrollIndicator = false
         $0.separatorInset.right = 16
         $0.separatorColor = .dividerBlue
@@ -50,13 +52,22 @@ class CommentListView: UIView {
 
     // MARK: - Init
 
-    init(entryPoint: CommentListEntryPoint) {
+    init(entryPoint: CommentListEntryPoint, visitorCommentInfo: [VisitorCommentInfo]) {
         self.entryPoint = entryPoint
+        self.visitorCommentInfo = visitorCommentInfo
         super.init(frame: .zero)
         attribute()
         setupLayout()
     }
 
+    init(entryPoint: CommentListEntryPoint, gatheringCommentInfo: [GatheringCommentInfo]) {
+        self.entryPoint = entryPoint
+        self.gatheringCommentInfo = gatheringCommentInfo
+        super.init(frame: .zero)
+        attribute()
+        setupLayout()
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -134,16 +145,18 @@ extension CommentListView: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell( withIdentifier: CommentTableViewCell.className, for: indexPath) as? CommentTableViewCell else { return UITableViewCell() }
 
         cell.selectionStyle = .none
-
+        
         switch entryPoint {
         case .visitorComment:
-            cell.bandNameLabel.text = MockData.visitorComments[indexPath.row].comment.author.band.name
-            cell.commentTextLabel.text = MockData.visitorComments[indexPath.row].comment.content
-            cell.commentDateLabel.text = MockData.visitorComments[indexPath.row].comment.createdAt.toString(format: DateFormatLiteral.standard)
+            guard let visitorCommentInfo = visitorCommentInfo else { return UITableViewCell() }
+            cell.bandNameLabel.text = visitorCommentInfo[indexPath.row].comment.author.band.name
+            cell.commentTextLabel.text = visitorCommentInfo[indexPath.row].comment.content
+            cell.commentDateLabel.text = visitorCommentInfo[indexPath.row].comment.createdAt.toString(format: DateFormatLiteral.standard)
         case .gatheringComment :
-            cell.bandNameLabel.text = MockData.gatheringComments[indexPath.row].comment.author.band.name
-            cell.commentTextLabel.text = MockData.gatheringComments[indexPath.row].comment.content
-            cell.commentDateLabel.text = MockData.gatheringComments[indexPath.row].comment.createdAt.toString(format: DateFormatLiteral.standard)
+            guard let gatheringCommentInfo = gatheringCommentInfo else { return UITableViewCell() }
+            cell.bandNameLabel.text = gatheringCommentInfo[indexPath.row].comment.author.band.name
+            cell.commentTextLabel.text = gatheringCommentInfo[indexPath.row].comment.content
+            cell.commentDateLabel.text = gatheringCommentInfo[indexPath.row].comment.createdAt.toString(format: DateFormatLiteral.standard)
         }
         return cell
     }

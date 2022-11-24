@@ -7,16 +7,23 @@
 
 import UIKit
 
-final class VisitorCommentViewController: UIViewController {
-
+final class VisitorCommentViewController: UIViewController{
+    
+    var bandData : BandInfo?
+    var visitorCommentInfo: [VisitorCommentInfo]?
+    
     // MARK: - View
 
     private let visitorCommentList = {
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
-    }(CommentListView(entryPoint: .visitorComment))
+    }(CommentListView(entryPoint: .visitorComment, visitorCommentInfo: <#T##[VisitorCommentInfo]#>))
 
     // MARK: - Life Cycle
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        visitorCommentList.tableView.reloadData()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,7 +54,9 @@ final class VisitorCommentViewController: UIViewController {
     }
 
     @objc func didTapVisitorCommentButton() {
-        let popupViewController = CommentWritingPopupViewController()
+        let popupViewController = CommentWritingPopupViewController(entryPoint: <#T##CommentListEntryPoint#>)
+        popupViewController.entryPoint = visitorCommentList.entryPoint
+        popupViewController.bandInfo = bandData
         popupViewController.modalPresentationStyle = .overFullScreen
         self.present(popupViewController, animated: false)
     }
