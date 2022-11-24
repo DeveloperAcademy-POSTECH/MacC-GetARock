@@ -32,7 +32,7 @@ class CommentListView: UIView {
         return $0
     }(CommentCreateButton())
 
-    private let tableView = {
+    let tableView = {
         $0.showsVerticalScrollIndicator = false
         $0.separatorInset.right = 16
         $0.separatorColor = .dividerBlue

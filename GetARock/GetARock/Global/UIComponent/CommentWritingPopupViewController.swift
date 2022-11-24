@@ -73,7 +73,7 @@ class CommentWritingPopupViewController: UIViewController {
     // MARK: - Method
     
     private func attribute() {
-        view.backgroundColor = .black.withAlphaComponent(0.3)
+        view.backgroundColor = .black.withAlphaComponent(0.6)
         setupPopupTitleLabel()
     }
     
@@ -110,6 +110,7 @@ class CommentWritingPopupViewController: UIViewController {
     @objc private func addNewComment(_ sender: Any) {
         switch entryPoint {
         case .visitorComment:
+            print("눌림")
             if let text = commentTextView.text {
                 let saveData = VisitorCommentInfo(
                     commentID: "visitorCommentID-005",
@@ -121,6 +122,7 @@ class CommentWritingPopupViewController: UIViewController {
                     )
                 )
                 MockData.visitorComments.append(saveData)
+                self.dismiss(animated: false, completion: nil)
             }
         case .gatheringComment:
                 if let text = commentTextView.text {

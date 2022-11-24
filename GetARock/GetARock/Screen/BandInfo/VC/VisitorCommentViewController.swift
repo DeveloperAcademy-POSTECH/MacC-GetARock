@@ -17,6 +17,12 @@ final class VisitorCommentViewController: UIViewController {
     }(CommentListView(entryPoint: .visitorComment))
 
     // MARK: - Life Cycle
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print(#function)
+        visitorCommentList.tableView.reloadData()
+        print(MockData.visitorComments)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +54,7 @@ final class VisitorCommentViewController: UIViewController {
 
     @objc func didTapVisitorCommentButton() {
         let popupViewController = CommentWritingPopupViewController()
-        popupViewController.modalPresentationStyle = .overFullScreen
+        popupViewController.modalPresentationStyle = .fullScreen
         self.present(popupViewController, animated: false)
     }
 }
