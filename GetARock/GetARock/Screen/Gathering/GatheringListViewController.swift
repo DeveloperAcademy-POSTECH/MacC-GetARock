@@ -13,6 +13,8 @@ class GatheringListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
+    var gathering: [Gathering]?
+    
     // MARK: - View Life Cycle
     
     override func viewDidLoad() {
@@ -28,16 +30,16 @@ class GatheringListViewController: UIViewController {
 
 extension GatheringListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return gathering.count
-        return 1
+        return gathering?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: GatheringListCell.className, for: indexPath) as? GatheringListCell else { return UITableViewCell() }
         
-//        cell.title.text = gathering[indexPath.row].title
-//        cell.startTime.text = gathering[indexPath.row].date
-//        cell.state.text = labelType(for: gathering[indexPath.row].state)
+        guard let gatheringInfo = gathering?[indexPath.row] else { return UITableViewCell() }
+        cell.title.text = gatheringInfo.title
+        cell.startTime.text = gatheringInfo.date.toString(format: DateFormatLiteral.standard)
+        cell.state.text = gatheringInfo.status.toKorean()
         
         return cell
     }
