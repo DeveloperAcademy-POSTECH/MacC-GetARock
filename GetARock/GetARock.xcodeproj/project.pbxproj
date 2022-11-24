@@ -55,7 +55,6 @@
 		7BDA8F90291296B200BB2D34 /* UIView+Gradation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDA8F8F291296B200BB2D34 /* UIView+Gradation.swift */; };
 		7BE60DA1292F32E200BD7492 /* VisitorCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE60DA0292F32E200BD7492 /* VisitorCommentViewController.swift */; };
 		7BE60DA3292F333E00BD7492 /* CommentWritingPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE60DA2292F333D00BD7492 /* CommentWritingPopupViewController.swift */; };
-		7BFDAA91292C94E5002FE744 /* CommentWritingPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFDAA90292C94E5002FE744 /* CommentWritingPopupViewController.swift */; };
 		84002600292BB27B0093648A /* BandTimeline.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 840025FF292BB27B0093648A /* BandTimeline.storyboard */; };
 		84002602292BB3DB0093648A /* BandTimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84002601292BB3DB0093648A /* BandTimelineViewController.swift */; };
 		84002606292BB75C0093648A /* BandTimelineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84002605292BB75C0093648A /* BandTimelineCell.xib */; };
@@ -146,7 +145,6 @@
 		7BDA8F8F291296B200BB2D34 /* UIView+Gradation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Gradation.swift"; sourceTree = "<group>"; };
 		7BE60DA0292F32E200BD7492 /* VisitorCommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitorCommentViewController.swift; sourceTree = "<group>"; };
 		7BE60DA2292F333D00BD7492 /* CommentWritingPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentWritingPopupViewController.swift; sourceTree = "<group>"; };
-		7BFDAA90292C94E5002FE744 /* CommentWritingPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentWritingPopupViewController.swift; sourceTree = "<group>"; };
 		840025FF292BB27B0093648A /* BandTimeline.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BandTimeline.storyboard; sourceTree = "<group>"; };
 		84002601292BB3DB0093648A /* BandTimelineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandTimelineViewController.swift; sourceTree = "<group>"; };
 		84002605292BB75C0093648A /* BandTimelineCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BandTimelineCell.xib; sourceTree = "<group>"; };
@@ -377,7 +375,6 @@
 				7BB7099229290AE40065136D /* CommentListView.swift */,
 				7BB70998292A419B0065136D /* EmptyListView.swift */,
 				7BB7099A292A47E40065136D /* CommentCreateButton.swift */,
-				7BFDAA90292C94E5002FE744 /* CommentWritingPopupViewController.swift */,
 				ABCE15B6292A052F007D30E2 /* ViewSwitchedSegmentedControl.swift */,
 				7BE60DA2292F333D00BD7492 /* CommentWritingPopupViewController.swift */,
 				66E74205292C82E8003C0B02 /* ActionSheet.swift */,
@@ -697,7 +694,6 @@
 				7BDA8F90291296B200BB2D34 /* UIView+Gradation.swift in Sources */,
 				0761508B29276D8200A0562F /* Coordinate.swift in Sources */,
 				7BB7099B292A47E50065136D /* CommentCreateButton.swift in Sources */,
-				7BFDAA91292C94E5002FE744 /* CommentWritingPopupViewController.swift in Sources */,
 				07D7DA302910895000479B6F /* LandingViewController.swift in Sources */,
 				7BE60DA1292F32E200BD7492 /* VisitorCommentViewController.swift in Sources */,
 				C5C7AC6D292A7FA200698636 /* AddGatheringViewController.swift in Sources */,

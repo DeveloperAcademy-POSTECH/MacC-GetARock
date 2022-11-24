@@ -14,7 +14,7 @@ final class VisitorCommentViewController: UIViewController {
     private let visitorCommentList = {
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
-    }(CommentListView(entryPoint: .gatheringComment))
+    }(CommentListView(entryPoint: .visitorComment))
 
     // MARK: - Life Cycle
     
@@ -51,8 +51,8 @@ final class VisitorCommentViewController: UIViewController {
     }
 
     @objc func didTapVisitorCommentButton() {
-        let popupViewController = CommentWritingPopupViewController(entryPoint: .gatheringComment)
-        popupViewController.modalPresentationStyle = .fullScreen
+        let popupViewController = CommentWritingPopupViewController(entryPoint: .visitorComment)
+        popupViewController.modalPresentationStyle = .overFullScreen
         self.present(popupViewController, animated: false)
     }
 }

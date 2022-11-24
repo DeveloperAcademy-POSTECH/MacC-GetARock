@@ -44,13 +44,6 @@ class BandPageViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-//    convenience init(bandInfo: BandInfo) {
-//
-//
-//        self.init()
-//        self.bandinfo = bandInfo
-//    }
-    
     // MARK: - View
 
     private lazy var topView = TopViewOfInfoView(bandName: self.bandinfo.band.name,
@@ -61,8 +54,7 @@ class BandPageViewController: UIViewController {
                                                                          BandInfoViewList.visitorComment.toKorean()])
     private lazy var bandInfoViewController = UIStoryboard(name: "BandInfo", bundle: nil).instantiateViewController(withIdentifier: BandInfoViewController.className)
     private lazy var bandTimelineViewController = UIStoryboard(name: "BandTimeline", bundle: nil).instantiateViewController(withIdentifier: BandTimelineViewController.className)
-    private lazy var commentListViewController = UIStoryboard(name: "AddGathering", bundle: nil).instantiateViewController(withIdentifier: AddGatheringViewController.className) //방명록뷰
-    
+    private lazy var commentListViewController = VisitorCommentViewController()
     private lazy var pageViewController: UIPageViewController = {
         let pageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
         pageViewController.setViewControllers([self.viewControllerList[0]], direction: .forward, animated: true)
@@ -97,6 +89,7 @@ extension BandPageViewController {
             pageViewController.view.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
         ])
     }
+    
     private func configureSegmentedControlButton() {
         segmentedControlButtons.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(segmentedControlButtons)
@@ -107,6 +100,7 @@ extension BandPageViewController {
             segmentedControlButtons.heightAnchor.constraint(equalToConstant: 40)
         ])
     }
+    
     private func configureTopView() {
         topView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(topView)
@@ -117,12 +111,14 @@ extension BandPageViewController {
             topView.heightAnchor.constraint(equalToConstant: 130)
         ])
     }
+    
     private func setupLayout() {
         view.backgroundColor = .modalBackgroundBlue
         configureTopView()
         configureSegmentedControlButton()
         configurePageViewController()
     }
+    
 }
 
 // MARK: - ViewSwitchedSegmentedControlDelegate
