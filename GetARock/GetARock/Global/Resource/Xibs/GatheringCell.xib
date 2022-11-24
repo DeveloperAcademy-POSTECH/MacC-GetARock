@@ -76,9 +76,9 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="startTime" destination="QDG-Zm-Xit" id="IWd-Ev-Hsv"/>
-                <outlet property="state" destination="ngk-mQ-50w" id="0Hq-mb-dAf"/>
-                <outlet property="title" destination="ngk-mQ-50w" id="cok-bI-bw6"/>
+                <outlet property="startTime" destination="QDG-Zm-Xit" id="mTK-Ty-GXh"/>
+                <outlet property="state" destination="ngk-mQ-50w" id="fAy-1n-0Dv"/>
+                <outlet property="title" destination="4Wl-Jv-4Rb" id="RBd-yB-RMf"/>
             </connections>
             <point key="canvasLocation" x="442.02898550724643" y="124.55357142857142"/>
         </tableViewCell>
