@@ -20,6 +20,12 @@ class BandTimelineViewController: UIViewController {
         let nibName = UINib(nibName: "BandTimelineCell", bundle: nil)
         tableView.register(nibName, forCellReuseIdentifier: BandTimelineCell.className)
     }
+    
+    // MARK: - View Reload
+    
+    func reloadTableView() {
+        tableView.reloadData()
+    }
 }
 
 // MARK: - UITableViewDataSource
