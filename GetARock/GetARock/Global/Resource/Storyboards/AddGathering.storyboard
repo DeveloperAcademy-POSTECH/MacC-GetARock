@@ -217,9 +217,13 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="완료" id="741-6a-MrW">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="saveButtonAction:" destination="Y6W-OH-hqX" id="Hd3-tf-mex"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="dateTimePicker" destination="s35-8k-0gb" id="LcY-0P-YHf"/>
                         <outlet property="hostBandNameLabel" destination="n7W-To-VFW" id="RSA-Hm-SvS"/>
                         <outlet property="introductionTextView" destination="uNV-iD-x50" id="NuI-MW-yqf"/>
                         <outlet property="scrollView" destination="teO-Fx-L4D" id="Pwm-8O-BPx"/>
