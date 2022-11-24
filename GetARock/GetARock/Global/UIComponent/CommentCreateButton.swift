@@ -19,7 +19,7 @@ class CommentCreateButton: UIView {
 
     // MARK: - View
 
-    private lazy var titleButton: UIButton = {
+    let titleButton: UIButton = {
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
     }(UIButton())
@@ -42,21 +42,24 @@ class CommentCreateButton: UIView {
         self.backgroundColor = .mainPurple
         self.layer.masksToBounds = true
         self.layer.cornerRadius = 10
+        guard let superView = superview else { return }
         NSLayoutConstraint.activate([
-            self.centerXAnchor.constraint(equalTo: centerXAnchor),
-            self.centerYAnchor.constraint(equalTo: centerYAnchor),
-            self.heightAnchor.constraint(equalToConstant: Size.height)
+            superView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            superView.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
     }
 
     private func setupLayout() {
         self.addSubview(titleButton)
+        titleButton.invalidateIntrinsicContentSize()
         NSLayoutConstraint.activate([
-            titleButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            titleButton.centerYAnchor.constraint(equalTo: self.centerYAnchor)
-        ])
-    }
 
+            titleButton.topAnchor.constraint(equalTo: self.topAnchor),
+            titleButton.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            titleButton.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            titleButton.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            titleButton.heightAnchor.constraint(equalToConstant: Size.height)
+        ])    }
     func setupButtonTitle(title: String) {
         titleButton.setTitle(title, for: .normal)
     }

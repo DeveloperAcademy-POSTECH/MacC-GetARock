@@ -11,8 +11,7 @@ class CommentTableViewCell: UITableViewCell {
     
     // MARK: - View
 
-    private let bandNameLabel: UILabel = {
-        $0.text = "노엘천재"
+    let bandNameLabel: UILabel = {
         $0.textColor = .white
         $0.font = UIFont.systemFont(ofSize: 16, weight: .bold)
         return $0
@@ -24,15 +23,14 @@ class CommentTableViewCell: UITableViewCell {
         return $0
     }(UIButton())
 
-    private let commentTextLabel: UILabel = {
-        $0.text = "노엘천재(본문)노엘천재(본문)노엘천재(본문)노엘천재(본문)노엘천재(본문)노엘천재(본문)노엘천재(본문)노엘천재(본문)노엘천재(본문)노엘천재(본문)노엘천재(본문)노엘천재(본문)노엘천재(본문)노엘천재(본문)"
+    let commentTextLabel: UILabel = {
         $0.numberOfLines = 0
         $0.textColor = .white
         $0.font = UIFont.systemFont(ofSize: 14)
         return $0
     }(UILabel())
 
-    private let commentDateLabel: UILabel = {
+    let commentDateLabel: UILabel = {
         $0.text = "2022.11.20"
         $0.textColor = .lightGrey
         $0.font = UIFont.systemFont(ofSize: 12)
