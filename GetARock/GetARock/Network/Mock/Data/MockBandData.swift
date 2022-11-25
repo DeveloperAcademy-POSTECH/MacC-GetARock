@@ -13,37 +13,37 @@ enum MockData {
         BandInfo(
             bandID: "bandID-001",
             band: Band(
-                name: "로젤리아",
+                name: "빅나인밴드",
                 filledPosition: [
-                    .init(position: .vocal, numberOfPerson: 2),
+                    .init(position: .vocal, numberOfPerson: 1),
                     .init(position: .bass, numberOfPerson: 1),
                     .init(position: .drum, numberOfPerson: 1),
-                    .init(position: .guitar, numberOfPerson: 2),
-                    .init(position: .keyboard, numberOfPerson: 1),
-                    .init(position: .etc, numberOfPerson: 2)
+                    .init(position: .guitar, numberOfPerson: 2)
+//                    .init(position: .keyboard, numberOfPerson: 1),
+//                    .init(position: .etc, numberOfPerson: 2)
                 ],
                 repertoire: [
-                    "Oasis - Wonderwall",
-                    "Oasis - Champagne Supernova",
-                    "Oasis - Stop Crying Your Heart Out"
+                    "빅나인밴드 - 시린 사랑",
+                    "빅나인밴드 - 고민",
+                    "빅나인밴드 - 달구벌로망스"
                 ],
                 ageGroups: [
                     .twenties,
                     .thirties
                 ],
                 location: Location(
-                    name: "로젤리아",
-                    address: "경북 포항시 남구 시청로 1",
-                    additionalAddress: "포항시청",
+                    name: "레드제플린",
+                    address: "대구광역시 남구 명덕로 102",
+                    additionalAddress: "레드제플린",
                     coordinate: Coordinate(
-                        latitude: 36.0191816,
-                        longitude: 129.3432983
+                      latitude: 35.85672,
+                      longitude: 128.58130
                     )
                 ),
                 introduction:
                         """
                         안녕하세요.
-                        저희는 오아시스를 좋아하는 밴드 로젤리아입니다.
+                        저희는 대구의 자랑 빅나인밴드입니다.
                         """
             )
         ),
@@ -69,11 +69,11 @@ enum MockData {
                 ],
                 location: Location(
                     name: "블랙로즈",
-                    address: "경상북도 포항시 남구 효자동 효자동길5번길 14",
+                    address: "대한민국 대구광역시 중구 태평로2가 17-11",
                     additionalAddress: nil,
                     coordinate: Coordinate(
-                        latitude: 36.0077063,
-                        longitude: 129.3287019
+                        latitude: 35.87478,
+                        longitude: 128.59192
                     )
                 ),
                 introduction:
@@ -110,12 +110,11 @@ enum MockData {
                 ],
                 location: Location(
                     name: "모닝샐러드",
-                    address: "경상북도 포항시 남구 중흥로 85",
+                    address: "대한민국 대구광역시 중구 남산동 2185-110",
                     additionalAddress: nil,
                     coordinate: Coordinate(
-                        latitude: 36.0134304,
-                        longitude: 129.3496776
-                    )
+                        latitude: 35.85785,
+                        longitude: 128.58661                    )
                 ),
                 introduction:
                         """
@@ -145,11 +144,11 @@ enum MockData {
                 ],
                 location: Location(
                     name: "직스",
-                    address: "경상북도 포항시 남구 중흥로126번길 6",
+                    address: "대한민국 대구광역시 중구 대신동 291-61",
                     additionalAddress: "2층",
                     coordinate: Coordinate(
-                        latitude: 36.0154461,
-                        longitude: 129.353048
+                        latitude: 35.86677,
+                        longitude: 128.57930
                     )
                 ),
                 introduction:
@@ -179,11 +178,11 @@ enum MockData {
                 ],
                 location: Location(
                     name: "파란색페스츄리",
-                    address: "경상북도 포항시 남구 상도동 617-5",
+                    address: "대한민국 대구광역시 남구 대명동 2542-33",
                     additionalAddress: "4층",
                     coordinate: Coordinate(
-                        latitude: 36.0138495,
-                        longitude: 129.3572625
+                        latitude: 35.85625,
+                        longitude: 128.57935
                     )
                 ),
                 introduction:
@@ -199,17 +198,17 @@ enum MockData {
         GatheringInfo(
             gatheringID: "gatheringID-001",
             gathering: Gathering(
-                title: "투다리에서 같이 노가리깝시당",
+                title: "시카고 라이브클럽에서 합공하실분!!",
                 host: bands[0],
                 status: .recruiting,
                 date: "2022.12.12 13:22".toDate(format: DateFormatLiteral.standard) ?? Date(),
                 location: Location(
                     name: bands[0].band.name,
-                    address: "경상북도 포항시 남구 대잠동 938",
-                    additionalAddress: "투다리",
+                    address: "대구광역시 수성구 달구벌대로 2354",
+                    additionalAddress: "시카고 라이브클럽",
                     coordinate: Coordinate(
-                        latitude: 36.0141708,
-                        longitude: 129.3472287
+                        latitude: 35.85922,
+                        longitude: 128.61990
                     )
                 ),
                 introduction: "같이 술이나 한잔 하면서 음악 얘기하며 노가리깔 분들 구합니다",
@@ -220,16 +219,16 @@ enum MockData {
             gatheringID: "gatheringID-002",
             gathering: Gathering(
                 title: "투다리(효자)에서 같이 노가리까요",
-                host: bands[0],
+                host: bands[1],
                 status: .progressing,
                 date: Date(),
                 location: Location(
                     name: bands[0].band.name,
-                    address: "경상북도 포항시 남구 효자동 253-113",
-                    additionalAddress: "투다리 효자점",
+                    address: "대한민국 대구광역시 중구 남성로 13-3",
+                    additionalAddress: "라이브카페",
                     coordinate: Coordinate(
-                        latitude: 36.007961,
-                        longitude: 129.3293999
+                        latitude: 35.86971,
+                        longitude: 128.58828
                     )
                 ),
                 introduction: "같이 술이나 한잔 하면서 음악 얘기하며 노가리깔 분들 구합니다",
@@ -240,16 +239,16 @@ enum MockData {
             gatheringID: "gatheringID-003",
             gathering: Gathering(
                 title: "오투에서 같이 연습하실 분",
-                host: bands[1],
+                host: bands[3],
                 status: .canceled,
                 date: "2022.12.10 13:22".toDate(format: DateFormatLiteral.standard) ?? Date(),
                 location: Location(
                     name: bands[1].band.name,
-                    address: "경상북도 포항시 남구 연일읍 동문로 40-1",
+                    address: "대한민국 대구광역시 남구 대명동 1883-3",
                     additionalAddress: "오투뮤직스토리 지하",
                     coordinate: Coordinate(
-                        latitude: 35.9937237,
-                        longitude: 129.3521299
+                        latitude: 35.85388,
+                        longitude: 128.58477
                     )
                 ),
                 introduction:
@@ -264,24 +263,23 @@ enum MockData {
         GatheringInfo(
             gatheringID: "gatheringID-004",
             gathering: Gathering(
-                title: "이번에 락 페스티벌 가는 분 계시면 같이 가요",
-                host: bands[2],
+                title: "시카고 라이브클럽에서 합공하실분!!",
+                host: bands[0],
                 status: .finished,
                 date: "2022.11.15 13:22".toDate(format: DateFormatLiteral.standard) ?? Date(),
                 location: Location(
-                    name: bands[2].band.name,
-                    address: "경북 포항시 북구 두호동 685-1",
-                    additionalAddress: "영일대 해수욕장",
+                    name: bands[0].band.name,
+                    address: "대구광역시 수성구 달구벌대로 2354",
+                    additionalAddress: "시카고 라이브클럽",
                     coordinate: Coordinate(
-                        latitude: 36.0561507,
-                        longitude: 129.3781717
+                        latitude: 35.85922,
+                        longitude: 128.61990
                     )
                 ),
                 introduction:
                     """
-                    페스티벌 구경가는 밴드있나요?
-                    같이 놀아요!
-                    저희는 영일대에서 바로 만나서 입장할 예정입니다!
+                    이번에 시카고 라이브클럽에서 합공하실분 있나요??
+                    같이 대구를 불태워봐요!!
                     """,
                 createdAt: "2022.11.10 13:22".toDate(format: DateFormatLiteral.standard) ?? Date()
             )
