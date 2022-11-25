@@ -130,7 +130,8 @@ final class MainMapViewController: UIViewController {
     }
     
     @IBAction func addGetARockButtonClicked(_ sender: UIButton) {
-        let addGatheringViewController = UIStoryboard(name: "AddGathering", bundle: nil).instantiateViewController(withIdentifier: AddGatheringViewController.className)
+//        let addGatheringViewController = UIStoryboard(name: "AddGathering", bundle: nil).instantiateViewController(withIdentifier: AddGatheringViewController.className)
+        let addGatheringViewController = UIStoryboard(name: "AddGathering", bundle: nil).instantiateInitialViewController() ?? UIViewController()
         addGatheringViewController.modalPresentationStyle = .pageSheet
         if let sheet = addGatheringViewController.sheetPresentationController {
             sheet.detents = [.large()]
