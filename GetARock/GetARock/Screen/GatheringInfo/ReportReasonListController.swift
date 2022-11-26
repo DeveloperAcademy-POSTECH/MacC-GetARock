@@ -21,8 +21,8 @@ class ReportReasonListController: UITableViewController, AlertSheet {
         view.backgroundColor = .modalBackgroundBlue
         tableView.tableHeaderView = makingHeader()
         
-        let nib = UINib(nibName: "ReportReasonListCell", bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: "ReportReasonListCell")
+        let nib = UINib(nibName: ReportReasonListCell.className, bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: ReportReasonListCell.className)
     }
     
     // MARK: - Method
@@ -57,7 +57,7 @@ class ReportReasonListController: UITableViewController, AlertSheet {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ReportReasonListCell") as? ReportReasonListCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ReportReasonListCell.className) as? ReportReasonListCell else { return UITableViewCell() }
         cell.reportReason.text = reportReason[indexPath.row]
         return cell
     }
