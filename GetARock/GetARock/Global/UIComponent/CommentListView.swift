@@ -7,7 +7,7 @@
 
 import UIKit
 
-enum CommentListEntryPoint {
+enum CommentEntryPoint {
     case visitorComment
     case gatheringComment
 }
@@ -18,7 +18,7 @@ class CommentListView: UIView {
 
     private var vistorCommentData: VisitorCommentInfo?
     private var gatheringComment: GatheringCommentInfo?
-    private var entryPoint: CommentListEntryPoint
+    private var entryPoint: CommentEntryPoint
 
     // MARK: - View
 
@@ -50,7 +50,7 @@ class CommentListView: UIView {
 
     // MARK: - Init
 
-    init(entryPoint: CommentListEntryPoint) {
+    init(entryPoint: CommentEntryPoint) {
         self.entryPoint = entryPoint
         super.init(frame: .zero)
         attribute()
