@@ -13,7 +13,7 @@ struct GatheringCommentInfo {
 }
 
 struct GatheringComment {
-    let gathering: Gathering
+    let gathering: GatheringInfo
     let author: BandInfo
     let content: String
     let createdAt: Date
