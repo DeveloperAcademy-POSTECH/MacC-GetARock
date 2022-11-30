@@ -11,7 +11,7 @@ class ReportReasonListController: UITableViewController, AlertSheet {
     
     // MARK: - Property
     
-    let reportReason = ["폭력 또는 위험한 단체", "거짓 정보", "따돌림 또는 괴롭힘", "지적 재산권 침해", "불법 또는 규제 상품 판매", "기타 문제"]
+    private  let reportReason = ["폭력 또는 위험한 단체", "거짓 정보", "따돌림 또는 괴롭힘", "지적 재산권 침해", "불법 또는 규제 상품 판매", "기타 문제"]
     
     // MARK: - Life Cycle
     

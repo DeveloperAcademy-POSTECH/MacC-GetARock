@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GatheringInfoViewController: UIViewController, Reportable {
+class GatheringInfoViewController: UIViewController {
     
     // MARK: - properties
     
@@ -27,12 +27,17 @@ class GatheringInfoViewController: UIViewController, Reportable {
     
     // MARK: - Method
     
-    func alertActionButtonPressed() {
-        print("삭제에 성공했습니다.")
-    }
-    
     @IBAction func touchUpInsideEllipsis(_ sender: UIButton) {
         showActionSheet()
     }
     
 }
+
+    // MARK: - extension Reportable Method
+
+extension GatheringInfoViewController : Reportable {
+    func alertActionButtonPressed() {
+        print("삭제에 성공했습니다.")
+    }
+}
+
