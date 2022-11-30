@@ -10,26 +10,9 @@ import UIKit
 class CommentWritingPopupViewController: UIViewController {
     
     // MARK: - Properties
-    var entryPoint: CommentListEntryPoint = .visitorComment
-    var bandInfo: BandInfo?
-    var gatheringInfo: GatheringInfo?
+
+    var entryPoint: CommentListEntryPoint
     private let textViewPlaceHolder = "텍스트를 입력해주세요"
-    
-    init(entryPoint: CommentListEntryPoint, bandInfo: BandInfo? = nil) {
-        self.entryPoint = entryPoint
-        self.author = bandInfo?.band.name
-        self.gatheringInfo = nil
-    }
-    
-    init(entryPoint: CommentListEntryPoint, gatheringInfo: GatheringInfo? = nil) {
-        self.entryPoint = entryPoint
-        self.bandInfo = nil
-        self.gatheringInfo = gatheringInfo
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     // MARK: - View
     
     private let popupTitleLabel: UILabel = {
@@ -49,7 +32,6 @@ class CommentWritingPopupViewController: UIViewController {
         $0.textContainerInset = UIEdgeInsets(top: 16.0, left: 16.0, bottom: 16.0, right: 16.0)
         $0.backgroundColor = .backgroundBlue
         $0.font = UIFont.systemFont(ofSize: 14.0)
-        $0.textColor = UIColor.black
         $0.textAlignment = NSTextAlignment.left
         $0.dataDetectorTypes = UIDataDetectorTypes.all
         $0.text = textViewPlaceHolder
@@ -76,8 +58,19 @@ class CommentWritingPopupViewController: UIViewController {
         $0.isLayoutMarginsRelativeArrangement = true
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
-        
     }(UIStackView(arrangedSubviews: [popUpHeaderStackView, commentTextView, confirmButton]))
+    
+    // MARK: - Init
+    
+    init(entryPoint: CommentListEntryPoint) {
+        self.entryPoint = entryPoint
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
@@ -89,7 +82,7 @@ class CommentWritingPopupViewController: UIViewController {
     // MARK: - Method
     
     private func attribute() {
-        view.backgroundColor = .black.withAlphaComponent(0.3)
+        view.backgroundColor = .black.withAlphaComponent(0.5)
         setupPopupTitleLabel()
     }
     
@@ -103,6 +96,7 @@ class CommentWritingPopupViewController: UIViewController {
             popupStackView.heightAnchor.constraint(equalToConstant: 300)
         ])
         setupCloseButton()
+        setupConfirmButton()
     }
     
     private func setupPopupTitleLabel() {
@@ -121,46 +115,41 @@ class CommentWritingPopupViewController: UIViewController {
         confirmButton.titleButton.addTarget(self, action: #selector(self.addNewComment(_:)), for: .touchUpInside)
     }
     
-    
     @objc private func addNewComment(_ sender: Any) {
-       
         switch entryPoint {
         case .visitorComment:
-            guard let bandInfo = bandInfo else { return }
             if let text = commentTextView.text {
                 let saveData = VisitorCommentInfo(
                     commentID: "visitorCommentID-005",
                     comment: VisitorComment(
-                        hostBand: bandInfo,
-                        author: bandInfo.band.name,
+                        hostBand: MockData.bands[0],
+                        author: MockData.bands[2],
                         content: text,
                         createdAt: Date()
                     )
                 )
                 MockData.visitorComments.append(saveData)
+                self.dismiss(animated: false, completion: nil)
             }
         case .gatheringComment:
-            guard let gatheringInfo = gatheringInfo else { return }
             if let text = commentTextView.text {
-                if let text = commentTextView.text {
-                    let saveData = GatheringCommentInfo(
-                        commentID: "gatheringID-005",
-                        comment: GatheringComment(
-                            gathering: gatheringInfo,
-                            author: MockData.gatheringComments[0].comment.author,
-                            content: text,
-                            createdAt: Date()))
-                    MockData.gatheringComments.append(saveData)
-                }
+                let saveData = GatheringCommentInfo(
+                    commentID: "gatheringID-005",
+                    comment: GatheringComment(
+                        gathering: MockData.gatheringComments[0].comment.gathering,
+                        author: MockData.gatheringComments[0].comment.author,
+                        content: text,
+                        createdAt: Date()))
+                MockData.gatheringComments.append(saveData)
+                self.dismiss(animated: false, completion: nil)
             }
         }
     }
-    
-    @objc private func dismissPopup(_ sender: Any) {
-        dismiss(animated: false, completion: nil)
-    }
-}
 
+@objc private func dismissPopup(_ sender: Any) {
+      dismiss(animated: false, completion: nil)
+  }
+}
 // MARK: - UITextViewDelegate
 
 extension CommentWritingPopupViewController: UITextViewDelegate {
@@ -171,4 +160,3 @@ extension CommentWritingPopupViewController: UITextViewDelegate {
         }
     }
 }
-

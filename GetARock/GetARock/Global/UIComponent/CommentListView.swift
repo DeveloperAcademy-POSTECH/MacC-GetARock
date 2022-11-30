@@ -16,12 +16,8 @@ class CommentListView: UIView {
 
     // MARK: - Properties
 
-//    private var vistorCommentData: VisitorCommentInfo?
-//    private var gatheringComment: GatheringCommentInfo?
-    var entryPoint: CommentListEntryPoint
-    var visitorCommentInfo: [VisitorCommentInfo]?
-    var gatheringCommentInfo: [GatheringCommentInfo]?
-
+    private var entryPoint: CommentListEntryPoint
+    
     // MARK: - View
 
     private let totalListNumberLabel: UILabel = {
@@ -51,18 +47,9 @@ class CommentListView: UIView {
     }(UIStackView(arrangedSubviews: [commentWritingButton, totalListNumberLabel, tableView]))
 
     // MARK: - Init
-
-    init(entryPoint: CommentListEntryPoint, visitorCommentInfo: [VisitorCommentInfo]) {
+    
+    init(entryPoint: CommentListEntryPoint) {
         self.entryPoint = entryPoint
-        self.visitorCommentInfo = visitorCommentInfo
-        super.init(frame: .zero)
-        attribute()
-        setupLayout()
-    }
-
-    init(entryPoint: CommentListEntryPoint, gatheringCommentInfo: [GatheringCommentInfo]) {
-        self.entryPoint = entryPoint
-        self.gatheringCommentInfo = gatheringCommentInfo
         super.init(frame: .zero)
         attribute()
         setupLayout()
@@ -148,15 +135,13 @@ extension CommentListView: UITableViewDataSource {
         
         switch entryPoint {
         case .visitorComment:
-            guard let visitorCommentInfo = visitorCommentInfo else { return UITableViewCell() }
-            cell.bandNameLabel.text = visitorCommentInfo[indexPath.row].comment.author.band.name
-            cell.commentTextLabel.text = visitorCommentInfo[indexPath.row].comment.content
-            cell.commentDateLabel.text = visitorCommentInfo[indexPath.row].comment.createdAt.toString(format: DateFormatLiteral.standard)
+            cell.bandNameLabel.text = MockData.visitorComments[indexPath.row].comment.author.band.name
+            cell.commentTextLabel.text = MockData.visitorComments[indexPath.row].comment.content
+            cell.commentDateLabel.text = MockData.visitorComments[indexPath.row].comment.createdAt.toString(format: DateFormatLiteral.standard)
         case .gatheringComment :
-            guard let gatheringCommentInfo = gatheringCommentInfo else { return UITableViewCell() }
-            cell.bandNameLabel.text = gatheringCommentInfo[indexPath.row].comment.author.band.name
-            cell.commentTextLabel.text = gatheringCommentInfo[indexPath.row].comment.content
-            cell.commentDateLabel.text = gatheringCommentInfo[indexPath.row].comment.createdAt.toString(format: DateFormatLiteral.standard)
+            cell.bandNameLabel.text = MockData.gatheringComments[indexPath.row].comment.author.band.name
+            cell.commentTextLabel.text = MockData.gatheringComments[indexPath.row].comment.content
+            cell.commentDateLabel.text = MockData.gatheringComments[indexPath.row].comment.createdAt.toString(format: DateFormatLiteral.standard)
         }
         return cell
     }
