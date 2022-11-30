@@ -131,7 +131,13 @@ extension CommentListView: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell( withIdentifier: CommentTableViewCell.className, for: indexPath) as? CommentTableViewCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: CommentTableViewCell.className,
+            for: indexPath
+        ) as? CommentTableViewCell
+        else {
+            return UITableViewCell()
+        }
 
         cell.selectionStyle = .none
 
