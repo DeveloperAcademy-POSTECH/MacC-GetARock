@@ -18,7 +18,7 @@ class CommentCreateButton: UIView {
     }
     
     // MARK: - View
-
+    
     let titleButton: UIButton = {
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
