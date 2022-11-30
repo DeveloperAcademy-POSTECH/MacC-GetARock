@@ -20,7 +20,7 @@ class CommentListView: UIView {
     
     // MARK: - View
 
-    private let totalListNumberLabel: UILabel = {
+    let totalListNumberLabel: UILabel = {
         $0.textColor = .white
         $0.font = UIFont.systemFont(ofSize: 16, weight: .bold)
         return $0
