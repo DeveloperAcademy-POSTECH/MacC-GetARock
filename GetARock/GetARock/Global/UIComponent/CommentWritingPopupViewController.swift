@@ -10,10 +10,10 @@ import UIKit
 class CommentWritingPopupViewController: UIViewController {
     
     // MARK: - Properties
-
+    
     var entryPoint: CommentListEntryPoint
     private let textViewPlaceHolder = "텍스트를 입력해주세요"
-
+    
     // MARK: - View
     
     private let popupTitleLabel: UILabel = {
@@ -84,6 +84,8 @@ class CommentWritingPopupViewController: UIViewController {
     
     private func attribute() {
         view.backgroundColor = .black.withAlphaComponent(0.5)
+        let tapBackgroundGesture = UITapGestureRecognizer(target: self, action: #selector(dismissPopup))
+        view.addGestureRecognizer(tapBackgroundGesture)
         setupPopupTitleLabel()
     }
     
@@ -96,8 +98,7 @@ class CommentWritingPopupViewController: UIViewController {
             popupStackView.widthAnchor.constraint(equalToConstant: CommentCreateButton.Size.width),
             popupStackView.heightAnchor.constraint(equalToConstant: 300)
         ])
-        setupCloseButton()
-        setupConfirmButton()
+        setupPopupButton()
     }
     
     private func setupPopupTitleLabel() {
@@ -108,48 +109,48 @@ class CommentWritingPopupViewController: UIViewController {
             popupTitleLabel.text = "댓글 작성"
         }
     }
-    private func setupCloseButton() {
-        closeButton.addTarget(self, action: #selector(self.dismissPopup), for: .touchUpInside)
-    }
     
-    private func setupConfirmButton() {
+    private func setupPopupButton() {
+        closeButton.addTarget(self, action: #selector(dismissPopup), for: .touchUpInside)
         confirmButton.titleButton.addTarget(self, action: #selector(self.addNewComment(_:)), for: .touchUpInside)
     }
     
+    @objc private func dismissPopup(_ sender: Any) {
+        dismiss(animated: false, completion: nil)
+    }
+    
     @objc private func addNewComment(_ sender: Any) {
-        switch entryPoint {
-        case .visitorComment:
-            if let text = commentTextView.text {
-                let saveData = VisitorCommentInfo(
-                    commentID: "visitorCommentID-005",
-                    comment: VisitorComment(
-                        hostBand: MockData.bands[0],
-                        author: MockData.bands[2],
-                        content: text,
-                        createdAt: Date()
+        if commentTextView.text != textViewPlaceHolder {
+            switch entryPoint {
+            case .visitorComment:
+                if let text = commentTextView.text {
+                    let saveData = VisitorCommentInfo(
+                        commentID: "visitorCommentID-005",
+                        comment: VisitorComment(
+                            hostBand: MockData.bands[0],
+                            author: MockData.bands[2],
+                            content: text,
+                            createdAt: Date()
+                        )
                     )
-                )
-                MockData.visitorComments.append(saveData)
-                self.dismiss(animated: false, completion: nil)
-            }
-        case .gatheringComment:
-            if let text = commentTextView.text {
-                let saveData = GatheringCommentInfo(
-                    commentID: "gatheringID-005",
-                    comment: GatheringComment(
-                        gathering: MockData.gatheringComments[0].comment.gathering,
-                        author: MockData.gatheringComments[0].comment.author,
-                        content: text,
-                        createdAt: Date()))
-                MockData.gatheringComments.append(saveData)
-                self.dismiss(animated: false, completion: nil)
+                    MockData.visitorComments.append(saveData)
+                    self.dismiss(animated: false, completion: nil)
+                }
+            case .gatheringComment:
+                if let text = commentTextView.text {
+                    let saveData = GatheringCommentInfo(
+                        commentID: "gatheringID-005",
+                        comment: GatheringComment(
+                            gathering: MockData.gatheringComments[0].comment.gathering,
+                            author: MockData.gatheringComments[0].comment.author,
+                            content: text,
+                            createdAt: Date()))
+                    MockData.gatheringComments.append(saveData)
+                    self.dismiss(animated: false, completion: nil)
+                }
             }
         }
     }
-
-@objc private func dismissPopup(_ sender: Any) {
-      dismiss(animated: false, completion: nil)
-  }
 }
 
 // MARK: - UITextViewDelegate
