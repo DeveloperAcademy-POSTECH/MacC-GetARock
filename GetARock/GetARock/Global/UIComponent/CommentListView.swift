@@ -16,8 +16,6 @@ class CommentListView: UIView {
 
     // MARK: - Properties
 
-    private var vistorCommentData: VisitorCommentInfo?
-    private var gatheringComment: GatheringCommentInfo?
     private var entryPoint: CommentEntryPoint
 
     // MARK: - View
