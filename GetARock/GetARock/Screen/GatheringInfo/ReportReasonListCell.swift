@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ReportReasonListCell: UITableViewCell {
+final class ReportReasonListCell: UITableViewCell {
     
     // MARK: - property
     

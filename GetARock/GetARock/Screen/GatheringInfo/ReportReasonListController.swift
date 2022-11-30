@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ReportReasonListController: UITableViewController, AlertSheet {
+final class ReportReasonListController: UITableViewController, AlertSheet {
     
     // MARK: - Property
     

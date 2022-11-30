@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GatheringInfoViewController: UIViewController {
+final class GatheringInfoViewController: UIViewController {
     
     // MARK: - properties
     
@@ -35,9 +35,8 @@ class GatheringInfoViewController: UIViewController {
 
     // MARK: - extension Reportable Method
 
-extension GatheringInfoViewController : Reportable {
+extension GatheringInfoViewController: Reportable {
     func alertActionButtonPressed() {
         print("삭제에 성공했습니다.")
     }
 }
-
