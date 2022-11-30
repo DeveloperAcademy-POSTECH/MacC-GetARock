@@ -137,15 +137,15 @@ extension MainMapViewController: CLLocationManagerDelegate {
         CLGeocoder().reverseGeocodeLocation(
             currentLocation!,
             completionHandler: {(placemarks, _) -> Void in
-                let currentPlacemark = placemarks?.first
+                guard let currentPlacemark = placemarks?.first else { return }
                 var address: String = ""
-                if currentPlacemark?.locality != nil {
+                if currentPlacemark.locality != nil {
                     address += " "
-                    address += currentPlacemark!.locality!
+                    address += currentPlacemark.locality!
                 }
-                if currentPlacemark?.thoroughfare != nil {
+                if currentPlacemark.thoroughfare != nil {
                     address += " "
-                    address += currentPlacemark!.thoroughfare!
+                    address += currentPlacemark.thoroughfare!
                 }
                 
                 self.locationLabel.text = address
