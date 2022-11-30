@@ -159,7 +159,7 @@ extension MainMapViewController: CLLocationManagerDelegate {
 
 extension MainMapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        if annotation as? MKUserLocation != nil {
+        if annotation is MKUserLocation {
             return MKUserLocationView()
         }
         
