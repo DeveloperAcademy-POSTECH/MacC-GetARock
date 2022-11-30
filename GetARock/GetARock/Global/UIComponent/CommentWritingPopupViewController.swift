@@ -13,6 +13,7 @@ class CommentWritingPopupViewController: UIViewController {
 
     var entryPoint: CommentListEntryPoint
     private let textViewPlaceHolder = "텍스트를 입력해주세요"
+
     // MARK: - View
     
     private let popupTitleLabel: UILabel = {
@@ -150,6 +151,7 @@ class CommentWritingPopupViewController: UIViewController {
       dismiss(animated: false, completion: nil)
   }
 }
+
 // MARK: - UITextViewDelegate
 
 extension CommentWritingPopupViewController: UITextViewDelegate {

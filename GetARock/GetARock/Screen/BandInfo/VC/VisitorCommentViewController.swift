@@ -22,7 +22,6 @@ final class VisitorCommentViewController: UIViewController {
         super.viewWillAppear(animated)
         visitorCommentList.tableView.reloadData()
         visitorCommentList.totalListNumberLabel.text = "총 \(MockData.visitorComments.count)개"
-        print(MockData.visitorComments)
     }
 
     override func viewDidLoad() {
@@ -46,7 +45,6 @@ final class VisitorCommentViewController: UIViewController {
             visitorCommentList.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
         setupWritingButton()
-        
     }
 
     private func setupWritingButton() {
