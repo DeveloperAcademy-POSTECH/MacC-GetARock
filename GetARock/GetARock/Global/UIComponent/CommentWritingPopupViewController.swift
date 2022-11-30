@@ -29,7 +29,7 @@ class CommentWritingPopupViewController: UIViewController {
         return $0
     }(UIButton())
 
-    lazy var commentTextView: UITextView = {
+    private lazy var commentTextView: UITextView = {
         $0.textContainerInset = UIEdgeInsets(top: 16.0, left: 16.0, bottom: 16.0, right: 16.0)
         $0.backgroundColor = .backgroundBlue
         $0.font = UIFont.systemFont(ofSize: 14.0)
@@ -52,7 +52,7 @@ class CommentWritingPopupViewController: UIViewController {
         return $0
     }(UIStackView(arrangedSubviews: [popupTitleLabel, closeButton]))
 
-    private lazy var popupStackView: UIStackView = {
+    private lazy var commentWritingPopupStackView: UIStackView = {
         $0.layoutMargins = UIEdgeInsets(top: 15.0, left: 15.0, bottom: 15.0, right: 15.0)
         $0.spacing = 15
         $0.axis = .vertical
@@ -90,13 +90,13 @@ class CommentWritingPopupViewController: UIViewController {
     }
 
     private func setupLayout() {
-        view.addSubview(popupStackView)
-        popupStackView.backgroundColor = .modalBackgroundBlue
+        view.addSubview(commentWritingPopupStackView)
+        commentWritingPopupStackView.backgroundColor = .modalBackgroundBlue
         NSLayoutConstraint.activate([
-            popupStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            popupStackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            popupStackView.widthAnchor.constraint(equalToConstant: CommentCreateButton.Size.width),
-            popupStackView.heightAnchor.constraint(equalToConstant: 300)
+            commentWritingPopupStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            commentWritingPopupStackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            commentWritingPopupStackView.widthAnchor.constraint(equalToConstant: CommentCreateButton.Size.width),
+            commentWritingPopupStackView.heightAnchor.constraint(equalToConstant: 300)
         ])
         setupPopupButton()
     }
