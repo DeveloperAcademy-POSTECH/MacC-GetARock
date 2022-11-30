@@ -13,22 +13,22 @@ class CommentWritingPopupViewController: UIViewController {
     
     var entryPoint: CommentListEntryPoint
     private let textViewPlaceHolder = "텍스트를 입력해주세요"
-    
+
     // MARK: - View
-    
+
     private let popupTitleLabel: UILabel = {
         $0.text = "방명록 작성"
         $0.font = .systemFont(ofSize: 16, weight: .bold)
         $0.textColor = .white
         return $0
     }(UILabel())
-    
+
     private let closeButton: UIButton = {
         $0.setImage(UIImage(systemName: "xmark"), for: .normal)
         $0.tintColor = .white
         return $0
     }(UIButton())
-    
+
     lazy var commentTextView: UITextView = {
         $0.textContainerInset = UIEdgeInsets(top: 16.0, left: 16.0, bottom: 16.0, right: 16.0)
         $0.backgroundColor = .backgroundBlue
@@ -40,18 +40,18 @@ class CommentWritingPopupViewController: UIViewController {
         $0.delegate = self
         return $0
     }(UITextView())
-    
+
     private let confirmButton: CommentCreateButton = {
         $0.setupButtonTitle(title: "작성 완료")
         return $0
     }(CommentCreateButton())
-    
+
     private lazy var popUpHeaderStackView: UIStackView = {
         $0.axis = .horizontal
         $0.distribution = .equalSpacing
         return $0
     }(UIStackView(arrangedSubviews: [popupTitleLabel, closeButton]))
-    
+
     private lazy var popupStackView: UIStackView = {
         $0.layoutMargins = UIEdgeInsets(top: 15.0, left: 15.0, bottom: 15.0, right: 15.0)
         $0.spacing = 15
@@ -60,7 +60,7 @@ class CommentWritingPopupViewController: UIViewController {
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
     }(UIStackView(arrangedSubviews: [popUpHeaderStackView, commentTextView, confirmButton]))
-    
+
     // MARK: - Init
     
     init(entryPoint: CommentListEntryPoint) {
@@ -73,22 +73,22 @@ class CommentWritingPopupViewController: UIViewController {
     }
     
     // MARK: - Life Cycle
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         attribute()
         setupLayout()
     }
-    
+
     // MARK: - Method
-    
+
     private func attribute() {
         view.backgroundColor = .black.withAlphaComponent(0.5)
         let tapBackgroundGesture = UITapGestureRecognizer(target: self, action: #selector(dismissPopup))
         view.addGestureRecognizer(tapBackgroundGesture)
         setupPopupTitleLabel()
     }
-    
+
     private func setupLayout() {
         view.addSubview(popupStackView)
         popupStackView.backgroundColor = .modalBackgroundBlue
@@ -114,7 +114,7 @@ class CommentWritingPopupViewController: UIViewController {
         closeButton.addTarget(self, action: #selector(dismissPopup), for: .touchUpInside)
         confirmButton.titleButton.addTarget(self, action: #selector(self.addNewComment(_:)), for: .touchUpInside)
     }
-    
+
     @objc private func dismissPopup(_ sender: Any) {
         dismiss(animated: false, completion: nil)
     }
