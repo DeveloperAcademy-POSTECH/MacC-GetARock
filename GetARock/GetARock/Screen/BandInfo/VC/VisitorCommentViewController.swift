@@ -14,7 +14,7 @@ final class VisitorCommentViewController: UIViewController {
     private let visitorCommentList = {
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
-    }(CommentListView(entryPoint: .visitorComment))
+    }(CommentListView(commentMode: .visitorComment))
 
     // MARK: - Life Cycle
 

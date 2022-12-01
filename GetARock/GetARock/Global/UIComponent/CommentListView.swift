@@ -7,7 +7,7 @@
 
 import UIKit
 
-enum CommentEntryPoint {
+enum CommentMode {
     case visitorComment
     case gatheringComment
 }
@@ -16,7 +16,7 @@ class CommentListView: UIView {
 
     // MARK: - Properties
 
-    private var entryPoint: CommentEntryPoint
+    private var commentMode: CommentMode
 
     // MARK: - View
 
@@ -48,8 +48,8 @@ class CommentListView: UIView {
 
     // MARK: - Init
 
-    init(entryPoint: CommentEntryPoint) {
-        self.entryPoint = entryPoint
+    init(commentMode: CommentMode) {
+        self.commentMode = commentMode
         super.init(frame: .zero)
         attribute()
         setupLayout()
@@ -90,7 +90,7 @@ class CommentListView: UIView {
     }
 
     private func setupTotalListNumberLabel() {
-        switch entryPoint {
+        switch commentMode {
         case .visitorComment:
             totalListNumberLabel.text = "총 \(MockData.visitorComments.count)개"
         case .gatheringComment:
@@ -99,7 +99,7 @@ class CommentListView: UIView {
     }
 
     private func setupCommentWritingButton() {
-        switch entryPoint {
+        switch commentMode {
         case .visitorComment:
             commentWritingButton.setupButtonTitle(title: "방명록 작성")
         case .gatheringComment:
@@ -120,7 +120,7 @@ extension CommentListView: UITableViewDelegate {
 
 extension CommentListView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch entryPoint {
+        switch commentMode {
         case .visitorComment :
             return MockData.visitorComments.count
         case .gatheringComment:
@@ -139,7 +139,7 @@ extension CommentListView: UITableViewDataSource {
 
         cell.selectionStyle = .none
 
-        switch entryPoint {
+        switch commentMode {
         case .visitorComment:
             cell.bandNameLabel.text = MockData.visitorComments[indexPath.row].comment.author.band.name
             cell.commentTextLabel.text = MockData.visitorComments[indexPath.row].comment.content
