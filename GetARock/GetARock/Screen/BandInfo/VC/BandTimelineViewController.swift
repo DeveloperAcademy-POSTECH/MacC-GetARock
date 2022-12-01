@@ -21,7 +21,7 @@ class BandTimelineViewController: UIViewController {
         tableView.register(nibName, forCellReuseIdentifier: BandTimelineCell.className)
     }
     
-    // MARK: - View Reload
+    // MARK: - Method
     
     func reloadTableView() {
         tableView.reloadData()
