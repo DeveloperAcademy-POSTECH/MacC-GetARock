@@ -24,7 +24,7 @@ class GatheringListViewController: UIViewController {
         tableView.register(nibName, forCellReuseIdentifier: GatheringListCell.className)
     }
     
-    // MARK: - View Reload
+    // MARK: - Method
     
     func reloadTableView() {
         tableView.reloadData()
