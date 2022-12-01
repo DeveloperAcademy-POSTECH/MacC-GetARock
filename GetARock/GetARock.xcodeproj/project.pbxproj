@@ -61,7 +61,7 @@
 		ABCE15B7292A052F007D30E2 /* ViewSwitchedSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCE15B6292A052F007D30E2 /* ViewSwitchedSegmentedControl.swift */; };
 		B830849929263B780035DB2D /* MainMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B830849829263B780035DB2D /* MainMapViewController.swift */; };
 		B8B9971F29287D3700082462 /* MainMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8B9971E29287D3700082462 /* MainMap.storyboard */; };
-		B8BE496E292E14C800E8E774 /* CustomAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BE496D292E14C800E8E774 /* CustomAnnotationView.swift */; };
+		B8BE496E292E14C800E8E774 /* AnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BE496D292E14C800E8E774 /* AnnotationView.swift */; };
 		C5C7AC6B292A7F7C00698636 /* AddGathering.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5C7AC6A292A7F7C00698636 /* AddGathering.storyboard */; };
 		C5C7AC6D292A7FA200698636 /* AddGatheringViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C7AC6C292A7FA200698636 /* AddGatheringViewController.swift */; };
 /* End PBXBuildFile section */
@@ -142,7 +142,7 @@
 		ABCE15B6292A052F007D30E2 /* ViewSwitchedSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewSwitchedSegmentedControl.swift; sourceTree = "<group>"; };
 		B830849829263B780035DB2D /* MainMapViewController.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = MainMapViewController.swift; sourceTree = "<group>"; tabWidth = 4; };
 		B8B9971E29287D3700082462 /* MainMap.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainMap.storyboard; sourceTree = "<group>"; };
-		B8BE496D292E14C800E8E774 /* CustomAnnotationView.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = CustomAnnotationView.swift; sourceTree = "<group>"; tabWidth = 4; };
+		B8BE496D292E14C800E8E774 /* AnnotationView.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = AnnotationView.swift; sourceTree = "<group>"; tabWidth = 4; };
 		C5C7AC6A292A7F7C00698636 /* AddGathering.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddGathering.storyboard; sourceTree = "<group>"; };
 		C5C7AC6C292A7FA200698636 /* AddGatheringViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGatheringViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -466,7 +466,7 @@
 		B88C73412938AFB9005F2350 /* Component */ = {
 			isa = PBXGroup;
 			children = (
-				B8BE496D292E14C800E8E774 /* CustomAnnotationView.swift */,
+				B8BE496D292E14C800E8E774 /* AnnotationView.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -650,7 +650,7 @@
 				3DF54FCB292A43EA001CD16B /* BandMemberCollectionViewCell.swift in Sources */,
 				3DF54FCF292B9223001CD16B /* RepertoireTableViewCell.swift in Sources */,
 				3D0ED2232928667900AE320C /* BandInfoViewController.swift in Sources */,
-				B8BE496E292E14C800E8E774 /* CustomAnnotationView.swift in Sources */,
+				B8BE496E292E14C800E8E774 /* AnnotationView.swift in Sources */,
 				0761508D29277CBB00A0562F /* VisitorComment.swift in Sources */,
 				AB58E007292CB61700868720 /* TopViewOfInfoView.swift in Sources */,
 				072DEDD2292687A70046A4A0 /* Location.swift in Sources */,

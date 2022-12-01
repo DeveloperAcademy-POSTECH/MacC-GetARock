@@ -36,7 +36,7 @@ final class MainMapViewController: UIViewController {
         
         self.locationManager.requestWhenInUseAuthorization()
         addAnnotationOnMapView()
-        mapView.register(CustomAnnotationView.self, forAnnotationViewWithReuseIdentifier: CustomAnnotationView.className)
+        mapView.register(AnnotationView.self, forAnnotationViewWithReuseIdentifier: AnnotationView.className)
     }
     
     // MARK: - Method
@@ -140,8 +140,8 @@ extension MainMapViewController: MKMapViewDelegate {
             return MKUserLocationView()
         }
         
-        guard let marker = mapView.dequeueReusableAnnotationView(withIdentifier: CustomAnnotationView.className) as? CustomAnnotationView else {
-            return CustomAnnotationView()
+        guard let marker = mapView.dequeueReusableAnnotationView(withIdentifier: AnnotationView.className) as? AnnotationView else {
+            return AnnotationView()
         }
         
         return marker
