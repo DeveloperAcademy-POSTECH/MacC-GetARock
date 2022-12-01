@@ -11,8 +11,7 @@ class CommentTableViewCell: UITableViewCell {
     
     // MARK: - View
 
-    private let bandNameLabel: UILabel = {
-        $0.text = "노엘천재"
+    let bandNameLabel: UILabel = {
         $0.textColor = .white
         $0.font = UIFont.systemFont(ofSize: 16, weight: .bold)
         return $0
@@ -24,16 +23,14 @@ class CommentTableViewCell: UITableViewCell {
         return $0
     }(UIButton())
 
-    private let commentTextLabel: UILabel = {
-        $0.text = "노엘천재(본문)노엘천재(본문)노엘천재(본문)노엘천재(본문)노엘천재(본문)노엘천재(본문)노엘천재(본문)노엘천재(본문)노엘천재(본문)노엘천재(본문)노엘천재(본문)노엘천재(본문)노엘천재(본문)노엘천재(본문)"
+    let commentTextLabel: UILabel = {
         $0.numberOfLines = 0
         $0.textColor = .white
         $0.font = UIFont.systemFont(ofSize: 14)
         return $0
     }(UILabel())
 
-    private let commentDateLabel: UILabel = {
-        $0.text = "2022.11.20"
+    let commentDateLabel: UILabel = {
         $0.textColor = .lightGrey
         $0.font = UIFont.systemFont(ofSize: 12)
         return $0
@@ -69,8 +66,8 @@ class CommentTableViewCell: UITableViewCell {
         self.contentView.addSubview(commentStackView)
         NSLayoutConstraint.activate([
             commentStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 30),
-            commentStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 36),
-            commentStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -36),
+            commentStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+            commentStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
             commentStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -30)
         ])
     }
