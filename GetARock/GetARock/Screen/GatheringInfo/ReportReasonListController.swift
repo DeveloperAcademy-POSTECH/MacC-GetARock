@@ -31,7 +31,7 @@ final class ReportReasonListController: UITableViewController, AlertSheet {
         print("신고에 성공했습니다.")
     }
     
-    func makingHeader() -> UIView {
+    private func makingHeader() -> UIView {
         let header = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 50))
         header.backgroundColor = .modalBackgroundBlue
         
@@ -49,13 +49,13 @@ final class ReportReasonListController: UITableViewController, AlertSheet {
         ])
         return header
     }
-
+    
     // MARK: - TableView data source
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return reportReason.count
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ReportReasonListCell.className) as? ReportReasonListCell else { return UITableViewCell() }
         cell.reportReason.text = reportReason[indexPath.row]
@@ -68,5 +68,5 @@ final class ReportReasonListController: UITableViewController, AlertSheet {
         tableView.deselectRow(at: indexPath, animated: true)
         showAlertSheet(alertTitle: "신고하기", message: "\(reportReason[indexPath.row])을/(를) 사유로 신고하시겠습니까?")
     }
-
+    
 }

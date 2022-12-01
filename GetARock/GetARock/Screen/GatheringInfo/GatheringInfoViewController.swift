@@ -33,7 +33,7 @@ final class GatheringInfoViewController: UIViewController {
     
 }
 
-    // MARK: - extension Reportable Method
+// MARK: - extension Reportable Method
 
 extension GatheringInfoViewController: Reportable {
     func alertActionButtonPressed() {
