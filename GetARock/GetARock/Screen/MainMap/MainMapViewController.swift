@@ -32,15 +32,18 @@ final class MainMapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        mapView.delegate = self
-        locationManager.delegate = self
-        
-        self.locationManager.requestWhenInUseAuthorization()
+        setMapView()
         addAnnotationOnMapView()
-        mapView.register(CustomAnnotationView.self, forAnnotationViewWithReuseIdentifier: CustomAnnotationView.className)
+        self.locationManager.requestWhenInUseAuthorization()
     }
     
     // MARK: - Method
+    
+    private func setMapView() {
+        mapView.delegate = self
+        locationManager.delegate = self
+        mapView.register(AnnotationView.self, forAnnotationViewWithReuseIdentifier: AnnotationView.className)
+    }
     
     private func addAnnotationOnMapView() {
         for band in MockData.bands {
@@ -163,8 +166,8 @@ extension MainMapViewController: MKMapViewDelegate {
             return MKUserLocationView()
         }
         
-        guard let marker = mapView.dequeueReusableAnnotationView(withIdentifier: CustomAnnotationView.className) as? CustomAnnotationView else {
-            return CustomAnnotationView()
+        guard let marker = mapView.dequeueReusableAnnotationView(withIdentifier: AnnotationView.className) as? AnnotationView else {
+            return AnnotationView()
         }
         
         return marker
