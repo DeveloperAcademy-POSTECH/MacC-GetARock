@@ -31,15 +31,18 @@ final class MainMapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        mapView.delegate = self
-        locationManager.delegate = self
-        
-        self.locationManager.requestWhenInUseAuthorization()
+        setMapView()
         addAnnotationOnMapView()
-        mapView.register(AnnotationView.self, forAnnotationViewWithReuseIdentifier: AnnotationView.className)
+        self.locationManager.requestWhenInUseAuthorization()
     }
     
     // MARK: - Method
+    
+    private func setMapView() {
+        mapView.delegate = self
+        locationManager.delegate = self
+        mapView.register(AnnotationView.self, forAnnotationViewWithReuseIdentifier: AnnotationView.className)
+    }
     
     private func addAnnotationOnMapView() {
         for band in MockData.bands {
