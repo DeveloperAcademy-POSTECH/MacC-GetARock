@@ -9,6 +9,11 @@ import UIKit
 
 class AddGatheringLocationViewController: UIViewController {
 
+    // MARK: - Property
+
+    private var selectViewController: LocationSelectViewController?
+    private var searchController: UISearchController?
+
     // MARK: - View
 
     @IBOutlet weak var selectedAddressLabel: UILabel!
@@ -20,6 +25,7 @@ class AddGatheringLocationViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        attribute()
     }
     
     // MARK: - Method
@@ -29,5 +35,34 @@ class AddGatheringLocationViewController: UIViewController {
     
     @IBAction func doneButtonAction(_ sender: Any) {
         
+    }
+    
+    func attribute() {
+        setupSearchController()
+        setupSearchBar()
+    }
+
+    func setupSearchController() {
+        selectViewController = storyboard?.instantiateViewController(withIdentifier: "LocationSelectViewController") as? LocationSelectViewController
+        searchController = UISearchController(searchResultsController: selectViewController)
+    }
+
+    func setupSearchBar() {
+        navigationItem.searchController = searchController
+        searchController?.hidesNavigationBarDuringPresentation = false
+        searchController?.automaticallyShowsCancelButton = false
+        searchController?.searchBar.placeholder = "어디에서 만나나요?"
+        searchController?.searchBar.tintColor = .white
+        searchController?.searchBar.setImage(
+            UIImage(systemName: "magnifyingglass"),
+            for: UISearchBar.Icon.search,
+            state: .normal
+        )
+        searchController?.searchBar.searchTextField.font = .preferredFont(forTextStyle: .subheadline)
+        searchController?.searchBar.searchTextField.backgroundColor = .white.withAlphaComponent(0.1)
+        searchController?.searchBar.searchTextField.layer.cornerRadius = 12
+        searchController?.searchBar.searchTextField.layer.borderWidth = 1
+        searchController?.searchBar.searchTextField.layer.borderColor = UIColor.white.cgColor
+        searchController?.searchBar.searchTextField.clipsToBounds = true
     }
 }

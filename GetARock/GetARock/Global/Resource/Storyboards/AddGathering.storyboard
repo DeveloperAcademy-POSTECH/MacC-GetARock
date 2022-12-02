@@ -370,7 +370,7 @@
         <!--Location Select View Controller-->
         <scene sceneID="2Ed-2u-Rad">
             <objects>
-                <viewController id="GHN-Y3-Qc1" customClass="LocationSelectViewController" customModule="GetARock" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LocationSelectViewController" id="GHN-Y3-Qc1" customClass="LocationSelectViewController" customModule="GetARock" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XEc-P5-Ytc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
