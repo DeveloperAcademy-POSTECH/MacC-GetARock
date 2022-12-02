@@ -38,7 +38,7 @@ class AddGatheringViewController: UIViewController {
         attribute()
         setDelegate()
         setupLayout()
-        setAddGatheringTestData() // 테스트용, 추후 삭제
+        setLocationToMockupData() // 위치 선택 구현 전 임시 위치 지정
     }
 
     deinit {
@@ -139,7 +139,8 @@ extension AddGatheringViewController {
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(keyboardWillShow(_:)),
-            name: UIResponder.keyboardWillShowNotification, object: nil
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil
         )
         NotificationCenter.default.addObserver(
             self,
@@ -232,7 +233,7 @@ extension AddGatheringViewController {
 // MARK: - Mock data set & test (위치 선택 구현 후 삭제 예정)
 
 extension AddGatheringViewController {
-    private func setAddGatheringTestData() {
+    private func setLocationToMockupData() {
         gatheringLocation = MockData.bands[1].band.location // 일부러 다른 밴드의 위치로 함
     }
 }
