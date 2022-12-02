@@ -65,7 +65,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <datePicker contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="249" contentHorizontalAlignment="leading" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="s35-8k-0gb">
-                                                <rect key="frame" x="82" y="153" width="228" height="34.333333333333343"/>
+                                                <rect key="frame" x="82.000000000000014" y="153" width="210.33333333333337" height="34.333333333333343"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -244,10 +244,10 @@
             </objects>
             <point key="canvasLocation" x="936.64122137404581" y="-34.507042253521128"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Gathering Location View Controller-->
         <scene sceneID="tZe-x4-f5c">
             <objects>
-                <viewController id="JXE-kZ-dOE" sceneMemberID="viewController">
+                <viewController id="JXE-kZ-dOE" customClass="AddGatheringLocationViewController" customModule="GetARock" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XwN-hz-0Db">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="749"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -259,6 +259,33 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1ZL-bc-2KO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1705" y="-35"/>
+        </scene>
+        <!--Location Select View Controller-->
+        <scene sceneID="2Ed-2u-Rad">
+            <objects>
+                <viewController id="GHN-Y3-Qc1" customClass="LocationSelectViewController" customModule="GetARock" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XEc-P5-Ytc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="SPs-r2-yMV">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="sqS-sL-KuN"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="sqS-sL-KuN" firstAttribute="bottom" secondItem="SPs-r2-yMV" secondAttribute="bottom" id="HAw-Ap-MVo"/>
+                            <constraint firstItem="sqS-sL-KuN" firstAttribute="trailing" secondItem="SPs-r2-yMV" secondAttribute="trailing" id="NLy-gG-1Ty"/>
+                            <constraint firstItem="SPs-r2-yMV" firstAttribute="leading" secondItem="sqS-sL-KuN" secondAttribute="leading" id="Rp8-NM-X1d"/>
+                            <constraint firstItem="SPs-r2-yMV" firstAttribute="top" secondItem="sqS-sL-KuN" secondAttribute="top" id="qMv-cm-pva"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aph-di-Uit" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2498" y="-35"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="CX7-OJ-5BG">
