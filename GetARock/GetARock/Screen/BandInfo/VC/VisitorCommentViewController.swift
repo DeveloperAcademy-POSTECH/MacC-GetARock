@@ -52,7 +52,7 @@ final class VisitorCommentViewController: UIViewController {
     }
 
     @objc func didTapVisitorCommentButton() {
-        let popupViewController = CommentWritingPopupViewController(entryPoint: .visitorComment)
+        let popupViewController = CommentWritingPopupViewController(commentMode: .visitorComment)
         popupViewController.modalPresentationStyle = .fullScreen
         self.present(popupViewController, animated: false)
     }

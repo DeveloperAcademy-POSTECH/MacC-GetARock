@@ -11,7 +11,7 @@ class CommentWritingPopupViewController: UIViewController {
     
     // MARK: - Properties
     
-    var entryPoint: CommentListEntryPoint
+    var commentMode: CommentMode
     private let textViewPlaceHolder = "텍스트를 입력해주세요"
 
     // MARK: - View
@@ -63,8 +63,8 @@ class CommentWritingPopupViewController: UIViewController {
 
     // MARK: - Init
     
-    init(entryPoint: CommentListEntryPoint) {
-        self.entryPoint = entryPoint
+    init(commentMode: CommentMode) {
+        self.commentMode = commentMode
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -102,7 +102,7 @@ class CommentWritingPopupViewController: UIViewController {
     }
     
     private func setupPopupTitleLabel() {
-        switch entryPoint {
+        switch commentMode {
         case .visitorComment:
             popupTitleLabel.text = "방명록 작성"
         case .gatheringComment:
@@ -121,7 +121,7 @@ class CommentWritingPopupViewController: UIViewController {
     
     @objc private func addNewComment(_ sender: Any) {
         if commentTextView.text != textViewPlaceHolder {
-            switch entryPoint {
+            switch commentMode {
             case .visitorComment:
                 if let text = commentTextView.text {
                     let saveData = VisitorCommentInfo(
