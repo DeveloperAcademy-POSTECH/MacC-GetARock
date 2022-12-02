@@ -40,6 +40,10 @@
                     <constraint firstItem="us4-pi-foO" firstAttribute="top" secondItem="Rx1-jY-JsT" secondAttribute="bottom" constant="4" id="zdC-oi-d3G"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="addressLabel" destination="us4-pi-foO" id="azL-Bi-5kV"/>
+                <outlet property="addressNameLabel" destination="Rx1-jY-JsT" id="S36-fv-cyF"/>
+            </connections>
             <point key="canvasLocation" x="-402.29007633587787" y="22.535211267605636"/>
         </tableViewCell>
     </objects>

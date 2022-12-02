@@ -260,7 +260,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="3Rg-tF-lNM">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="3Rg-tF-lNM">
                                 <rect key="frame" x="16" y="80.000000000000014" width="361" height="134.33333333333337"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="foy-kd-pPO">
@@ -346,11 +346,22 @@
                     <navigationItem key="navigationItem" id="heY-lu-3aH">
                         <barButtonItem key="leftBarButtonItem" image="chevron.left" catalog="system" landscapeImage="chevron.left" id="Ejl-sS-qPQ">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="backButtonAction:" destination="JXE-kZ-dOE" id="vm8-2X-vbL"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="완료" id="tHO-1O-tS7">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="doneButtonAction:" destination="JXE-kZ-dOE" id="i8B-SH-cCZ"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="addressDetailTextField" destination="S1b-nh-DGu" id="1hz-6a-Szu"/>
+                        <outlet property="guideLabel" destination="PjR-tK-5Mr" id="h5t-nx-1Fl"/>
+                        <outlet property="selectedAddressLabel" destination="MfI-Di-m7l" id="XEP-qV-zp0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1ZL-bc-2KO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -378,6 +389,9 @@
                             <constraint firstItem="SPs-r2-yMV" firstAttribute="top" secondItem="sqS-sL-KuN" secondAttribute="top" id="qMv-cm-pva"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="SPs-r2-yMV" id="q2L-AY-PyX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aph-di-Uit" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
