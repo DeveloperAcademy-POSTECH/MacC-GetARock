@@ -84,6 +84,7 @@
                     <connections>
                         <outlet property="attendedEventListButton" destination="knR-dY-MnG" id="zQz-hF-EXv"/>
                         <outlet property="createEventButton" destination="CbB-be-MPA" id="wgp-QK-rhW"/>
+                        <outlet property="locationLabel" destination="vTY-ql-DKb" id="Bqc-HP-it4"/>
                         <outlet property="mapView" destination="hqG-Ca-tqo" id="FvX-hf-hxu"/>
                         <outlet property="myPageButton" destination="CPO-gF-m3Y" id="Bj2-Eu-vQ8"/>
                     </connections>

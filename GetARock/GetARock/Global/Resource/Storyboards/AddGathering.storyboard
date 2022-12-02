@@ -6,6 +6,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -64,7 +65,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <datePicker contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="249" contentHorizontalAlignment="leading" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="s35-8k-0gb">
-                                                <rect key="frame" x="82.000000000000014" y="153" width="217.33333333333337" height="34.333333333333343"/>
+                                                <rect key="frame" x="82" y="153" width="228" height="34.333333333333343"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -100,12 +101,16 @@
                                                     </imageView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstItem="cyd-eb-cyK" firstAttribute="leading" secondItem="4ni-Mb-siH" secondAttribute="leading" id="EVS-14-Rbg"/>
                                                     <constraint firstItem="KTx-Vq-Mud" firstAttribute="centerY" secondItem="4ni-Mb-siH" secondAttribute="centerY" id="Od3-a9-f1l"/>
                                                     <constraint firstItem="cyd-eb-cyK" firstAttribute="centerY" secondItem="4ni-Mb-siH" secondAttribute="centerY" id="S2l-4q-XkU"/>
                                                     <constraint firstAttribute="trailing" secondItem="KTx-Vq-Mud" secondAttribute="trailing" id="kEj-TP-4OS"/>
                                                 </constraints>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="Cif-I3-r5A" appends="YES" id="yVD-bN-hNw"/>
+                                                </connections>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xwe-Si-O3s" userLabel="SeparatorView">
                                                 <rect key="frame" x="19" y="261.66666666666669" width="361" height="1"/>
@@ -120,7 +125,7 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="uNV-iD-x50">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="uNV-iD-x50" userLabel="Introduction Text View">
                                                 <rect key="frame" x="32" y="319" width="329" height="33"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" red="0.5647059083" green="0.58039218189999997" blue="0.68235301969999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -189,6 +194,9 @@
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="c2I-8I-8DU"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="lgl-1Z-bpW"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="l4z-MO-Q2z" appends="YES" id="dn4-Cq-03H"/>
+                                </connections>
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
@@ -203,22 +211,61 @@
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="Qr8-hB-n59">
                         <barButtonItem key="leftBarButtonItem" title="취소" id="2uD-ZZ-kGY">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="cancelButtonAction:" destination="Y6W-OH-hqX" id="7gX-MV-VNY"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="완료" id="741-6a-MrW">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="saveButtonAction:" destination="Y6W-OH-hqX" id="Hd3-tf-mex"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="dateTimePicker" destination="s35-8k-0gb" id="LcY-0P-YHf"/>
+                        <outlet property="hostBandNameLabel" destination="n7W-To-VFW" id="RSA-Hm-SvS"/>
+                        <outlet property="introductionTextView" destination="uNV-iD-x50" id="NuI-MW-yqf"/>
+                        <outlet property="scrollView" destination="teO-Fx-L4D" id="Pwm-8O-BPx"/>
+                        <outlet property="titleTextField" destination="zaJ-zq-18Z" id="Al4-Ik-WXX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Cif-I3-r5A" userLabel="locationSelectTapRecognizer">
+                    <connections>
+                        <segue destination="JXE-kZ-dOE" kind="show" id="9DQ-Is-Tll"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="l4z-MO-Q2z" userLabel="scrollViewTapRecognizer">
+                    <connections>
+                        <action selector="scrollViewTapRecognizer:" destination="Y6W-OH-hqX" id="MlT-sy-UGr"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="936.64122137404581" y="-34.507042253521128"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="tZe-x4-f5c">
+            <objects>
+                <viewController id="JXE-kZ-dOE" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XwN-hz-0Db">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="749"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="XZi-Sq-Q9v"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="heY-lu-3aH"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1ZL-bc-2KO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1705" y="-35"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="CX7-OJ-5BG">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="45C-kJ-km3" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="UG2-H3-DhO">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" backIndicatorImage="chevron.left" catalog="system" id="UG2-H3-DhO">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.34901960780000002" green="0.36862745099999999" blue="0.47058823529999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -242,9 +289,13 @@
         </scene>
     </scenes>
     <resources>
+        <image name="chevron.left" catalog="system" width="97" height="128"/>
         <image name="chevron.right" catalog="system" width="97" height="128"/>
         <namedColor name="TestColor">
             <color red="0.34901960784313724" green="0.36862745098039218" blue="0.47058823529411764" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

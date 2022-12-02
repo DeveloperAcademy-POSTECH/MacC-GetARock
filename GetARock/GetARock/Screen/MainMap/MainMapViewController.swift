@@ -13,6 +13,7 @@ final class MainMapViewController: UIViewController {
     
     // MARK: - Properties
     
+    @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var createEventButton: UIButton!
     @IBOutlet weak var attendedEventListButton: UIButton!
@@ -31,8 +32,36 @@ final class MainMapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        locationManager.delegate = self
+        setMapView()
+        addAnnotationOnMapView()
         self.locationManager.requestWhenInUseAuthorization()
+    }
+    
+    // MARK: - Method
+    
+    private func setMapView() {
+        mapView.delegate = self
+        locationManager.delegate = self
+        mapView.register(AnnotationView.self, forAnnotationViewWithReuseIdentifier: AnnotationView.className)
+    }
+    
+    private func addAnnotationOnMapView() {
+        for band in MockData.bands {
+            let point = CustomAnnotation(
+                title: band.band.name,
+                coordinate: band.band.location.coordinate.toCLLocationCoordinate2D(),
+                category: .band
+            )
+            mapView.addAnnotation(point)
+        }
+        for gathering in MockData.gatherings {
+            let point = CustomAnnotation(
+                title: gathering.gathering.host.band.name,
+                coordinate: gathering.gathering.location.coordinate.toCLLocationCoordinate2D(),
+                category: .gathering
+            )
+            mapView.addAnnotation(point)
+        }
     }
     
     private func setDefaultLocation() {
@@ -47,9 +76,7 @@ final class MainMapViewController: UIViewController {
             animated: true
         )
     }
-    
-    // MARK: - Method
-    
+
     private func centerUserLocation() {
         mapView.showsUserLocation = true
         mapView.setUserTrackingMode(.follow, animated: true)
@@ -107,4 +134,42 @@ extension MainMapViewController: CLLocationManagerDelegate {
         }
     }
     
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let currentLocation = locations.last
+        
+        CLGeocoder().reverseGeocodeLocation(
+            currentLocation!,
+            completionHandler: {(placemarks, _) -> Void in
+                guard let currentPlacemark = placemarks?.first else { return }
+                var address: String = ""
+                if currentPlacemark.locality != nil {
+                    address += " "
+                    address += currentPlacemark.locality!
+                }
+                if currentPlacemark.thoroughfare != nil {
+                    address += " "
+                    address += currentPlacemark.thoroughfare!
+                }
+                
+                self.locationLabel.text = address
+            }
+        )
+    }
+
+}
+
+// MARK: - CLLocationManagerDelegate
+
+extension MainMapViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation is MKUserLocation {
+            return MKUserLocationView()
+        }
+        
+        guard let marker = mapView.dequeueReusableAnnotationView(withIdentifier: AnnotationView.className) as? AnnotationView else {
+            return AnnotationView()
+        }
+        
+        return marker
+    }
 }
