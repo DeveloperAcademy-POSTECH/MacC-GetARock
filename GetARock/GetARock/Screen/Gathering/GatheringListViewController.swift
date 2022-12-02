@@ -23,12 +23,19 @@ class GatheringListViewController: UIViewController {
     
     // MARK: - View
     
-    private let segmentedControlButtons = ViewSwitchedSegmentedControl(buttonTitles:
-                                                                        [GatheringListType.gatheringCreated.toKorean(),
-                                                                         GatheringListType.gatheringJoined.toKorean()])
+    private let segmentedControlButtons = ViewSwitchedSegmentedControl(
+        buttonTitles: [
+            GatheringListType.gatheringCreated.toKorean(),
+            GatheringListType.gatheringJoined.toKorean()
+        ])
     private let gatheringListContentViewController: GatheringCreatedViewController =
-    UIStoryboard(name: "GatheringView", bundle: nil).instantiateViewController(withIdentifier: GatheringCreatedViewController.className) as?
-    GatheringCreatedViewController ?? GatheringCreatedViewController()
+    UIStoryboard(
+        name: "GatheringView",
+        bundle: nil
+    ).instantiateViewController(
+        withIdentifier: GatheringCreatedViewController.className
+    ) as? GatheringCreatedViewController ??
+    GatheringCreatedViewController()
     
     // MARK: - View Life Cycle
     
