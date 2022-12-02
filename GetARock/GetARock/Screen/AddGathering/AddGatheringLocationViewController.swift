@@ -37,17 +37,27 @@ class AddGatheringLocationViewController: UIViewController {
         
     }
     
-    func attribute() {
+    private func attribute() {
+        setupNavigationBarTitle()
         setupSearchController()
         setupSearchBar()
     }
+    
+    private func setupNavigationBarTitle() {
+        let titleLabel: UILabel = {
+            $0.text = "장소 선택"
+            $0.font = .preferredFont(forTextStyle: .headline)
+            return $0
+        }(UILabel())
+        self.navigationItem.titleView = titleLabel
+    }
 
-    func setupSearchController() {
+    private func setupSearchController() {
         selectViewController = storyboard?.instantiateViewController(withIdentifier: "LocationSelectViewController") as? LocationSelectViewController
         searchController = UISearchController(searchResultsController: selectViewController)
     }
 
-    func setupSearchBar() {
+    private func setupSearchBar() {
         navigationItem.searchController = searchController
         searchController?.hidesNavigationBarDuringPresentation = false
         searchController?.automaticallyShowsCancelButton = false
