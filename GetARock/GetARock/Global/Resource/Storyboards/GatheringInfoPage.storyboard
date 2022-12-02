@@ -57,6 +57,9 @@
                                                                     <imageReference key="image" image="ellipsis" catalog="system" symbolScale="large"/>
                                                                     <color key="baseForegroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 </buttonConfiguration>
+                                                                <connections>
+                                                                    <action selector="touchUpInsideEllipsis:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="aLI-Hv-nt1"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
@@ -267,6 +270,7 @@
                     </view>
                     <connections>
                         <outlet property="conditionView" destination="IPq-Y1-Mnd" id="3r6-sJ-KJB"/>
+                        <outlet property="ellipsis" destination="z1T-V1-cPf" id="hiY-F1-71G"/>
                         <outlet property="introductionContentView" destination="t8o-3s-pFn" id="SGm-Rw-afS"/>
                     </connections>
                 </viewController>
