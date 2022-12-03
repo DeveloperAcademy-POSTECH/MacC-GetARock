@@ -113,7 +113,45 @@ extension AddGatheringLocationViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
         selectViewController?.tableView.dataSource = self
-//        search(for: searchBar.text)
+        searchFromString(for: searchBar.text)
+    }
+}
+
+// MARK: - MK Local Search (맵킷 사용 주소 검색)
+
+extension AddGatheringLocationViewController {
+    private func searchFromSuggestion(for suggestedCompletion: MKLocalSearchCompletion) {
+        let searchRequest = MKLocalSearch.Request(completion: suggestedCompletion)
+        search(using: searchRequest, isTapped: true)
+    }
+
+    private func searchFromString(for queryString: String?) {
+        let searchRequest = MKLocalSearch.Request()
+        searchRequest.naturalLanguageQuery = queryString
+        search(using: searchRequest, isTapped: false)
+    }
+
+    private func search(using searchRequest: MKLocalSearch.Request, isTapped: Bool) {
+        // searchRequest.region = searchRegion
+        // 2차원 구역으로 검색결과 제한 필요시 사용.
+        // 나라별은 이렇게가 아니라 MKMapItem의 placemark 정보에 따라 필터링
+        
+        self.localSearch = MKLocalSearch(request: searchRequest)
+        self.localSearch?.start { [unowned self] (response, error) in
+            guard error == nil else {
+                print("search error: \(String(describing: error))")
+                // self.displaySearchError(error)
+                return
+            }
+
+            self.places = response?.mapItems
+            if isTapped {
+                if self.places?.count ?? 0 > 0 {
+                    localSearch?.cancel()
+                    setAddressInfos(indexPath: NSIndexPath(row: 0, section: 0))
+                }
+            }
+        }
     }
 }
 
@@ -124,7 +162,10 @@ extension AddGatheringLocationViewController: UITableViewDelegate {
         localSearch?.cancel()
 
         if places == nil {
-            // searchFromSuggestion(for: selectViewController?.placeResults[(indexPath as NSIndexPath).row] as! MKLocalSearchCompletion)
+            if let selectedSearchCompletion = selectViewController?
+                    .placeResults[(indexPath as NSIndexPath).row] as? MKLocalSearchCompletion {
+                searchFromSuggestion(for: selectedSearchCompletion)
+            }
         } else {
             setAddressInfos(indexPath: indexPath as NSIndexPath)
         }
@@ -139,7 +180,6 @@ extension AddGatheringLocationViewController: UITableViewDelegate {
         if let coordinate = places?[(indexPath as NSIndexPath).row].placemark.location?.coordinate {
             selectedCoordinate = Coordinate(latitude: coordinate.latitude, longitude: coordinate.longitude)
         }
-        print("\(String(describing: selectedCoordinate))")
     }
 }
 
