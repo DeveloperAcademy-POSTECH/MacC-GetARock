@@ -11,7 +11,7 @@ class BandTimelineViewController: UIViewController {
     
     // MARK: - Property
     
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet private weak var tableView: UITableView!
     
     var gatheringInfos: [GatheringInfo] = []
     
