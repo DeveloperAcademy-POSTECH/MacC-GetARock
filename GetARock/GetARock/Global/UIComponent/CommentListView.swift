@@ -20,7 +20,7 @@ class CommentListView: UIView {
 
     // MARK: - View
 
-    let totalListNumberLabel: UILabel = {
+    private let totalListNumberLabel: UILabel = {
         $0.textColor = .white
         $0.font = UIFont.systemFont(ofSize: 16, weight: .bold)
         return $0
@@ -64,7 +64,6 @@ class CommentListView: UIView {
     private func attribute() {
         self.backgroundColor = .modalBackgroundBlue
         setupCommentList()
-        setupTotalListNumberLabel()
         setupCommentWritingButton()
     }
 
@@ -89,7 +88,7 @@ class CommentListView: UIView {
 
     }
 
-    private func setupTotalListNumberLabel() {
+    func setupTotalListNumberLabel() {
         switch commentMode {
         case .visitorComment:
             totalListNumberLabel.text = "총 \(MockData.visitorComments.count)개"

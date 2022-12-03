@@ -21,7 +21,7 @@ final class VisitorCommentViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         visitorCommentList.tableView.reloadData()
-        visitorCommentList.totalListNumberLabel.text = "총 \(MockData.visitorComments.count)개"
+        visitorCommentList.setupTotalListNumberLabel()
     }
 
     override func viewDidLoad() {
