@@ -27,6 +27,7 @@
 		07D3B5A9293B71A700C1F86F /* UserDefaultStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D3B5A8293B71A700C1F86F /* UserDefaultStorage.swift */; };
 		07D3B5AB293B71B700C1F86F /* UserDefaultHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D3B5AA293B71B700C1F86F /* UserDefaultHandler.swift */; };
 		07D3B5AD293BFB6800C1F86F /* Encodable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D3B5AC293BFB6800C1F86F /* Encodable+Extension.swift */; };
+		07D3B5AF293BFDE800C1F86F /* GatheringAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D3B5AE293BFDE800C1F86F /* GatheringAPI.swift */; };
 		07D3B5B2293BFE5D00C1F86F /* GatheringDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D3B5B1293BFE5D00C1F86F /* GatheringDTO.swift */; };
 		07D3B5B4293C134700C1F86F /* CollectionReference+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D3B5B3293C134700C1F86F /* CollectionReference+Extension.swift */; };
 		07D7D9E3290FB8C200479B6F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D7D9E2290FB8C200479B6F /* AppDelegate.swift */; };
@@ -119,6 +120,7 @@
 		07D3B5A8293B71A700C1F86F /* UserDefaultStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultStorage.swift; sourceTree = "<group>"; };
 		07D3B5AA293B71B700C1F86F /* UserDefaultHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultHandler.swift; sourceTree = "<group>"; };
 		07D3B5AC293BFB6800C1F86F /* Encodable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Extension.swift"; sourceTree = "<group>"; };
+		07D3B5AE293BFDE800C1F86F /* GatheringAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatheringAPI.swift; sourceTree = "<group>"; };
 		07D3B5B1293BFE5D00C1F86F /* GatheringDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatheringDTO.swift; sourceTree = "<group>"; };
 		07D3B5B3293C134700C1F86F /* CollectionReference+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CollectionReference+Extension.swift"; sourceTree = "<group>"; };
 		07D7D9DF290FB8C200479B6F /* GetARock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GetARock.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -265,6 +267,7 @@
 			children = (
 				07D3B5A2293B321C00C1F86F /* AuthAPI.swift */,
 				07D3B5A4293B695500C1F86F /* BandAPI.swift */,
+				07D3B5AE293BFDE800C1F86F /* GatheringAPI.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
