@@ -8,9 +8,18 @@
 import Foundation
 
 enum DataKeys: String, CaseIterable {
+    case userEmail
+    case userPassword
 }
 
 struct UserDefaultStorage {
+    static var userEmail: String {
+        return UserData<String>.getValue(forKey: .userEmail) ?? ""
+    }
+    
+    static var userPassword: String {
+        return UserData<String>.getValue(forKey: .userPassword) ?? ""
+    }
 }
 
 struct UserData<T> {
