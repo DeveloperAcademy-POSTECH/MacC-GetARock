@@ -19,6 +19,7 @@ class AddGatheringViewController: UIViewController {
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var hostBandNameLabel: UILabel!
     @IBOutlet weak var dateTimePicker: UIDatePicker!
+    @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var introductionTextView: UITextView!
     @IBOutlet weak var scrollView: UIScrollView!
 
@@ -142,6 +143,14 @@ extension AddGatheringViewController: UITextViewDelegate {
 extension AddGatheringViewController: AddGatheringLocationViewControllerDelegate {
     func setLocation(name: String?, address: String?, additionalAddress: String?, coordinate: Coordinate) {
         gatheringLocation = Location(name: name, address: address, additionalAddress: additionalAddress, coordinate: coordinate)
+        var gatheringAddress = address ?? ""
+        if let detailAddress = additionalAddress {
+            gatheringAddress += " " + detailAddress
+        }
+        if gatheringAddress != "" {
+            locationLabel.text = gatheringAddress
+            locationLabel.textColor = .white
+        }
     }
 }
 

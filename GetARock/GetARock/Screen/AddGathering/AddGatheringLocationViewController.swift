@@ -56,7 +56,7 @@ class AddGatheringLocationViewController: UIViewController {
                 delegate?.setLocation(name: selectedLocationName, address: selectedAddressLabel.text, additionalAddress: addressDetailTextField.text, coordinate: coordinate)
                 navigationController?.popViewController(animated: true)
             } else {
-                print("주소이상 좌표없음") // 추후 알러트 띄우기
+                print("주소가 올바르지 않습니다") // 추후 알러트 띄우기
             }
         } else {
             print("AddgatheringLocationViewController에서 delgate가 nil이라 저장할 수 없음")
