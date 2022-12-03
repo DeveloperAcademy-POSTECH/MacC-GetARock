@@ -53,10 +53,25 @@ class AddGatheringLocationViewController: UIViewController {
     @IBAction func doneButtonAction(_ sender: Any) {
         if delegate != nil {
             if let coordinate = selectedCoordinate {
-                delegate?.setLocation(name: selectedLocationName, address: selectedAddressLabel.text, additionalAddress: addressDetailTextField.text, coordinate: coordinate)
+                delegate?.setLocation(
+                    name: selectedLocationName,
+                    address: selectedAddressLabel.text,
+                    additionalAddress: addressDetailTextField.text,
+                    coordinate: coordinate
+                )
                 navigationController?.popViewController(animated: true)
             } else {
-                print("주소가 올바르지 않습니다") // 추후 알러트 띄우기
+                let alertController = UIAlertController(
+                    title: nil,
+                    message: "주소가 올바르지 않습니다",
+                    preferredStyle: .alert
+                )
+                let confirm = UIAlertAction(title: "예", style: .default, handler: {_ in
+                    print("입력 주소(비어있을 수 있음)에 해당하는 좌표를 찾지 못함")
+                    self.dismiss(animated: true)
+                })
+                alertController.addAction(confirm)
+                self.present(alertController, animated: true)
             }
         } else {
             print("AddgatheringLocationViewController에서 delgate가 nil이라 저장할 수 없음")
