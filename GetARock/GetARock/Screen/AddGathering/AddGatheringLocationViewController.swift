@@ -55,6 +55,9 @@ class AddGatheringLocationViewController: UIViewController {
     private func setupSearchController() {
         selectViewController = storyboard?.instantiateViewController(withIdentifier: "LocationSelectViewController") as? LocationSelectViewController
         searchController = UISearchController(searchResultsController: selectViewController)
+        searchController?.delegate = self
+        searchController?.searchBar.delegate = self
+        searchController?.searchResultsUpdater = selectViewController
     }
 
     private func setupSearchBar() {
@@ -74,5 +77,25 @@ class AddGatheringLocationViewController: UIViewController {
         searchController?.searchBar.searchTextField.layer.borderWidth = 1
         searchController?.searchBar.searchTextField.layer.borderColor = UIColor.white.cgColor
         searchController?.searchBar.searchTextField.clipsToBounds = true
+    }
+}
+
+// MARK: - Search Controller Delegate, Search Bar Delegate
+
+extension AddGatheringLocationViewController: UISearchControllerDelegate {
+    func willPresentSearchController(_ searchController: UISearchController) {
+        // selectViewController?.tableView.delegate = self
+    }
+}
+
+extension AddGatheringLocationViewController: UISearchBarDelegate {
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        // selectViewController?.tableView?.dataSource = selectViewController
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+//        selectViewController?.tableView.dataSource = self
+//        search(for: searchBar.text)
     }
 }
