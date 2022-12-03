@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
@@ -10,7 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="GatheringCell" rowHeight="118" id="S08-fi-dea" customClass="GatheringCell" customModule="GetARock" customModuleProvider="target">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="GatheringListCell" rowHeight="118" id="S08-fi-dea" customClass="GatheringListCell" customModule="GetARock" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="S08-fi-dea" id="0NC-3l-Vgg">
@@ -18,7 +18,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bolt.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="WHj-3l-xcL">
-                        <rect key="frame" x="36" y="21" width="15" height="16.5"/>
+                        <rect key="frame" x="36" y="21.666666666666668" width="15" height="15.999999999999996"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="15" id="6k2-u3-ZXE"/>
@@ -32,16 +32,13 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="동성로 합동 버스킹 합니다!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Wl-Jv-4Rb">
-                        <rect key="frame" x="36" y="47" width="169.5" height="20"/>
-                        <constraints>
-                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="250" id="6Hj-xV-rvP"/>
-                        </constraints>
+                        <rect key="frame" x="36" y="47" width="169.33333333333334" height="20"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ngk-mQ-50w">
-                        <rect key="frame" x="308" y="32.5" width="70" height="35"/>
+                        <rect key="frame" x="308" y="32.666666666666664" width="70" height="34.999999999999993"/>
                         <color key="backgroundColor" systemColor="systemPurpleColor"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="35" id="5cz-gA-TOc"/>
@@ -70,15 +67,16 @@
                     <constraint firstItem="QDG-Zm-Xit" firstAttribute="top" secondItem="0NC-3l-Vgg" secondAttribute="top" constant="22" id="Dn0-fj-lYA"/>
                     <constraint firstItem="ngk-mQ-50w" firstAttribute="centerY" secondItem="0NC-3l-Vgg" secondAttribute="centerY" id="Tt7-ww-09a"/>
                     <constraint firstItem="4Wl-Jv-4Rb" firstAttribute="top" secondItem="QDG-Zm-Xit" secondAttribute="bottom" constant="10" id="VEO-NA-R6h"/>
+                    <constraint firstItem="ngk-mQ-50w" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="4Wl-Jv-4Rb" secondAttribute="trailing" constant="10" id="ajP-HL-Bzr"/>
                     <constraint firstAttribute="bottomMargin" secondItem="4Wl-Jv-4Rb" secondAttribute="bottom" constant="22" id="jhJ-Bt-RHG"/>
                     <constraint firstItem="WHj-3l-xcL" firstAttribute="top" secondItem="0NC-3l-Vgg" secondAttribute="top" constant="22" id="qEK-8D-ARD"/>
                     <constraint firstItem="4Wl-Jv-4Rb" firstAttribute="leading" secondItem="0NC-3l-Vgg" secondAttribute="leading" constant="36" id="xqo-0u-pPV"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="startTime" destination="QDG-Zm-Xit" id="IWd-Ev-Hsv"/>
-                <outlet property="state" destination="ngk-mQ-50w" id="0Hq-mb-dAf"/>
-                <outlet property="title" destination="ngk-mQ-50w" id="cok-bI-bw6"/>
+                <outlet property="dateLabel" destination="QDG-Zm-Xit" id="mTK-Ty-GXh"/>
+                <outlet property="statusLabel" destination="ngk-mQ-50w" id="fAy-1n-0Dv"/>
+                <outlet property="titleLabel" destination="4Wl-Jv-4Rb" id="RBd-yB-RMf"/>
             </connections>
             <point key="canvasLocation" x="442.02898550724643" y="124.55357142857142"/>
         </tableViewCell>
