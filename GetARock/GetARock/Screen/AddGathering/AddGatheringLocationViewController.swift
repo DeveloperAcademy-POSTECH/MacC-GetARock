@@ -29,6 +29,7 @@ class AddGatheringLocationViewController: UIViewController {
 
     // MARK: - View
 
+    @IBOutlet weak var addressStackView: UIStackView!
     @IBOutlet weak var selectedAddressLabel: UILabel!
     @IBOutlet weak var addressDetailTextField: UITextField!
     
@@ -43,7 +44,7 @@ class AddGatheringLocationViewController: UIViewController {
         super.viewDidLoad()
         attribute()
     }
-    
+
     // MARK: - Method
 
     @IBAction func backButtonAction(_ sender: Any) {
@@ -82,6 +83,7 @@ class AddGatheringLocationViewController: UIViewController {
         setupNavigationBarTitle()
         setupSearchController()
         setupSearchBar()
+        addressStackView.isHidden = true
     }
     
     private func setupNavigationBarTitle() {
@@ -219,6 +221,8 @@ extension AddGatheringLocationViewController: UITableViewDelegate {
         if let coordinate = places?[(indexPath as NSIndexPath).row].placemark.location?.coordinate {
             selectedCoordinate = Coordinate(latitude: coordinate.latitude, longitude: coordinate.longitude)
         }
+        addressStackView.isHidden = false
+        guideLabel.isHidden = true
     }
 }
 

@@ -361,6 +361,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="addressDetailTextField" destination="S1b-nh-DGu" id="1hz-6a-Szu"/>
+                        <outlet property="addressStackView" destination="3Rg-tF-lNM" id="fTQ-Ju-yv8"/>
                         <outlet property="guideLabel" destination="PjR-tK-5Mr" id="h5t-nx-1Fl"/>
                         <outlet property="selectedAddressLabel" destination="MfI-Di-m7l" id="XEP-qV-zp0"/>
                     </connections>
