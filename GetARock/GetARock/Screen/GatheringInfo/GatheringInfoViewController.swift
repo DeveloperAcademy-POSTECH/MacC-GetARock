@@ -7,13 +7,16 @@
 
 import UIKit
 
-class GatheringInfoViewController: UIViewController {
+final class GatheringInfoViewController: UIViewController {
     
     // MARK: - properties
+    
     @IBOutlet weak var conditionView: UIView!
     @IBOutlet weak var introductionContentView: UIView!
+    @IBOutlet weak var ellipsis: UIButton!
     
     // MARK: - View Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         conditionView.layer.cornerRadius = 15
@@ -22,4 +25,18 @@ class GatheringInfoViewController: UIViewController {
         
     }
     
+    // MARK: - Method
+    
+    @IBAction func touchUpInsideEllipsis(_ sender: UIButton) {
+        showActionSheet()
+    }
+    
+}
+
+// MARK: - extension Reportable Method
+
+extension GatheringInfoViewController: Reportable {
+    func alertActionButtonPressed() {
+        print("삭제에 성공했습니다.")
+    }
 }
