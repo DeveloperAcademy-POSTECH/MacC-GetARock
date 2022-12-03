@@ -49,9 +49,3 @@ extension GatheringListViewController: UITableViewDataSource {
         return cell
     }
 }
-
-// MARK: - UITableViewDelegate
-
-extension GatheringListViewController: UITableViewDelegate {
-    
-}
