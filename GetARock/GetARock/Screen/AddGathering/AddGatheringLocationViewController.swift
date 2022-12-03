@@ -13,7 +13,16 @@ class AddGatheringLocationViewController: UIViewController {
 
     // MARK: - Property
 
-    private var places: [MKMapItem]?
+    private var places: [MKMapItem]? {
+        didSet {
+            if places != nil {
+                selectViewController?.tableView.reloadData()
+            }
+        }
+    }
+
+    private var localSearch: MKLocalSearch?
+    private var selectedCoordinate: Coordinate?
 
     // MARK: - View
 
@@ -22,8 +31,8 @@ class AddGatheringLocationViewController: UIViewController {
     
     @IBOutlet weak var guideLabel: UILabel!
 
-    private var selectViewController: LocationSelectViewController?
     private var searchController: UISearchController?
+    private var selectViewController: LocationSelectViewController?
 
     // MARK: - Life Cycle
 
@@ -33,6 +42,7 @@ class AddGatheringLocationViewController: UIViewController {
     }
     
     // MARK: - Method
+
     @IBAction func backButtonAction(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
@@ -57,7 +67,8 @@ class AddGatheringLocationViewController: UIViewController {
     }
 
     private func setupSearchController() {
-        selectViewController = storyboard?.instantiateViewController(withIdentifier: "LocationSelectViewController") as? LocationSelectViewController
+        selectViewController = storyboard?
+            .instantiateViewController(withIdentifier: "LocationSelectViewController") as? LocationSelectViewController
         searchController = UISearchController(searchResultsController: selectViewController)
         searchController?.delegate = self
         searchController?.searchBar.delegate = self
@@ -95,6 +106,8 @@ extension AddGatheringLocationViewController: UISearchControllerDelegate {
 extension AddGatheringLocationViewController: UISearchBarDelegate {
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         selectViewController?.tableView?.dataSource = selectViewController
+        places = nil
+        localSearch?.cancel()
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -107,16 +120,44 @@ extension AddGatheringLocationViewController: UISearchBarDelegate {
 // MARK: - Table View Delegate, Table View Datasource
 
 extension AddGatheringLocationViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        localSearch?.cancel()
+
+        if places == nil {
+            // searchFromSuggestion(for: selectViewController?.placeResults[(indexPath as NSIndexPath).row] as! MKLocalSearchCompletion)
+        } else {
+            setAddressInfos(indexPath: indexPath as NSIndexPath)
+        }
+        dismiss(animated: true)
+    }
+
+    func setAddressInfos (indexPath: NSIndexPath) { // MapItem
+        selectedAddressLabel.text = CNPostalAddressFormatter.string(
+            from: places?[(indexPath as NSIndexPath).row].placemark.postalAddress ?? CNPostalAddress(),
+            style: .mailingAddress
+        ).replacingOccurrences(of: "\n", with: " ")
+        if let coordinate = places?[(indexPath as NSIndexPath).row].placemark.location?.coordinate {
+            selectedCoordinate = Coordinate(latitude: coordinate.latitude, longitude: coordinate.longitude)
+        }
+        print("\(String(describing: selectedCoordinate))")
+    }
 }
 
 extension AddGatheringLocationViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("places.count: \(places?.count)")
         return places?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-         guard let cell = tableView.dequeueReusableCell(withIdentifier: "LocationCandidateCell", for: indexPath) as? LocationCandidateCell else { return UITableViewCell() }
+        guard let cell = tableView
+            .dequeueReusableCell(withIdentifier: "LocationCandidateCell", for: indexPath) as? LocationCandidateCell
+        else { return UITableViewCell() }
+
+        cell.addressNameLabel?.text = places?[(indexPath as NSIndexPath).row].name ?? "이름없음"
+        cell.addressLabel?.text = CNPostalAddressFormatter.string(
+            from: places?[(indexPath as NSIndexPath).row].placemark.postalAddress ?? CNPostalAddress(),
+            style: .mailingAddress
+        ).replacingOccurrences(of: "\n", with: " ")
 
         return cell
     }
