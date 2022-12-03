@@ -9,6 +9,10 @@ import Foundation
 
 import FirebaseAuth
 
+enum AuthError: Error {
+    case noEmailInfo
+}
+
 struct AuthAPI {
     
     func signIn(withEmail email: String, password: String) async throws -> User {
@@ -22,6 +26,8 @@ struct AuthAPI {
         try Auth.auth().signOut()
     }
     
-}
-
+    func getCurrentUser() -> User? {
+        return Auth.auth().currentUser
+    }
+    
 }
