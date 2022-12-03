@@ -132,10 +132,6 @@ extension AddGatheringLocationViewController {
     }
 
     private func search(using searchRequest: MKLocalSearch.Request, isTapped: Bool) {
-        // searchRequest.region = searchRegion
-        // 2차원 구역으로 검색결과 제한 필요시 사용.
-        // 나라별은 이렇게가 아니라 MKMapItem의 placemark 정보에 따라 필터링
-        
         self.localSearch = MKLocalSearch(request: searchRequest)
         self.localSearch?.start { [unowned self] (response, error) in
             guard error == nil else {
@@ -205,7 +201,7 @@ extension AddGatheringLocationViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView
-            .dequeueReusableCell(withIdentifier: "LocationCandidateCell", for: indexPath) as? LocationCandidateCell
+            .dequeueReusableCell(withIdentifier: LocationCandidateCell.className, for: indexPath) as? LocationCandidateCell
         else { return UITableViewCell() }
 
         cell.addressNameLabel?.text = places?[(indexPath as NSIndexPath).row].name ?? "이름없음"

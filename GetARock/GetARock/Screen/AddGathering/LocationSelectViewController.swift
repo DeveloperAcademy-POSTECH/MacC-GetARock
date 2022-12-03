@@ -27,8 +27,8 @@ class LocationSelectViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let nibName = UINib(nibName: "LocationCandidateCell", bundle: nil) //.className이 잘 작동 안해서 일단 이렇게 쓰는 중
-        tableView.register(nibName, forCellReuseIdentifier: "LocationCandidateCell")
+        let nibName = UINib(nibName: LocationCandidateCell.className, bundle: nil)
+        tableView.register(nibName, forCellReuseIdentifier: LocationCandidateCell.className)
         tableView.dataSource = self
     }
 
@@ -80,7 +80,7 @@ extension LocationSelectViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "LocationCandidateCell", for: indexPath) as?
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: LocationCandidateCell.className, for: indexPath) as?
                 LocationCandidateCell else {
             return UITableViewCell()
         }
