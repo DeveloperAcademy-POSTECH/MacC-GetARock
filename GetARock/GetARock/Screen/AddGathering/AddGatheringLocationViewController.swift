@@ -5,14 +5,15 @@
 //  Created by Hyorim Nam on 2022/12/02.
 //
 
+import Contacts
+import MapKit
 import UIKit
 
 class AddGatheringLocationViewController: UIViewController {
 
     // MARK: - Property
 
-    private var selectViewController: LocationSelectViewController?
-    private var searchController: UISearchController?
+    private var places: [MKMapItem]?
 
     // MARK: - View
 
@@ -20,6 +21,9 @@ class AddGatheringLocationViewController: UIViewController {
     @IBOutlet weak var addressDetailTextField: UITextField!
     
     @IBOutlet weak var guideLabel: UILabel!
+
+    private var selectViewController: LocationSelectViewController?
+    private var searchController: UISearchController?
 
     // MARK: - Life Cycle
 
@@ -84,18 +88,36 @@ class AddGatheringLocationViewController: UIViewController {
 
 extension AddGatheringLocationViewController: UISearchControllerDelegate {
     func willPresentSearchController(_ searchController: UISearchController) {
-        // selectViewController?.tableView.delegate = self
+        selectViewController?.tableView.delegate = self
     }
 }
 
 extension AddGatheringLocationViewController: UISearchBarDelegate {
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        // selectViewController?.tableView?.dataSource = selectViewController
+        selectViewController?.tableView?.dataSource = selectViewController
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
-//        selectViewController?.tableView.dataSource = self
+        selectViewController?.tableView.dataSource = self
 //        search(for: searchBar.text)
+    }
+}
+
+// MARK: - Table View Delegate, Table View Datasource
+
+extension AddGatheringLocationViewController: UITableViewDelegate {
+}
+
+extension AddGatheringLocationViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("places.count: \(places?.count)")
+        return places?.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+         guard let cell = tableView.dequeueReusableCell(withIdentifier: "LocationCandidateCell", for: indexPath) as? LocationCandidateCell else { return UITableViewCell() }
+
+        return cell
     }
 }
