@@ -12,30 +12,31 @@ struct GatheringInfo {
     let gathering: Gathering
 }
 
-/// 밴드팅 모임입니다.
-struct Gathering {
-    enum Status: String {
-        case recruiting
-        case progressing
-        case finished
-        case canceled
-        
-        func toKorean() -> String {
-            switch self {
-            case .recruiting: return "모집중"
-            case .progressing: return "진행중"
-            case .finished: return "완료됨"
-            case .canceled: return "취소됨"
-            }
+enum GatheringStatus: String, Codable {
+    case recruiting
+    case progressing
+    case finished
+    case canceled
+    
+    func toKorean() -> String {
+        switch self {
+        case .recruiting: return "모집중"
+        case .progressing: return "진행중"
+        case .finished: return "완료됨"
+        case .canceled: return "취소됨"
         }
     }
+}
+
+/// 밴드팅 모임입니다.
+struct Gathering {
     
     /// 모임의 제목입니다.
     let title: String
     /// 모임의 주최 밴드입니다.
     let host: BandInfo
     /// 모임의 진행 전/중/후 및 취소를 나타내는 상태정보입니다.
-    let status: Status
+    let status: GatheringStatus
     /// 모임이  이루어지는 날짜 및 시간입니다.
     let date: Date
     /// 모임이 이루어지는 위치입니다.

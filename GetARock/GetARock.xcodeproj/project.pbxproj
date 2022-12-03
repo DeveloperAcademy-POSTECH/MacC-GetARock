@@ -27,6 +27,7 @@
 		07D3B5A9293B71A700C1F86F /* UserDefaultStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D3B5A8293B71A700C1F86F /* UserDefaultStorage.swift */; };
 		07D3B5AB293B71B700C1F86F /* UserDefaultHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D3B5AA293B71B700C1F86F /* UserDefaultHandler.swift */; };
 		07D3B5AD293BFB6800C1F86F /* Encodable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D3B5AC293BFB6800C1F86F /* Encodable+Extension.swift */; };
+		07D3B5B2293BFE5D00C1F86F /* GatheringDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D3B5B1293BFE5D00C1F86F /* GatheringDTO.swift */; };
 		07D3B5B4293C134700C1F86F /* CollectionReference+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D3B5B3293C134700C1F86F /* CollectionReference+Extension.swift */; };
 		07D7D9E3290FB8C200479B6F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D7D9E2290FB8C200479B6F /* AppDelegate.swift */; };
 		07D7D9E5290FB8C200479B6F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D7D9E4290FB8C200479B6F /* SceneDelegate.swift */; };
@@ -118,6 +119,7 @@
 		07D3B5A8293B71A700C1F86F /* UserDefaultStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultStorage.swift; sourceTree = "<group>"; };
 		07D3B5AA293B71B700C1F86F /* UserDefaultHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultHandler.swift; sourceTree = "<group>"; };
 		07D3B5AC293BFB6800C1F86F /* Encodable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Extension.swift"; sourceTree = "<group>"; };
+		07D3B5B1293BFE5D00C1F86F /* GatheringDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatheringDTO.swift; sourceTree = "<group>"; };
 		07D3B5B3293C134700C1F86F /* CollectionReference+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CollectionReference+Extension.swift"; sourceTree = "<group>"; };
 		07D7D9DF290FB8C200479B6F /* GetARock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GetARock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07D7D9E2290FB8C200479B6F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 		072DEDCE2926770F0046A4A0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				07D3B5B0293BFE5000C1F86F /* DTO */,
 				072DEDCF29267D9A0046A4A0 /* Band.swift */,
 				076150902928FB9400A0562F /* Gathering.swift */,
 				07615092292907A900A0562F /* GatheringComment.swift */,
@@ -273,6 +276,14 @@
 				07D3B5AA293B71B700C1F86F /* UserDefaultHandler.swift */,
 			);
 			path = Storage;
+			sourceTree = "<group>";
+		};
+		07D3B5B0293BFE5000C1F86F /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				07D3B5B1293BFE5D00C1F86F /* GatheringDTO.swift */,
+			);
+			path = DTO;
 			sourceTree = "<group>";
 		};
 		07D7D9D6290FB8C200479B6F = {
@@ -747,6 +758,7 @@
 				07D7DA3F29108CF800479B6F /* MyPageViewController.swift in Sources */,
 				072DEDD029267D9A0046A4A0 /* Band.swift in Sources */,
 				07D3B5A3293B321C00C1F86F /* AuthAPI.swift in Sources */,
+				07D3B5B2293BFE5D00C1F86F /* GatheringDTO.swift in Sources */,
 				07D3B5A9293B71A700C1F86F /* UserDefaultStorage.swift in Sources */,
 				07D7D9E3290FB8C200479B6F /* AppDelegate.swift in Sources */,
 				07D7DA3629108AB400479B6F /* ImageLiteral.swift in Sources */,
@@ -756,6 +768,7 @@
 				66E74206292C82E8003C0B02 /* ActionSheet.swift in Sources */,
 				84002608292BC4BE0093648A /* BandTimelineCell.swift in Sources */,
 				84002602292BB3DB0093648A /* BandTimelineViewController.swift in Sources */,
+				07D3B5AF293BFDE800C1F86F /* GatheringAPI.swift in Sources */,
 				07D7D9E5290FB8C200479B6F /* SceneDelegate.swift in Sources */,
 				7BDA8F90291296B200BB2D34 /* UIView+Gradation.swift in Sources */,
 				0761508B29276D8200A0562F /* Coordinate.swift in Sources */,
