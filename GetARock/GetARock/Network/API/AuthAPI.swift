@@ -11,4 +11,15 @@ import FirebaseAuth
 
 struct AuthAPI {
     
+    func signIn(withEmail email: String, password: String) async throws -> User {
+        let authData = try await Auth.auth().signIn(withEmail: email, password: password)
+        return authData.user
+    }
+    
+    func signOut() throws {
+        try Auth.auth().signOut()
+    }
+    
+}
+
 }
