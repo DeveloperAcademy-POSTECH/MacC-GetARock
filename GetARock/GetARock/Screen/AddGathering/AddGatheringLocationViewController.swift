@@ -139,8 +139,7 @@ extension AddGatheringLocationViewController {
         self.localSearch = MKLocalSearch(request: searchRequest)
         self.localSearch?.start { [unowned self] (response, error) in
             guard error == nil else {
-                print("search error: \(String(describing: error))")
-                // self.displaySearchError(error)
+                self.displaySearchError(error)
                 return
             }
 
@@ -152,6 +151,22 @@ extension AddGatheringLocationViewController {
                 }
             }
         }
+    }
+
+    func displaySearchError(_ error: Error?) {
+        guard let error = error as NSError? else { return }
+        
+        let alertController = UIAlertController(
+            title: nil,
+            message: "검색결과가 없습니다. 검색어를 확인해주세요.",
+            preferredStyle: .alert
+        )
+        let confirm = UIAlertAction(title: "예", style: .default, handler: {_ in
+            print("장소 검색 에러: \(error.description)")
+            self.dismiss(animated: true)
+        })
+        alertController.addAction(confirm)
+        self.present(alertController, animated: true)
     }
 }
 
