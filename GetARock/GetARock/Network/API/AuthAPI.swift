@@ -13,6 +13,8 @@ struct AuthAPI {
     
     func signIn(withEmail email: String, password: String) async throws -> User {
         let authData = try await Auth.auth().signIn(withEmail: email, password: password)
+        UserDefaultHandler.setUserEmail(nickname: email)
+        UserDefaultHandler.setUserPassword(currentLatitude: password)
         return authData.user
     }
     

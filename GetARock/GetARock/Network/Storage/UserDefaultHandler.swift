@@ -12,12 +12,12 @@ struct UserDefaultHandler {
         UserData<Any>.clearAll()
     }
     
-    static func setUserEmail(nickname: String) {
-        UserData.setValue(nickname, forKey: .userEmail)
+    static func setUserEmail(email: String) {
+        UserData.setValue(email, forKey: .userEmail)
     }
     
-    static func setUserPassword(currentLatitude: String) {
-        UserData.setValue(currentLatitude, forKey: .userPassword)
+    static func setUserPassword(password: String) {
+        UserData.setValue(password, forKey: .userPassword)
     }
     
 }
