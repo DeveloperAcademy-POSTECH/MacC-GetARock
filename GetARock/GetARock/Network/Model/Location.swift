@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Location {
+struct Location: Codable {
     /// 나타내고자하는  위치의 이름입니다.
     let name: String?
     /// 나타내고자하는  위치의 주소입니다.

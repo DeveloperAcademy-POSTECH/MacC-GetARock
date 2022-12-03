@@ -12,9 +12,9 @@ struct BandInfo {
     var band: Band
 }
 
-struct Band {
+struct Band: Codable {
     /// 포지션과 해당 포지션의 인원을 나타냅니다.
-    struct PositionSet {
+    struct PositionSet: Codable {
         var position: PlayPosition
         var numberOfPerson: Int
     }

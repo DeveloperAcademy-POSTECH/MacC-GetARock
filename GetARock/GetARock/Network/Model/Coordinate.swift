@@ -7,7 +7,7 @@
 
 import MapKit
 
-struct Coordinate {
+struct Coordinate: Codable {
     typealias LocationDegrees = Double
     
     var latitude: LocationDegrees
