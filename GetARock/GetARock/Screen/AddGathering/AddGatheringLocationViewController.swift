@@ -22,7 +22,10 @@ class AddGatheringLocationViewController: UIViewController {
     }
 
     private var localSearch: MKLocalSearch?
+    private var selectedLocationName: String?
     private var selectedCoordinate: Coordinate?
+
+    weak var delegate: AddGatheringLocationViewControllerDelegate?
 
     // MARK: - View
 
@@ -48,7 +51,16 @@ class AddGatheringLocationViewController: UIViewController {
     }
     
     @IBAction func doneButtonAction(_ sender: Any) {
-        
+        if delegate != nil {
+            if let coordinate = selectedCoordinate {
+                delegate?.setLocation(name: selectedLocationName, address: selectedAddressLabel.text, additionalAddress: addressDetailTextField.text, coordinate: coordinate)
+                navigationController?.popViewController(animated: true)
+            } else {
+                print("주소이상 좌표없음") // 추후 알러트 띄우기
+            }
+        } else {
+            print("AddgatheringLocationViewController에서 delgate가 nil이라 저장할 수 없음")
+        }
     }
     
     private func attribute() {
@@ -184,6 +196,7 @@ extension AddGatheringLocationViewController: UITableViewDelegate {
     }
 
     func setAddressInfos (indexPath: NSIndexPath) { // MapItem
+        selectedLocationName = places?[(indexPath as NSIndexPath).row].name
         selectedAddressLabel.text = CNPostalAddressFormatter.string(
             from: places?[(indexPath as NSIndexPath).row].placemark.postalAddress ?? CNPostalAddress(),
             style: .mailingAddress
@@ -212,4 +225,10 @@ extension AddGatheringLocationViewController: UITableViewDataSource {
 
         return cell
     }
+}
+
+// MARK: - Delegate Protocol to set location in parent view
+
+protocol AddGatheringLocationViewControllerDelegate: AnyObject {
+    func setLocation(name: String?, address: String?, additionalAddress: String?, coordinate: Coordinate)
 }

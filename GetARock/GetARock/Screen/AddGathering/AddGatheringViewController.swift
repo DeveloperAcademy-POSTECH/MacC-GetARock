@@ -38,7 +38,12 @@ class AddGatheringViewController: UIViewController {
         attribute()
         setDelegate()
         setupLayout()
-        setLocationToMockupData() // 위치 선택 구현 전 임시 위치 지정
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let addGatheringLocationViewController = segue.destination as? AddGatheringLocationViewController {
+            addGatheringLocationViewController.delegate = self
+        }
     }
 
     deinit {
@@ -74,7 +79,7 @@ class AddGatheringViewController: UIViewController {
             alert.addAction(confirm)
             self.present(alert, animated: true)
         } else {
-            let gatheringAddTestGathering = Gathering(
+            let gathering = Gathering(
                 title: titleTextField.text ?? "이름없음",
                 host: MockData.bands[0], // 테스트용, 추후 변경
                 status: .recruiting,
@@ -88,7 +93,7 @@ class AddGatheringViewController: UIViewController {
                 introduction: introductionTextView.text,
                 createdAt: Date()
             )
-            MockData.gatherings.append(GatheringInfo(gatheringID: "testID", gathering: gatheringAddTestGathering)) // 추후 변경
+            MockData.gatherings.append(GatheringInfo(gatheringID: "testID", gathering: gathering)) // ID 추후 변경
             dismiss(animated: true)
         }
     }
@@ -129,6 +134,14 @@ class AddGatheringViewController: UIViewController {
 extension AddGatheringViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         self.placeHolderLabel.textColor = introductionTextView.text.count == 0 ? .lightGray : .clear
+    }
+}
+
+// MARK: - Location Delegate
+
+extension AddGatheringViewController: AddGatheringLocationViewControllerDelegate {
+    func setLocation(name: String?, address: String?, additionalAddress: String?, coordinate: Coordinate) {
+        gatheringLocation = Location(name: name, address: address, additionalAddress: additionalAddress, coordinate: coordinate)
     }
 }
 
@@ -224,13 +237,5 @@ extension AddGatheringViewController {
             return "입력을 확인하는 중 알 수 없는 문제가 발생했습니다"
         }
         return nil
-    }
-}
-
-// MARK: - Mock data set & test (위치 선택 구현 후 삭제 예정)
-
-extension AddGatheringViewController {
-    private func setLocationToMockupData() {
-        gatheringLocation = MockData.bands[1].band.location // 일부러 다른 밴드의 위치로 함
     }
 }
