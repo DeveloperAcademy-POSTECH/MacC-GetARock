@@ -23,6 +23,7 @@
 		07D3B59E2939FFDF00C1F86F /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 07D3B59D2939FFDF00C1F86F /* FirebaseFirestoreSwift */; };
 		07D3B5A02939FFDF00C1F86F /* FirebaseFunctions in Frameworks */ = {isa = PBXBuildFile; productRef = 07D3B59F2939FFDF00C1F86F /* FirebaseFunctions */; };
 		07D3B5A3293B321C00C1F86F /* AuthAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D3B5A2293B321C00C1F86F /* AuthAPI.swift */; };
+		07D3B5A5293B695500C1F86F /* BandAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D3B5A4293B695500C1F86F /* BandAPI.swift */; };
 		07D7D9E3290FB8C200479B6F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D7D9E2290FB8C200479B6F /* AppDelegate.swift */; };
 		07D7D9E5290FB8C200479B6F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D7D9E4290FB8C200479B6F /* SceneDelegate.swift */; };
 		07D7D9EA290FB8C200479B6F /* Landing.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07D7D9E8290FB8C200479B6F /* Landing.storyboard */; };
@@ -109,6 +110,7 @@
 		07C966B8292C463100A59CF5 /* Date+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+String.swift"; sourceTree = "<group>"; };
 		07D34F8F29391AF600B408E7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		07D3B5A2293B321C00C1F86F /* AuthAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAPI.swift; sourceTree = "<group>"; };
+		07D3B5A4293B695500C1F86F /* BandAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandAPI.swift; sourceTree = "<group>"; };
 		07D7D9DF290FB8C200479B6F /* GetARock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GetARock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07D7D9E2290FB8C200479B6F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		07D7D9E4290FB8C200479B6F /* SceneDelegate.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; tabWidth = 4; };
@@ -250,6 +252,7 @@
 			isa = PBXGroup;
 			children = (
 				07D3B5A2293B321C00C1F86F /* AuthAPI.swift */,
+				07D3B5A4293B695500C1F86F /* BandAPI.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -738,6 +741,7 @@
 				7BFDAA91292C94E5002FE744 /* CommentWritingPopupViewController.swift in Sources */,
 				07D7DA302910895000479B6F /* LandingViewController.swift in Sources */,
 				C5C7AC6D292A7FA200698636 /* AddGatheringViewController.swift in Sources */,
+				07D3B5A5293B695500C1F86F /* BandAPI.swift in Sources */,
 				072DEDD429268F470046A4A0 /* PlayPosition.swift in Sources */,
 				07D7DA2D291088EC00479B6F /* NSObject+Extension.swift in Sources */,
 				07615093292907A900A0562F /* GatheringComment.swift in Sources */,
