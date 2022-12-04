@@ -18,9 +18,10 @@ struct GatheringAPI {
     
     func saveGathering(gathering: Gathering) async throws -> GatheringID {
         guard let email = AuthAPI().getCurrentUser()?.email else { throw AuthError.noEmailInfo }
-        var gatheringDTO = gathering.toGatheringDTO()
-        gatheringDTO.hostBandID = email
-        gatheringDTO.createdAt = Timestamp()
+        let gatheringDTO = gathering
+            .toGatheringDTO()
+            .changeValue(hostBandID: email)
+            .changeValue(createdAt: Timestamp())
         
         let reference = database.collection("gathering")
         let result = try await reference.addDocument(from: gatheringDTO)
@@ -53,9 +54,10 @@ struct GatheringAPI {
     
     func saveComment(comment: GatheringComment) async throws -> GatheringCommentID {
         guard let email = AuthAPI().getCurrentUser()?.email else { throw AuthError.noEmailInfo }
-        var gatheringCommentDTO = comment.toGatheringCommentDTO()
-        gatheringCommentDTO.authorID = email
-        gatheringCommentDTO.createdAt = Timestamp()
+        var gatheringCommentDTO = comment
+            .toGatheringCommentDTO()
+            .changeValue(authorID: email)
+            .changeValue(createdAt: Timestamp())
         
         let reference = database.collection("gatheringComment")
         let result = try await reference.addDocument(from: gatheringCommentDTO)

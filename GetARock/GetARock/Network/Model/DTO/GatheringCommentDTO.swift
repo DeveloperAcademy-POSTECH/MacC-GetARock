@@ -11,9 +11,9 @@ import Firebase
 
 struct GatheringCommentDTO: Codable {
     let gatheringID: String
-    var authorID: String
+    let authorID: String
     let content: String
-    var createdAt: Timestamp
+    let createdAt: Timestamp
 }
 
 extension GatheringCommentDTO {
@@ -31,6 +31,24 @@ extension GatheringCommentDTO {
             createdAt: self.createdAt.dateValue()
         )
         
+    }
+    
+    func changeValue(authorID: String) -> Self {
+        GatheringCommentDTO(
+            gatheringID: self.gatheringID,
+            authorID: authorID,
+            content: self.content,
+            createdAt: self.createdAt
+        )
+    }
+    
+    func changeValue(createdAt: Timestamp) -> Self {
+        GatheringCommentDTO(
+            gatheringID: self.gatheringID,
+            authorID: self.authorID,
+            content: self.content,
+            createdAt: createdAt
+        )
     }
     
 }

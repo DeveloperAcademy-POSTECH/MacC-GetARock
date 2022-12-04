@@ -14,7 +14,7 @@ struct GatheringDTO: Codable {
     /// 모임의 제목입니다.
     let title: String
     /// 모임의 주최 밴드입니다.
-    var hostBandID: String
+    let hostBandID: String
     /// 모임의 진행 전/중/후 및 취소를 나타내는 상태정보입니다.
     let status: GatheringStatus
     /// 모임이  이루어지는 날짜 및 시간입니다.
@@ -24,7 +24,7 @@ struct GatheringDTO: Codable {
     /// 모임의 대한 소개글입니다.
     let introduction: String
     /// 모임 모집을 시작하는 시기 정보입니다.
-    var createdAt: Timestamp
+    let createdAt: Timestamp
     
 }
 
@@ -41,6 +41,30 @@ extension GatheringDTO {
             location: self.location,
             introduction: self.introduction,
             createdAt: self.createdAt.dateValue()
+        )
+    }
+    
+    func changeValue(hostBandID: String) -> Self {
+        GatheringDTO(
+            title: self.title,
+            hostBandID: hostBandID,
+            status: self.status,
+            date: self.date,
+            location: self.location,
+            introduction: self.introduction,
+            createdAt: self.createdAt
+        )
+    }
+    
+    func changeValue(createdAt: Timestamp) -> Self {
+        GatheringDTO(
+            title: self.title,
+            hostBandID: self.hostBandID,
+            status: self.status,
+            date: self.date,
+            location: self.location,
+            introduction: self.introduction,
+            createdAt: createdAt
         )
     }
     

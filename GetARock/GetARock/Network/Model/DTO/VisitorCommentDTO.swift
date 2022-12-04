@@ -11,9 +11,9 @@ import Firebase
 
 struct VisitorCommentDTO: Codable {
     let hostBandID: String
-    var authorID: String
+    let authorID: String
     let content: String
-    var createdAt: Timestamp
+    let createdAt: Timestamp
 }
 
 extension VisitorCommentDTO {
@@ -31,6 +31,24 @@ extension VisitorCommentDTO {
             createdAt: self.createdAt.dateValue()
         )
         
+    }
+    
+    func changeValue(authorID: String) -> Self {
+        VisitorCommentDTO(
+            hostBandID: self.hostBandID,
+            authorID: authorID,
+            content: self.content,
+            createdAt: createdAt
+        )
+    }
+    
+    func changeValue(createdAt: Timestamp) -> Self {
+        VisitorCommentDTO(
+            hostBandID: self.hostBandID,
+            authorID: self.authorID,
+            content: self.content,
+            createdAt: createdAt
+        )
     }
     
 }
