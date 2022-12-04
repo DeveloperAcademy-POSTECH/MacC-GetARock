@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol CommentListUpdateDelegate: AnyObject {
+        func refreshCommentList()
+    }
+
 class CommentWritingPopupViewController: UIViewController {
     
     // MARK: - Properties
@@ -14,6 +18,8 @@ class CommentWritingPopupViewController: UIViewController {
     var commentMode: CommentMode
     private let textViewPlaceHolder = "텍스트를 입력해주세요"
 
+    weak var delegate: CommentListUpdateDelegate?
+    
     // MARK: - View
 
     private let popupTitleLabel: UILabel = {
@@ -86,7 +92,7 @@ class CommentWritingPopupViewController: UIViewController {
         view.backgroundColor = .black.withAlphaComponent(0.5)
         let tapBackgroundGesture = UITapGestureRecognizer(target: self, action: #selector(dismissPopup))
         view.addGestureRecognizer(tapBackgroundGesture)
-        setupPopupTitleLabel()
+        setupPopupTitle()
     }
 
     private func setupLayout() {
@@ -98,10 +104,10 @@ class CommentWritingPopupViewController: UIViewController {
             commentWritingPopupStackView.widthAnchor.constraint(equalToConstant: CommentCreateButton.Size.width),
             commentWritingPopupStackView.heightAnchor.constraint(equalToConstant: 300)
         ])
-        setupPopupButton()
+        setupButtons()
     }
     
-    private func setupPopupTitleLabel() {
+    private func setupPopupTitle() {
         switch commentMode {
         case .visitorComment:
             popupTitleLabel.text = "방명록 작성"
@@ -110,9 +116,10 @@ class CommentWritingPopupViewController: UIViewController {
         }
     }
     
-    private func setupPopupButton() {
+    private func setupButtons() {
         closeButton.addTarget(self, action: #selector(dismissPopup), for: .touchUpInside)
         confirmButton.titleButton.addTarget(self, action: #selector(self.addNewComment(_:)), for: .touchUpInside)
+//        confirmButton.addButtonAction(selector: #selector(addNewComment(_:)))
     }
 
     @objc private func dismissPopup(_ sender: Any) {
@@ -134,6 +141,7 @@ class CommentWritingPopupViewController: UIViewController {
                         )
                     )
                     MockData.visitorComments.append(saveData)
+                    self.delegate?.refreshCommentList()
                     self.dismiss(animated: false, completion: nil)
                 }
             case .gatheringComment:

@@ -63,6 +63,7 @@ class CommentListView: UIView {
 
     private func attribute() {
         self.backgroundColor = .modalBackgroundBlue
+        setupTotalListNumberLabel()
         setupCommentList()
         setupCommentWritingButton()
     }

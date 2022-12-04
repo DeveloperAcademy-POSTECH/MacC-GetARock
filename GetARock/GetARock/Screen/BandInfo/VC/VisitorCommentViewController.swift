@@ -18,12 +18,6 @@ final class VisitorCommentViewController: UIViewController {
 
     // MARK: - Life Cycle
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        visitorCommentList.tableView.reloadData()
-        visitorCommentList.setupTotalListNumberLabel()
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         attribute()
@@ -53,7 +47,19 @@ final class VisitorCommentViewController: UIViewController {
 
     @objc func didTapVisitorCommentButton() {
         let popupViewController = CommentWritingPopupViewController(commentMode: .visitorComment)
-        popupViewController.modalPresentationStyle = .fullScreen
+        popupViewController.modalPresentationStyle = .overFullScreen
         self.present(popupViewController, animated: false)
+        popupViewController.delegate = self
     }
+}
+
+// MARK: - CommentListUpdateDelegate
+
+extension VisitorCommentViewController: CommentListUpdateDelegate {
+    
+    func refreshCommentList() {
+        visitorCommentList.tableView.reloadData()
+        visitorCommentList.setupTotalListNumberLabel()
+    }
+
 }
