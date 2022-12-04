@@ -11,9 +11,9 @@ import Firebase
 
 struct GatheringCommentDTO: Codable {
     let gatheringID: String
-    let authorID: String
+    var authorID: String
     let content: String
-    let createdAt: Timestamp
+    var createdAt: Timestamp
 }
 
 extension GatheringCommentDTO {

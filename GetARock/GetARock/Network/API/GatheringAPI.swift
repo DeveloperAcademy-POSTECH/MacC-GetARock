@@ -12,6 +12,7 @@ import FirebaseFirestoreSwift
 
 struct GatheringAPI {
     typealias GatheringID = String
+    typealias GatheringCommentID = String
 
     private let database = FirebaseFirestore.Firestore.firestore()
     
@@ -50,4 +51,43 @@ struct GatheringAPI {
         return gatheringInfos
     }
     
+    func saveComment(comment: GatheringComment) async throws -> GatheringCommentID {
+        guard let email = AuthAPI().getCurrentUser()?.email else { throw AuthError.noEmailInfo }
+        var gatheringCommentDTO = comment.toGatheringCommentDTO()
+        gatheringCommentDTO.authorID = email
+        gatheringCommentDTO.createdAt = Timestamp()
+        
+        let reference = database.collection("gatheringComment")
+        let result = try await reference.addDocument(from: gatheringCommentDTO)
+        return result.documentID
+    }
+    
+    func getComments(of gatheringID: GatheringID) async throws -> [GatheringCommentInfo] {
+        let snapShot = try await database.collection("gatheringComment").getDocuments()
+        var commentInfos: [GatheringCommentInfo] = []
+        
+        // TODO: 지연현상 개선 필요
+        for document in snapShot.documents {
+            let commentID = document.documentID
+            guard let commentData = try? document.data(as: GatheringCommentDTO.self) else { continue }
+            async let gathering = getGatheringInfo(gatheringID: commentData.gatheringID)
+            async let author = BandAPI().getBandInfo(bandID: commentData.authorID)
+            
+            guard let gathering = try? await gathering else { continue }
+            guard let author = try? await author else { continue }
+            
+            let commentInfo = GatheringCommentInfo(
+                commentID: commentID,
+                comment: GatheringComment(
+                    gathering: gathering,
+                    author: author,
+                    content: commentData.content,
+                    createdAt: commentData.createdAt.dateValue()
+                )
+            )
+            commentInfos.append(commentInfo)
+        }
+        
+        return commentInfos
+    }
 }
