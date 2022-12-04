@@ -13,6 +13,37 @@ struct GatheringCommentDTO: Codable {
     let gatheringID: String
     let authorID: String
     let content: String
-    let createdAt: Date
+    let createdAt: Timestamp
 }
 
+extension GatheringCommentDTO {
+    
+    func toGatheringComment() async throws -> GatheringComment {
+        let gatheringAPI = GatheringAPI()
+        let bandAPI = BandAPI()
+        async let gathering = gatheringAPI.getGatheringInfo(gatheringID: self.gatheringID)
+        async let auther = bandAPI.getBandInfo(bandID: self.authorID)
+        
+        return GatheringComment(
+            gathering: try await gathering,
+            author: try await auther,
+            content: self.content,
+            createdAt: self.createdAt.dateValue()
+        )
+        
+    }
+    
+}
+
+extension GatheringComment {
+    
+    func toGatheringCommentDTO() -> GatheringCommentDTO {
+        return GatheringCommentDTO(
+            gatheringID: self.gathering.gatheringID,
+            authorID: self.author.bandID,
+            content: self.content,
+            createdAt: Timestamp(date: self.createdAt)
+        )
+    }
+    
+}
