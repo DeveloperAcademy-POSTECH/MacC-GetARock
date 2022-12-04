@@ -9,6 +9,10 @@ import UIKit
 
 class CommentTableViewCell: UITableViewCell {
     
+    // MARK: - Properties
+    
+    weak var delegate: NotifyTapMoreButtonDelegate?
+    
     // MARK: - View
 
     let bandNameLabel: UILabel = {
@@ -17,7 +21,7 @@ class CommentTableViewCell: UITableViewCell {
         return $0
     }(UILabel())
 
-    private let moreButton: UIButton = {
+    let moreButton: UIButton = {
         $0.setImage(UIImage(systemName: "ellipsis"), for: .normal)
         $0.tintColor = .white
         return $0
@@ -54,6 +58,7 @@ class CommentTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupLayout()
+        setupMoreButton()
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -72,4 +77,18 @@ class CommentTableViewCell: UITableViewCell {
         ])
     }
     
+    private func setupMoreButton() {
+        moreButton.addTarget(self, action: #selector(showActionSheet), for: .touchUpInside)
+    }
+    
+    @objc func showActionSheet() {
+        self.delegate?.tapcommentListMoreButton()
+        print("눌림")
+    }
 }
+
+// MARK: - NotifyTapMoreButtonDelegate
+
+protocol NotifyTapMoreButtonDelegate: AnyObject {
+        func tapcommentListMoreButton()
+    }

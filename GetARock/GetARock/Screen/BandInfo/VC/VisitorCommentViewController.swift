@@ -32,6 +32,7 @@ final class VisitorCommentViewController: UIViewController {
 
     private func setupLayout() {
         view.addSubview(visitorCommentList)
+        visitorCommentList.delegate = self
         NSLayoutConstraint.activate([
             visitorCommentList.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
             visitorCommentList.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
@@ -61,5 +62,16 @@ extension VisitorCommentViewController: CommentListUpdateDelegate {
         visitorCommentList.tableView.reloadData()
         visitorCommentList.setupTotalListNumberLabel()
     }
+}
 
+// MARK: - CheckCellIndexDelegate, Reportable
+
+extension VisitorCommentViewController: CheckCellIndexDelegate, Reportable {
+    func showEditActionSheet() {
+        showActionSheet()
+    }
+
+    func alertActionButtonPressed() {
+        print("ff")
+    }
 }

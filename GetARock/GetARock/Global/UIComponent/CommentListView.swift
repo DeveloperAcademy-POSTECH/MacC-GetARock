@@ -12,11 +12,12 @@ enum CommentMode {
     case gatheringComment
 }
 
-class CommentListView: UIView {
+class CommentListView: UIView, NotifyTapMoreButtonDelegate {
 
     // MARK: - Properties
 
     private var commentMode: CommentMode
+    weak var delegate: CheckCellIndexDelegate?
 
     // MARK: - View
 
@@ -114,6 +115,10 @@ extension CommentListView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cell.backgroundColor = UIColor.clear
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
 }
 
 // MARK: - UITableViewDataSource
@@ -136,7 +141,7 @@ extension CommentListView: UITableViewDataSource {
         else {
             return UITableViewCell()
         }
-
+        cell.delegate = self
         cell.selectionStyle = .none
 
         switch commentMode {
@@ -151,4 +156,16 @@ extension CommentListView: UITableViewDataSource {
         }
         return cell
     }
+
+    func tapcommentListMoreButton() {
+        self.delegate?.showEditActionSheet()
+        print("테이블 뷰가 버튼눌린거 확인")
+    }
+    
 }
+
+// MARK: - CheckCellIndexDelegate
+
+protocol CheckCellIndexDelegate: AnyObject {
+        func showEditActionSheet()
+    }
