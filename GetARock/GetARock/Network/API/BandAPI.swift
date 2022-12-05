@@ -58,7 +58,7 @@ struct BandAPI {
     }
     
     func getComments(of bandID: BandID) async throws -> [VisitorCommentInfo] {
-        let snapShot = try await database.collection("visitorComment").getDocuments()
+        let snapShot = try await database.collection("visitorComment").whereField("hostBandID", isEqualTo: bandID).getDocuments()
         var commentInfos: [VisitorCommentInfo] = []
         
         // TODO: 지연현상 개선 필요
