@@ -72,10 +72,10 @@
 		B8BE496E292E14C800E8E774 /* CustomAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BE496D292E14C800E8E774 /* CustomAnnotationView.swift */; };
 		C561490A293DDCE000B45D58 /* AddGathering.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5614909293DDCE000B45D58 /* AddGathering.storyboard */; };
 		C561490C293DDCFE00B45D58 /* LocationCandidateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C561490B293DDCFE00B45D58 /* LocationCandidateCell.xib */; };
-		C5614913293DDD1900B45D58 /* LocationSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C561490E293DDD1900B45D58 /* LocationSelectViewController.swift */; };
-		C5614914293DDD1900B45D58 /* LocationCandidateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C561490F293DDD1900B45D58 /* LocationCandidateCell.swift */; };
-		C5614915293DDD1900B45D58 /* AddGatheringViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5614910293DDD1900B45D58 /* AddGatheringViewController.swift */; };
-		C5614916293DDD1900B45D58 /* AddGatheringLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5614911293DDD1900B45D58 /* AddGatheringLocationViewController.swift */; };
+		C5614924293DE17000B45D58 /* LocationSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5614920293DE17000B45D58 /* LocationSelectViewController.swift */; };
+		C5614925293DE17000B45D58 /* LocationCandidateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5614921293DE17000B45D58 /* LocationCandidateCell.swift */; };
+		C5614926293DE17000B45D58 /* AddGatheringViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5614922293DE17000B45D58 /* AddGatheringViewController.swift */; };
+		C5614927293DE17000B45D58 /* AddGatheringLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5614923293DE17000B45D58 /* AddGatheringLocationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -165,10 +165,10 @@
 		B8BE496D292E14C800E8E774 /* CustomAnnotationView.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = CustomAnnotationView.swift; sourceTree = "<group>"; tabWidth = 4; };
 		C5614909293DDCE000B45D58 /* AddGathering.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddGathering.storyboard; sourceTree = "<group>"; };
 		C561490B293DDCFE00B45D58 /* LocationCandidateCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LocationCandidateCell.xib; sourceTree = "<group>"; };
-		C561490E293DDD1900B45D58 /* LocationSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSelectViewController.swift; sourceTree = "<group>"; };
-		C561490F293DDD1900B45D58 /* LocationCandidateCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationCandidateCell.swift; sourceTree = "<group>"; };
-		C5614910293DDD1900B45D58 /* AddGatheringViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddGatheringViewController.swift; sourceTree = "<group>"; };
-		C5614911293DDD1900B45D58 /* AddGatheringLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddGatheringLocationViewController.swift; sourceTree = "<group>"; };
+		C5614920293DE17000B45D58 /* LocationSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSelectViewController.swift; sourceTree = "<group>"; };
+		C5614921293DE17000B45D58 /* LocationCandidateCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationCandidateCell.swift; sourceTree = "<group>"; };
+		C5614922293DE17000B45D58 /* AddGatheringViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddGatheringViewController.swift; sourceTree = "<group>"; };
+		C5614923293DE17000B45D58 /* AddGatheringLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddGatheringLocationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -314,7 +314,7 @@
 				66E1623D292ADFC7001F0578 /* GatheringInfo */,
 				3D56532A292855F8003D0C9F /* BandInfo */,
 				B830849729263B620035DB2D /* MainMap */,
-				C561490D293DDD1900B45D58 /* AddGathering */,
+				C561491F293DE17000B45D58 /* AddGathering */,
 				8437618E2927551100BD2C2A /* Gathering */,
 				07D7DA2E2910894000479B6F /* Landing */,
 				07D7DA3D29108CC600479B6F /* MyPage */,
@@ -496,24 +496,15 @@
 			path = MainMap;
 			sourceTree = "<group>";
 		};
-		C561490D293DDD1900B45D58 /* AddGathering */ = {
+		C561491F293DE17000B45D58 /* AddGathering */ = {
 			isa = PBXGroup;
 			children = (
-				C561490E293DDD1900B45D58 /* LocationSelectViewController.swift */,
-				C561490F293DDD1900B45D58 /* LocationCandidateCell.swift */,
-				C5614910293DDD1900B45D58 /* AddGatheringViewController.swift */,
-				C5614911293DDD1900B45D58 /* AddGatheringLocationViewController.swift */,
-				C5614912293DDD1900B45D58 /* ForTest */,
+				C5614922293DE17000B45D58 /* AddGatheringViewController.swift */,
+				C5614923293DE17000B45D58 /* AddGatheringLocationViewController.swift */,
+				C5614920293DE17000B45D58 /* LocationSelectViewController.swift */,
+				C5614921293DE17000B45D58 /* LocationCandidateCell.swift */,
 			);
-			name = AddGathering;
-			path = "../../../../../Code BU/GetARock 데모 합칠 용/GetARock/Screen/AddGathering";
-			sourceTree = "<group>";
-		};
-		C5614912293DDD1900B45D58 /* ForTest */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ForTest;
+			path = AddGathering;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -688,7 +679,7 @@
 				6606F855292CB38B00A121BF /* ReportReasonListCell.swift in Sources */,
 				66E7420A292CA04D003C0B02 /* ReportReasonListController.swift in Sources */,
 				8437619229276FA700BD2C2A /* GatheringCell.swift in Sources */,
-				C5614915293DDD1900B45D58 /* AddGatheringViewController.swift in Sources */,
+				C5614926293DE17000B45D58 /* AddGatheringViewController.swift in Sources */,
 				8437619029275B3500BD2C2A /* GatheringCreatedViewController.swift in Sources */,
 				07D7DA3C29108C9000479B6F /* SampleView.swift in Sources */,
 				3DF54FCB292A43EA001CD16B /* BandMemberCollectionViewCell.swift in Sources */,
@@ -714,10 +705,10 @@
 				7BDA8F90291296B200BB2D34 /* UIView+Gradation.swift in Sources */,
 				0761508B29276D8200A0562F /* Coordinate.swift in Sources */,
 				7BB7099B292A47E50065136D /* CommentCreateButton.swift in Sources */,
-				C5614913293DDD1900B45D58 /* LocationSelectViewController.swift in Sources */,
+				C5614924293DE17000B45D58 /* LocationSelectViewController.swift in Sources */,
 				07D7DA302910895000479B6F /* LandingViewController.swift in Sources */,
 				7BE60DA1292F32E200BD7492 /* VisitorCommentViewController.swift in Sources */,
-				C5614914293DDD1900B45D58 /* LocationCandidateCell.swift in Sources */,
+				C5614925293DE17000B45D58 /* LocationCandidateCell.swift in Sources */,
 				072DEDD429268F470046A4A0 /* PlayPosition.swift in Sources */,
 				07D7DA2D291088EC00479B6F /* NSObject+Extension.swift in Sources */,
 				07615093292907A900A0562F /* GatheringComment.swift in Sources */,
@@ -729,7 +720,7 @@
 				7BDA8F8B291284FE00BB2D34 /* UIColor+Extension.swift in Sources */,
 				072DEDD62926902D0046A4A0 /* AgeGroup.swift in Sources */,
 				7BB7099329290AE40065136D /* CommentListView.swift in Sources */,
-				C5614916293DDD1900B45D58 /* AddGatheringLocationViewController.swift in Sources */,
+				C5614927293DE17000B45D58 /* AddGatheringLocationViewController.swift in Sources */,
 				7BB70999292A419B0065136D /* EmptyListView.swift in Sources */,
 				07C966B9292C463100A59CF5 /* Date+String.swift in Sources */,
 			);
