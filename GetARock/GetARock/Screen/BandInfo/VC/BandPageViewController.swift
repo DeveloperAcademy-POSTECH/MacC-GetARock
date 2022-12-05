@@ -54,7 +54,7 @@ class BandPageViewController: UIViewController {
                                                                          BandInfoViewList.visitorComment.toKorean()])
     private lazy var bandInfoViewController = UIStoryboard(name: "BandInfo", bundle: nil).instantiateViewController(withIdentifier: BandInfoViewController.className)
     private lazy var bandTimelineViewController = UIStoryboard(name: "BandTimeline", bundle: nil).instantiateViewController(withIdentifier: BandTimelineViewController.className)
-    private lazy var commentListViewController = VisitorCommentViewController(bandInfo: bandinfo)
+    private lazy var commentListViewController = VisitorCommentViewController()
     private lazy var pageViewController: UIPageViewController = {
         let pageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
         pageViewController.setViewControllers([self.viewControllerList[0]], direction: .forward, animated: true)
@@ -82,11 +82,16 @@ class BandPageViewController: UIViewController {
 extension BandPageViewController {
     private func setViewControllers() {
         setBandInfoViewController()
+        setCommentListViewController()
     }
     
     private func setBandInfoViewController() {
         guard let bandInfoViewController = bandInfoViewController as? BandInfoViewController else { return }
         bandInfoViewController.bandInfo = bandinfo
+    }
+    
+    private func setCommentListViewController() {
+        commentListViewController.bandInfo = bandinfo
     }
 }
 

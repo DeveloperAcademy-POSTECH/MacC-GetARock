@@ -11,27 +11,30 @@ final class VisitorCommentViewController: UIViewController {
 
     // MARK: - View
     
-    var bandInfo: BandInfo {
-        didSet {
-            
-        }
-    }
-    
     private let commentListView = {
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
     }(CommentListView(entryPoint: .visitorComment))
 
+    // MARK: - Property
+    
+    var bandAPI = BandAPI()
+    var bandInfo: BandInfo? {
+        didSet {
+            Task {
+                guard let comments = try? await getComments() else { print(22); return }
+                self.comments = comments
+            }
+        }
+    }
+    var comments: [VisitorCommentInfo] = [] {
+        didSet {
+            MockData.visitorComments = comments
+            commentListView.tableView.reloadData()
+        }
+    }
+    
     // MARK: - Life Cycle
-    
-    init(bandInfo: BandInfo) {
-        self.bandInfo = bandInfo
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
     override func viewWillAppear(_ animated: Bool) {
         commentListView.tableView.reloadData()
@@ -69,5 +72,10 @@ final class VisitorCommentViewController: UIViewController {
         let popupViewController = CommentWritingPopupViewController(entryPoint: .visitorComment)
         popupViewController.modalPresentationStyle = .overFullScreen
         self.present(popupViewController, animated: false)
+    }
+    
+    private func getComments() async throws -> [VisitorCommentInfo] {
+        guard let bandID = bandInfo?.bandID else { return [] }
+        return try await bandAPI.getComments(of: bandID)
     }
 }
