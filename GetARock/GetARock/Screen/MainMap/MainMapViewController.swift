@@ -30,6 +30,22 @@ final class MainMapViewController: UIViewController {
     let zoomInRange = 0.015
     let locationManager = CLLocationManager()
     
+    let bandAPI = BandAPI()
+    let gatheringAPI = GatheringAPI()
+    
+    var bands: [BandInfo] = [] {
+        didSet {
+            mapView.removeAnnotations(mapView.annotations)
+            addAnnotationOnMapView()
+        }
+    }
+    var gatherings: [GatheringInfo] = [] {
+        didSet {
+            mapView.removeAnnotations(mapView.annotations)
+            addAnnotationOnMapView()
+        }
+    }
+    
     // MARK: - View Life Cycle
     
     override func viewDidLoad() {
@@ -58,9 +74,19 @@ final class MainMapViewController: UIViewController {
     
     @objc
     private func didLogin(_ sender: Notification) {
-        print()
-        print("did login - MainMapViewController")
-        print()
+        Task {
+            async let bands = getBands()
+            async let gatherings = getGatherings()
+            self.bands = (try? await bands) ?? []
+            self.gatherings = (try? await gatherings) ?? []
+        }
+    }
+    
+    private func getBands() async throws -> [BandInfo] {
+        return try await bandAPI.getAllBandInfos()
+    }
+    private func getGatherings() async throws -> [GatheringInfo] {
+        return try await gatheringAPI.getAllGatheringInfos()
     }
     
     private func setMapView() {
@@ -70,7 +96,12 @@ final class MainMapViewController: UIViewController {
     }
     
     private func addAnnotationOnMapView() {
-        for band in MockData.bands {
+        addBandAnnotationOnMapView()
+        addGatheringAnnotationOnMapView()
+    }
+    
+    private func addBandAnnotationOnMapView() {
+        for band in bands {
             let point = CustomAnnotation(
                 title: band.band.name,
                 coordinate: band.band.location.coordinate.toCLLocationCoordinate2D(),
@@ -80,7 +111,10 @@ final class MainMapViewController: UIViewController {
             )
             mapView.addAnnotation(point)
         }
-        for gathering in MockData.gatherings {
+    }
+    
+    private func addGatheringAnnotationOnMapView() {
+        for gathering in gatherings {
             let point = CustomAnnotation(
                 title: gathering.gathering.host.band.name,
                 coordinate: gathering.gathering.location.coordinate.toCLLocationCoordinate2D(),
