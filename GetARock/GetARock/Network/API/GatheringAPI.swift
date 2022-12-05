@@ -54,7 +54,7 @@ struct GatheringAPI {
     
     func saveComment(comment: GatheringComment) async throws -> GatheringCommentID {
         guard let email = AuthAPI().getCurrentUser()?.email else { throw AuthError.noEmailInfo }
-        var gatheringCommentDTO = comment
+        let gatheringCommentDTO = comment
             .toGatheringCommentDTO()
             .changeValue(authorID: email)
             .changeValue(createdAt: Timestamp())
