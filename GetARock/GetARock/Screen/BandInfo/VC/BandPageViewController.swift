@@ -71,8 +71,23 @@ class BandPageViewController: UIViewController {
         super.viewDidLoad()
         setupLayout()
         segmentedControlButtons.delegate = self
+        
+        setViewControllers()
     }
 
+}
+
+// MARK: - method
+
+extension BandPageViewController {
+    private func setViewControllers() {
+        setBandInfoViewController()
+    }
+    
+    private func setBandInfoViewController() {
+        guard let bandInfoViewController = bandInfoViewController as? BandInfoViewController else { return }
+        bandInfoViewController.bandInfo = bandinfo
+    }
 }
 
 // MARK: - Layout

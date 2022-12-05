@@ -32,3 +32,13 @@ struct Band: Codable {
     /// 밴드의 자유소개 글입니다.
     var introduction: String
 }
+
+extension Band {
+    func getNumberOfMembers() -> Int {
+        var sum = 0
+        self.filledPosition.forEach { positionSet in
+            sum += positionSet.numberOfPerson
+        }
+        return sum
+    }
+}

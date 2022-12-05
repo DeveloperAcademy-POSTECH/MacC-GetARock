@@ -19,23 +19,17 @@ class BandInfoViewController: UIViewController {
     @IBOutlet weak var repertoireTableView: UITableView!
     @IBOutlet weak var tableHeightConstraint: NSLayoutConstraint!
     
-    private lazy var numberOfBandMember: Int = calculateNumberOfBandMemberText()
-    private lazy var positionNameArray: [String] = appendPositionNameArray()
-    private lazy var numberOfPostionArray: [Int] = appendNumberOfPostionArray()
-    private lazy var bandAgeArray: [String] = appendBandAgeArray()
-    private lazy var repertoireArray: [String] = selectedBand.repertoire
-    private lazy var bandIntroduceText = selectedBand.introduction
-    
-    private let selectedBand: Band = MockData.bands[0].band
+    var bandInfo: BandInfo? {
+        didSet {
+            reflectBandInfo()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .modalBackgroundBlue
-        setBandMemberAreaUI()
-        setBandAgeAreaUI()
-        setRepertoireAreaUI()
-        setBandIntroduceAreaUI()
+        setUI()
     }
     
     override func updateViewConstraints() {
@@ -53,21 +47,15 @@ class BandInfoViewController: UIViewController {
 extension BandInfoViewController {
     private func setUI() {
         setBandMemberAreaUI()
-        setBandAgeAreaUI()
         setRepertoireAreaUI()
         setBandIntroduceAreaUI()
+        reflectBandInfo()
     }
     
     private func setBandMemberAreaUI() {
-        bandMemberLabel.text = "밴드 멤버 (\(numberOfBandMember)인)"
-        
         bandMemberCollectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         bandMemberCollectionView.dataSource = self
         bandMemberCollectionView.collectionViewLayout = createCompositionalLayout()
-    }
-    
-    private func setBandAgeAreaUI() {
-        bandAgeLabel.text = generateBandAgeLabelText()
     }
     
     private func setRepertoireAreaUI() {
@@ -80,12 +68,16 @@ extension BandInfoViewController {
     }
     
     private func setBandIntroduceAreaUI() {
-        bandIntroduceLabel.text = bandIntroduceText
-        
         bandIntroduceView.backgroundColor = UIColor.backgroundBlue
         bandIntroduceView.layer.cornerRadius = 15
         bandIntroduceView.layer.borderWidth = 1
         bandIntroduceView.layer.borderColor = UIColor.dividerBlue.cgColor
+    }
+    
+    private func reflectBandInfo() {
+        bandIntroduceLabel.text = bandInfo?.band.introduction
+        bandMemberLabel.text = "밴드 멤버 (\(bandInfo?.band.getNumberOfMembers() ?? 0)인)"
+        bandAgeLabel.text = generateBandAgeLabelText()
     }
 }
 
@@ -116,7 +108,7 @@ extension BandInfoViewController {
 
 extension BandInfoViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.positionNameArray.count
+        return self.bandInfo?.band.filledPosition.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -128,8 +120,8 @@ extension BandInfoViewController: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         
-        cell.positionNameLabel.text = self.positionNameArray[indexPath.item]
-        cell.numberOfPositionLabel.text = "\(self.numberOfPostionArray[indexPath.item])명"
+        cell.positionNameLabel.text = self.bandInfo?.band.filledPosition[indexPath.item].position.toKorean()
+        cell.numberOfPositionLabel.text = "\(self.bandInfo?.band.filledPosition[indexPath.item].numberOfPerson ?? 0)명"
         
         return cell
     }
@@ -139,9 +131,10 @@ extension BandInfoViewController: UICollectionViewDataSource {
 
 extension BandInfoViewController {
     private func generateBandAgeLabelText() -> String {
-        for num in 0...bandAgeArray.count - 1 {
-            bandAgeLabel.text?.append(bandAgeArray[num])
-            if num != bandAgeArray.count - 1 {
+        guard let bandInfo = bandInfo else { return "" }
+        for num in 0...bandInfo.band.ageGroups.count - 1 {
+            bandAgeLabel.text?.append(bandInfo.band.ageGroups[num].toKorean())
+            if num != bandInfo.band.ageGroups.count - 1 {
                 bandAgeLabel.text?.append(", ")
             }
         }
@@ -149,33 +142,37 @@ extension BandInfoViewController {
     }
     
     private func calculateNumberOfBandMemberText() -> Int {
+        guard let bandInfo = bandInfo else { return 0 }
         var sum = 0
-        for num in 0...selectedBand.filledPosition.count - 1 {
-            sum += selectedBand.filledPosition[num].numberOfPerson
+        for num in 0...bandInfo.band.filledPosition.count - 1 {
+            sum += bandInfo.band.filledPosition[num].numberOfPerson
         }
         return sum
     }
     
     private func appendPositionNameArray() -> [String] {
+        guard let bandInfo = bandInfo else { return [] }
         var positionNameArray: [String] = []
-        for num in 0...selectedBand.filledPosition.count - 1 {
-            positionNameArray.append(selectedBand.filledPosition[num].position.toKorean())
+        for num in 0...bandInfo.band.filledPosition.count - 1 {
+            positionNameArray.append(bandInfo.band.filledPosition[num].position.toKorean())
         }
         return positionNameArray
     }
     
     private func appendNumberOfPostionArray() -> [Int] {
+        guard let bandInfo = bandInfo else { return [] }
         var numberOfPositionArray: [Int] = []
-        for num in 0...selectedBand.filledPosition.count - 1 {
-            numberOfPositionArray.append(selectedBand.filledPosition[num].numberOfPerson)
+        for num in 0...bandInfo.band.filledPosition.count - 1 {
+            numberOfPositionArray.append(bandInfo.band.filledPosition[num].numberOfPerson)
         }
         return numberOfPositionArray
     }
     
     private func appendBandAgeArray() -> [String] {
+        guard let bandInfo = bandInfo else { return [] }
         var bandAgeArray: [String] = []
-        for num in 0...selectedBand.ageGroups.count - 1 {
-            bandAgeArray.append(selectedBand.ageGroups[num].toKorean())
+        for num in 0...bandInfo.band.ageGroups.count - 1 {
+            bandAgeArray.append(bandInfo.band.ageGroups[num].toKorean())
         }
         return bandAgeArray
     }
@@ -185,7 +182,7 @@ extension BandInfoViewController {
 
 extension BandInfoViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.repertoireArray.count
+        return self.bandInfo?.band.repertoire.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -197,7 +194,7 @@ extension BandInfoViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         
-        cell.repertoireLabel.text = repertoireArray[indexPath.row]
+        cell.repertoireLabel.text = bandInfo?.band.repertoire[indexPath.row] ?? ""
         
         return cell
     }
