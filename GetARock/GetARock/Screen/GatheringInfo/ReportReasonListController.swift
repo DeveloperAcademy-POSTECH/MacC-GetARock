@@ -7,11 +7,11 @@
 
 import UIKit
 
-class ReportReasonListController: UITableViewController, AlertSheet {
+final class ReportReasonListController: UITableViewController, AlertSheet {
     
     // MARK: - Property
     
-    let reportReason = ["폭력 또는 위험한 단체", "거짓 정보", "따돌림 또는 괴롭힘", "지적 재산권 침해", "불법 또는 규제 상품 판매", "기타 문제"]
+    private  let reportReason = ["폭력 또는 위험한 단체", "거짓 정보", "따돌림 또는 괴롭힘", "지적 재산권 침해", "불법 또는 규제 상품 판매", "기타 문제"]
     
     // MARK: - Life Cycle
     
@@ -21,8 +21,8 @@ class ReportReasonListController: UITableViewController, AlertSheet {
         view.backgroundColor = .modalBackgroundBlue
         tableView.tableHeaderView = makingHeader()
         
-        let nib = UINib(nibName: "ReportReasonListCell", bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: "ReportReasonListCell")
+        let nib = UINib(nibName: ReportReasonListCell.className, bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: ReportReasonListCell.className)
     }
     
     // MARK: - Method
@@ -31,7 +31,7 @@ class ReportReasonListController: UITableViewController, AlertSheet {
         print("신고에 성공했습니다.")
     }
     
-    func makingHeader() -> UIView {
+    private func makingHeader() -> UIView {
         let header = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 50))
         header.backgroundColor = .modalBackgroundBlue
         
@@ -49,15 +49,15 @@ class ReportReasonListController: UITableViewController, AlertSheet {
         ])
         return header
     }
-
+    
     // MARK: - TableView data source
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return reportReason.count
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ReportReasonListCell") as? ReportReasonListCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ReportReasonListCell.className) as? ReportReasonListCell else { return UITableViewCell() }
         cell.reportReason.text = reportReason[indexPath.row]
         return cell
     }
@@ -68,5 +68,5 @@ class ReportReasonListController: UITableViewController, AlertSheet {
         tableView.deselectRow(at: indexPath, animated: true)
         showAlertSheet(alertTitle: "신고하기", message: "\(reportReason[indexPath.row])을/(를) 사유로 신고하시겠습니까?")
     }
-
+    
 }

@@ -67,8 +67,8 @@ class CommentTableViewCell: UITableViewCell {
         self.contentView.addSubview(commentStackView)
         NSLayoutConstraint.activate([
             commentStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 30),
-            commentStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 36),
-            commentStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -36),
+            commentStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+            commentStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
             commentStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -30)
         ])
     }

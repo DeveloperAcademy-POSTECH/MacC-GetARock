@@ -8,7 +8,7 @@
 import MapKit
 import UIKit
 
-class CustomAnnotationView: MKMarkerAnnotationView {
+class AnnotationView: MKMarkerAnnotationView {
     
     override func draw(_ rect: CGRect) {
         guard let annotation = annotation as? CustomAnnotation else {

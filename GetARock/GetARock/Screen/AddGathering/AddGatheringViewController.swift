@@ -155,7 +155,8 @@ extension AddGatheringViewController {
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(keyboardWillShow(_:)),
-            name: UIResponder.keyboardWillShowNotification, object: nil
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil
         )
         NotificationCenter.default.addObserver(
             self,
@@ -232,13 +233,10 @@ extension AddGatheringViewController {
     private func addGatheringInputErrorMessage() -> String? {
         do {
             try validateInputs()
-        } catch AddGatheringInputError.noMultipleFields {
-            return AddGatheringInputError.noMultipleFields.errorMessage
-        } catch AddGatheringInputError.noTitle {
-            return AddGatheringInputError.noTitle.errorMessage
-        } catch AddGatheringInputError.noLocation {
-            return AddGatheringInputError.noLocation.errorMessage
         } catch {
+            if let error = error as? AddGatheringInputError {
+                return error.errorMessage
+            }
             return "입력을 확인하는 중 알 수 없는 문제가 발생했습니다"
         }
         return nil

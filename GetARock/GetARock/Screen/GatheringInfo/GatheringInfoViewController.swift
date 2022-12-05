@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GatheringInfoViewController: UIViewController, Reportable {
+final class GatheringInfoViewController: UIViewController {
     
     // MARK: - properties
     
@@ -65,10 +65,6 @@ class GatheringInfoViewController: UIViewController, Reportable {
         describtionLabel.text = gatheringInfo.gathering.introduction
     }
     
-    func alertActionButtonPressed() {
-        print("삭제에 성공했습니다.")
-    }
-    
     @IBAction func touchUpInsideEllipsis(_ sender: UIButton) {
         showActionSheet()
     }
@@ -81,5 +77,13 @@ class GatheringInfoViewController: UIViewController, Reportable {
         let popupViewController = CommentWritingPopupViewController(entryPoint: .gatheringComment)
         popupViewController.modalPresentationStyle = .fullScreen
         self.present(popupViewController, animated: false)
+    }
+}
+
+// MARK: - extension Reportable Method
+
+extension GatheringInfoViewController: Reportable {
+    func alertActionButtonPressed() {
+        print("삭제에 성공했습니다.")
     }
 }

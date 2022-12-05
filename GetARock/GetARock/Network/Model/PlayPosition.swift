@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum PlayPosition {
+enum PlayPosition: Codable {
     case vocal
     case guitar
     case keyboard

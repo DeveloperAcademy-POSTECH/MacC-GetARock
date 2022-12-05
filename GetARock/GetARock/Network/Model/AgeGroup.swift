@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum AgeGroup {
+enum AgeGroup: Codable {
     case lessThanTwenty
     case twenties
     case thirties

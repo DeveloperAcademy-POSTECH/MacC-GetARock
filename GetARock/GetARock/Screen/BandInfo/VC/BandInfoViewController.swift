@@ -51,6 +51,13 @@ class BandInfoViewController: UIViewController {
 // MARK: - UI 설정 관련
 
 extension BandInfoViewController {
+    private func setUI() {
+        setBandMemberAreaUI()
+        setBandAgeAreaUI()
+        setRepertoireAreaUI()
+        setBandIntroduceAreaUI()
+    }
+    
     private func setBandMemberAreaUI() {
         bandMemberLabel.text = "밴드 멤버 (\(numberOfBandMember)인)"
         
@@ -113,9 +120,13 @@ extension BandInfoViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        let cellId = String(describing: BandMemberCollectionViewCell.self)
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as? BandMemberCollectionViewCell else { return UICollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: BandMemberCollectionViewCell.className,
+            for: indexPath
+        ) as? BandMemberCollectionViewCell
+        else {
+            return UICollectionViewCell()
+        }
         
         cell.positionNameLabel.text = self.positionNameArray[indexPath.item]
         cell.numberOfPositionLabel.text = "\(self.numberOfPostionArray[indexPath.item])명"
@@ -178,7 +189,13 @@ extension BandInfoViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = repertoireTableView.dequeueReusableCell(withIdentifier: RepertoireTableViewCell.className, for: indexPath) as? RepertoireTableViewCell else { return UITableViewCell() }
+        guard let cell = repertoireTableView.dequeueReusableCell(
+            withIdentifier: RepertoireTableViewCell.className,
+            for: indexPath
+        ) as? RepertoireTableViewCell
+        else {
+            return UITableViewCell()
+        }
         
         cell.repertoireLabel.text = repertoireArray[indexPath.row]
         

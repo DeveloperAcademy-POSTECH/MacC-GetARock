@@ -8,7 +8,7 @@
 import UIKit
 
 protocol Reportable: UIViewController, AlertSheet {
-
+    
 }
 extension Reportable {
     func showActionSheet() {
@@ -26,9 +26,9 @@ extension Reportable {
         actionSheet.addAction(report)
         actionSheet.addAction(delete)
         actionSheet.addAction(cancel)
-       
+        
         present(actionSheet, animated: true)
-      
+        
     }
 }
 
