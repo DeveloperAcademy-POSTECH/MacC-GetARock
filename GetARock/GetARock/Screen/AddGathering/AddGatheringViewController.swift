@@ -19,7 +19,7 @@ class AddGatheringViewController: UIViewController {
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var hostBandNameLabel: UILabel!
     @IBOutlet weak var dateTimePicker: UIDatePicker!
-    @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var introductionTextView: UITextView!
     @IBOutlet weak var scrollView: UIScrollView!
 
@@ -42,9 +42,9 @@ class AddGatheringViewController: UIViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let selectLocationViewController = segue.destination as? SelectLocationViewController
-        selectLocationViewController?.delegate = self
-        selectLocationViewController?.textFieldText = (gatheringLocation?.address ?? "") + (gatheringLocation?.additionalAddress ?? "")
+        if let addGatheringLocationViewController = segue.destination as? AddGatheringLocationViewController {
+            addGatheringLocationViewController.delegate = self
+        }
     }
 
     deinit {
@@ -80,7 +80,7 @@ class AddGatheringViewController: UIViewController {
             alert.addAction(confirm)
             self.present(alert, animated: true)
         } else {
-            let gatheringAddTestGathering = Gathering(
+            let gathering = Gathering(
                 title: titleTextField.text ?? "이름없음",
                 host: MockData.bands[0], // 테스트용, 추후 변경
                 status: .recruiting,
@@ -94,7 +94,7 @@ class AddGatheringViewController: UIViewController {
                 introduction: introductionTextView.text,
                 createdAt: Date()
             )
-            MockData.gatherings.append(GatheringInfo(gatheringID: "testID", gathering: gatheringAddTestGathering)) // 추후 변경
+            MockData.gatherings.append(GatheringInfo(gatheringID: "testID", gathering: gathering)) // ID 추후 변경
             dismiss(animated: true)
         }
     }
@@ -138,13 +138,19 @@ extension AddGatheringViewController: UITextViewDelegate {
     }
 }
 
-// MARK: - selectLocationDelegate
+// MARK: - Location Delegate
 
-extension AddGatheringViewController: selectLocationDelegate {
-    func setLocation(address: Location) {
-        gatheringLocation = address
-        addressLabel.text = (gatheringLocation?.address ?? "") + (gatheringLocation?.additionalAddress ?? "")
-        addressLabel.textColor = .white
+extension AddGatheringViewController: AddGatheringLocationViewControllerDelegate {
+    func setLocation(name: String?, address: String?, additionalAddress: String?, coordinate: Coordinate) {
+        gatheringLocation = Location(name: name, address: address, additionalAddress: additionalAddress, coordinate: coordinate)
+        var gatheringAddress = address ?? ""
+        if let detailAddress = additionalAddress {
+            gatheringAddress += " " + detailAddress
+        }
+        if gatheringAddress != "" {
+            locationLabel.text = gatheringAddress
+            locationLabel.textColor = .white
+        }
     }
 }
 
