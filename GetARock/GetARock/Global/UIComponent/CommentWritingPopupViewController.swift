@@ -14,8 +14,8 @@ class CommentWritingPopupViewController: UIViewController {
     private let textViewPlaceHolder = "텍스트를 입력해주세요"
     // MARK: - View
     
-    private let popupTitleLabel: UILabel = {
-        $0.text = "방명록 작성"
+    private lazy var popupTitleLabel: UILabel = {
+        $0.text = entryPoint.title
         $0.font = .systemFont(ofSize: 16, weight: .bold)
         $0.textColor = .white
         return $0
@@ -101,12 +101,7 @@ class CommentWritingPopupViewController: UIViewController {
     }
     
     private func setupPopupTitleLabel() {
-        switch entryPoint {
-        case .visitorComment:
-            popupTitleLabel.text = "방명록 작성"
-        case .gatheringComment:
-            popupTitleLabel.text = "댓글 작성"
-        }
+        popupTitleLabel.text = entryPoint.title
     }
     
     private func setupCloseButton() {

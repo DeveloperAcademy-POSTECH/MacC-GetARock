@@ -10,6 +10,13 @@ import UIKit
 enum CommentListEntryPoint {
     case visitorComment
     case gatheringComment
+    
+    var title: String {
+        switch self {
+        case .visitorComment: return "방명록 작성"
+        case .gatheringComment: return "댓글 작성"
+        }
+    }
 }
 
 class CommentListView: UIView {
@@ -101,13 +108,9 @@ class CommentListView: UIView {
     }
 
     private func setupCommentWritingButton() {
-        switch entryPoint {
-        case .visitorComment:
-            commentWritingButton.setupButtonTitle(title: "방명록 작성")
-        case .gatheringComment:
-            commentWritingButton.setupButtonTitle(title: "댓글 작성")
-        }
+        commentWritingButton.setupButtonTitle(title: entryPoint.title)
     }
+
 }
 
 // MARK: - UITableViewDelegate
