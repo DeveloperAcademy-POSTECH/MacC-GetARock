@@ -30,7 +30,7 @@ final class VisitorCommentViewController: UIViewController {
     var comments: [VisitorCommentInfo] = [] {
         didSet {
             MockData.visitorComments = comments
-            commentListView.tableView.reloadData()
+            commentListView.didCommentChanged()
         }
     }
     
@@ -71,6 +71,7 @@ final class VisitorCommentViewController: UIViewController {
     @objc func didTapVisitorCommentButton() {
         let popupViewController = CommentWritingPopupViewController(entryPoint: .visitorComment)
         popupViewController.bandInfo = bandInfo
+        popupViewController.delegate = self
         popupViewController.modalPresentationStyle = .overFullScreen
         self.present(popupViewController, animated: false)
     }
@@ -78,5 +79,13 @@ final class VisitorCommentViewController: UIViewController {
     private func getComments() async throws -> [VisitorCommentInfo] {
         guard let bandID = bandInfo?.bandID else { return [] }
         return try await bandAPI.getComments(of: bandID)
+    }
+}
+
+extension VisitorCommentViewController: WritingCommentPopupViewControllerDelegate {
+    func didWriteComment() {
+        Task {
+            self.comments = try await self.getComments()
+        }
     }
 }

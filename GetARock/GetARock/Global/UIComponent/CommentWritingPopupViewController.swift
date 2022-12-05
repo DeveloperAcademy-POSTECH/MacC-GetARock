@@ -7,12 +7,17 @@
 
 import UIKit
 
+protocol WritingCommentPopupViewControllerDelegate: AnyObject {
+    func didWriteComment()
+}
+
 class CommentWritingPopupViewController: UIViewController {
     
     // MARK: - Properties
     var entryPoint: CommentListEntryPoint
     private let textViewPlaceHolder = "텍스트를 입력해주세요"
     var bandInfo: BandInfo?
+    weak var delegate: WritingCommentPopupViewControllerDelegate?
     
     // MARK: - View
     
@@ -131,6 +136,7 @@ class CommentWritingPopupViewController: UIViewController {
                             createdAt: Date()
                         )
                         _ = try await BandAPI().saveComment(comment: saveData)
+                        self.delegate?.didWriteComment()
                         self.dismiss(animated: false, completion: nil)
                     } catch {
                         print(error)

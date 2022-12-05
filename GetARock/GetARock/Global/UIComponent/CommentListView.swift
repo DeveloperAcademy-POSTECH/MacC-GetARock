@@ -110,6 +110,11 @@ class CommentListView: UIView {
     private func setupCommentWritingButton() {
         commentWritingButton.setupButtonTitle(title: entryPoint.title)
     }
+    
+    func didCommentChanged() {
+        tableView.reloadData()
+        setupTotalListNumberLabel()
+    }
 
 }
 
