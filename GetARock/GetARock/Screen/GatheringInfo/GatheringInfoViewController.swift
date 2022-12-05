@@ -20,7 +20,12 @@ final class GatheringInfoViewController: UIViewController {
     @IBOutlet weak var ellipsisButton: UIButton!
     
     @IBOutlet weak var commentsView: UIView!
-    var gatheringInfo: GatheringInfo = MockData.gatherings[3]
+    var gatheringInfo: GatheringInfo = MockData.gatherings[3] {
+        didSet {
+            didViewLoad ? connectWithData() : Void()
+        }
+    }
+    var didViewLoad: Bool = false
     var gatheringCommentsList = {
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
@@ -34,6 +39,7 @@ final class GatheringInfoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        didViewLoad = true
         conditionView.layer.cornerRadius = 15
         conditionView.layer.borderWidth = 2
         conditionView.layer.borderColor = UIColor.white.cgColor

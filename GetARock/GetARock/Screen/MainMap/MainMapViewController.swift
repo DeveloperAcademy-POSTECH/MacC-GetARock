@@ -299,8 +299,9 @@ extension MainMapViewController: MKMapViewDelegate {
             nextVC = bandViewController
             present(bandViewController, animated: true, completion: nil)
         case .gathering :
-            // guard let gatheringData = selectedAnnotation.gatheringInfo else { return }
-            let gatheringViewController = UIStoryboard(name: "GatheringInfoPage", bundle: nil).instantiateViewController(withIdentifier: GatheringInfoViewController.className)
+             guard let gatheringData = selectedAnnotation.gatheringInfo else { return }
+            guard let gatheringViewController = UIStoryboard(name: "GatheringInfoPage", bundle: nil).instantiateViewController(withIdentifier: GatheringInfoViewController.className) as? GatheringInfoViewController else { return }
+            gatheringViewController.gatheringInfo = gatheringData
             gatheringViewController.modalPresentationStyle = .pageSheet
             if let sheet = gatheringViewController.sheetPresentationController {
                 sheet.detents = [.medium(), .large()]
