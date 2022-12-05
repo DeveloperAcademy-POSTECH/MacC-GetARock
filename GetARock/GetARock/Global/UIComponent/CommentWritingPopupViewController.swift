@@ -12,6 +12,8 @@ class CommentWritingPopupViewController: UIViewController {
     // MARK: - Properties
     var entryPoint: CommentListEntryPoint
     private let textViewPlaceHolder = "텍스트를 입력해주세요"
+    var bandInfo: BandInfo?
+    
     // MARK: - View
     
     private lazy var popupTitleLabel: UILabel = {
@@ -113,20 +115,27 @@ class CommentWritingPopupViewController: UIViewController {
     }
     
     @objc private func addNewComment(_ sender: Any) {
+        let email = UserDefaultStorage.userEmail
+        if email == "" { return }
+        guard let bandInfo = bandInfo else { return }
         switch entryPoint {
         case .visitorComment:
             if let text = commentTextView.text {
-                let saveData = VisitorCommentInfo(
-                    commentID: "visitorCommentID-005",
-                    comment: VisitorComment(
-                        hostBand: MockData.bands[0],
-                        author: MockData.bands[2],
-                        content: text,
-                        createdAt: Date()
-                    )
-                )
-                MockData.visitorComments.append(saveData)
-                self.dismiss(animated: false, completion: nil)
+                Task {
+                    do {
+                        let userBandInfo = try await BandAPI().getBandInfo(bandID: email)
+                        let saveData = VisitorComment(
+                            hostBand: bandInfo,
+                            author: userBandInfo,
+                            content: text,
+                            createdAt: Date()
+                        )
+                        _ = try await BandAPI().saveComment(comment: saveData)
+                        self.dismiss(animated: false, completion: nil)
+                    } catch {
+                        print(error)
+                    }
+                }
             }
         case .gatheringComment:
             if let text = commentTextView.text {
