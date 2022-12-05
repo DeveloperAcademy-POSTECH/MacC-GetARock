@@ -70,9 +70,12 @@
 		B830849929263B780035DB2D /* MainMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B830849829263B780035DB2D /* MainMapViewController.swift */; };
 		B8B9971F29287D3700082462 /* MainMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8B9971E29287D3700082462 /* MainMap.storyboard */; };
 		B8BE496E292E14C800E8E774 /* CustomAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BE496D292E14C800E8E774 /* CustomAnnotationView.swift */; };
-		C57974DB292F557D00471DC9 /* SelectLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57974DA292F557D00471DC9 /* SelectLocationViewController.swift */; };
-		C5C7AC6B292A7F7C00698636 /* AddGathering.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5C7AC6A292A7F7C00698636 /* AddGathering.storyboard */; };
-		C5C7AC6D292A7FA200698636 /* AddGatheringViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C7AC6C292A7FA200698636 /* AddGatheringViewController.swift */; };
+		C561490A293DDCE000B45D58 /* AddGathering.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5614909293DDCE000B45D58 /* AddGathering.storyboard */; };
+		C561490C293DDCFE00B45D58 /* LocationCandidateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C561490B293DDCFE00B45D58 /* LocationCandidateCell.xib */; };
+		C5614913293DDD1900B45D58 /* LocationSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C561490E293DDD1900B45D58 /* LocationSelectViewController.swift */; };
+		C5614914293DDD1900B45D58 /* LocationCandidateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C561490F293DDD1900B45D58 /* LocationCandidateCell.swift */; };
+		C5614915293DDD1900B45D58 /* AddGatheringViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5614910293DDD1900B45D58 /* AddGatheringViewController.swift */; };
+		C5614916293DDD1900B45D58 /* AddGatheringLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5614911293DDD1900B45D58 /* AddGatheringLocationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -160,9 +163,12 @@
 		B830849829263B780035DB2D /* MainMapViewController.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = MainMapViewController.swift; sourceTree = "<group>"; tabWidth = 4; };
 		B8B9971E29287D3700082462 /* MainMap.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainMap.storyboard; sourceTree = "<group>"; };
 		B8BE496D292E14C800E8E774 /* CustomAnnotationView.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = CustomAnnotationView.swift; sourceTree = "<group>"; tabWidth = 4; };
-		C57974DA292F557D00471DC9 /* SelectLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectLocationViewController.swift; sourceTree = "<group>"; };
-		C5C7AC6A292A7F7C00698636 /* AddGathering.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddGathering.storyboard; sourceTree = "<group>"; };
-		C5C7AC6C292A7FA200698636 /* AddGatheringViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGatheringViewController.swift; sourceTree = "<group>"; };
+		C5614909293DDCE000B45D58 /* AddGathering.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddGathering.storyboard; sourceTree = "<group>"; };
+		C561490B293DDCFE00B45D58 /* LocationCandidateCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LocationCandidateCell.xib; sourceTree = "<group>"; };
+		C561490E293DDD1900B45D58 /* LocationSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSelectViewController.swift; sourceTree = "<group>"; };
+		C561490F293DDD1900B45D58 /* LocationCandidateCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationCandidateCell.swift; sourceTree = "<group>"; };
+		C5614910293DDD1900B45D58 /* AddGatheringViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddGatheringViewController.swift; sourceTree = "<group>"; };
+		C5614911293DDD1900B45D58 /* AddGatheringLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddGatheringLocationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -308,7 +314,7 @@
 				66E1623D292ADFC7001F0578 /* GatheringInfo */,
 				3D56532A292855F8003D0C9F /* BandInfo */,
 				B830849729263B620035DB2D /* MainMap */,
-				C5C7AC69292A7EC000698636 /* AddGathering */,
+				C561490D293DDD1900B45D58 /* AddGathering */,
 				8437618E2927551100BD2C2A /* Gathering */,
 				07D7DA2E2910894000479B6F /* Landing */,
 				07D7DA3D29108CC600479B6F /* MyPage */,
@@ -335,7 +341,7 @@
 				3D565328292855E9003D0C9F /* BandInfo.storyboard */,
 				840025FF292BB27B0093648A /* BandTimeline.storyboard */,
 				B8B9971E29287D3700082462 /* MainMap.storyboard */,
-				C5C7AC6A292A7F7C00698636 /* AddGathering.storyboard */,
+				C5614909293DDCE000B45D58 /* AddGathering.storyboard */,
 				8437618A2927397400BD2C2A /* GatheringView.storyboard */,
 				66E74207292C9F12003C0B02 /* ReportReasonList.storyboard */,
 			);
@@ -408,6 +414,7 @@
 				8437618C29273CF000BD2C2A /* GatheringCell.xib */,
 				6606F854292CB38B00A121BF /* ReportReasonListCell.xib */,
 				66285ABD292DE9F100029213 /* ReportReasonListHeader.xib */,
+				C561490B293DDCFE00B45D58 /* LocationCandidateCell.xib */,
 			);
 			path = Xibs;
 			sourceTree = "<group>";
@@ -489,13 +496,24 @@
 			path = MainMap;
 			sourceTree = "<group>";
 		};
-		C5C7AC69292A7EC000698636 /* AddGathering */ = {
+		C561490D293DDD1900B45D58 /* AddGathering */ = {
 			isa = PBXGroup;
 			children = (
-				C5C7AC6C292A7FA200698636 /* AddGatheringViewController.swift */,
-				C57974DA292F557D00471DC9 /* SelectLocationViewController.swift */,
+				C561490E293DDD1900B45D58 /* LocationSelectViewController.swift */,
+				C561490F293DDD1900B45D58 /* LocationCandidateCell.swift */,
+				C5614910293DDD1900B45D58 /* AddGatheringViewController.swift */,
+				C5614911293DDD1900B45D58 /* AddGatheringLocationViewController.swift */,
+				C5614912293DDD1900B45D58 /* ForTest */,
 			);
-			path = AddGathering;
+			name = AddGathering;
+			path = "../../../../../Code BU/GetARock 데모 합칠 용/GetARock/Screen/AddGathering";
+			sourceTree = "<group>";
+		};
+		C5614912293DDD1900B45D58 /* ForTest */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ForTest;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -612,14 +630,15 @@
 				84002600292BB27B0093648A /* BandTimeline.storyboard in Resources */,
 				8437618D29273CF000BD2C2A /* GatheringCell.xib in Resources */,
 				07D7D9EF290FB8C400479B6F /* LaunchScreen.storyboard in Resources */,
+				C561490A293DDCE000B45D58 /* AddGathering.storyboard in Resources */,
 				07D7DA4429108DCB00479B6F /* SampleView.xib in Resources */,
 				6667A3202929F5DA0052A53B /* GatheringInfoPage.storyboard in Resources */,
+				C561490C293DDCFE00B45D58 /* LocationCandidateCell.xib in Resources */,
 				07D7D9EC290FB8C400479B6F /* Assets.xcassets in Resources */,
 				6606F856292CB38B00A121BF /* ReportReasonListCell.xib in Resources */,
 				07D7D9EA290FB8C200479B6F /* Landing.storyboard in Resources */,
 				84002606292BB75C0093648A /* BandTimelineCell.xib in Resources */,
 				3D565329292855E9003D0C9F /* BandInfo.storyboard in Resources */,
-				C5C7AC6B292A7F7C00698636 /* AddGathering.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -669,6 +688,7 @@
 				6606F855292CB38B00A121BF /* ReportReasonListCell.swift in Sources */,
 				66E7420A292CA04D003C0B02 /* ReportReasonListController.swift in Sources */,
 				8437619229276FA700BD2C2A /* GatheringCell.swift in Sources */,
+				C5614915293DDD1900B45D58 /* AddGatheringViewController.swift in Sources */,
 				8437619029275B3500BD2C2A /* GatheringCreatedViewController.swift in Sources */,
 				07D7DA3C29108C9000479B6F /* SampleView.swift in Sources */,
 				3DF54FCB292A43EA001CD16B /* BandMemberCollectionViewCell.swift in Sources */,
@@ -694,13 +714,13 @@
 				7BDA8F90291296B200BB2D34 /* UIView+Gradation.swift in Sources */,
 				0761508B29276D8200A0562F /* Coordinate.swift in Sources */,
 				7BB7099B292A47E50065136D /* CommentCreateButton.swift in Sources */,
+				C5614913293DDD1900B45D58 /* LocationSelectViewController.swift in Sources */,
 				07D7DA302910895000479B6F /* LandingViewController.swift in Sources */,
 				7BE60DA1292F32E200BD7492 /* VisitorCommentViewController.swift in Sources */,
-				C5C7AC6D292A7FA200698636 /* AddGatheringViewController.swift in Sources */,
+				C5614914293DDD1900B45D58 /* LocationCandidateCell.swift in Sources */,
 				072DEDD429268F470046A4A0 /* PlayPosition.swift in Sources */,
 				07D7DA2D291088EC00479B6F /* NSObject+Extension.swift in Sources */,
 				07615093292907A900A0562F /* GatheringComment.swift in Sources */,
-				C57974DB292F557D00471DC9 /* SelectLocationViewController.swift in Sources */,
 				7BB709972929164D0065136D /* CommentTableViewCell.swift in Sources */,
 				AB58E003292CB57100868720 /* BandPageViewController.swift in Sources */,
 				ABCE15B7292A052F007D30E2 /* ViewSwitchedSegmentedControl.swift in Sources */,
@@ -709,6 +729,7 @@
 				7BDA8F8B291284FE00BB2D34 /* UIColor+Extension.swift in Sources */,
 				072DEDD62926902D0046A4A0 /* AgeGroup.swift in Sources */,
 				7BB7099329290AE40065136D /* CommentListView.swift in Sources */,
+				C5614916293DDD1900B45D58 /* AddGatheringLocationViewController.swift in Sources */,
 				7BB70999292A419B0065136D /* EmptyListView.swift in Sources */,
 				07C966B9292C463100A59CF5 /* Date+String.swift in Sources */,
 			);
