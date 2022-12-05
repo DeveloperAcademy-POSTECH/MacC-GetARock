@@ -35,12 +35,33 @@ final class MainMapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        enrollLoginObserver()
         setMapView()
         addAnnotationOnMapView()
         self.locationManager.requestWhenInUseAuthorization()
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     // MARK: - Method
+    
+    private func enrollLoginObserver() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(didLogin(_:)),
+            name: Notification.Name("ResponedLogin"),
+            object: nil
+        )
+    }
+    
+    @objc
+    private func didLogin(_ sender: Notification) {
+        print()
+        print("did login - MainMapViewController")
+        print()
+    }
     
     private func setMapView() {
         mapView.delegate = self

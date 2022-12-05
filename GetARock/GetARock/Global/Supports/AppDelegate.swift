@@ -15,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
+        launchLogin()
         return true
     }
 
@@ -35,3 +36,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+extension AppDelegate {
+    
+    func launchLogin() {
+        let authAPI = AuthAPI()
+        Task {
+            do {
+                _ = try await authAPI.signIn(withEmail: "user1@test.com", password: "123456")
+                NotificationCenter.default.post(name: Notification.Name("ResponedLogin"), object: nil)
+                print()
+                print("success login")
+                print()
+            } catch {
+                print()
+                print("====== error ======")
+                print("AppDelegate - application didFinishLaunchingWithOptions")
+                print(error)
+                print("------ error ------")
+                print()
+            }
+        }
+    }
+}
