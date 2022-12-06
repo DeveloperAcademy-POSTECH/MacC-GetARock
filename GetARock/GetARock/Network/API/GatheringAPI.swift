@@ -65,7 +65,7 @@ struct GatheringAPI {
     }
     
     func getComments(of gatheringID: GatheringID) async throws -> [GatheringCommentInfo] {
-        let snapShot = try await database.collection("gatheringComment").getDocuments()
+        let snapShot = try await database.collection("gatheringComment").whereField("gatheringID", isEqualTo: gatheringID).getDocuments()
         var commentInfos: [GatheringCommentInfo] = []
         
         // TODO: 지연현상 개선 필요

@@ -20,7 +20,9 @@ final class GatheringInfoViewController: UIViewController {
     @IBOutlet weak var ellipsisButton: UIButton!
     
     @IBOutlet weak var commentsView: UIView!
-    var gatheringInfo: GatheringInfo = MockData.gatherings[3] {
+    var gatheringInfo: GatheringInfo = {
+        MockData.gatherings[3]
+    }() {
         didSet {
             didViewLoad ? connectWithData() : Void()
             if didViewLoad {
@@ -30,6 +32,7 @@ final class GatheringInfoViewController: UIViewController {
     }
     var didViewLoad: Bool = false
     var gatheringCommentsListView = {
+        MockData.gatheringComments = []
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
     }(CommentListView(entryPoint: .gatheringComment))

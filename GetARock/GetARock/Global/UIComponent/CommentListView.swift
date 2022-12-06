@@ -29,6 +29,7 @@ class CommentListView: UIView {
         return []
     }() {
         didSet {
+            MockData.gatheringComments = []
             if entryPoint == .gatheringComment {
                 MockData.gatheringComments = gatheringComments
                 tableView.reloadData()
