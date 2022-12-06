@@ -109,7 +109,8 @@ class AddGatheringViewController: UIViewController {
 
     private func attribute() {
         setupNavigationBar()
-        hostBandName = MockData.bands[0].band.name // 추후 변경: 유저디폴트 사용 예정
+        guard let myBandInfo = myBandInfo else { return }
+        hostBandName = myBandInfo.band.name
         hostBandNameLabel.text = hostBandName
         dateTimePicker.minimumDate = Date()
         titleTextField.becomeFirstResponder()
