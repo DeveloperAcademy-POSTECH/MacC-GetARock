@@ -220,7 +220,8 @@ final class MainMapViewController: UIViewController {
         present(gatheringListViewController, animated: true, completion: nil)
     }
     @IBAction func myPageButtonClicked(_ sender: UIButton) {
-        let myPageViewController = BandPageViewController(bandInfo: MockData.bands[0])
+        guard let myBandInfo = myBandInfo else { return }
+        let myPageViewController = BandPageViewController(bandInfo: myBandInfo)
         myPageViewController.modalPresentationStyle = .pageSheet
         if let sheet = myPageViewController.sheetPresentationController {
             sheet.detents = [.medium(), .large()]
