@@ -41,6 +41,11 @@ final class MainMapViewController: UIViewController {
     }
     var gatherings: [GatheringInfo] = [] {
         didSet {
+            gatherings = gatherings.filter({ gatheringInfo in
+                let status = gatheringInfo.gathering.status
+                return (status == .recruiting || status == .progressing)
+            })
+            print(gatherings.map { $0.gathering.date })
             mapView.removeAnnotations(mapView.annotations)
             addAnnotationOnMapView()
         }

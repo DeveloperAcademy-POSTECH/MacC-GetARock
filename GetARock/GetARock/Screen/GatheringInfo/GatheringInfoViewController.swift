@@ -18,6 +18,7 @@ final class GatheringInfoViewController: UIViewController {
     @IBOutlet weak var gatheringLocationLabel: UILabel!
     @IBOutlet weak var describtionLabel: UILabel!
     @IBOutlet weak var ellipsisButton: UIButton!
+    @IBOutlet weak var statusLabel: UILabel!
     
     @IBOutlet weak var commentsView: UIView!
     var gatheringInfo: GatheringInfo = {
@@ -86,6 +87,7 @@ final class GatheringInfoViewController: UIViewController {
         gatheringDateLabel.text = gatheringInfo.gathering.date.toString(format: DateFormatLiteral.standard )
         gatheringLocationLabel.text = gatheringInfo.gathering.location.address
         describtionLabel.text = gatheringInfo.gathering.introduction
+        statusLabel.text = gatheringInfo.gathering.status.toKorean()
     }
     
     @IBAction func touchUpInsideEllipsis(_ sender: UIButton) {

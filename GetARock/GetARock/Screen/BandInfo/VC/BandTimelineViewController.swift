@@ -15,6 +15,10 @@ class BandTimelineViewController: UIViewController {
     var bandInfo: BandInfo?
     private var gatherings: [GatheringInfo] = [] {
         didSet {
+            gatherings = gatherings.filter({ gatheringInfo in
+                let status = gatheringInfo.gathering.status
+                return status != .canceled
+            })
             tableView.reloadData()
         }
     }

@@ -26,6 +26,21 @@ enum GatheringStatus: String, Codable {
         case .canceled: return "취소됨"
         }
     }
+    
+    func calculateStatus(date: Date) -> Self {
+        print()
+        print(date)
+        print(Date())
+        print()
+        if date > Date() { return .recruiting }
+        if date <= Date() && Date() < Date(timeInterval: 3600*3, since: date) {
+            return .progressing
+        }
+        if Date() >= Date(timeInterval: 3600*3, since: date) {
+            return .finished
+        }
+        return .canceled
+    }
 }
 
 /// 밴드팅 모임입니다.
@@ -45,5 +60,29 @@ struct Gathering {
     let introduction: String
     /// 모임 모집을 시작하는 시기 정보입니다.
     let createdAt: Date
+    
+}
+
+extension Gathering {
+    
+    func changeValue(
+        title: String? = nil,
+        host: BandInfo? = nil,
+        status: GatheringStatus? = nil,
+        date: Date? = nil,
+        location: Location? = nil,
+        introduction: String? = nil,
+        createdAt: Date? = nil
+    ) -> Self {
+        Gathering(
+            title: title ?? self.title,
+            host: host ?? self.host,
+            status: status ?? self.status,
+            date: date ?? self.date,
+            location: location ?? self.location,
+            introduction: introduction ?? self.introduction,
+            createdAt: createdAt ?? self.createdAt
+        )
+    }
     
 }

@@ -276,6 +276,7 @@
                         <outlet property="gatheringDateLabel" destination="1I3-XG-1pd" id="tgd-i4-AaI"/>
                         <outlet property="gatheringLocationLabel" destination="H4M-sD-ZMG" id="FOl-33-4OG"/>
                         <outlet property="gatheringTitleLabel" destination="aYx-ug-1Kh" id="Tsx-mr-85R"/>
+                        <outlet property="statusLabel" destination="Sah-zl-Rl3" id="Olu-5l-y31"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
