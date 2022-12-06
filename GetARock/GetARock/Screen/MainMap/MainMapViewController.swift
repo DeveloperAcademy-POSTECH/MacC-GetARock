@@ -82,6 +82,15 @@ final class MainMapViewController: UIViewController {
         }
     }
     
+    func refresh() {
+        Task {
+            async let bands = getBands()
+            async let gatherings = getGatherings()
+            self.bands = (try? await bands) ?? self.bands
+            self.gatherings = (try? await gatherings) ?? self.gatherings
+        }
+    }
+    
     private func getBands() async throws -> [BandInfo] {
         return try await bandAPI.getAllBandInfos()
     }

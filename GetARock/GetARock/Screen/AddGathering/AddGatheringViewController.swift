@@ -84,6 +84,11 @@ class AddGatheringViewController: UIViewController {
         } else {
             Task {
                 try await addGathering()
+                guard let mainMapViewController = self.presentingViewController as? MainMapViewController else {
+                    dismiss(animated: true)
+                    return
+                }
+                mainMapViewController.refresh()
                 dismiss(animated: true)
             }
         }
