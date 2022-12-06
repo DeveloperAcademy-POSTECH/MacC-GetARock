@@ -17,6 +17,7 @@ class CommentWritingPopupViewController: UIViewController {
     var entryPoint: CommentListEntryPoint
     private let textViewPlaceHolder = "텍스트를 입력해주세요"
     var bandInfo: BandInfo?
+    var gatheringInfo: GatheringInfo?
     weak var delegate: WritingCommentPopupViewControllerDelegate?
     
     // MARK: - View
@@ -122,9 +123,9 @@ class CommentWritingPopupViewController: UIViewController {
     @objc private func addNewComment(_ sender: Any) {
         let email = UserDefaultStorage.userEmail
         if email == "" { return }
-        guard let bandInfo = bandInfo else { return }
         switch entryPoint {
         case .visitorComment:
+            guard let bandInfo = bandInfo else { return }
             if let text = commentTextView.text {
                 Task {
                     do {
@@ -145,15 +146,23 @@ class CommentWritingPopupViewController: UIViewController {
             }
         case .gatheringComment:
             if let text = commentTextView.text {
-                let saveData = GatheringCommentInfo(
-                    commentID: "gatheringID-005",
-                    comment: GatheringComment(
-                        gathering: MockData.gatheringComments[0].comment.gathering,
-                        author: MockData.gatheringComments[0].comment.author,
-                        content: text,
-                        createdAt: Date()))
-                MockData.gatheringComments.append(saveData)
-                self.dismiss(animated: false, completion: nil)
+                Task {
+                    do {
+                        guard let gatheringInfo = gatheringInfo else { return }
+                        let userBandInfo = try await BandAPI().getBandInfo(bandID: email)
+                        let saveData = GatheringComment(
+                            gathering: gatheringInfo,
+                            author: userBandInfo,
+                            content: text,
+                            createdAt: Date()
+                        )
+                        _ = try await GatheringAPI().saveComment(comment: saveData)
+                        self.delegate?.didWriteComment()
+                        self.dismiss(animated: false, completion: nil)
+                    } catch {
+                        print(error)
+                    }
+                }
             }
         }
     }

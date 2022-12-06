@@ -30,6 +30,12 @@ final class GatheringInfoViewController: UIViewController {
             }
         }
     }
+    var comments: [GatheringCommentInfo] = [] {
+        didSet {
+            MockData.gatheringComments = comments
+            gatheringCommentsListView.didCommentChanged()
+        }
+    }
     var didViewLoad: Bool = false
     var gatheringCommentsListView = {
         MockData.gatheringComments = []
@@ -87,11 +93,13 @@ final class GatheringInfoViewController: UIViewController {
     }
     
     private func setupWritingButton() {
-        gatheringCommentsListView.commentWritingButton.titleButton.addTarget(self, action: #selector(didTapVisitorCommentButton), for: .touchUpInside)
+        gatheringCommentsListView.commentWritingButton.titleButton.addTarget(self, action: #selector(didTapGatheringCommentButton), for: .touchUpInside)
     }
 
-    @objc func didTapVisitorCommentButton() {
+    @objc func didTapGatheringCommentButton() {
         let popupViewController = CommentWritingPopupViewController(entryPoint: .gatheringComment)
+        popupViewController.gatheringInfo = gatheringInfo
+        popupViewController.delegate = self
         popupViewController.modalPresentationStyle = .fullScreen
         self.present(popupViewController, animated: false)
     }
@@ -113,5 +121,13 @@ final class GatheringInfoViewController: UIViewController {
 extension GatheringInfoViewController: Reportable {
     func alertActionButtonPressed() {
         print("삭제에 성공했습니다.")
+    }
+}
+
+extension GatheringInfoViewController: WritingCommentPopupViewControllerDelegate {
+    func didWriteComment() {
+        Task {
+            self.comments = try await self.getComments()
+        }
     }
 }
