@@ -7,6 +7,8 @@
 
 import UIKit
 
+var myBandInfo: BandInfo?
+
 class AddGatheringViewController: UIViewController {
 
     // MARK: - Property
@@ -80,23 +82,25 @@ class AddGatheringViewController: UIViewController {
             alert.addAction(confirm)
             self.present(alert, animated: true)
         } else {
-            let gathering = Gathering(
-                title: titleTextField.text ?? "이름없음",
-                host: MockData.bands[0], // 테스트용, 추후 변경
-                status: .recruiting,
-                date: dateTimePicker.date,
-                location: gatheringLocation ?? Location(
-                    name: "Default",
-                    address: "defaultAddress",
-                    additionalAddress: "defaultAdditionalAddress",
-                    coordinate: Coordinate(latitude: 36.01900, longitude: 129.34370)
-                ),
-                introduction: introductionTextView.text,
-                createdAt: Date()
-            )
-            MockData.gatherings.append(GatheringInfo(gatheringID: "testID", gathering: gathering)) // ID 추후 변경
-            dismiss(animated: true)
+            Task {
+                try await addGathering()
+                dismiss(animated: true)
+            }
         }
+    }
+    
+    func addGathering() async throws {
+        let gatheringAPI = GatheringAPI()
+        guard let myBandInfo = myBandInfo, let gatheringLocation = gatheringLocation else { return }
+        _ = try await gatheringAPI.saveGathering(gathering: Gathering(
+            title: titleTextField.text ?? "이름없음",
+            host: myBandInfo,
+            status: .recruiting,
+            date: dateTimePicker.date,
+            location: gatheringLocation,
+            introduction: introductionTextView.text,
+            createdAt: Date())
+        )
     }
 
     @IBAction func scrollViewTapRecognizer(_ sender: UITapGestureRecognizer) {
