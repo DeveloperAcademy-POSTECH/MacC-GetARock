@@ -52,9 +52,8 @@ struct GatheringAPI {
         return gatheringInfos
     }
     
-    func getAllOwnedGatheringInfos() async throws -> [GatheringInfo] {
-        guard let myBandInfo = myBandInfo else { return [] }
-        let snapShot = try await database.collection("gathering").whereField("hostBandID", isEqualTo: myBandInfo.bandID).getDocuments()
+    func getAllOwnedGatheringInfos(owner bandID: String) async throws -> [GatheringInfo] {
+        let snapShot = try await database.collection("gathering").whereField("hostBandID", isEqualTo: bandID).getDocuments()
         var gatheringInfos: [GatheringInfo] = []
         
         for document in snapShot.documents {
@@ -69,10 +68,9 @@ struct GatheringAPI {
         return gatheringInfos
     }
 
-    func getAllJoinedGatheringInfos() async throws -> [GatheringInfo] {
+    func getAllJoinedGatheringInfos(participant bandID: String) async throws -> [GatheringInfo] {
         // TODO: 동시성 개선
-        guard let myBandInfo = myBandInfo else { return [] }
-        let snapShot = try await database.collection("gatheringComment").whereField("authorID", isEqualTo: myBandInfo.bandID).getDocuments()
+        let snapShot = try await database.collection("gatheringComment").whereField("authorID", isEqualTo: bandID).getDocuments()
         var gatheringIDs: [String] = []
         var gatheringInfos: [GatheringInfo] = []
 

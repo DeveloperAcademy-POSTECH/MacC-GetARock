@@ -50,9 +50,10 @@ class GatheringCreatedViewController: UIViewController {
     // MARK: - Methods
     func setGatherings() {
         Task {
+            guard let myBandInfo = myBandInfo else { return }
             let gatheringAPI = GatheringAPI()
-            async let ownedGatherings = gatheringAPI.getAllOwnedGatheringInfos()
-            async let joinedGatherings = gatheringAPI.getAllJoinedGatheringInfos()
+            async let ownedGatherings = gatheringAPI.getAllOwnedGatheringInfos(owner: myBandInfo.bandID)
+            async let joinedGatherings = gatheringAPI.getAllJoinedGatheringInfos(participant: myBandInfo.bandID)
             self.ownedGatherings = (try? await ownedGatherings) ?? self.ownedGatherings
             self.joinedGatherings = (try? await joinedGatherings) ?? self.joinedGatherings
         }

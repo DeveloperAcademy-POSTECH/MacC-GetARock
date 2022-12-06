@@ -73,6 +73,9 @@ class BandPageViewController: UIViewController {
         segmentedControlButtons.delegate = self
         
         setViewControllers()
+        
+        guard let bandTimelineViewController = bandTimelineViewController as? BandTimelineViewController else { return }
+        bandTimelineViewController.bandInfo = bandinfo
     }
 
 }
