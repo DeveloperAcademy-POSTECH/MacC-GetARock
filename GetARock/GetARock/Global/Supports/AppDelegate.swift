@@ -47,6 +47,10 @@ extension AppDelegate {
                 print()
                 print("success login")
                 print()
+                
+                let myInfo = try await BandAPI().getBandInfo(bandID: UserDefaultStorage.userEmail)
+                myBandInfo = myInfo
+                
             } catch {
                 print()
                 print("====== error ======")
