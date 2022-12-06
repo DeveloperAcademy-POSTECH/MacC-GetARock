@@ -23,10 +23,13 @@ final class GatheringInfoViewController: UIViewController {
     var gatheringInfo: GatheringInfo = MockData.gatherings[3] {
         didSet {
             didViewLoad ? connectWithData() : Void()
+            if didViewLoad {
+                setComments()
+            }
         }
     }
     var didViewLoad: Bool = false
-    var gatheringCommentsList = {
+    var gatheringCommentsListView = {
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
     }(CommentListView(entryPoint: .gatheringComment))
@@ -34,15 +37,14 @@ final class GatheringInfoViewController: UIViewController {
     // MARK: - View Life Cycle
     
     override func viewWillAppear(_ animated: Bool) {
-        gatheringCommentsList.tableView.reloadData()
+        gatheringCommentsListView.tableView.reloadData()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         didViewLoad = true
-        conditionView.layer.cornerRadius = 15
-        conditionView.layer.borderWidth = 2
-        conditionView.layer.borderColor = UIColor.white.cgColor
+        setComments()
+        setConditionView()
         connectWithData()
         setupLayout()
         view.backgroundColor = .modalBackgroundBlue
@@ -50,14 +52,20 @@ final class GatheringInfoViewController: UIViewController {
     
     // MARK: - Method
     
+    private func setConditionView() {
+        conditionView.layer.cornerRadius = 15
+        conditionView.layer.borderWidth = 2
+        conditionView.layer.borderColor = UIColor.white.cgColor
+    }
+    
     private func setupLayout() {
-        commentsView.addSubview(gatheringCommentsList)
-        gatheringCommentsList.tableView.backgroundColor = .modalBackgroundBlue
+        commentsView.addSubview(gatheringCommentsListView)
+        gatheringCommentsListView.tableView.backgroundColor = .modalBackgroundBlue
         NSLayoutConstraint.activate([
-            gatheringCommentsList.topAnchor.constraint(equalTo: commentsView.topAnchor, constant: 20),
-            gatheringCommentsList.leadingAnchor.constraint(equalTo: commentsView.leadingAnchor, constant: 16),
-            gatheringCommentsList.trailingAnchor.constraint(equalTo: commentsView.trailingAnchor, constant: -16),
-            gatheringCommentsList.bottomAnchor.constraint(equalTo: commentsView.bottomAnchor)
+            gatheringCommentsListView.topAnchor.constraint(equalTo: commentsView.topAnchor, constant: 20),
+            gatheringCommentsListView.leadingAnchor.constraint(equalTo: commentsView.leadingAnchor, constant: 16),
+            gatheringCommentsListView.trailingAnchor.constraint(equalTo: commentsView.trailingAnchor, constant: -16),
+            gatheringCommentsListView.bottomAnchor.constraint(equalTo: commentsView.bottomAnchor)
         ])
         setupWritingButton()
         
@@ -76,13 +84,24 @@ final class GatheringInfoViewController: UIViewController {
     }
     
     private func setupWritingButton() {
-        gatheringCommentsList.commentWritingButton.titleButton.addTarget(self, action: #selector(didTapVisitorCommentButton), for: .touchUpInside)
+        gatheringCommentsListView.commentWritingButton.titleButton.addTarget(self, action: #selector(didTapVisitorCommentButton), for: .touchUpInside)
     }
 
     @objc func didTapVisitorCommentButton() {
         let popupViewController = CommentWritingPopupViewController(entryPoint: .gatheringComment)
         popupViewController.modalPresentationStyle = .fullScreen
         self.present(popupViewController, animated: false)
+    }
+    
+    private func setComments() {
+        Task {
+            try? await gatheringCommentsListView.gatheringComments = getComments()
+        }
+    }
+    
+    private func getComments() async throws -> [GatheringCommentInfo] {
+        let gatheringAPI = GatheringAPI()
+        return try await gatheringAPI.getComments(of: gatheringInfo.gatheringID)
     }
 }
 

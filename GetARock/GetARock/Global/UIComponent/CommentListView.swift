@@ -24,7 +24,18 @@ class CommentListView: UIView {
     // MARK: - Properties
 
     private var vistorCommentData: VisitorCommentInfo?
-    private var gatheringComment: GatheringCommentInfo?
+    var gatheringComments: [GatheringCommentInfo] = {
+        MockData.gatheringComments = []
+        return []
+    }() {
+        didSet {
+            if entryPoint == .gatheringComment {
+                MockData.gatheringComments = gatheringComments
+                tableView.reloadData()
+                setupTotalListNumberLabel()
+            }
+        }
+    }
     private var entryPoint: CommentListEntryPoint
 
     // MARK: - View
