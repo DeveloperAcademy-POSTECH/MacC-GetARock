@@ -83,7 +83,9 @@ struct BandAPI {
             commentInfos.append(commentInfo)
         }
         
-        return commentInfos
+        return commentInfos.sorted {
+            $0.comment.createdAt > $1.comment.createdAt
+        }
     }
     
 }
