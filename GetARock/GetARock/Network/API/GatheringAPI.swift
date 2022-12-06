@@ -70,18 +70,23 @@ struct GatheringAPI {
     }
 
     func getAllJoinedGatheringInfos() async throws -> [GatheringInfo] {
+        // TODO: 동시성 개선
         guard let myBandInfo = myBandInfo else { return [] }
-        // TODO: 내가 참여한거를 찾는 과정으로 로직 수정해야함
-        let snapShot = try await database.collection("gathering").whereField("hostBandID", isEqualTo: myBandInfo.bandID).getDocuments()
+        let snapShot = try await database.collection("gatheringComment").whereField("authorID", isEqualTo: myBandInfo.bandID).getDocuments()
+        var gatheringIDs: [String] = []
         var gatheringInfos: [GatheringInfo] = []
-        
+
         for document in snapShot.documents {
-            let gatheringID = document.documentID
-            guard let gatheringData = try? document.data(as: GatheringDTO.self) else { continue }
-            // TODO: 밴드 정보를 가져오면서 생기는 지연현상 개선 필요
-            guard let gathering = try? await gatheringData.toGathering() else { continue }
-            let gatheringInfo = GatheringInfo(gatheringID: gatheringID, gathering: gathering)
-            gatheringInfos.append(gatheringInfo)
+            guard let commentData = try? document.data(as: GatheringCommentDTO.self) else { continue }
+            let gatheringID = commentData.gatheringID
+            if gatheringIDs.firstIndex(of: gatheringID) != nil {
+                continue
+            }
+            gatheringIDs.append(gatheringID)
+        }
+        for gatheringID in gatheringIDs {
+            guard let gathering = try? await GatheringAPI().getGatheringInfo(gatheringID: gatheringID) else { continue }
+            gatheringInfos.append(gathering)
         }
         
         return gatheringInfos
