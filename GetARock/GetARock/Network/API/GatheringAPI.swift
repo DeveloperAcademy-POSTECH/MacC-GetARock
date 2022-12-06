@@ -52,6 +52,41 @@ struct GatheringAPI {
         return gatheringInfos
     }
     
+    func getAllOwnedGatheringInfos() async throws -> [GatheringInfo] {
+        guard let myBandInfo = myBandInfo else { return [] }
+        let snapShot = try await database.collection("gathering").whereField("hostBandID", isEqualTo: myBandInfo.bandID).getDocuments()
+        var gatheringInfos: [GatheringInfo] = []
+        
+        for document in snapShot.documents {
+            let gatheringID = document.documentID
+            guard let gatheringData = try? document.data(as: GatheringDTO.self) else { continue }
+            // TODO: 밴드 정보를 가져오면서 생기는 지연현상 개선 필요
+            guard let gathering = try? await gatheringData.toGathering() else { continue }
+            let gatheringInfo = GatheringInfo(gatheringID: gatheringID, gathering: gathering)
+            gatheringInfos.append(gatheringInfo)
+        }
+        
+        return gatheringInfos
+    }
+
+    func getAllJoinedGatheringInfos() async throws -> [GatheringInfo] {
+        guard let myBandInfo = myBandInfo else { return [] }
+        // TODO: 내가 참여한거를 찾는 과정으로 로직 수정해야함
+        let snapShot = try await database.collection("gathering").whereField("hostBandID", isEqualTo: myBandInfo.bandID).getDocuments()
+        var gatheringInfos: [GatheringInfo] = []
+        
+        for document in snapShot.documents {
+            let gatheringID = document.documentID
+            guard let gatheringData = try? document.data(as: GatheringDTO.self) else { continue }
+            // TODO: 밴드 정보를 가져오면서 생기는 지연현상 개선 필요
+            guard let gathering = try? await gatheringData.toGathering() else { continue }
+            let gatheringInfo = GatheringInfo(gatheringID: gatheringID, gathering: gathering)
+            gatheringInfos.append(gatheringInfo)
+        }
+        
+        return gatheringInfos
+    }
+    
     func saveComment(comment: GatheringComment) async throws -> GatheringCommentID {
         guard let email = AuthAPI().getCurrentUser()?.email else { throw AuthError.noEmailInfo }
         let gatheringCommentDTO = comment
