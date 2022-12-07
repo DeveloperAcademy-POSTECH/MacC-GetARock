@@ -67,11 +67,21 @@ extension VisitorCommentViewController: CommentListUpdateDelegate {
 // MARK: - CheckCellIndexDelegate, Reportable
 
 extension VisitorCommentViewController: CheckCellIndexDelegate, Reportable {
-    func showEditActionSheet() {
+    func showEditActionSheet(indexPath: IndexPath) {
+        let indexPath = indexPath
+        print(indexPath)
         showActionSheet()
     }
 
     func alertActionButtonPressed() {
-        print("ff")
+        print("삭제하기")
+//        MockData.visitorComments.remove(at: indexPath.row)
+//        let indexPath = IndexPath(item: 0, section: 0)
+//        visitorCommentList.tableView.deleteRows(at: [indexPath], with: .fade)
+        
+        visitorCommentList.tableView.reloadData()
     }
 }
+
+// MARK: - Reportable
+
