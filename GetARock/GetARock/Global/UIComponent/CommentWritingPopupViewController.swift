@@ -84,6 +84,7 @@ class CommentWritingPopupViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        enrollRemoveKeyboard()
         attribute()
         setupLayout()
     }
@@ -181,4 +182,23 @@ extension CommentWritingPopupViewController: UITextViewDelegate {
             textView.textColor = .white
         }
     }
+}
+
+// MARK: - Keyboard
+
+extension CommentWritingPopupViewController {
+    private func removeKeyboard() {
+        view.endEditing(true)
+    }
+    
+    private func enrollRemoveKeyboard() {
+        let singleTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapOtherMethod))
+        self.view.addGestureRecognizer(singleTapGestureRecognizer)
+    }
+    
+    @objc
+    private func tapOtherMethod(sender: UITapGestureRecognizer) {
+        removeKeyboard()
+    }
+    
 }
