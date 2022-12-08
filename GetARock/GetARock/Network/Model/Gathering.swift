@@ -4,6 +4,7 @@
 //
 //  Created by 김수진 on 2022/11/19.
 //
+
 import Foundation
 
 struct GatheringInfo {
@@ -16,8 +17,6 @@ enum GatheringStatus: String, Codable {
     case progressing
     case finished
     case canceled
-    
-   
     
     func toKorean() -> String {
         switch self {

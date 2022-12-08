@@ -52,19 +52,23 @@ final class GatheringInfoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        connectWithData()
-        fillGradation()
         didViewLoad = true
         setComments()
-//        setConditionView()
-        
+        setConditionView()
+        connectWithData()
         setupLayout()
         view.backgroundColor = .modalBackgroundBlue
     }
     
     // MARK: - Method
     
-   
+    private func setConditionView() {
+        
+        conditionView.layer.cornerRadius = 15
+        conditionView.layer.borderWidth = 2
+        conditionView.fillMainGradient()
+        
+    }
     
     private func setupLayout() {
         commentsView.addSubview(gatheringCommentsListView)
@@ -86,18 +90,6 @@ final class GatheringInfoViewController: UIViewController {
         gatheringLocationLabel.text = gatheringInfo.gathering.location.address
         describtionLabel.text = gatheringInfo.gathering.introduction
         statusLabel.text = gatheringInfo.gathering.status.toKorean()
-    }
-    
-    private func fillGradation() {
-        if gatheringInfo.gathering.status.toKorean() == "모집중" {
-            conditionView.fillMainGradient()
-            conditionView.layer.borderColor = UIColor.mainPurple.cgColor
-        } else {
-            conditionView.backgroundColor = .gray
-            conditionView.layer.borderColor = UIColor.white.cgColor
-        
-        }
-        
     }
     
     @IBAction func touchUpInsideEllipsis(_ sender: UIButton) {
