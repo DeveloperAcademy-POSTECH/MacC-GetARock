@@ -14,7 +14,7 @@ extension UIColor {
     }
 
     static var lightPurple: UIColor {
-        return #colorLiteral(red: 0.9254901961, green: 0.8039215686, blue: 1, alpha: 1)
+        return UIColor(red: 0.845, green: 0.596, blue: 1, alpha: 1)
     }
 
     static var mainBlue: UIColor {

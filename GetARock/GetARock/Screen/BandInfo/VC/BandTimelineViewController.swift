@@ -67,11 +67,13 @@ extension BandTimelineViewController: UITableViewDataSource {
             cell.status.text = labelType.toKorean()
         } else {
             cell.status.isHidden = true
+            cell.statusBackground.isHidden = true
         }
         
         if indexPath.row == 0 {
             cell.topLine.isHidden = true
-        } else if indexPath.row == gatherings.count - 1 {
+        }
+        if indexPath.row == gatherings.count - 1 {
             cell.bottomLine.isHidden = true
         }
         
