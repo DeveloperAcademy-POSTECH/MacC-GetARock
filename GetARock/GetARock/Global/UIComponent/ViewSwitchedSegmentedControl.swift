@@ -19,7 +19,7 @@ final class ViewSwitchedSegmentedControl: UIView {
     private var buttonTitles = [String]()
     private var buttons = [UIButton]()
     let textColor: UIColor = .white
-    let selectedColor: UIColor = .mainPurple
+    let selectedColor: UIColor = .lightPurple
     
     // MARK: - View
     
