@@ -63,9 +63,23 @@
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0tG-2C-vCx">
+                        <rect key="frame" x="287" y="32.666666666666664" width="70" height="34.999999999999993"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="70" id="MEV-Tf-KXF"/>
+                            <constraint firstAttribute="height" constant="35" id="uXs-NL-Ouw"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="18"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JSI-YD-u1h">
                         <rect key="frame" x="287" y="32.666666666666664" width="70" height="34.999999999999993"/>
-                        <color key="backgroundColor" systemColor="systemPurpleColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="35" id="WTc-Aa-D4b"/>
                             <constraint firstAttribute="width" constant="70" id="ha0-hb-XRs"/>
@@ -78,13 +92,12 @@
                                 <integer key="value" value="18"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                <integer key="value" value="2"/>
-                            </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </label>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="JSI-YD-u1h" firstAttribute="centerX" secondItem="0tG-2C-vCx" secondAttribute="centerX" id="6Je-9b-IsJ"/>
+                    <constraint firstItem="JSI-YD-u1h" firstAttribute="centerY" secondItem="0tG-2C-vCx" secondAttribute="centerY" id="6ad-xM-JhR"/>
                     <constraint firstItem="rfp-Pd-07t" firstAttribute="centerY" secondItem="c8z-EJ-itS" secondAttribute="centerY" id="HdT-Gs-IID"/>
                     <constraint firstItem="Qwo-tI-wkK" firstAttribute="centerX" secondItem="rfp-Pd-07t" secondAttribute="centerX" id="Is0-24-aej"/>
                     <constraint firstItem="rfp-Pd-07t" firstAttribute="leading" secondItem="c8z-EJ-itS" secondAttribute="leading" constant="16" id="LFO-cx-9Nx"/>
@@ -111,6 +124,7 @@
                 <outlet property="bottomLine" destination="Fpk-HD-t04" id="Dvj-gx-caD"/>
                 <outlet property="startTime" destination="np7-Hm-tCg" id="QJA-NZ-exa"/>
                 <outlet property="status" destination="JSI-YD-u1h" id="Rw1-m3-fCX"/>
+                <outlet property="statusBackground" destination="0tG-2C-vCx" id="0rZ-5p-Ict"/>
                 <outlet property="title" destination="Gsv-TT-DTS" id="5M5-YG-3TT"/>
                 <outlet property="topLine" destination="Qwo-tI-wkK" id="g67-Yv-x8B"/>
             </connections>
@@ -120,8 +134,8 @@
     <resources>
         <image name="TimelineDot" width="20" height="20"/>
         <image name="bolt.fill" catalog="system" width="100" height="128"/>
-        <systemColor name="systemPurpleColor">
-            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>
