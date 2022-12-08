@@ -63,11 +63,9 @@ final class GatheringInfoViewController: UIViewController {
     // MARK: - Method
     
     private func setConditionView() {
-        
         conditionView.layer.cornerRadius = 15
         conditionView.layer.borderWidth = 2
-        conditionView.fillMainGradient()
-        
+        conditionView.layer.borderColor = UIColor.white.cgColor
     }
     
     private func setupLayout() {
