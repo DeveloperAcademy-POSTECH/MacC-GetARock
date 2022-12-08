@@ -16,7 +16,8 @@ extension UIView {
         gradient.endPoint = CGPoint(x: 1.0, y: endPointY)
         gradient.locations = [0.0, 1.0]
         gradient.frame = self.bounds
-        self.layer.addSublayer(gradient)
+//        self.layer.addSublayer(gradient)
+        self.layer.insertSublayer(gradient, at: 0)
     }
 
     func fillMainGradient() {

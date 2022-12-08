@@ -28,13 +28,13 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="393" height="280.33333333333331"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="250" translatesAutoresizingMaskIntoConstraints="NO" id="KVQ-Al-kvw">
-                                                        <rect key="frame" x="16" y="50" width="361" height="54"/>
+                                                        <rect key="frame" x="16" y="50" width="361" height="50"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" horizontalCompressionResistancePriority="800" verticalCompressionResistancePriority="800" translatesAutoresizingMaskIntoConstraints="NO" id="IPq-Y1-Mnd" userLabel="conditionView">
-                                                                <rect key="frame" x="0.0" y="0.0" width="68.333333333333329" height="54"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="70" height="50"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="800" verticalCompressionResistancePriority="800" text="모집중" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sah-zl-Rl3">
-                                                                        <rect key="frame" x="16.000000000000004" y="9" width="36.333333333333343" height="36"/>
+                                                                        <rect key="frame" x="16" y="9" width="38" height="32"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -49,9 +49,18 @@
                                                                     <constraint firstAttribute="bottom" secondItem="Sah-zl-Rl3" secondAttribute="bottom" constant="9" id="inf-YK-7FT"/>
                                                                     <constraint firstItem="Sah-zl-Rl3" firstAttribute="centerX" secondItem="IPq-Y1-Mnd" secondAttribute="centerX" id="wmp-4R-en1"/>
                                                                 </constraints>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                        <integer key="value" value="15"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                                        <integer key="value" value="2"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
                                                             </view>
                                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="255" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z1T-V1-cPf" userLabel="ellipsis">
-                                                                <rect key="frame" x="318.33333333333331" y="0.0" width="42.666666666666686" height="54"/>
+                                                                <rect key="frame" x="320" y="0.0" width="41" height="50"/>
                                                                 <state key="normal" title="Button"/>
                                                                 <buttonConfiguration key="configuration" style="plain" title="">
                                                                     <imageReference key="image" image="ellipsis" catalog="system" symbolScale="large"/>
@@ -64,7 +73,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="동성로 합동 버스킹 합니다!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aYx-ug-1Kh" userLabel="gatheringTitle">
-                                                        <rect key="frame" x="16" y="114" width="361" height="26.666666666666657"/>
+                                                        <rect key="frame" x="16" y="110" width="361" height="30.666666666666657"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
