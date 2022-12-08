@@ -18,7 +18,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bolt.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="WHj-3l-xcL">
-                        <rect key="frame" x="36" y="21.666666666666668" width="15" height="15.999999999999996"/>
+                        <rect key="frame" x="36" y="21" width="15" height="16.5"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="15" id="6k2-u3-ZXE"/>
@@ -32,7 +32,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="동성로 합동 버스킹 합니다!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Wl-Jv-4Rb">
-                        <rect key="frame" x="36" y="47" width="169.33333333333334" height="20"/>
+                        <rect key="frame" x="36" y="47" width="169.5" height="20"/>
                         <constraints>
                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="250" id="6Hj-xV-rvP"/>
                         </constraints>
@@ -40,9 +40,23 @@
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kvb-vI-A1K">
+                        <rect key="frame" x="308" y="32.5" width="70" height="35"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="70" id="29A-b2-XFB"/>
+                            <constraint firstAttribute="height" constant="35" id="9i6-4s-F2V"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="18"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ngk-mQ-50w">
-                        <rect key="frame" x="308" y="32.666666666666664" width="70" height="34.999999999999993"/>
-                        <color key="backgroundColor" systemColor="systemPurpleColor"/>
+                        <rect key="frame" x="308" y="32.5" width="70" height="35"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="35" id="5cz-gA-TOc"/>
                             <constraint firstAttribute="width" constant="70" id="xbq-Dw-sbk"/>
@@ -55,14 +69,12 @@
                                 <integer key="value" value="18"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                <integer key="value" value="2"/>
-                            </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </label>
                 </subviews>
                 <color key="backgroundColor" red="0.35294118520000001" green="0.3686274886" blue="0.46274507050000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                 <constraints>
+                    <constraint firstItem="ngk-mQ-50w" firstAttribute="centerY" secondItem="kvb-vI-A1K" secondAttribute="centerY" id="1Ur-Iv-8me"/>
                     <constraint firstItem="QDG-Zm-Xit" firstAttribute="leading" secondItem="WHj-3l-xcL" secondAttribute="trailing" constant="5" id="4IV-dz-Tqz"/>
                     <constraint firstAttribute="trailing" secondItem="ngk-mQ-50w" secondAttribute="trailing" constant="36" id="4g5-jE-Kik"/>
                     <constraint firstItem="WHj-3l-xcL" firstAttribute="leading" secondItem="0NC-3l-Vgg" secondAttribute="leading" constant="36" id="ART-wL-fnS"/>
@@ -72,12 +84,14 @@
                     <constraint firstItem="4Wl-Jv-4Rb" firstAttribute="top" secondItem="QDG-Zm-Xit" secondAttribute="bottom" constant="10" id="VEO-NA-R6h"/>
                     <constraint firstAttribute="bottomMargin" secondItem="4Wl-Jv-4Rb" secondAttribute="bottom" constant="22" id="jhJ-Bt-RHG"/>
                     <constraint firstItem="WHj-3l-xcL" firstAttribute="top" secondItem="0NC-3l-Vgg" secondAttribute="top" constant="22" id="qEK-8D-ARD"/>
+                    <constraint firstItem="ngk-mQ-50w" firstAttribute="centerX" secondItem="kvb-vI-A1K" secondAttribute="centerX" id="quU-jg-0n7"/>
                     <constraint firstItem="4Wl-Jv-4Rb" firstAttribute="leading" secondItem="0NC-3l-Vgg" secondAttribute="leading" constant="36" id="xqo-0u-pPV"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="startTime" destination="QDG-Zm-Xit" id="7yc-GZ-le0"/>
                 <outlet property="state" destination="ngk-mQ-50w" id="RCj-qz-Byz"/>
+                <outlet property="statusBackground" destination="kvb-vI-A1K" id="Bse-2u-Bhf"/>
                 <outlet property="title" destination="4Wl-Jv-4Rb" id="bVT-yU-RXe"/>
             </connections>
             <point key="canvasLocation" x="442.02898550724643" y="124.55357142857142"/>
@@ -85,8 +99,8 @@
     </objects>
     <resources>
         <image name="bolt.fill" catalog="system" width="100" height="128"/>
-        <systemColor name="systemPurpleColor">
-            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>
