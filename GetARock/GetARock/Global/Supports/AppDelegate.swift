@@ -42,7 +42,7 @@ extension AppDelegate {
         let authAPI = AuthAPI()
         Task {
             do {
-                _ = try await authAPI.signIn(withEmail: "user3@test.com", password: "123456")
+                _ = try await authAPI.signIn(withEmail: "user1@test.com", password: "123456")
                 NotificationCenter.default.post(name: Notification.Name("ResponedLogin"), object: nil)
                 print()
                 print("success login")
