@@ -55,6 +55,7 @@ class CommentTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupLayout()
+        tapMoreButton()
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -71,6 +72,10 @@ class CommentTableViewCell: UITableViewCell {
             commentStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
             commentStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -30)
         ])
+    }
+    
+    func tapMoreButton() {
+        moreButton.addTarget(UIButton(), action: #selector(VisitorCommentViewController.showActionSheet), for: .touchUpInside)
     }
     
 }
