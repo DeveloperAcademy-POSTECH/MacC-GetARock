@@ -15,7 +15,7 @@ class RepertoireTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        repertoireCellView.backgroundColor = UIColor.backgroundBlue
+        repertoireCellView.backgroundColor = UIColor.clear
         repertoireCellView.layer.cornerRadius = 15
         repertoireCellView.layer.borderWidth = 1
         repertoireCellView.layer.borderColor = UIColor.dividerBlue.cgColor
