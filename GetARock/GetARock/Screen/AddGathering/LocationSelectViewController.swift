@@ -74,7 +74,7 @@ class LocationSelectViewController: UIViewController {
 
 extension LocationSelectViewController: MKLocalSearchCompleterDelegate {
     func completerDidUpdateResults(_ completer: MKLocalSearchCompleter) {
-        placeResults = completer.results
+        placeResults = completer.results.filter { $0.subtitle != "주변 검색"}
     }
 }
 

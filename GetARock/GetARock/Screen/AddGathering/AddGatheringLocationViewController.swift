@@ -68,8 +68,7 @@ class AddGatheringLocationViewController: UIViewController {
                     preferredStyle: .alert
                 )
                 let confirm = UIAlertAction(title: "예", style: .default, handler: {_ in
-                    print("입력 주소(비어있을 수 있음)에 해당하는 좌표를 찾지 못함")
-                    self.dismiss(animated: true)
+                    print("입력 주소(비어있을 수 있음: \"\(self.searchController?.searchBar.text ?? "(서치컨트롤러 못 찾음)")\"에 해당하는 좌표를 찾지 못함")
                 })
                 alertController.addAction(confirm)
                 self.present(alertController, animated: true)
@@ -188,7 +187,6 @@ extension AddGatheringLocationViewController {
         )
         let confirm = UIAlertAction(title: "예", style: .default, handler: {_ in
             print("장소 검색 에러: \(error.description)")
-            self.dismiss(animated: true)
         })
         alertController.addAction(confirm)
         self.present(alertController, animated: true)
