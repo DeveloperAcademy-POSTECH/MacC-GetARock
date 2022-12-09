@@ -54,7 +54,7 @@ final class GatheringInfoViewController: UIViewController {
         super.viewDidLoad()
         didViewLoad = true
         setComments()
-        setConditionView()
+        setConditionViewGradient()
         connectWithData()
         setupLayout()
         view.backgroundColor = .modalBackgroundBlue
@@ -62,10 +62,12 @@ final class GatheringInfoViewController: UIViewController {
     
     // MARK: - Method
     
-    private func setConditionView() {
-        conditionView.layer.cornerRadius = 15
-        conditionView.layer.borderWidth = 2
-        conditionView.layer.borderColor = UIColor.white.cgColor
+    private func setConditionViewGradient() {
+        if gatheringInfo.gathering.status.toKorean() == "모집중" {
+            conditionView.fillMainGradient()
+        } else {
+            conditionView.layer.backgroundColor = UIColor.gray.cgColor
+        }
     }
     
     private func setupLayout() {
