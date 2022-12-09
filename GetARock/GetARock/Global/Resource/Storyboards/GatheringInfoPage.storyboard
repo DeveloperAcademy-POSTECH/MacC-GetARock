@@ -49,6 +49,12 @@
                                                                     <constraint firstAttribute="bottom" secondItem="Sah-zl-Rl3" secondAttribute="bottom" constant="9" id="inf-YK-7FT"/>
                                                                     <constraint firstItem="Sah-zl-Rl3" firstAttribute="centerX" secondItem="IPq-Y1-Mnd" secondAttribute="centerX" id="wmp-4R-en1"/>
                                                                 </constraints>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                        <integer key="value" value="18"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                                </userDefinedRuntimeAttributes>
                                                             </view>
                                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="255" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z1T-V1-cPf" userLabel="ellipsis">
                                                                 <rect key="frame" x="361" y="0.0" width="0.0" height="54.333333333333336"/>
