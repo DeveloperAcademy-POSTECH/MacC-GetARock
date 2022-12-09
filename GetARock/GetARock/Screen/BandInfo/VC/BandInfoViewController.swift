@@ -68,7 +68,7 @@ extension BandInfoViewController {
     }
     
     private func setBandIntroduceAreaUI() {
-        bandIntroduceView.backgroundColor = UIColor.backgroundBlue
+        bandIntroduceView.backgroundColor = UIColor.clear
         bandIntroduceView.layer.cornerRadius = 15
         bandIntroduceView.layer.borderWidth = 1
         bandIntroduceView.layer.borderColor = UIColor.dividerBlue.cgColor
@@ -122,6 +122,20 @@ extension BandInfoViewController: UICollectionViewDataSource {
         
         cell.positionNameLabel.text = self.bandInfo?.band.filledPosition[indexPath.item].position.toKorean()
         cell.numberOfPositionLabel.text = "\(self.bandInfo?.band.filledPosition[indexPath.item].numberOfPerson ?? 0)명"
+        
+        if cell.positionNameLabel.text == "보컬" {
+            cell.positionImageView.image = UIImage(named: "Vocal")!
+        } else if cell.positionNameLabel.text == "베이스" {
+            cell.positionImageView.image = UIImage(named: "Bass")!
+        } else if cell.positionNameLabel.text == "드럼" {
+            cell.positionImageView.image = UIImage(named: "Drum")!
+        } else if cell.positionNameLabel.text == "키보드" {
+            cell.positionImageView.image = UIImage(named: "Keyboard")!
+        } else if cell.positionNameLabel.text == "기타" {
+            cell.positionImageView.image = UIImage(named: "Guitar")!
+        } else {
+            cell.positionImageView.image = UIImage(named: "Etc")!
+        }
         
         return cell
     }
