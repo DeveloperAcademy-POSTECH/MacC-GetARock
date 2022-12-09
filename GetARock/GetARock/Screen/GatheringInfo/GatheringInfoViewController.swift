@@ -25,8 +25,8 @@ final class GatheringInfoViewController: UIViewController {
         MockData.gatherings[3]
     }() {
         didSet {
-            didViewLoad ? connectWithData() : Void()
             if didViewLoad {
+                connectWithData()
                 setComments()
             }
         }

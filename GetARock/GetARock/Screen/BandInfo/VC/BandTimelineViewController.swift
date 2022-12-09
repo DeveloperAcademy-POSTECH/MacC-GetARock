@@ -80,3 +80,18 @@ extension BandTimelineViewController: UITableViewDataSource {
         return cell
     }
 }
+
+// MARK: - UITableViewDelegate
+
+extension BandTimelineViewController: UITableViewDelegate {
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
+        let gatheringInfo = gatherings[indexPath.row]
+        guard let viewController = UIStoryboard(name: "GatheringInfoPage", bundle: nil).instantiateViewController(withIdentifier: GatheringInfoViewController.className) as? GatheringInfoViewController else { return }
+        viewController.gatheringInfo = gatheringInfo
+        viewController.modalPresentationStyle = .formSheet
+        present(viewController, animated: true)
+    }
+
+}
