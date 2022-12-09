@@ -18,5 +18,6 @@ class BandMemberCollectionViewCell: UICollectionViewCell {
         self.layer.cornerRadius = 14
         self.layer.borderWidth = 1
         self.layer.borderColor = UIColor.dividerBlue.cgColor
+        self.positionImageView.backgroundColor = UIColor.modalBackgroundBlue
     }
 }
