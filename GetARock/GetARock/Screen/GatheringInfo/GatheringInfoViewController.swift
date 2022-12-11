@@ -58,7 +58,7 @@ final class GatheringInfoViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         gatheringCommentsListView.tableView.reloadData()
-        commentsView.heightAnchor.constraint(equalToConstant: 1000).isActive = true
+        commentsView.heightAnchor.constraint(equalToConstant: 600).isActive = true
         print()
        
         // 여기에 tableView 사이즈 리로드 구현
@@ -66,7 +66,7 @@ final class GatheringInfoViewController: UIViewController {
     // MARK: - Method
     
     private func setConditionViewGradient() {
-        if gatheringInfo.gathering.status.toKorean() == "모집중" {
+        if (gatheringInfo.gathering.status.toKorean() == "진행중")  || (gatheringInfo.gathering.status.toKorean() == "모집중") {
             conditionView.fillMainGradient()
         } else {
             conditionView.layer.backgroundColor = UIColor.gray.cgColor
