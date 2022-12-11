@@ -19,7 +19,6 @@ final class GatheringInfoViewController: UIViewController {
     @IBOutlet weak var describtionLabel: UILabel!
     @IBOutlet weak var ellipsisButton: UIButton!
     @IBOutlet weak var statusLabel: UILabel!
-    
     @IBOutlet weak var commentsView: UIView!
     var gatheringInfo: GatheringInfo = {
         MockData.gatherings[3]
@@ -46,10 +45,6 @@ final class GatheringInfoViewController: UIViewController {
     
     // MARK: - View Life Cycle
     
-    override func viewWillAppear(_ animated: Bool) {
-        gatheringCommentsListView.tableView.reloadData()
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         didViewLoad = true
@@ -57,9 +52,17 @@ final class GatheringInfoViewController: UIViewController {
         setConditionViewGradient()
         connectWithData()
         setupLayout()
+      
         view.backgroundColor = .modalBackgroundBlue
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        gatheringCommentsListView.tableView.reloadData()
+        commentsView.heightAnchor.constraint(equalToConstant: 1000).isActive = true
+        print()
+       
+        // 여기에 tableView 사이즈 리로드 구현
+    }
     // MARK: - Method
     
     private func setConditionViewGradient() {

@@ -242,9 +242,6 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gEW-FV-4ab" userLabel="commentsView">
                                                 <rect key="frame" x="0.0" y="995" width="393" height="600"/>
                                                 <color key="backgroundColor" red="0.34901960780000002" green="0.36862745099999999" blue="0.47058823529999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="600" id="kWm-AK-IwT"/>
-                                                </constraints>
                                             </view>
                                         </subviews>
                                         <constraints>
