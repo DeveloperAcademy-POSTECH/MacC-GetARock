@@ -107,6 +107,7 @@ final class MainMapViewController: UIViewController {
         mapView.delegate = self
         locationManager.delegate = self
         mapView.register(AnnotationView.self, forAnnotationViewWithReuseIdentifier: AnnotationView.className)
+        mapView.register(GatheringAnnotationView.self, forAnnotationViewWithReuseIdentifier: GatheringAnnotationView.className)
     }
     
     private func addAnnotationOnMapView() {
@@ -129,11 +130,10 @@ final class MainMapViewController: UIViewController {
     
     private func addGatheringAnnotationOnMapView() {
         for gathering in gatherings {
-            let point = CustomAnnotation(
-                title: gathering.gathering.host.band.name,
+            let point = GatheringAnnotation(
                 coordinate: gathering.gathering.location.coordinate.toCLLocationCoordinate2D(),
-                category: .gathering,
-                gathering: gathering
+                title: gathering.gathering.host.band.name,
+                gatheringInfo: gathering
             )
             mapView.addAnnotation(point)
         }
@@ -157,7 +157,7 @@ final class MainMapViewController: UIViewController {
         mapView.setUserTrackingMode(.follow, animated: true)
     }
     
-    func focusOnSelectedLocation(latitudeValue: CLLocationDegrees,
+    public func focusOnSelectedLocation(latitudeValue: CLLocationDegrees,
                                  longitudeValue: CLLocationDegrees,
                                  delta span: Double) {
         let currentLocation = CLLocationCoordinate2DMake(latitudeValue, longitudeValue)
@@ -287,34 +287,48 @@ extension MainMapViewController: MKMapViewDelegate {
             return MKUserLocationView()
         }
         
-        guard let marker = mapView.dequeueReusableAnnotationView(withIdentifier: AnnotationView.className) as? AnnotationView else {
-            return AnnotationView()
+        if annotation is CustomAnnotation {
+            guard let marker = mapView.dequeueReusableAnnotationView(withIdentifier: AnnotationView.className) as? AnnotationView else {
+                return AnnotationView()
+            }
+            
+            return marker
         }
         
-        return marker
+        guard let annotation = annotation as? GatheringAnnotation else {
+            return nil
+        }
+        
+        var annotationView = self.mapView.dequeueReusableAnnotationView(withIdentifier: GatheringAnnotationView.identifier)
+        
+        if annotationView == nil {
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: GatheringAnnotationView.identifier)
+            annotationView?.canShowCallout = false
+            annotationView?.contentMode = .scaleAspectFit
+            
+        } else {
+            annotationView?.annotation = annotation
+        }
+        
+        let pinImage = UIImage(named: "GatheringPin")
+        let size = CGSize(width: 62, height: 70)
+        UIGraphicsBeginImageContext(size)
+        
+        pinImage?.draw(in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
+        let resizedImage = UIGraphicsGetImageFromCurrentImageContext()
+        annotationView?.image = resizedImage
+        
+        return annotationView
     }
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         
-        guard let selectedAnnotation = view.annotation as? CustomAnnotation else { return }
-        let placeName = selectedAnnotation.title
-        
-        focusOnSelectedLocation(latitudeValue: selectedAnnotation.coordinate.latitude - 0.005, longitudeValue: selectedAnnotation.coordinate.longitude, delta: zoomInRange)
-
-        switch selectedAnnotation.category {
-        case .band :
-            guard let bandData = selectedAnnotation.bandInfo else { return }
-            let bandViewController = BandPageViewController(bandInfo: bandData)
-            bandViewController.modalPresentationStyle = .pageSheet
-            if let sheet = bandViewController.sheetPresentationController {
-                sheet.detents = [.medium(), .large()]
-                sheet.prefersGrabberVisible = true
-                sheet.largestUndimmedDetentIdentifier = .medium
-            }
-            nextVC = bandViewController
-            present(bandViewController, animated: true, completion: nil)
-        case .gathering :
-             guard let gatheringData = selectedAnnotation.gatheringInfo else { return }
+        if view.annotation is GatheringAnnotation {
+            guard let selectedAnnotation = view.annotation as? GatheringAnnotation else { return }
+            _ = selectedAnnotation.title
+            
+            focusOnSelectedLocation(latitudeValue: selectedAnnotation.coordinate.latitude - 0.005, longitudeValue: selectedAnnotation.coordinate.longitude, delta: zoomInRange)
+            guard let gatheringData = selectedAnnotation.gatheringInfo else { return }
             guard let gatheringViewController = UIStoryboard(name: "GatheringInfoPage", bundle: nil).instantiateViewController(withIdentifier: GatheringInfoViewController.className) as? GatheringInfoViewController else { return }
             gatheringViewController.gatheringInfo = gatheringData
             gatheringViewController.modalPresentationStyle = .pageSheet
@@ -325,11 +339,23 @@ extension MainMapViewController: MKMapViewDelegate {
             }
             nextVC = gatheringViewController
             present(gatheringViewController, animated: true, completion: nil)
+        } else if view.annotation is CustomAnnotation {
+            guard let selectedAnnotation = view.annotation as? CustomAnnotation else { return }
+            _ = selectedAnnotation.title
+            
+            focusOnSelectedLocation(latitudeValue: selectedAnnotation.coordinate.latitude - 0.005, longitudeValue: selectedAnnotation.coordinate.longitude, delta: zoomInRange)
+            
+            guard let bandData = selectedAnnotation.bandInfo else { return }
+            let bandViewController = BandPageViewController(bandInfo: bandData)
+            bandViewController.modalPresentationStyle = .pageSheet
+            if let sheet = bandViewController.sheetPresentationController {
+                sheet.detents = [.medium(), .large()]
+                sheet.prefersGrabberVisible = true
+                sheet.largestUndimmedDetentIdentifier = .medium
+            }
+            nextVC = bandViewController
+            present(bandViewController, animated: true, completion: nil)
         }
-        
-        let testAlert = UIAlertController(title: placeName!, message: "짜잔", preferredStyle: .alert)
-        testAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        present(testAlert, animated: true, completion: nil)
     }
     
     func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {

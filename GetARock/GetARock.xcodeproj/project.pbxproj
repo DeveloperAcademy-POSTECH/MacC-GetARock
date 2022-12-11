@@ -84,6 +84,7 @@
 		AB58E00F292DEF2400868720 /* GatheringListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB58E00E292DEF2400868720 /* GatheringListViewController.swift */; };
 		ABCE15B7292A052F007D30E2 /* ViewSwitchedSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCE15B6292A052F007D30E2 /* ViewSwitchedSegmentedControl.swift */; };
 		B830849929263B780035DB2D /* MainMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B830849829263B780035DB2D /* MainMapViewController.swift */; };
+		B88F4EBC2946607F008D6E42 /* GatheringAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88F4EBB2946607F008D6E42 /* GatheringAnnotationView.swift */; };
 		B8B9971F29287D3700082462 /* MainMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8B9971E29287D3700082462 /* MainMap.storyboard */; };
 		C561490A293DDCE000B45D58 /* AddGathering.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5614909293DDCE000B45D58 /* AddGathering.storyboard */; };
 		C561490C293DDCFE00B45D58 /* LocationCandidateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C561490B293DDCFE00B45D58 /* LocationCandidateCell.xib */; };
@@ -188,12 +189,13 @@
 		AB58E00E292DEF2400868720 /* GatheringListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatheringListViewController.swift; sourceTree = "<group>"; };
 		ABCE15B6292A052F007D30E2 /* ViewSwitchedSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewSwitchedSegmentedControl.swift; sourceTree = "<group>"; };
 		B830849829263B780035DB2D /* MainMapViewController.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = MainMapViewController.swift; sourceTree = "<group>"; tabWidth = 4; };
+		B88F4EBB2946607F008D6E42 /* GatheringAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatheringAnnotationView.swift; sourceTree = "<group>"; };
 		B8B9971E29287D3700082462 /* MainMap.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainMap.storyboard; sourceTree = "<group>"; };
 		C5614909293DDCE000B45D58 /* AddGathering.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddGathering.storyboard; sourceTree = "<group>"; };
 		C561490B293DDCFE00B45D58 /* LocationCandidateCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LocationCandidateCell.xib; sourceTree = "<group>"; };
 		C5614920293DE17000B45D58 /* LocationSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSelectViewController.swift; sourceTree = "<group>"; };
 		C5614921293DE17000B45D58 /* LocationCandidateCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationCandidateCell.swift; sourceTree = "<group>"; };
-		C5614922293DE17000B45D58 /* AddGatheringViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddGatheringViewController.swift; sourceTree = "<group>"; };
+		C5614922293DE17000B45D58 /* AddGatheringViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = AddGatheringViewController.swift; sourceTree = "<group>"; tabWidth = 4; };
 		C5614923293DE17000B45D58 /* AddGatheringLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddGatheringLocationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -573,6 +575,7 @@
 			isa = PBXGroup;
 			children = (
 				07D3B5B9293DDD0800C1F86F /* AnnotationView.swift */,
+				B88F4EBB2946607F008D6E42 /* GatheringAnnotationView.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -771,6 +774,7 @@
 				66E7420A292CA04D003C0B02 /* ReportReasonListController.swift in Sources */,
 				8437619229276FA700BD2C2A /* GatheringCell.swift in Sources */,
 				C5614926293DE17000B45D58 /* AddGatheringViewController.swift in Sources */,
+				B88F4EBC2946607F008D6E42 /* GatheringAnnotationView.swift in Sources */,
 				8437619029275B3500BD2C2A /* GatheringCreatedViewController.swift in Sources */,
 				07D7DA3C29108C9000479B6F /* SampleView.swift in Sources */,
 				3DF54FCB292A43EA001CD16B /* BandMemberCollectionViewCell.swift in Sources */,
