@@ -89,6 +89,7 @@ class AddGatheringViewController: UIViewController {
                     return
                 }
                 mainMapViewController.refresh()
+                mainMapViewController.focusOnSelectedLocation(latitudeValue: gatheringLocation?.coordinate.latitude ?? 36.014, longitudeValue: gatheringLocation?.coordinate.longitude ?? 129.32, delta: mainMapViewController.zoomInRange)
                 dismiss(animated: true)
             }
         }
