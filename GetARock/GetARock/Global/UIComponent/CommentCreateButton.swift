@@ -21,6 +21,7 @@ class CommentCreateButton: UIView {
 
     let titleButton: UIButton = {
         $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.setBackgroundImage(UIImage(named: "buttonBackground"), for: .normal)
         return $0
     }(UIButton())
     
@@ -39,7 +40,6 @@ class CommentCreateButton: UIView {
     // MARK: - Method
     
     private func attribute() {
-        self.backgroundColor = .mainPurple
         self.layer.masksToBounds = true
         self.layer.cornerRadius = 10
         guard let superView = superview else { return }
@@ -53,13 +53,13 @@ class CommentCreateButton: UIView {
         self.addSubview(titleButton)
         titleButton.invalidateIntrinsicContentSize()
         NSLayoutConstraint.activate([
-
             titleButton.topAnchor.constraint(equalTo: self.topAnchor),
             titleButton.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             titleButton.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             titleButton.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             titleButton.heightAnchor.constraint(equalToConstant: Size.height)
-        ])    }
+        ])
+    }
     func setupButtonTitle(title: String) {
         titleButton.setTitle(title, for: .normal)
     }
