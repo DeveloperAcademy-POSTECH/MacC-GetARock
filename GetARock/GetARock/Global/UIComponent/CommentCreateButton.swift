@@ -40,7 +40,6 @@ class CommentCreateButton: UIView {
     // MARK: - Method
     
     private func attribute() {
-//        self.backgroundColor = .mainPurple
         self.layer.masksToBounds = true
         self.layer.cornerRadius = 10
         guard let superView = superview else { return }
