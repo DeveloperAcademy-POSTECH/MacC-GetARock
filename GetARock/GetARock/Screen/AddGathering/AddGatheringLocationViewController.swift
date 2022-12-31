@@ -29,9 +29,6 @@ class AddGatheringLocationViewController: UIViewController {
     }
     
     // MARK: - Method
-    @IBAction func backButtonAction(_ sender: Any) {
-        navigationController?.popViewController(animated: true)
-    }
     
     @IBAction func doneButtonAction(_ sender: Any) {
         
