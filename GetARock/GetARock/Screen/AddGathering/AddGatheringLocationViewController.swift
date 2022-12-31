@@ -53,7 +53,7 @@ class AddGatheringLocationViewController: UIViewController {
     }
 
     private func setupSearchController() {
-        selectViewController = storyboard?.instantiateViewController(withIdentifier: "LocationSelectViewController") as? LocationSelectViewController
+        selectViewController = storyboard?.instantiateViewController(withIdentifier: LocationSelectViewController.className) as? LocationSelectViewController
         searchController = UISearchController(searchResultsController: selectViewController)
     }
 
