@@ -22,10 +22,14 @@ class AddGatheringLocationViewController: UIViewController {
     }
 
     private var localSearch: MKLocalSearch?
+    private var selectedLocationName: String?
     private var selectedCoordinate: Coordinate?
+
+    weak var delegate: AddGatheringLocationViewControllerDelegate?
 
     // MARK: - View
 
+    @IBOutlet weak var addressStackView: UIStackView!
     @IBOutlet weak var selectedAddressLabel: UILabel!
     @IBOutlet weak var addressDetailTextField: UITextField!
     
@@ -40,7 +44,7 @@ class AddGatheringLocationViewController: UIViewController {
         super.viewDidLoad()
         attribute()
     }
-    
+
     // MARK: - Method
 
     @IBAction func backButtonAction(_ sender: Any) {
@@ -48,13 +52,37 @@ class AddGatheringLocationViewController: UIViewController {
     }
     
     @IBAction func doneButtonAction(_ sender: Any) {
-        
+        if delegate != nil {
+            if let coordinate = selectedCoordinate {
+                delegate?.setLocation(
+                    name: selectedLocationName,
+                    address: selectedAddressLabel.text,
+                    additionalAddress: addressDetailTextField.text,
+                    coordinate: coordinate
+                )
+                navigationController?.popViewController(animated: true)
+            } else {
+                let alertController = UIAlertController(
+                    title: nil,
+                    message: "주소가 올바르지 않습니다",
+                    preferredStyle: .alert
+                )
+                let confirm = UIAlertAction(title: "예", style: .default, handler: {_ in
+                    print("입력 주소(비어있을 수 있음: \"\(self.searchController?.searchBar.text ?? "(서치컨트롤러 못 찾음)")\"에 해당하는 좌표를 찾지 못함")
+                })
+                alertController.addAction(confirm)
+                self.present(alertController, animated: true)
+            }
+        } else {
+            print("AddgatheringLocationViewController에서 delgate가 nil이라 저장할 수 없음")
+        }
     }
     
     private func attribute() {
         setupNavigationBarTitle()
         setupSearchController()
         setupSearchBar()
+        addressStackView.isHidden = true
     }
     
     private func setupNavigationBarTitle() {
@@ -159,7 +187,6 @@ extension AddGatheringLocationViewController {
         )
         let confirm = UIAlertAction(title: "예", style: .default, handler: {_ in
             print("장소 검색 에러: \(error.description)")
-            self.dismiss(animated: true)
         })
         alertController.addAction(confirm)
         self.present(alertController, animated: true)
@@ -184,6 +211,7 @@ extension AddGatheringLocationViewController: UITableViewDelegate {
     }
 
     func setAddressInfos (indexPath: NSIndexPath) { // MapItem
+        selectedLocationName = places?[(indexPath as NSIndexPath).row].name
         selectedAddressLabel.text = CNPostalAddressFormatter.string(
             from: places?[(indexPath as NSIndexPath).row].placemark.postalAddress ?? CNPostalAddress(),
             style: .mailingAddress
@@ -191,6 +219,8 @@ extension AddGatheringLocationViewController: UITableViewDelegate {
         if let coordinate = places?[(indexPath as NSIndexPath).row].placemark.location?.coordinate {
             selectedCoordinate = Coordinate(latitude: coordinate.latitude, longitude: coordinate.longitude)
         }
+        addressStackView.isHidden = false
+        guideLabel.isHidden = true
     }
 }
 
@@ -212,4 +242,10 @@ extension AddGatheringLocationViewController: UITableViewDataSource {
 
         return cell
     }
+}
+
+// MARK: - Delegate Protocol to set location in parent view
+
+protocol AddGatheringLocationViewControllerDelegate: AnyObject {
+    func setLocation(name: String?, address: String?, additionalAddress: String?, coordinate: Coordinate)
 }

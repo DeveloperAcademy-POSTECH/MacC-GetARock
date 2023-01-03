@@ -27,9 +27,7 @@ class LocationSelectViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let nibName = UINib(nibName: LocationCandidateCell.className, bundle: nil)
-        tableView.register(nibName, forCellReuseIdentifier: LocationCandidateCell.className)
-        tableView.dataSource = self
+        attribute()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -41,8 +39,24 @@ class LocationSelectViewController: UIViewController {
         super.viewDidDisappear(animated)
         stopProvidingCompletions()
     }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
 
     // MARK: - Method
+
+    private func attribute() {
+        setupTableView()
+        getKeyboardNotification()
+    }
+
+    private func setupTableView() {
+        let nibName = UINib(nibName: LocationCandidateCell.className, bundle: nil)
+        tableView.register(nibName, forCellReuseIdentifier: LocationCandidateCell.className)
+        tableView.dataSource = self
+    }
 
     private func startProvidingCompletions() {
         searchCompleter = MKLocalSearchCompleter()
@@ -88,5 +102,51 @@ extension LocationSelectViewController: UITableViewDataSource {
         cell.addressLabel?.text = placeResults[(indexPath as NSIndexPath).row].subtitle
 
         return cell
+    }
+}
+
+// MARK: - KeyboardControl
+
+extension LocationSelectViewController {
+    private func getKeyboardNotification() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillShow(_:)),
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil
+        )
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillHide(_:)),
+            name: UIResponder.keyboardWillHideNotification,
+            object: nil
+        )
+    }
+
+    @objc func keyboardWillShow(_ sender: Notification) {
+        guard let userInfo: NSDictionary = sender.userInfo as NSDictionary?,
+              let keyboardFrame: NSValue = userInfo.value(forKey: UIResponder.keyboardFrameEndUserInfoKey) as? NSValue else {
+                  return
+              }
+        let keyboardRectangle = keyboardFrame.cgRectValue
+        let keyboardHeight = keyboardRectangle.height
+
+        let contentInset = UIEdgeInsets(
+            top: 0.0,
+            left: 0.0,
+            bottom: keyboardHeight,
+            right: 0.0)
+        tableView.contentInset = contentInset
+        tableView.scrollIndicatorInsets = contentInset
+    }
+
+    @objc func keyboardWillHide(_ sender: Notification) {
+        let contentInset = UIEdgeInsets(
+                top: 0.0,
+                left: 0.0,
+                bottom: 0.0,
+                right: 0.0)
+            tableView.contentInset = contentInset
+            tableView.scrollIndicatorInsets = contentInset
     }
 }
