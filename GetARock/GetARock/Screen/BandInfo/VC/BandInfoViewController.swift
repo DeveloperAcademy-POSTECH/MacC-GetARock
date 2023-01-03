@@ -20,9 +20,9 @@ class BandInfoViewController: UIViewController {
     @IBOutlet weak var tableHeightConstraint: NSLayoutConstraint!
     
     private lazy var numberOfBandMember: Int = calculateNumberOfBandMemberText()
-    private lazy var positionNameArray: [String] = appendPositionNameArray()
-    private lazy var numberOfPostionArray: [Int] = appendNumberOfPostionArray()
-    private lazy var bandAgeArray: [String] = appendBandAgeArray()
+    private lazy var positionNameArray: [String] = selectedBand.filledPosition.map { $0.position.toKorean() }
+    private lazy var numberOfPostionArray: [Int] = selectedBand.filledPosition.map { $0.numberOfPerson }
+    private lazy var bandAgeArray: [String] = selectedBand.ageGroups.map { $0.toKorean() }
     private lazy var repertoireArray: [String] = selectedBand.repertoire
     private lazy var bandIntroduceText = selectedBand.introduction
     
@@ -147,30 +147,6 @@ extension BandInfoViewController {
             sum += selectedBand.filledPosition[num].numberOfPerson
         }
         return sum
-    }
-    
-    private func appendPositionNameArray() -> [String] {
-        var positionNameArray: [String] = []
-        for num in 0...selectedBand.filledPosition.count - 1 {
-            positionNameArray.append(selectedBand.filledPosition[num].position.toKorean())
-        }
-        return positionNameArray
-    }
-    
-    private func appendNumberOfPostionArray() -> [Int] {
-        var numberOfPositionArray: [Int] = []
-        for num in 0...selectedBand.filledPosition.count - 1 {
-            numberOfPositionArray.append(selectedBand.filledPosition[num].numberOfPerson)
-        }
-        return numberOfPositionArray
-    }
-    
-    private func appendBandAgeArray() -> [String] {
-        var bandAgeArray: [String] = []
-        for num in 0...selectedBand.ageGroups.count - 1 {
-            bandAgeArray.append(selectedBand.ageGroups[num].toKorean())
-        }
-        return bandAgeArray
     }
 }
 
