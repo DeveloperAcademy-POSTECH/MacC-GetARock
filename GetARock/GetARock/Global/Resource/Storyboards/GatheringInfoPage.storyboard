@@ -33,7 +33,7 @@
                                                             <view contentMode="scaleToFill" horizontalCompressionResistancePriority="800" verticalCompressionResistancePriority="800" translatesAutoresizingMaskIntoConstraints="NO" id="IPq-Y1-Mnd" userLabel="conditionView">
                                                                 <rect key="frame" x="0.0" y="0.0" width="111" height="54.333333333333336"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="800" verticalCompressionResistancePriority="800" text="모집중" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sah-zl-Rl3">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="800" verticalCompressionResistancePriority="800" text="모집중" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sah-zl-Rl3" userLabel="Status Label">
                                                                         <rect key="frame" x="16" y="9" width="79" height="36.333333333333336"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -154,7 +154,7 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t8o-3s-pFn" userLabel="introductionContentView">
                                                         <rect key="frame" x="16" y="0.0" width="361" height="608.33333333333337"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="1000" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2et-zg-k8K" userLabel="freeDescrition">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="1000" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2et-zg-k8K" userLabel="freeDescrbition">
                                                                 <rect key="frame" x="20" y="20" width="321" height="568.33333333333337"/>
                                                                 <string key="text">편견에 갇힌 여자가
 저를 가둔 가타부타를 깨다 못해 박살을 내는 이야기.
@@ -269,8 +269,15 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="conditionView" destination="IPq-Y1-Mnd" id="3r6-sJ-KJB"/>
-                        <outlet property="ellipsisButton" destination="z1T-V1-cPf" id="1ZO-x5-hZk"/>
+                        <outlet property="bandNameLabel" destination="7Iy-dK-MlB" id="0Wh-c6-Hjn"/>
+                        <outlet property="commentsView" destination="gEW-FV-4ab" id="hgg-0d-ytk"/>
+                        <outlet property="conditionView" destination="IPq-Y1-Mnd" id="NQV-TW-h8U"/>
+                        <outlet property="describtionLabel" destination="2et-zg-k8K" id="TWa-SC-PSJ"/>
+                        <outlet property="ellipsisButton" destination="z1T-V1-cPf" id="ldz-L9-gId"/>
+                        <outlet property="gatheringDateLabel" destination="1I3-XG-1pd" id="voZ-fq-Fvj"/>
+                        <outlet property="gatheringLocationLabel" destination="H4M-sD-ZMG" id="w1t-lp-lWa"/>
+                        <outlet property="gatheringTitleLabel" destination="aYx-ug-1Kh" id="2bt-gM-UDt"/>
+                        <outlet property="statusLabel" destination="Sah-zl-Rl3" id="IF3-i8-Vbg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

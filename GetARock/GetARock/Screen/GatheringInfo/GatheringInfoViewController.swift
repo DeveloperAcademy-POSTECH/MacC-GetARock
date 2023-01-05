@@ -12,8 +12,15 @@
             // MARK: - properties
             
             @IBOutlet weak var conditionView: UIView!
+            @IBOutlet weak var statusLabel: UILabel!
             @IBOutlet weak var ellipsisButton: UIButton!
-            
+            @IBOutlet weak var gatheringTitleLabel: UILabel!
+            @IBOutlet weak var bandNameLabel: UILabel!
+            @IBOutlet weak var gatheringDateLabel: UILabel!
+            @IBOutlet weak var gatheringLocationLabel: UILabel!
+            @IBOutlet weak var describtionLabel: UILabel!
+            @IBOutlet weak var commentsView: UIView!
+
             // MARK: - View Life Cycle
             
             override func viewDidLoad() {
