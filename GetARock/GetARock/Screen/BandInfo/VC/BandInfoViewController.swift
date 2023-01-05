@@ -19,7 +19,7 @@ class BandInfoViewController: UIViewController {
     @IBOutlet weak var repertoireTableView: UITableView!
     @IBOutlet weak var tableHeightConstraint: NSLayoutConstraint!
     
-    private lazy var numberOfBandMember: Int = calculateNumberOfBandMemberText()
+    private lazy var numberOfBandMember: Int = selectedBand.filledPosition.reduce(0) { $0 + $1.numberOfPerson }
     private lazy var positionNameArray: [String] = selectedBand.filledPosition.map { $0.position.toKorean() }
     private lazy var numberOfPostionArray: [Int] = selectedBand.filledPosition.map { $0.numberOfPerson }
     private lazy var bandAgeArray: [String] = selectedBand.ageGroups.map { $0.toKorean() }
@@ -139,14 +139,6 @@ extension BandInfoViewController {
             }
         }
         return bandAgeLabel.text ?? ""
-    }
-    
-    private func calculateNumberOfBandMemberText() -> Int {
-        var sum = 0
-        for num in 0...selectedBand.filledPosition.count - 1 {
-            sum += selectedBand.filledPosition[num].numberOfPerson
-        }
-        return sum
     }
 }
 
