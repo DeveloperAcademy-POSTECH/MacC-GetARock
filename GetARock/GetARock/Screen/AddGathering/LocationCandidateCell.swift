@@ -9,7 +9,7 @@ import UIKit
 
 class LocationCandidateCell: UITableViewCell {
 
-    @IBOutlet weak var addressNameLabel: UILabel!
+    @IBOutlet weak var locationNameLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
 
 }

@@ -16,7 +16,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="393" height="76"/>
                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="주소이름" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rx1-jY-JsT">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="장소명" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rx1-jY-JsT">
                         <rect key="frame" x="32" y="16" width="329" height="21"/>
                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -42,7 +42,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="addressLabel" destination="us4-pi-foO" id="azL-Bi-5kV"/>
-                <outlet property="addressNameLabel" destination="Rx1-jY-JsT" id="S36-fv-cyF"/>
+                <outlet property="locationNameLabel" destination="Rx1-jY-JsT" id="ft6-Oh-N94"/>
             </connections>
             <point key="canvasLocation" x="-402.29007633587787" y="22.535211267605636"/>
         </tableViewCell>

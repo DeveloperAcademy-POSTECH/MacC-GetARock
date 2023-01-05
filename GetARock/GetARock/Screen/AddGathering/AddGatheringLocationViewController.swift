@@ -42,10 +42,6 @@ class AddGatheringLocationViewController: UIViewController {
     }
     
     // MARK: - Method
-
-    @IBAction func backButtonAction(_ sender: Any) {
-        navigationController?.popViewController(animated: true)
-    }
     
     @IBAction func doneButtonAction(_ sender: Any) {
         
@@ -67,8 +63,7 @@ class AddGatheringLocationViewController: UIViewController {
     }
 
     private func setupSearchController() {
-        selectViewController = storyboard?
-            .instantiateViewController(withIdentifier: "LocationSelectViewController") as? LocationSelectViewController
+        selectViewController = storyboard?.instantiateViewController(withIdentifier: LocationSelectViewController.className) as? LocationSelectViewController
         searchController = UISearchController(searchResultsController: selectViewController)
         searchController?.delegate = self
         searchController?.searchBar.delegate = self
