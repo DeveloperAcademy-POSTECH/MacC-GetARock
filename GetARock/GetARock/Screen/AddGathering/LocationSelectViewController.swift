@@ -84,7 +84,7 @@ extension LocationSelectViewController: UITableViewDataSource {
                 LocationCandidateCell else {
             return UITableViewCell()
         }
-        cell.addressNameLabel?.text = placeResults[(indexPath as NSIndexPath).row].title
+        cell.locationNameLabel?.text = placeResults[(indexPath as NSIndexPath).row].title
         cell.addressLabel?.text = placeResults[(indexPath as NSIndexPath).row].subtitle
 
         return cell

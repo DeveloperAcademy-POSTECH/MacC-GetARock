@@ -199,7 +199,7 @@ extension AddGatheringLocationViewController: UITableViewDataSource {
             .dequeueReusableCell(withIdentifier: LocationCandidateCell.className, for: indexPath) as? LocationCandidateCell
         else { return UITableViewCell() }
 
-        cell.addressNameLabel?.text = places?[(indexPath as NSIndexPath).row].name ?? "이름없음"
+        cell.locationNameLabel?.text = places?[(indexPath as NSIndexPath).row].name ?? "이름없음"
         cell.addressLabel?.text = CNPostalAddressFormatter.string(
             from: places?[(indexPath as NSIndexPath).row].placemark.postalAddress ?? CNPostalAddress(),
             style: .mailingAddress
