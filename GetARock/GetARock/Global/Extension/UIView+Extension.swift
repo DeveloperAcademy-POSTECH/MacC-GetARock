@@ -9,7 +9,7 @@ import UIKit
 
 extension UIView {
     func setUIOfBandIntroduceViewAndRepertoireCellView() {
-        self.backgroundColor = UIColor.backgroundBlue
+        self.backgroundColor = UIColor.clear
         self.layer.cornerRadius = 15
         self.layer.borderWidth = 1
         self.layer.borderColor = UIColor.dividerBlue.cgColor
