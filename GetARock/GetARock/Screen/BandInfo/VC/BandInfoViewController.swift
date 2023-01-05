@@ -124,6 +124,20 @@ extension BandInfoViewController: UICollectionViewDataSource {
         cell.positionNameLabel.text = self.positionNameArray[indexPath.item]
         cell.numberOfPositionLabel.text = "\(self.numberOfPostionArray[indexPath.item])명"
         
+        if cell.positionNameLabel.text == "보컬" {
+            cell.positionImageView.image = UIImage(named: "Vocal")!
+        } else if cell.positionNameLabel.text == "베이스" {
+            cell.positionImageView.image = UIImage(named: "Bass")!
+        } else if cell.positionNameLabel.text == "드럼" {
+            cell.positionImageView.image = UIImage(named: "Drum")!
+        } else if cell.positionNameLabel.text == "키보드" {
+            cell.positionImageView.image = UIImage(named: "Keyboard")!
+        } else if cell.positionNameLabel.text == "기타" {
+            cell.positionImageView.image = UIImage(named: "Guitar")!
+        } else {
+            cell.positionImageView.image = UIImage(named: "Etc")!
+        }
+        
         return cell
     }
 }
