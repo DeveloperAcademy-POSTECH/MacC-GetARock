@@ -78,7 +78,7 @@ extension BandInfoViewController {
     private func setBandIntroduceAreaUI() {
         bandIntroduceLabel.text = bandIntroduceText
         
-        bandIntroduceView.applyBgcolorRadiusBorder()
+        bandIntroduceView.setUIOfBandIntroduceViewAndRepertoireCellView()
     }
 }
 
