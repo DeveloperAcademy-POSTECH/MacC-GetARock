@@ -25,10 +25,6 @@
             
             override func viewDidLoad() {
                 super.viewDidLoad()
-                conditionView.layer.cornerRadius = 15
-                conditionView.layer.borderWidth = 2
-                conditionView.layer.borderColor = UIColor.white.cgColor
-                
             }
             
             // MARK: - Method
