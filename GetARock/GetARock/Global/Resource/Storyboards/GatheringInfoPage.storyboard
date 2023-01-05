@@ -270,8 +270,7 @@
                     </view>
                     <connections>
                         <outlet property="conditionView" destination="IPq-Y1-Mnd" id="3r6-sJ-KJB"/>
-                        <outlet property="ellipsis" destination="z1T-V1-cPf" id="hiY-F1-71G"/>
-                        <outlet property="introductionContentView" destination="t8o-3s-pFn" id="SGm-Rw-afS"/>
+                        <outlet property="ellipsisButton" destination="z1T-V1-cPf" id="1ZO-x5-hZk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

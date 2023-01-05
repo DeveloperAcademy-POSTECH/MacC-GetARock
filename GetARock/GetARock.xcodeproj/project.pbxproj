@@ -42,6 +42,7 @@
 		6606F855292CB38B00A121BF /* ReportReasonListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6606F853292CB38B00A121BF /* ReportReasonListCell.swift */; };
 		6606F856292CB38B00A121BF /* ReportReasonListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6606F854292CB38B00A121BF /* ReportReasonListCell.xib */; };
 		66285ABE292DE9F100029213 /* ReportReasonListHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66285ABD292DE9F100029213 /* ReportReasonListHeader.xib */; };
+		662F6CB12967199200450E82 /* GatheringInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 662F6CB02967199200450E82 /* GatheringInfoViewController.swift */; };
 		6667A3202929F5DA0052A53B /* GatheringInfoPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6667A31F2929F5DA0052A53B /* GatheringInfoPage.storyboard */; };
 		66E74206292C82E8003C0B02 /* ActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E74205292C82E8003C0B02 /* ActionSheet.swift */; };
 		66E74208292C9F12003C0B02 /* ReportReasonList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66E74207292C9F12003C0B02 /* ReportReasonList.storyboard */; };
@@ -129,8 +130,8 @@
 		6606F853292CB38B00A121BF /* ReportReasonListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportReasonListCell.swift; sourceTree = "<group>"; };
 		6606F854292CB38B00A121BF /* ReportReasonListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReportReasonListCell.xib; sourceTree = "<group>"; };
 		66285ABD292DE9F100029213 /* ReportReasonListHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReportReasonListHeader.xib; sourceTree = "<group>"; };
+		662F6CB02967199200450E82 /* GatheringInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatheringInfoViewController.swift; sourceTree = "<group>"; };
 		6667A31F2929F5DA0052A53B /* GatheringInfoPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GatheringInfoPage.storyboard; sourceTree = "<group>"; };
-		66E1623E292ADFF5001F0578 /* GatheringInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatheringInfoViewController.swift; sourceTree = "<group>"; };
 		66E74205292C82E8003C0B02 /* ActionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheet.swift; sourceTree = "<group>"; };
 		66E74207292C9F12003C0B02 /* ReportReasonList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ReportReasonList.storyboard; sourceTree = "<group>"; };
 		66E74209292CA04D003C0B02 /* ReportReasonListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportReasonListController.swift; sourceTree = "<group>"; };
@@ -441,9 +442,9 @@
 		66E1623D292ADFC7001F0578 /* GatheringInfo */ = {
 			isa = PBXGroup;
 			children = (
-				66E1623E292ADFF5001F0578 /* GatheringInfoViewController.swift */,
 				66E74209292CA04D003C0B02 /* ReportReasonListController.swift */,
 				6606F853292CB38B00A121BF /* ReportReasonListCell.swift */,
+				662F6CB02967199200450E82 /* GatheringInfoViewController.swift */,
 			);
 			path = GatheringInfo;
 			sourceTree = "<group>";
@@ -706,6 +707,7 @@
 				7B04C330292D0C1F00EA2590 /* VisitorCommentViewController.swift in Sources */,
 				7BDA8F8B291284FE00BB2D34 /* UIColor+Extension.swift in Sources */,
 				072DEDD62926902D0046A4A0 /* AgeGroup.swift in Sources */,
+				662F6CB12967199200450E82 /* GatheringInfoViewController.swift in Sources */,
 				7BB7099329290AE40065136D /* CommentListView.swift in Sources */,
 				7BB70999292A419B0065136D /* EmptyListView.swift in Sources */,
 				07C966B9292C463100A59CF5 /* Date+String.swift in Sources */,
