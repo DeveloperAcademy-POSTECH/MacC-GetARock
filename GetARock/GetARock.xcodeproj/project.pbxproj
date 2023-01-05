@@ -43,7 +43,6 @@
 		6606F856292CB38B00A121BF /* ReportReasonListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6606F854292CB38B00A121BF /* ReportReasonListCell.xib */; };
 		66285ABE292DE9F100029213 /* ReportReasonListHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66285ABD292DE9F100029213 /* ReportReasonListHeader.xib */; };
 		6667A3202929F5DA0052A53B /* GatheringInfoPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6667A31F2929F5DA0052A53B /* GatheringInfoPage.storyboard */; };
-		66E1623F292ADFF5001F0578 /* GatheringInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E1623E292ADFF5001F0578 /* GatheringInfoViewController.swift */; };
 		66E74206292C82E8003C0B02 /* ActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E74205292C82E8003C0B02 /* ActionSheet.swift */; };
 		66E74208292C9F12003C0B02 /* ReportReasonList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66E74207292C9F12003C0B02 /* ReportReasonList.storyboard */; };
 		66E7420A292CA04D003C0B02 /* ReportReasonListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E74209292CA04D003C0B02 /* ReportReasonListController.swift */; };
@@ -59,10 +58,10 @@
 		84002602292BB3DB0093648A /* BandTimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84002601292BB3DB0093648A /* BandTimelineViewController.swift */; };
 		84002606292BB75C0093648A /* BandTimelineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84002605292BB75C0093648A /* BandTimelineCell.xib */; };
 		84002608292BC4BE0093648A /* BandTimelineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84002607292BC4BE0093648A /* BandTimelineCell.swift */; };
-		8437618B2927397400BD2C2A /* GatheringView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8437618A2927397400BD2C2A /* GatheringView.storyboard */; };
-		8437618D29273CF000BD2C2A /* GatheringCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8437618C29273CF000BD2C2A /* GatheringCell.xib */; };
-		8437619029275B3500BD2C2A /* GatheringCreatedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8437618F29275B3500BD2C2A /* GatheringCreatedViewController.swift */; };
-		8437619229276FA700BD2C2A /* GatheringCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8437619129276FA700BD2C2A /* GatheringCell.swift */; };
+		8437618D29273CF000BD2C2A /* GatheringListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8437618C29273CF000BD2C2A /* GatheringListCell.xib */; };
+		84880526293B6C6D0085C718 /* GatheringListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8437618F29275B3500BD2C2A /* GatheringListViewController.swift */; };
+		84880527293B6C750085C718 /* GatheringListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8437619129276FA700BD2C2A /* GatheringListCell.swift */; };
+		84880528293B6C930085C718 /* GatheringList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8437618A2927397400BD2C2A /* GatheringList.storyboard */; };
 		AB58E003292CB57100868720 /* BandPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB58E002292CB57100868720 /* BandPageViewController.swift */; };
 		AB58E007292CB61700868720 /* TopViewOfInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB58E006292CB61700868720 /* TopViewOfInfoView.swift */; };
 		ABCE15B7292A052F007D30E2 /* ViewSwitchedSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCE15B6292A052F007D30E2 /* ViewSwitchedSegmentedControl.swift */; };
@@ -151,10 +150,10 @@
 		84002601292BB3DB0093648A /* BandTimelineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandTimelineViewController.swift; sourceTree = "<group>"; };
 		84002605292BB75C0093648A /* BandTimelineCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BandTimelineCell.xib; sourceTree = "<group>"; };
 		84002607292BC4BE0093648A /* BandTimelineCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandTimelineCell.swift; sourceTree = "<group>"; };
-		8437618A2927397400BD2C2A /* GatheringView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GatheringView.storyboard; sourceTree = "<group>"; };
-		8437618C29273CF000BD2C2A /* GatheringCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GatheringCell.xib; sourceTree = "<group>"; };
-		8437618F29275B3500BD2C2A /* GatheringCreatedViewController.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = GatheringCreatedViewController.swift; sourceTree = "<group>"; tabWidth = 4; };
-		8437619129276FA700BD2C2A /* GatheringCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatheringCell.swift; sourceTree = "<group>"; };
+		8437618A2927397400BD2C2A /* GatheringList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GatheringList.storyboard; sourceTree = "<group>"; };
+		8437618C29273CF000BD2C2A /* GatheringListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GatheringListCell.xib; sourceTree = "<group>"; };
+		8437618F29275B3500BD2C2A /* GatheringListViewController.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = GatheringListViewController.swift; sourceTree = "<group>"; tabWidth = 4; };
+		8437619129276FA700BD2C2A /* GatheringListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatheringListCell.swift; sourceTree = "<group>"; };
 		AB58E002292CB57100868720 /* BandPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandPageViewController.swift; sourceTree = "<group>"; };
 		AB58E006292CB61700868720 /* TopViewOfInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopViewOfInfoView.swift; sourceTree = "<group>"; };
 		ABCE15B6292A052F007D30E2 /* ViewSwitchedSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewSwitchedSegmentedControl.swift; sourceTree = "<group>"; };
@@ -340,8 +339,8 @@
 				840025FF292BB27B0093648A /* BandTimeline.storyboard */,
 				B8B9971E29287D3700082462 /* MainMap.storyboard */,
 				C5C7AC6A292A7F7C00698636 /* AddGathering.storyboard */,
-				8437618A2927397400BD2C2A /* GatheringView.storyboard */,
 				66E74207292C9F12003C0B02 /* ReportReasonList.storyboard */,
+				8437618A2927397400BD2C2A /* GatheringList.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -409,10 +408,10 @@
 				07D7DA4329108DCB00479B6F /* SampleView.xib */,
 				3DF54FD0292BAFA6001CD16B /* RepertoireTableViewCell.xib */,
 				84002605292BB75C0093648A /* BandTimelineCell.xib */,
-				8437618C29273CF000BD2C2A /* GatheringCell.xib */,
 				6606F854292CB38B00A121BF /* ReportReasonListCell.xib */,
 				66285ABD292DE9F100029213 /* ReportReasonListHeader.xib */,
 				C545AFC7293A405200C21E32 /* LocationCandidateCell.xib */,
+				8437618C29273CF000BD2C2A /* GatheringListCell.xib */,
 			);
 			path = Xibs;
 			sourceTree = "<group>";
@@ -478,8 +477,8 @@
 		8437618E2927551100BD2C2A /* Gathering */ = {
 			isa = PBXGroup;
 			children = (
-				8437618F29275B3500BD2C2A /* GatheringCreatedViewController.swift */,
-				8437619129276FA700BD2C2A /* GatheringCell.swift */,
+				8437618F29275B3500BD2C2A /* GatheringListViewController.swift */,
+				8437619129276FA700BD2C2A /* GatheringListCell.swift */,
 			);
 			path = Gathering;
 			sourceTree = "<group>";
@@ -617,14 +616,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8437618B2927397400BD2C2A /* GatheringView.storyboard in Resources */,
+				84880528293B6C930085C718 /* GatheringList.storyboard in Resources */,
 				66E74208292C9F12003C0B02 /* ReportReasonList.storyboard in Resources */,
 				07D7DA832911EB7D00479B6F /* .swiftlint.yml in Resources */,
 				3DF54FD1292BAFA6001CD16B /* RepertoireTableViewCell.xib in Resources */,
 				B8B9971F29287D3700082462 /* MainMap.storyboard in Resources */,
 				66285ABE292DE9F100029213 /* ReportReasonListHeader.xib in Resources */,
 				84002600292BB27B0093648A /* BandTimeline.storyboard in Resources */,
-				8437618D29273CF000BD2C2A /* GatheringCell.xib in Resources */,
+				8437618D29273CF000BD2C2A /* GatheringListCell.xib in Resources */,
 				07D7D9EF290FB8C400479B6F /* LaunchScreen.storyboard in Resources */,
 				07D7DA4429108DCB00479B6F /* SampleView.xib in Resources */,
 				6667A3202929F5DA0052A53B /* GatheringInfoPage.storyboard in Resources */,
@@ -680,11 +679,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				66E1623F292ADFF5001F0578 /* GatheringInfoViewController.swift in Sources */,
+				84880527293B6C750085C718 /* GatheringListCell.swift in Sources */,
+				84880526293B6C6D0085C718 /* GatheringListViewController.swift in Sources */,
 				6606F855292CB38B00A121BF /* ReportReasonListCell.swift in Sources */,
 				66E7420A292CA04D003C0B02 /* ReportReasonListController.swift in Sources */,
-				8437619229276FA700BD2C2A /* GatheringCell.swift in Sources */,
-				8437619029275B3500BD2C2A /* GatheringCreatedViewController.swift in Sources */,
 				C545AFCA293A413200C21E32 /* AddGatheringLocationViewController.swift in Sources */,
 				07D7DA3C29108C9000479B6F /* SampleView.swift in Sources */,
 				3DF54FCB292A43EA001CD16B /* BandMemberCollectionViewCell.swift in Sources */,

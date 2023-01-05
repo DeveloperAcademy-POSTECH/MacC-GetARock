@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -56,9 +54,6 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="동성로 합동 버스킹 합니다!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gsv-TT-DTS">
                         <rect key="frame" x="64.000000000000014" y="50.666666666666664" width="169.33333333333337" height="19.333333333333336"/>
-                        <constraints>
-                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="210" id="Mqs-78-qLP"/>
-                        </constraints>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
@@ -96,6 +91,7 @@
                     <constraint firstItem="Fpk-HD-t04" firstAttribute="centerX" secondItem="rfp-Pd-07t" secondAttribute="centerX" id="hcf-U9-fa7"/>
                     <constraint firstItem="np7-Hm-tCg" firstAttribute="leading" secondItem="FlR-MG-Sew" secondAttribute="trailing" constant="4" id="ipX-st-2IL"/>
                     <constraint firstItem="Gsv-TT-DTS" firstAttribute="top" secondItem="FlR-MG-Sew" secondAttribute="bottom" constant="5.6699999999999999" id="kRU-ax-5iM"/>
+                    <constraint firstItem="JSI-YD-u1h" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Gsv-TT-DTS" secondAttribute="trailing" constant="10" id="lh2-GO-1DS"/>
                     <constraint firstItem="Gsv-TT-DTS" firstAttribute="leading" secondItem="FlR-MG-Sew" secondAttribute="leading" id="m5V-AW-SEA"/>
                     <constraint firstItem="FlR-MG-Sew" firstAttribute="leading" secondItem="rfp-Pd-07t" secondAttribute="trailing" constant="28" id="nh2-G6-SWA"/>
                     <constraint firstItem="np7-Hm-tCg" firstAttribute="top" secondItem="c8z-EJ-itS" secondAttribute="top" constant="30" id="oWM-V2-at2"/>
@@ -109,9 +105,9 @@
             <color key="backgroundColor" red="0.35294118520000001" green="0.3686274886" blue="0.46274507050000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
             <connections>
                 <outlet property="bottomLine" destination="Fpk-HD-t04" id="Dvj-gx-caD"/>
-                <outlet property="startTime" destination="np7-Hm-tCg" id="QJA-NZ-exa"/>
-                <outlet property="status" destination="JSI-YD-u1h" id="Rw1-m3-fCX"/>
-                <outlet property="title" destination="Gsv-TT-DTS" id="5M5-YG-3TT"/>
+                <outlet property="dateLabel" destination="np7-Hm-tCg" id="QJA-NZ-exa"/>
+                <outlet property="statusLabel" destination="JSI-YD-u1h" id="Rw1-m3-fCX"/>
+                <outlet property="titleLabel" destination="Gsv-TT-DTS" id="5M5-YG-3TT"/>
                 <outlet property="topLine" destination="Qwo-tI-wkK" id="g67-Yv-x8B"/>
             </connections>
             <point key="canvasLocation" x="118.32061068702289" y="45.774647887323944"/>
