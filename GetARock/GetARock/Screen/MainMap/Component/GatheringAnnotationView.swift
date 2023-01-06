@@ -33,23 +33,11 @@ class GatheringAnnotation: NSObject, MKAnnotation {
   let coordinate: CLLocationCoordinate2D
   let title: String?
   let gatheringInfo: GatheringInfo?
-
-  init(
-    title: String,
-    coordinate: CLLocationCoordinate2D,
-    gatheringInfo: GatheringInfo
-  ) {
-    self.title = title
-    self.coordinate = coordinate
-    self.gatheringInfo = gatheringInfo
-
-    super.init()
-  }
   
-//  init(title: String, coordinate: CLLocationCoordinate2D, gatheringInfo: GatheringInfo) {
-//      self.title = title
-//      self.coordinate = coordinate
-//      self.gatheringInfo = gatheringInfo
-//  }
+  init(title: String, coordinate: CLLocationCoordinate2D, gatheringInfo: GatheringInfo) {
+      self.title = title
+      self.coordinate = coordinate
+      self.gatheringInfo = gatheringInfo
+  }
 
 }
