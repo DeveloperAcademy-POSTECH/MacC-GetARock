@@ -175,10 +175,38 @@ extension MainMapViewController: MKMapViewDelegate {
             return MKUserLocationView()
         }
         
-        guard let marker = mapView.dequeueReusableAnnotationView(withIdentifier: AnnotationView.className) as? AnnotationView else {
-            return AnnotationView()
+        if annotation is BandAnnotation {
+            guard let marker = mapView.dequeueReusableAnnotationView(withIdentifier: BandAnnotationView.className) as? BandAnnotationView else {
+                return BandAnnotationView()
+            }
+            
+            return marker
         }
         
-        return marker
+        guard let annotation = annotation as? GatheringAnnotation else {
+            return nil
+        }
+        
+        var annotationView = self.mapView.dequeueReusableAnnotationView(withIdentifier: GatheringAnnotationView.identifier)
+        
+        if annotationView == nil {
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: GatheringAnnotationView.identifier)
+            annotationView?.canShowCallout = false
+            annotationView?.contentMode = .scaleAspectFit
+            
+        } else {
+            annotationView?.annotation = annotation
+        }
+        
+        let pinImage = UIImage(named: "GatheringLocation")
+        let size = CGSize(width: 62, height: 70)
+        UIGraphicsBeginImageContext(size)
+        
+        pinImage?.draw(in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
+        let resizedImage = UIGraphicsGetImageFromCurrentImageContext()
+        annotationView?.image = resizedImage
+        
+        return annotationView
+        
     }
 }
