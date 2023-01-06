@@ -42,23 +42,32 @@ final class MainMapViewController: UIViewController {
     private func setMapView() {
         mapView.delegate = self
         locationManager.delegate = self
-        mapView.register(AnnotationView.self, forAnnotationViewWithReuseIdentifier: AnnotationView.className)
+        mapView.register(BandAnnotationView.self, forAnnotationViewWithReuseIdentifier: BandAnnotationView.className)
+        mapView.register(GatheringAnnotationView.self, forAnnotationViewWithReuseIdentifier: GatheringAnnotationView.className)
     }
     
     private func addAnnotationOnMapView() {
+        addBandAnnotationOnMapView()
+        addGatheringAnnotationOnMapView()
+    }
+    
+    private func addBandAnnotationOnMapView() {
         for band in MockData.bands {
-            let point = CustomAnnotation(
+            let point = BandAnnotation(
                 title: band.band.name,
                 coordinate: band.band.location.coordinate.toCLLocationCoordinate2D(),
-                category: .band
+                bandInfo: band
             )
             mapView.addAnnotation(point)
         }
+    }
+    
+    private func addGatheringAnnotationOnMapView() {
         for gathering in MockData.gatherings {
-            let point = CustomAnnotation(
+            let point = GatheringAnnotation(
                 title: gathering.gathering.host.band.name,
                 coordinate: gathering.gathering.location.coordinate.toCLLocationCoordinate2D(),
-                category: .gathering
+                gatheringInfo: gathering
             )
             mapView.addAnnotation(point)
         }

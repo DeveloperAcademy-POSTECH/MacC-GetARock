@@ -65,9 +65,10 @@
 		AB58E003292CB57100868720 /* BandPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB58E002292CB57100868720 /* BandPageViewController.swift */; };
 		AB58E007292CB61700868720 /* TopViewOfInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB58E006292CB61700868720 /* TopViewOfInfoView.swift */; };
 		ABCE15B7292A052F007D30E2 /* ViewSwitchedSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCE15B6292A052F007D30E2 /* ViewSwitchedSegmentedControl.swift */; };
+		B81733F229684E1B00BC6698 /* GatheringAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81733F129684E1B00BC6698 /* GatheringAnnotationView.swift */; };
 		B830849929263B780035DB2D /* MainMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B830849829263B780035DB2D /* MainMapViewController.swift */; };
 		B8B9971F29287D3700082462 /* MainMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8B9971E29287D3700082462 /* MainMap.storyboard */; };
-		B8BE496E292E14C800E8E774 /* AnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BE496D292E14C800E8E774 /* AnnotationView.swift */; };
+		B8BE496E292E14C800E8E774 /* BandAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BE496D292E14C800E8E774 /* BandAnnotationView.swift */; };
 		C545AFC6293A403500C21E32 /* LocationCandidateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C545AFC5293A403500C21E32 /* LocationCandidateCell.swift */; };
 		C545AFC8293A405200C21E32 /* LocationCandidateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C545AFC7293A405200C21E32 /* LocationCandidateCell.xib */; };
 		C545AFCA293A413200C21E32 /* AddGatheringLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C545AFC9293A413200C21E32 /* AddGatheringLocationViewController.swift */; };
@@ -157,9 +158,10 @@
 		AB58E002292CB57100868720 /* BandPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandPageViewController.swift; sourceTree = "<group>"; };
 		AB58E006292CB61700868720 /* TopViewOfInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopViewOfInfoView.swift; sourceTree = "<group>"; };
 		ABCE15B6292A052F007D30E2 /* ViewSwitchedSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewSwitchedSegmentedControl.swift; sourceTree = "<group>"; };
+		B81733F129684E1B00BC6698 /* GatheringAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatheringAnnotationView.swift; sourceTree = "<group>"; };
 		B830849829263B780035DB2D /* MainMapViewController.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = MainMapViewController.swift; sourceTree = "<group>"; tabWidth = 4; };
 		B8B9971E29287D3700082462 /* MainMap.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainMap.storyboard; sourceTree = "<group>"; };
-		B8BE496D292E14C800E8E774 /* AnnotationView.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = AnnotationView.swift; sourceTree = "<group>"; tabWidth = 4; };
+		B8BE496D292E14C800E8E774 /* BandAnnotationView.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = BandAnnotationView.swift; sourceTree = "<group>"; tabWidth = 4; };
 		C545AFC5293A403500C21E32 /* LocationCandidateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCandidateCell.swift; sourceTree = "<group>"; };
 		C545AFC7293A405200C21E32 /* LocationCandidateCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationCandidateCell.xib; sourceTree = "<group>"; };
 		C545AFC9293A413200C21E32 /* AddGatheringLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGatheringLocationViewController.swift; sourceTree = "<group>"; };
@@ -495,7 +497,8 @@
 		B88C73412938AFB9005F2350 /* Component */ = {
 			isa = PBXGroup;
 			children = (
-				B8BE496D292E14C800E8E774 /* AnnotationView.swift */,
+				B8BE496D292E14C800E8E774 /* BandAnnotationView.swift */,
+				B81733F129684E1B00BC6698 /* GatheringAnnotationView.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -683,12 +686,13 @@
 				84880526293B6C6D0085C718 /* GatheringListViewController.swift in Sources */,
 				6606F855292CB38B00A121BF /* ReportReasonListCell.swift in Sources */,
 				66E7420A292CA04D003C0B02 /* ReportReasonListController.swift in Sources */,
+				B81733F229684E1B00BC6698 /* GatheringAnnotationView.swift in Sources */,
 				C545AFCA293A413200C21E32 /* AddGatheringLocationViewController.swift in Sources */,
 				07D7DA3C29108C9000479B6F /* SampleView.swift in Sources */,
 				3DF54FCB292A43EA001CD16B /* BandMemberCollectionViewCell.swift in Sources */,
 				3DF54FCF292B9223001CD16B /* RepertoireTableViewCell.swift in Sources */,
 				3D0ED2232928667900AE320C /* BandInfoViewController.swift in Sources */,
-				B8BE496E292E14C800E8E774 /* AnnotationView.swift in Sources */,
+				B8BE496E292E14C800E8E774 /* BandAnnotationView.swift in Sources */,
 				0761508D29277CBB00A0562F /* VisitorComment.swift in Sources */,
 				AB58E007292CB61700868720 /* TopViewOfInfoView.swift in Sources */,
 				072DEDD2292687A70046A4A0 /* Location.swift in Sources */,
