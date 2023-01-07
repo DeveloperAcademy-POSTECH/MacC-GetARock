@@ -9,9 +9,9 @@ import UIKit
 
 class BandTimelineCell: UITableViewCell {
 
-    @IBOutlet weak var startTime: UILabel!
-    @IBOutlet weak var title: UILabel!
-    @IBOutlet weak var status: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var topLine: UIView!
     @IBOutlet weak var bottomLine: UIView!
     
