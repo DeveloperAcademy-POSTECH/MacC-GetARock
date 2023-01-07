@@ -1,5 +1,5 @@
 //
-//  GatheringListViewController.swift
+//  GatheringListTapViewController.swift
 //  GetARock
 //
 //  Created by Somin Park on 2022/11/23.
@@ -19,7 +19,7 @@ enum GatheringListType: CaseIterable {
     }
 }
 
-class GatheringListViewController: UIViewController {
+class GatheringListTapViewController: UIViewController {
     
     // MARK: - View
     
@@ -49,7 +49,7 @@ class GatheringListViewController: UIViewController {
 
 // MARK: - Layout
 
-extension GatheringListViewController {
+extension GatheringListTapViewController {
     private func setupLayout() {
         attributes()
         configureButton()
@@ -82,7 +82,7 @@ extension GatheringListViewController {
 
 // MARK: - ViewSwitchedSegmentedControlDelegate
 
-extension GatheringListViewController: ViewSwitchedSegmentedControlDelegate {
+extension GatheringListTapViewController: ViewSwitchedSegmentedControlDelegate {
     func segmentValueChanged(to index: Int) {
         gatheringListContentViewController.gatheringListType = GatheringListType.allCases[index]
     }
