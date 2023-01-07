@@ -65,7 +65,7 @@
 		AB58E003292CB57100868720 /* BandPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB58E002292CB57100868720 /* BandPageViewController.swift */; };
 		AB58E007292CB61700868720 /* TopViewOfInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB58E006292CB61700868720 /* TopViewOfInfoView.swift */; };
 		AB58E00F292DEF2400868720 /* GatheringListTapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB58E00E292DEF2400868720 /* GatheringListTapViewController.swift */; };
-		ABCE15B7292A052F007D30E2 /* ViewSwitchedSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCE15B6292A052F007D30E2 /* ViewSwitchedSegmentedControl.swift */; };
+		ABCE15B7292A052F007D30E2 /* SwitchingViewSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCE15B6292A052F007D30E2 /* SwitchingViewSegmentedControl.swift */; };
 		B830849929263B780035DB2D /* MainMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B830849829263B780035DB2D /* MainMapViewController.swift */; };
 		B8B9971F29287D3700082462 /* MainMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8B9971E29287D3700082462 /* MainMap.storyboard */; };
 		B8BE496E292E14C800E8E774 /* AnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BE496D292E14C800E8E774 /* AnnotationView.swift */; };
@@ -158,7 +158,7 @@
 		AB58E002292CB57100868720 /* BandPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandPageViewController.swift; sourceTree = "<group>"; };
 		AB58E006292CB61700868720 /* TopViewOfInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopViewOfInfoView.swift; sourceTree = "<group>"; };
 		AB58E00E292DEF2400868720 /* GatheringListTapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatheringListTapViewController.swift; sourceTree = "<group>"; };
-		ABCE15B6292A052F007D30E2 /* ViewSwitchedSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewSwitchedSegmentedControl.swift; sourceTree = "<group>"; };
+		ABCE15B6292A052F007D30E2 /* SwitchingViewSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchingViewSegmentedControl.swift; sourceTree = "<group>"; };
 		B830849829263B780035DB2D /* MainMapViewController.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = MainMapViewController.swift; sourceTree = "<group>"; tabWidth = 4; };
 		B8B9971E29287D3700082462 /* MainMap.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainMap.storyboard; sourceTree = "<group>"; };
 		B8BE496D292E14C800E8E774 /* AnnotationView.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = AnnotationView.swift; sourceTree = "<group>"; tabWidth = 4; };
@@ -382,7 +382,7 @@
 				7BB7099A292A47E40065136D /* CommentCreateButton.swift */,
 				7BFDAA90292C94E5002FE744 /* CommentWritingPopupViewController.swift */,
 				7BB709952929161D0065136D /* Cell */,
-				ABCE15B6292A052F007D30E2 /* ViewSwitchedSegmentedControl.swift */,
+				ABCE15B6292A052F007D30E2 /* SwitchingViewSegmentedControl.swift */,
 				66E74205292C82E8003C0B02 /* ActionSheet.swift */,
 			);
 			path = UIComponent;
@@ -720,7 +720,7 @@
 				07615093292907A900A0562F /* GatheringComment.swift in Sources */,
 				7BB709972929164D0065136D /* CommentTableViewCell.swift in Sources */,
 				AB58E003292CB57100868720 /* BandPageViewController.swift in Sources */,
-				ABCE15B7292A052F007D30E2 /* ViewSwitchedSegmentedControl.swift in Sources */,
+				ABCE15B7292A052F007D30E2 /* SwitchingViewSegmentedControl.swift in Sources */,
 				07D7DA3A29108C5B00479B6F /* BaseViewController.swift in Sources */,
 				07D7DA3429108A8300479B6F /* StringLiteral.swift in Sources */,
 				7B04C330292D0C1F00EA2590 /* VisitorCommentViewController.swift in Sources */,

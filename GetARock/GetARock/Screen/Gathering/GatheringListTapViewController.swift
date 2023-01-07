@@ -23,7 +23,7 @@ class GatheringListTapViewController: UIViewController {
     
     // MARK: - View
     
-    private let segmentedControlButtons = ViewSwitchedSegmentedControl(
+    private let segmentedControlButtons = SwitchingViewSegmentedControl(
         buttonTitles: [
             GatheringListType.createdGathering.toKorean(),
             GatheringListType.joinedGathering.toKorean()
