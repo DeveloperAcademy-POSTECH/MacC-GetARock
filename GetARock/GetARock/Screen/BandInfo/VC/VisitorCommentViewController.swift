@@ -39,7 +39,6 @@ final class VisitorCommentViewController: UIViewController {
             visitorCommentList.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
         setupWritingButton()
-        
     }
 
     private func setupWritingButton() {
@@ -47,8 +46,20 @@ final class VisitorCommentViewController: UIViewController {
     }
 
     @objc func didTapVisitorCommentButton() {
-        let popupViewController = CommentWritingPopupViewController()
+        let popupViewController = CommentWritingPopupViewController(commentMode: .visitorComment)
         popupViewController.modalPresentationStyle = .overFullScreen
         self.present(popupViewController, animated: false)
+        popupViewController.delegate = self
     }
+}
+
+// MARK: - CommentListUpdateDelegate
+
+extension VisitorCommentViewController: CommentListUpdateDelegate {
+    
+    func refreshCommentList() {
+        visitorCommentList.tableView.reloadData()
+        visitorCommentList.setupTotalListNumberLabel()
+    }
+
 }
