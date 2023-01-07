@@ -28,7 +28,8 @@ class GatheringListTapViewController: UIViewController {
             GatheringListType.createdGathering.toKorean(),
             GatheringListType.joinedGathering.toKorean()
         ])
-    let gatheringListContentViewController: GatheringListViewController = UIStoryboard(name: "GatheringList",
+    let gatheringListContentViewController: GatheringListViewController = UIStoryboard(
+        name: "GatheringList",
         bundle: nil
     ).instantiateViewController(
         withIdentifier: GatheringListViewController.className
@@ -51,11 +52,13 @@ extension GatheringListTapViewController {
         configureButton()
         configureGatheringList()
     }
+    
     private func attributes() {
         view.addSubview(segmentedControlButtons)
         view.addSubview(gatheringListContentViewController.view)
         view.backgroundColor = .modalBackgroundBlue
     }
+    
     private func configureButton() {
         segmentedControlButtons.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -65,6 +68,7 @@ extension GatheringListTapViewController {
             segmentedControlButtons.heightAnchor.constraint(equalToConstant: 40)
         ])
     }
+    
     private func configureGatheringList() {
         gatheringListContentViewController.view.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -74,4 +78,5 @@ extension GatheringListTapViewController {
             gatheringListContentViewController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
+    
 }
