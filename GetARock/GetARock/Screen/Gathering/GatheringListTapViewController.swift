@@ -8,13 +8,13 @@
 import UIKit
 
 enum GatheringListType: CaseIterable {
-    case gatheringCreated
-    case gatheringJoined
+    case createdGathering
+    case joinedGathering
     
     func toKorean() -> String {
         switch self {
-        case .gatheringCreated: return "내가 만든 모여락"
-        case .gatheringJoined: return "댓글 단 모여락"
+        case .createdGathering: return "내가 만든 모여락"
+        case .joinedGathering: return "댓글 단 모여락"
         }
     }
 }
@@ -25,8 +25,8 @@ class GatheringListTapViewController: UIViewController {
     
     private let segmentedControlButtons = ViewSwitchedSegmentedControl(
         buttonTitles: [
-            GatheringListType.gatheringCreated.toKorean(),
-            GatheringListType.gatheringJoined.toKorean()
+            GatheringListType.createdGathering.toKorean(),
+            GatheringListType.joinedGathering.toKorean()
         ])
     let gatheringListContentViewController: GatheringListViewController = UIStoryboard(name: "GatheringList",
         bundle: nil
