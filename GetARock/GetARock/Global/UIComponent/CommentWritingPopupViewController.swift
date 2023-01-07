@@ -15,7 +15,7 @@ class CommentWritingPopupViewController: UIViewController {
     
     // MARK: - Properties
     
-    var commentMode: CommentMode
+    private var commentMode: CommentMode
     private let textViewPlaceHolder = "텍스트를 입력해주세요"
 
     weak var delegate: CommentListUpdateDelegate?
