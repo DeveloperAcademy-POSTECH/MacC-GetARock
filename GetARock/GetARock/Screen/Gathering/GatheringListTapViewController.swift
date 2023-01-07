@@ -28,21 +28,17 @@ class GatheringListTapViewController: UIViewController {
             GatheringListType.gatheringCreated.toKorean(),
             GatheringListType.gatheringJoined.toKorean()
         ])
-    private let gatheringListContentViewController: GatheringCreatedViewController =
-    UIStoryboard(
-        name: "GatheringView",
+    let gatheringListContentViewController: GatheringListViewController = UIStoryboard(name: "GatheringList",
         bundle: nil
     ).instantiateViewController(
-        withIdentifier: GatheringCreatedViewController.className
-    ) as? GatheringCreatedViewController ??
-    GatheringCreatedViewController()
-    
+        withIdentifier: GatheringListViewController.className
+    ) as? GatheringListViewController ?? GatheringListViewController()
+
     // MARK: - View Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLayout()
-        segmentedControlButtons.delegate = self
     }
 
 }
@@ -78,13 +74,4 @@ extension GatheringListTapViewController {
             gatheringListContentViewController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
-}
-
-// MARK: - ViewSwitchedSegmentedControlDelegate
-
-extension GatheringListTapViewController: ViewSwitchedSegmentedControlDelegate {
-    func segmentValueChanged(to index: Int) {
-        gatheringListContentViewController.gatheringListType = GatheringListType.allCases[index]
-    }
-
 }
