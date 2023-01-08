@@ -52,7 +52,7 @@ class CustomAnnotation: NSObject, MKAnnotation {
     let coordinate: CLLocationCoordinate2D
     let category: Category
     
-    init(title: String?, coordinate: CLLocationCoordinate2D, category: Category) {
+    init(title: String, coordinate: CLLocationCoordinate2D, category: Category) {
         self.title = title
         self.coordinate = coordinate
         self.category = category

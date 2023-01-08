@@ -21,7 +21,7 @@ class CommentListView: UIView, NotifyTapMoreButtonDelegate {
 
     // MARK: - View
 
-    private let totalListNumberLabel: UILabel = {
+    private let totalComentNumber: UILabel = {
         $0.textColor = .white
         $0.font = UIFont.systemFont(ofSize: 16, weight: .bold)
         return $0
@@ -45,7 +45,7 @@ class CommentListView: UIView, NotifyTapMoreButtonDelegate {
         $0.axis = .vertical
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
-    }(UIStackView(arrangedSubviews: [commentWritingButton, totalListNumberLabel, tableView]))
+    }(UIStackView(arrangedSubviews: [commentWritingButton, totalComentNumber, tableView]))
 
     // MARK: - Init
 
@@ -93,9 +93,9 @@ class CommentListView: UIView, NotifyTapMoreButtonDelegate {
     func setupTotalListNumberLabel() {
         switch commentMode {
         case .visitorComment:
-            totalListNumberLabel.text = "총 \(MockData.visitorComments.count)개"
+            totalComentNumber.text = "총 \(MockData.visitorComments.count)개"
         case .gatheringComment:
-            totalListNumberLabel.text = "총 \(MockData.gatheringComments.count)개"
+            totalComentNumber.text = "총 \(MockData.gatheringComments.count)개"
         }
     }
 
