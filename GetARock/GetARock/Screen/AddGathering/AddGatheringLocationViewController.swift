@@ -156,7 +156,6 @@ extension AddGatheringLocationViewController {
         )
         let confirm = UIAlertAction(title: "예", style: .default, handler: {_ in
             print("장소 검색 에러: \(error.description)")
-            self.dismiss(animated: true)
         })
         alertController.addAction(confirm)
         self.present(alertController, animated: true)
