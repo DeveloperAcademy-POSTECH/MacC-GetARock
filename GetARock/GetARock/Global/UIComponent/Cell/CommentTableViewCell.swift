@@ -21,7 +21,7 @@ class CommentTableViewCell: UITableViewCell {
         return $0
     }(UILabel())
 
-    let moreButton: UIButton = {
+    private let moreButton: UIButton = {
         $0.setImage(UIImage(systemName: "ellipsis"), for: .normal)
         $0.tintColor = .white
         return $0
