@@ -72,7 +72,6 @@ extension VisitorCommentViewController: CheckCellIndexDelegate, Reportable {
     
     func checkCellIndex(indexPath: IndexPath) {
         cellIndex = indexPath
-        print("\(indexPath) 번 셀의 액션시트 노출")
         showActionSheet()
     }
 

@@ -110,19 +110,8 @@ class CommentListView: UIView, NotifyTapMoreButtonDelegate {
 
     func notifyTapMoreButton(cell: UITableViewCell) {
         guard let indexPath = tableView.indexPath(for: cell) else { return }
-        // 내가 눌른 Cell은 이전의 Delegate를 통해 넘어옴, 그 셀의 indexPath를 알기위해
-        // tableView.indexPath(for:) 메소드 사용 (= indexPath(for:)를 사용하면 해당 UICell의 indexPath를 뽑아줌)
-        // indexPath는 옵셔널값임 (Cell이 없을 수도 있기 떄문)
         self.delegate?.checkCellIndex(indexPath: indexPath)
-        // 어떤 셀이 눌렷는지 알려줘야하기 때문에 showEditActionSheet()에
-        // 해당 cell의 indexPath 값을 넘겨줌
     }
-//
-//    func deleteTableView() {
-//        MockData.visitorComments.remove(at: indexPath.row)
-//        let indexPath = IndexPath(item: 0, section: 0)
-//        tableView.deleteRows(at: [indexPath], with: .fade)
-//    }
 }
 
 // MARK: - UITableViewDelegate
@@ -181,5 +170,4 @@ extension CommentListView: UITableViewDataSource {
 
 protocol CheckCellIndexDelegate: AnyObject {
     func checkCellIndex(indexPath: IndexPath)
-    // 셀을 삭제하기 위해선 어떤 셀이 눌렷는지 알기 위해 IndexPath를 넘겨줘야함
 }
