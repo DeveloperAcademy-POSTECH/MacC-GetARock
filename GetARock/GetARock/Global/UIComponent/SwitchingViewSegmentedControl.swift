@@ -1,5 +1,5 @@
 //
-//  ViewSwitchedSegmentedControl.swift
+//  SwitchingViewSegmentedControl.swift
 //  GetARock
 //
 //  Created by Somin Park on 2022/11/20.
@@ -7,10 +7,15 @@
 
 import UIKit
 
-final class ViewSwitchedSegmentedControl: UIView {
+protocol SwitchingViewSegmentedControlDelegate: AnyObject {
+    func segmentValueChanged(to index: Int)
+}
+
+final class SwitchingViewSegmentedControl: UIView {
     
     // MARK: - Properties
     
+    weak var delegate: SwitchingViewSegmentedControlDelegate?
     private var buttonTitles = [String]()
     private var buttons = [UIButton]()
     let textColor: UIColor = .white
@@ -53,7 +58,7 @@ final class ViewSwitchedSegmentedControl: UIView {
             let button = UIButton(type: .system)
             button.setTitle(buttonTitle, for: .normal)
             button.setTitleColor(textColor, for: .normal)
-            button.addTarget(self, action: #selector(ViewSwitchedSegmentedControl.buttonAction(sender:)),
+            button.addTarget(self, action: #selector(SwitchingViewSegmentedControl.buttonAction(sender:)),
                              for: .touchUpInside)
             buttons.append(button)
         }
@@ -64,6 +69,7 @@ final class ViewSwitchedSegmentedControl: UIView {
         for (buttonIndex, button) in buttons.enumerated() {
             button.setTitleColor(textColor, for: .normal)
             if button == sender {
+                delegate?.segmentValueChanged(to: buttonIndex)
                 let selectorPosition = frame.width / CGFloat(buttonTitles.count) * CGFloat(buttonIndex)
                 UIView.animate(withDuration: 0.2) {
                     self.selectorView.frame.origin.x = selectorPosition
@@ -77,7 +83,7 @@ final class ViewSwitchedSegmentedControl: UIView {
 
 // MARK: - Layout
 
-extension ViewSwitchedSegmentedControl {
+extension SwitchingViewSegmentedControl {
     private func setupLayout() {
         configureStaticLineView()
         configureSelectorView()
