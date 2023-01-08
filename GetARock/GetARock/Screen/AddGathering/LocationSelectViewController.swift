@@ -47,8 +47,6 @@ class LocationSelectViewController: UIViewController {
     private func startProvidingCompletions() {
         searchCompleter = MKLocalSearchCompleter()
         searchCompleter?.delegate = self
-        // MKCoordinateRegion 필요시 설정. 한국 등은 여기 말고 placemark의 countryCode에서 처리
-        // searchCompleter?.region = searchRegion
     }
     
     private func stopProvidingCompletions() {
