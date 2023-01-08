@@ -21,7 +21,11 @@ class AddGatheringLocationViewController: UIViewController {
         }
     }
 
-    private var localSearch: MKLocalSearch?
+    private var localSearch: MKLocalSearch? {
+        willSet {
+            localSearch?.cancel()
+        }
+    }
     private var selectedCoordinate: Coordinate?
 
     // MARK: - View
@@ -102,7 +106,6 @@ extension AddGatheringLocationViewController: UISearchBarDelegate {
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         selectViewController?.tableView?.dataSource = selectViewController
         places = nil
-        localSearch?.cancel()
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -137,7 +140,6 @@ extension AddGatheringLocationViewController {
             self.places = response?.mapItems
             if isTapped {
                 if self.places?.count ?? 0 > 0 {
-                    localSearch?.cancel()
                     setAddressInfos(indexPath: NSIndexPath(row: 0, section: 0))
                 }
             }
@@ -165,8 +167,6 @@ extension AddGatheringLocationViewController {
 
 extension AddGatheringLocationViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        localSearch?.cancel()
-
         if places == nil {
             if let selectedSearchCompletion = selectViewController?
                     .placeResults[(indexPath as NSIndexPath).row] as? MKLocalSearchCompletion {
