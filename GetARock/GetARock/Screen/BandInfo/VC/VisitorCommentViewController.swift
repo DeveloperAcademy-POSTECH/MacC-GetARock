@@ -15,6 +15,8 @@ final class VisitorCommentViewController: UIViewController {
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
     }(CommentListView(commentMode: .visitorComment))
+    
+    var cellIndex: IndexPath = []
 
     // MARK: - Life Cycle
 
@@ -67,21 +69,16 @@ extension VisitorCommentViewController: CommentListUpdateDelegate {
 // MARK: - CheckCellIndexDelegate, Reportable
 
 extension VisitorCommentViewController: CheckCellIndexDelegate, Reportable {
-    func showEditActionSheet(indexPath: IndexPath) {
-        let indexPath = indexPath
-        print(indexPath)
+    
+    func checkCellIndex(indexPath: IndexPath) {
+        cellIndex = indexPath
+        print("\(indexPath) 번 셀의 액션시트 노출")
         showActionSheet()
     }
 
     func alertActionButtonPressed() {
-        print("삭제하기")
-//        MockData.visitorComments.remove(at: indexPath.row)
-//        let indexPath = IndexPath(item: 0, section: 0)
-//        visitorCommentList.tableView.deleteRows(at: [indexPath], with: .fade)
-        
+        MockData.visitorComments.remove(at: cellIndex.row)
         visitorCommentList.tableView.reloadData()
     }
+
 }
-
-// MARK: - Reportable
-

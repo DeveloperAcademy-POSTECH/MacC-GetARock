@@ -82,7 +82,7 @@ class CommentTableViewCell: UITableViewCell {
     }
     
     @objc func showActionSheet() {
-        self.delegate?.tapcommentListMoreButton(cell: self)
+        self.delegate?.notifyTapMoreButton(cell: self)
         // 눌린 셀은 그 자체임으로 self를 전달하면됨
         print("눌림")
     }
@@ -91,8 +91,8 @@ class CommentTableViewCell: UITableViewCell {
 // MARK: - NotifyTapMoreButtonDelegate
 
 protocol NotifyTapMoreButtonDelegate: AnyObject {
-    func tapcommentListMoreButton(cell: UITableViewCell)
-    // 저번에 셀삭 제를 구현햇을 때, 테이블뷰 편집모드에서 작업해서 테이블뷰기 해당 셀의 indexPath를 알고 있었지만
+    func notifyTapMoreButton(cell: UITableViewCell)
+    // 저번에 셀삭제를 구현햇을 때, 테이블뷰 편집모드에서 작업해서 테이블뷰기 해당 셀의 indexPath를 알고 있었지만
     // 이번에는 편집 모드에서 구현할게 아니고, 다 같은 셀 모양을 가지고 있기때문에 테이블뷰는 어느 셀이 눌렷는지 모름
     // 그래서 눌린 셀을 전달해서 해당 셀의 indexPath를 확인할 수 있도록 해줘야함
 }
