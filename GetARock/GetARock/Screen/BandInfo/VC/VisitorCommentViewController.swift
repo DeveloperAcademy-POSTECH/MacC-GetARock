@@ -78,6 +78,7 @@ extension VisitorCommentViewController: CheckCellIndexDelegate, Reportable {
     func alertActionButtonPressed() {
         MockData.visitorComments.remove(at: cellIndex.row)
         visitorCommentList.tableView.reloadData()
+        visitorCommentList.setupTotalListNumberLabel()
     }
 
 }
