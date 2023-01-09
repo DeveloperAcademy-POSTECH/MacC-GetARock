@@ -7,6 +7,20 @@
 
 import UIKit
 
+enum BandInfoViewList: Int, CaseIterable {
+    case bandInfo
+    case bandTimeLine
+    case visitorComment
+
+    func toKorean() -> String {
+        switch self {
+        case .bandInfo: return "밴드 정보"
+        case .bandTimeLine: return "타임라인"
+        case .visitorComment: return "방명록"
+        }
+    }
+}
+
 class BandPageViewController: UIViewController {
     
     // MARK: - View
