@@ -112,6 +112,7 @@ class AddGatheringViewController: UIViewController {
 
     private func setupNavigationBar() {
         navigationController?.navigationBar.shadowImage = UIImage()
+        title = ""
     }
 
     private func setupLayout() {

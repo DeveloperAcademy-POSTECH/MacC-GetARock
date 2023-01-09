@@ -2,7 +2,7 @@
 //  GatheringInfoViewController.swift
 //  GetARock
 //
-//  Created by 진영재 on 2022/11/21.
+//  Created by 진영재 on 2023/01/05.
 //
 
 import UIKit
@@ -11,18 +11,20 @@ final class GatheringInfoViewController: UIViewController {
     
     // MARK: - properties
     
-    @IBOutlet weak var conditionView: UIView!
-    @IBOutlet weak var introductionContentView: UIView!
-    @IBOutlet weak var ellipsis: UIButton!
+    @IBOutlet weak var statusView: UIView!
+    @IBOutlet weak var statusLabel: UILabel!
+    @IBOutlet weak var ellipsisButton: UIButton!
+    @IBOutlet weak var gatheringTitleLabel: UILabel!
+    @IBOutlet weak var bandNameLabel: UILabel!
+    @IBOutlet weak var gatheringDateLabel: UILabel!
+    @IBOutlet weak var gatheringLocationLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var commentsView: UIView!
     
     // MARK: - View Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        conditionView.layer.cornerRadius = 15
-        conditionView.layer.borderWidth = 2
-        conditionView.layer.borderColor = UIColor.white.cgColor
-        
     }
     
     // MARK: - Method
