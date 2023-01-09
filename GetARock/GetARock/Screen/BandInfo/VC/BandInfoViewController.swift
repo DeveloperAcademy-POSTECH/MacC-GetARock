@@ -10,6 +10,7 @@ import UIKit
 // MARK: - 밴드 정보 영역 View Controller
 
 class BandInfoViewController: UIViewController {
+    // MARK: - View
     
     @IBOutlet weak var bandMemberLabel: UILabel!
     @IBOutlet weak var bandMemberCollectionView: UICollectionView!
@@ -19,14 +20,19 @@ class BandInfoViewController: UIViewController {
     @IBOutlet weak var repertoireTableView: UITableView!
     @IBOutlet weak var tableHeightConstraint: NSLayoutConstraint!
     
+    // MARK: - Property
+    
+    private let selectedBand: Band = MockData.bands[0].band
+    
     private lazy var numberOfBandMember: Int = selectedBand.filledPosition.reduce(0) { $0 + $1.numberOfPerson }
     private lazy var positionNameArray: [String] = selectedBand.filledPosition.map { $0.position.toKorean() }
+    private lazy var positionImageNameArray: [String] = selectedBand.filledPosition.map { $0.position.imageName() }
     private lazy var numberOfPostionArray: [Int] = selectedBand.filledPosition.map { $0.numberOfPerson }
     private lazy var bandAgeArray: [String] = selectedBand.ageGroups.map { $0.toKorean() }
     private lazy var repertoireArray: [String] = selectedBand.repertoire
     private lazy var bandIntroduceText = selectedBand.introduction
-    
-    private let selectedBand: Band = MockData.bands[0].band
+
+    // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,7 +69,7 @@ extension BandInfoViewController {
     }
     
     private func setBandAgeAreaUI() {
-        bandAgeLabel.text = generateBandAgeLabelText()
+        bandAgeLabel.text = bandAgeArray.joined(separator: ", ")
     }
     
     private func setRepertoireAreaUI() {
@@ -78,11 +84,18 @@ extension BandInfoViewController {
     private func setBandIntroduceAreaUI() {
         bandIntroduceLabel.text = bandIntroduceText
         
-        bandIntroduceView.setUIOfBandIntroduceViewAndRepertoireCellView()
+        applyBandInfoBoxDesign(view: bandIntroduceView, cornerRadius: 15)
+    }
+    
+    public func applyBandInfoBoxDesign(view: UIView, cornerRadius: CGFloat) {
+        view.backgroundColor = UIColor.clear
+        view.layer.cornerRadius = cornerRadius
+        view.layer.borderWidth = 1
+        view.layer.borderColor = UIColor.dividerBlue.cgColor
     }
 }
 
-// MARK: - 컬렉션뷰 compositonal layout 관련
+// MARK: - 컬렉션뷰 compositional layout 관련
 
 extension BandInfoViewController {
     private func createCompositionalLayout() -> UICollectionViewLayout {
@@ -123,36 +136,9 @@ extension BandInfoViewController: UICollectionViewDataSource {
         
         cell.positionNameLabel.text = self.positionNameArray[indexPath.item]
         cell.numberOfPositionLabel.text = "\(self.numberOfPostionArray[indexPath.item])명"
-        
-        if cell.positionNameLabel.text == "보컬" {
-            cell.positionImageView.image = UIImage(named: "Vocal")!
-        } else if cell.positionNameLabel.text == "베이스" {
-            cell.positionImageView.image = UIImage(named: "Bass")!
-        } else if cell.positionNameLabel.text == "드럼" {
-            cell.positionImageView.image = UIImage(named: "Drum")!
-        } else if cell.positionNameLabel.text == "키보드" {
-            cell.positionImageView.image = UIImage(named: "Keyboard")!
-        } else if cell.positionNameLabel.text == "기타" {
-            cell.positionImageView.image = UIImage(named: "Guitar")!
-        } else {
-            cell.positionImageView.image = UIImage(named: "Etc")!
-        }
+        cell.positionImageView.image = UIImage(named: self.positionImageNameArray[indexPath.item])
         
         return cell
-    }
-}
-
-// MARK: - Label 텍스트에 연결하는 변수 관련
-
-extension BandInfoViewController {
-    private func generateBandAgeLabelText() -> String {
-        for num in 0...bandAgeArray.count - 1 {
-            bandAgeLabel.text?.append(bandAgeArray[num])
-            if num != bandAgeArray.count - 1 {
-                bandAgeLabel.text?.append(", ")
-            }
-        }
-        return bandAgeLabel.text ?? ""
     }
 }
 
