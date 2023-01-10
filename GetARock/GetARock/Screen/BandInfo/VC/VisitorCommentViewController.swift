@@ -24,6 +24,7 @@ final class VisitorCommentViewController: UIViewController {
         super.viewDidLoad()
         attribute()
         setupLayout()
+        setDelegateForCommentList()
     }
 
     // MARK: - Method
@@ -34,7 +35,6 @@ final class VisitorCommentViewController: UIViewController {
 
     private func setupLayout() {
         view.addSubview(visitorCommentList)
-        visitorCommentList.delegate = self
         NSLayoutConstraint.activate([
             visitorCommentList.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
             visitorCommentList.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
@@ -48,6 +48,10 @@ final class VisitorCommentViewController: UIViewController {
         visitorCommentList.commentWritingButton.titleButton.addTarget(self, action: #selector(didTapVisitorCommentButton), for: .touchUpInside)
     }
 
+    private func setDelegateForCommentList() {
+        visitorCommentList.delegate = self
+    }
+    
     @objc func didTapVisitorCommentButton() {
         let popupViewController = CommentWritingPopupViewController(commentMode: .visitorComment)
         popupViewController.modalPresentationStyle = .overFullScreen
