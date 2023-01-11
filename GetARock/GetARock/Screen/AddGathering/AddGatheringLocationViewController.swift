@@ -23,6 +23,7 @@ class AddGatheringLocationViewController: UIViewController {
 
     private var localSearch: MKLocalSearch? {
         willSet {
+            places = nil
             localSearch?.cancel()
         }
     }
@@ -105,7 +106,6 @@ extension AddGatheringLocationViewController: UISearchControllerDelegate {
 extension AddGatheringLocationViewController: UISearchBarDelegate {
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         selectViewController?.tableView?.dataSource = selectViewController
-        places = nil
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -166,7 +166,7 @@ extension AddGatheringLocationViewController {
 
 extension AddGatheringLocationViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if places == nil {
+        if selectViewController?.tableView.dataSource is LocationSelectViewController {
             if let selectedSearchCompletion = selectViewController?
                     .placeResults[(indexPath as NSIndexPath).row] as? MKLocalSearchCompletion {
                 searchFromSuggestion(for: selectedSearchCompletion)
