@@ -83,15 +83,7 @@ extension BandInfoViewController {
     
     private func setBandIntroduceAreaUI() {
         bandIntroduceLabel.text = bandIntroduceText
-        
-        applyBandInfoBoxDesign(view: bandIntroduceView, cornerRadius: 15)
-    }
-    
-    public func applyBandInfoBoxDesign(view: UIView, cornerRadius: CGFloat) {
-        view.backgroundColor = UIColor.clear
-        view.layer.cornerRadius = cornerRadius
-        view.layer.borderWidth = 1
-        view.layer.borderColor = UIColor.dividerBlue.cgColor
+        bandIntroduceView.applyRoundedBoxDesign(cornerRadius: 15)
     }
 }
 

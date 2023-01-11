@@ -15,7 +15,7 @@ class RepertoireTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        BandInfoViewController().applyBandInfoBoxDesign(view: repertoireCellView, cornerRadius: 15)
+        repertoireCellView.applyRoundedBoxDesign(cornerRadius: 15)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

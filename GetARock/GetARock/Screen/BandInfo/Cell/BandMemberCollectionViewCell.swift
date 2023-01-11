@@ -16,6 +16,6 @@ class BandMemberCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        BandInfoViewController().applyBandInfoBoxDesign(view: self, cornerRadius: 14)
+        self.applyRoundedBoxDesign(cornerRadius: 14)
     }
 }

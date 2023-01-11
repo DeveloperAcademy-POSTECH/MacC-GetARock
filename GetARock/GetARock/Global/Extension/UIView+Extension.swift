@@ -8,5 +8,10 @@
 import UIKit
 
 extension UIView {
-    
+    func applyRoundedBoxDesign(cornerRadius: CGFloat) {
+        self.backgroundColor = UIColor.clear
+        self.layer.cornerRadius = cornerRadius
+        self.layer.borderWidth = 1
+        self.layer.borderColor = UIColor.dividerBlue.cgColor
+    }
 }
