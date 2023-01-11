@@ -8,7 +8,7 @@
 import UIKit
 
 extension UIView {
-    func applyRoundedBoxDesign(cornerRadius: CGFloat) {
+    func applyBandInfoBoxDesign(cornerRadius: CGFloat) {
         self.backgroundColor = UIColor.clear
         self.layer.cornerRadius = cornerRadius
         self.layer.borderWidth = 1
