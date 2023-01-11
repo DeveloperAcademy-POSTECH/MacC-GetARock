@@ -41,6 +41,7 @@
 		07D7DA832911EB7D00479B6F /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 07D7DA822911EB7D00479B6F /* .swiftlint.yml */; };
 		3D0ED2232928667900AE320C /* BandInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0ED2222928667900AE320C /* BandInfoViewController.swift */; };
 		3D565329292855E9003D0C9F /* BandInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D565328292855E9003D0C9F /* BandInfo.storyboard */; };
+		3DDE7CA829384789002EECBB /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDE7CA729384789002EECBB /* UIView+Extension.swift */; };
 		3DF54FCB292A43EA001CD16B /* BandMemberCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF54FCA292A43EA001CD16B /* BandMemberCollectionViewCell.swift */; };
 		3DF54FCF292B9223001CD16B /* RepertoireTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF54FCE292B9223001CD16B /* RepertoireTableViewCell.swift */; };
 		3DF54FD1292BAFA6001CD16B /* RepertoireTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DF54FD0292BAFA6001CD16B /* RepertoireTableViewCell.xib */; };
@@ -135,6 +136,7 @@
 		07D7DA822911EB7D00479B6F /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		3D0ED2222928667900AE320C /* BandInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandInfoViewController.swift; sourceTree = "<group>"; };
 		3D565328292855E9003D0C9F /* BandInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BandInfo.storyboard; sourceTree = "<group>"; };
+		3DDE7CA729384789002EECBB /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		3DF54FCA292A43EA001CD16B /* BandMemberCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandMemberCollectionViewCell.swift; sourceTree = "<group>"; };
 		3DF54FCE292B9223001CD16B /* RepertoireTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepertoireTableViewCell.swift; sourceTree = "<group>"; };
 		3DF54FD0292BAFA6001CD16B /* RepertoireTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepertoireTableViewCell.xib; sourceTree = "<group>"; };
@@ -372,6 +374,7 @@
 			children = (
 				07D7DA2C291088EC00479B6F /* NSObject+Extension.swift */,
 				7BDA8F8A291284FE00BB2D34 /* UIColor+Extension.swift */,
+				3DDE7CA729384789002EECBB /* UIView+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -736,6 +739,7 @@
 				076150912928FB9400A0562F /* Gathering.swift in Sources */,
 				66E74206292C82E8003C0B02 /* ActionSheet.swift in Sources */,
 				84002608292BC4BE0093648A /* BandTimelineCell.swift in Sources */,
+				3DDE7CA829384789002EECBB /* UIView+Extension.swift in Sources */,
 				84002602292BB3DB0093648A /* BandTimelineViewController.swift in Sources */,
 				07D7D9E5290FB8C200479B6F /* SceneDelegate.swift in Sources */,
 				7BDA8F90291296B200BB2D34 /* UIView+Gradation.swift in Sources */,

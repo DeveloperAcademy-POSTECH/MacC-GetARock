@@ -10,6 +10,7 @@ import UIKit
 // MARK: - 밴드 정보 영역 View Controller
 
 class BandInfoViewController: UIViewController {
+    // MARK: - View
     
     @IBOutlet weak var bandMemberLabel: UILabel!
     @IBOutlet weak var bandMemberCollectionView: UICollectionView!
@@ -19,12 +20,19 @@ class BandInfoViewController: UIViewController {
     @IBOutlet weak var repertoireTableView: UITableView!
     @IBOutlet weak var tableHeightConstraint: NSLayoutConstraint!
     
-    private let numberOfBandMember: Int = 7
-    private let positionNameArray: [String] = ["보컬", "기타", "키보드", "드럼", "베이스", "그 외"]
-    private let numberOfPostionArray: [Int] = [1, 2, 1, 1, 1, 0]
-    private let bandIntroduceText = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
-    private let bandAgeArray: [String] = ["20대", "30대", "40대"]
-    private let repertoireArray: [String] = ["Bigbang - Haruharu", "빅뱅 - 붉은노을", "이브 - 제목이 짤릴 정도로 긴 노래를 만들어 보았다람쥐"]
+    // MARK: - Property
+    
+    private let selectedBand: Band = MockData.bands[0].band
+    
+    private lazy var numberOfBandMember: Int = selectedBand.filledPosition.reduce(0) { $0 + $1.numberOfPerson }
+    private lazy var positionNameArray: [String] = selectedBand.filledPosition.map { $0.position.toKorean() }
+    private lazy var positionImageNameArray: [String] = selectedBand.filledPosition.map { $0.position.imageName() }
+    private lazy var numberOfPostionArray: [Int] = selectedBand.filledPosition.map { $0.numberOfPerson }
+    private lazy var bandAgeArray: [String] = selectedBand.ageGroups.map { $0.toKorean() }
+    private lazy var repertoireArray: [String] = selectedBand.repertoire
+    private lazy var bandIntroduceText = selectedBand.introduction
+
+    // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,7 +69,7 @@ extension BandInfoViewController {
     }
     
     private func setBandAgeAreaUI() {
-        bandAgeLabel.text = generateBandAgeLabelText()
+        bandAgeLabel.text = bandAgeArray.joined(separator: ", ")
     }
     
     private func setRepertoireAreaUI() {
@@ -75,15 +83,11 @@ extension BandInfoViewController {
     
     private func setBandIntroduceAreaUI() {
         bandIntroduceLabel.text = bandIntroduceText
-        
-        bandIntroduceView.backgroundColor = UIColor.backgroundBlue
-        bandIntroduceView.layer.cornerRadius = 15
-        bandIntroduceView.layer.borderWidth = 1
-        bandIntroduceView.layer.borderColor = UIColor.dividerBlue.cgColor
+        bandIntroduceView.applyBandInfoBoxDesign(cornerRadius: 15)
     }
 }
 
-// MARK: - 컬렉션뷰 compositonal layout 관련
+// MARK: - 컬렉션뷰 compositional layout 관련
 
 extension BandInfoViewController {
     private func createCompositionalLayout() -> UICollectionViewLayout {
@@ -124,22 +128,9 @@ extension BandInfoViewController: UICollectionViewDataSource {
         
         cell.positionNameLabel.text = self.positionNameArray[indexPath.item]
         cell.numberOfPositionLabel.text = "\(self.numberOfPostionArray[indexPath.item])명"
+        cell.positionImageView.image = UIImage(named: self.positionImageNameArray[indexPath.item])
         
         return cell
-    }
-}
-
-// MARK: - 밴드 연령대 Label 관련
-
-extension BandInfoViewController {
-    private func generateBandAgeLabelText() -> String {
-        for num in 0...bandAgeArray.count - 1 {
-            bandAgeLabel.text?.append(bandAgeArray[num])
-            if num != bandAgeArray.count - 1 {
-                bandAgeLabel.text?.append(", ")
-            }
-        }
-        return bandAgeLabel.text ?? ""
     }
 }
 
