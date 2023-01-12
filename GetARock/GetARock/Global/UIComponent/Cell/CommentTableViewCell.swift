@@ -9,6 +9,10 @@ import UIKit
 
 class CommentTableViewCell: UITableViewCell {
     
+    // MARK: - Properties
+    
+    weak var delegate: NotifyTapMoreButtonDelegate?
+    
     // MARK: - View
 
     let bandNameLabel: UILabel = {
@@ -54,6 +58,7 @@ class CommentTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupLayout()
+        setupMoreButton()
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -72,4 +77,17 @@ class CommentTableViewCell: UITableViewCell {
         ])
     }
     
+    private func setupMoreButton() {
+        moreButton.addTarget(self, action: #selector(showActionSheet), for: .touchUpInside)
+    }
+    
+    @objc func showActionSheet() {
+        self.delegate?.notifyTapMoreButton(cell: self)
+    }
+}
+
+// MARK: - NotifyTapMoreButtonDelegate
+
+protocol NotifyTapMoreButtonDelegate: AnyObject {
+    func notifyTapMoreButton(cell: UITableViewCell)
 }

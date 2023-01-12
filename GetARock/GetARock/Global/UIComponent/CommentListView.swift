@@ -12,11 +12,12 @@ enum CommentMode {
     case gatheringComment
 }
 
-class CommentListView: UIView {
+class CommentListView: UIView, NotifyTapMoreButtonDelegate {
 
     // MARK: - Properties
 
     private var commentMode: CommentMode
+    weak var delegate: CheckCellIndexDelegate?
 
     // MARK: - View
 
@@ -106,6 +107,11 @@ class CommentListView: UIView {
             commentWritingButton.setupButtonTitle(title: "댓글 작성")
         }
     }
+
+    func notifyTapMoreButton(cell: UITableViewCell) {
+        guard let indexPath = tableView.indexPath(for: cell) else { return }
+        self.delegate?.checkCellIndex(indexPath: indexPath)
+    }
 }
 
 // MARK: - UITableViewDelegate
@@ -120,6 +126,9 @@ extension CommentListView: UITableViewDelegate {
 
 extension CommentListView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        tableView.indexPath(for: UITableViewCell())
+        
         switch commentMode {
         case .visitorComment :
             return MockData.visitorComments.count
@@ -136,7 +145,7 @@ extension CommentListView: UITableViewDataSource {
         else {
             return UITableViewCell()
         }
-
+        cell.delegate = self
         cell.selectionStyle = .none
 
         switch commentMode {
@@ -151,4 +160,10 @@ extension CommentListView: UITableViewDataSource {
         }
         return cell
     }
+}
+
+// MARK: - CheckCellIndexDelegate
+
+protocol CheckCellIndexDelegate: AnyObject {
+    func checkCellIndex(indexPath: IndexPath)
 }
