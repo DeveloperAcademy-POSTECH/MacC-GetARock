@@ -7,12 +7,19 @@
 
 import UIKit
 
+protocol CommentListUpdateDelegate: AnyObject {
+        func refreshCommentList()
+    }
+
 class CommentWritingPopupViewController: UIViewController {
-
-    // MARK: - Property
-
+    
+    // MARK: - Properties
+    
+    private var commentMode: CommentMode
     private let textViewPlaceHolder = "텍스트를 입력해주세요"
 
+    weak var delegate: CommentListUpdateDelegate?
+    
     // MARK: - View
 
     private let popupTitleLabel: UILabel = {
@@ -60,6 +67,17 @@ class CommentWritingPopupViewController: UIViewController {
         return $0
     }(UIStackView(arrangedSubviews: [popUpHeaderStackView, commentTextView, confirmButton]))
 
+    // MARK: - Init
+    
+    init(commentMode: CommentMode) {
+        self.commentMode = commentMode
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     // MARK: - Life Cycle
 
     override func viewDidLoad() {
@@ -71,7 +89,10 @@ class CommentWritingPopupViewController: UIViewController {
     // MARK: - Method
 
     private func attribute() {
-        view.backgroundColor = .black.withAlphaComponent(0.6)
+        view.backgroundColor = .black.withAlphaComponent(0.5)
+        let tapBackgroundGesture = UITapGestureRecognizer(target: self, action: #selector(dismissPopup))
+        view.addGestureRecognizer(tapBackgroundGesture)
+        setupPopupTitle()
     }
 
     private func setupLayout() {
@@ -83,19 +104,60 @@ class CommentWritingPopupViewController: UIViewController {
             commentWritingPopupStackView.widthAnchor.constraint(equalToConstant: CommentCreateButton.Size.width),
             commentWritingPopupStackView.heightAnchor.constraint(equalToConstant: 300)
         ])
-        setupCloseButton()
+        setupButtons()
     }
-
-    private func setupCloseButton() {
-        closeButton.addTarget(self, action: #selector(self.dismissPopup), for: .touchUpInside)
+    
+    private func setupPopupTitle() {
+        switch commentMode {
+        case .visitorComment:
+            popupTitleLabel.text = "방명록 작성"
+        case .gatheringComment:
+            popupTitleLabel.text = "댓글 작성"
+        }
     }
-
-    @objc private func addNewComment(_ sender: Any) {
-        // TO-Do : 텍스트 필드에 입력한 텍스트 방명록 리스트에 추가
+    
+    private func setupButtons() {
+        closeButton.addTarget(self, action: #selector(dismissPopup), for: .touchUpInside)
+        confirmButton.titleButton.addTarget(self, action: #selector(self.addNewComment(_:)), for: .touchUpInside)
+//        confirmButton.addButtonAction(selector: #selector(addNewComment(_:)))
     }
 
     @objc private func dismissPopup(_ sender: Any) {
         dismiss(animated: false, completion: nil)
+    }
+    
+    @objc private func addNewComment(_ sender: Any) {
+        if commentTextView.text != textViewPlaceHolder {
+            switch commentMode {
+            case .visitorComment:
+                if let text = commentTextView.text {
+                    let saveData = VisitorCommentInfo(
+                        commentID: "visitorCommentID-005",
+                        comment: VisitorComment(
+                            hostBand: MockData.bands[0],
+                            author: MockData.bands[2],
+                            content: text,
+                            createdAt: Date()
+                        )
+                    )
+                    MockData.visitorComments.append(saveData)
+                    self.delegate?.refreshCommentList()
+                    self.dismiss(animated: false, completion: nil)
+                }
+            case .gatheringComment:
+                if let text = commentTextView.text {
+                    let saveData = GatheringCommentInfo(
+                        commentID: "gatheringID-005",
+                        comment: GatheringComment(
+                            gathering: MockData.gatheringComments[0].comment.gathering,
+                            author: MockData.gatheringComments[0].comment.author,
+                            content: text,
+                            createdAt: Date()))
+                    MockData.gatheringComments.append(saveData)
+                    self.dismiss(animated: false, completion: nil)
+                }
+            }
+        }
     }
 }
 

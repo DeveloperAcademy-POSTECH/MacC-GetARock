@@ -1,5 +1,5 @@
 //
-//  LocationSelectViewController.swift
+//  LocationSearchResultViewController.swift
 //  GetARock
 //
 //  Created by Hyorim Nam on 2022/12/02.
@@ -8,12 +8,12 @@
 import MapKit
 import UIKit
 
-class LocationSelectViewController: UIViewController {
+class LocationSearchResultViewController: UIViewController {
 
     // MARK: - Property
 
     var searchCompleter: MKLocalSearchCompleter?
-    var placeResults: [MKLocalSearchCompletion] = [] {
+    var suggestedPlaces: [MKLocalSearchCompletion] = [] {
         didSet {
             tableView.reloadData()
         }
@@ -61,8 +61,6 @@ class LocationSelectViewController: UIViewController {
     private func startProvidingCompletions() {
         searchCompleter = MKLocalSearchCompleter()
         searchCompleter?.delegate = self
-        // MKCoordinateRegion 필요시 설정. 한국 등은 여기 말고 placemark의 countryCode에서 처리
-        // searchCompleter?.region = searchRegion
     }
     
     private func stopProvidingCompletions() {
@@ -72,15 +70,15 @@ class LocationSelectViewController: UIViewController {
 
 // MARK: - MK Local Search Completer Delegate (지역검색 결과 업데이트)
 
-extension LocationSelectViewController: MKLocalSearchCompleterDelegate {
+extension LocationSearchResultViewController: MKLocalSearchCompleterDelegate {
     func completerDidUpdateResults(_ completer: MKLocalSearchCompleter) {
-        placeResults = completer.results
+        suggestedPlaces = completer.results
     }
 }
 
 // MARK: - Search Results Updating (search controller 관련)
 
-extension LocationSelectViewController: UISearchResultsUpdating {
+extension LocationSearchResultViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         searchCompleter?.queryFragment = searchController.searchBar.text ?? ""
     }
@@ -88,9 +86,9 @@ extension LocationSelectViewController: UISearchResultsUpdating {
 
 // MARK: - Table View Data Source
 
-extension LocationSelectViewController: UITableViewDataSource {
+extension LocationSearchResultViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return placeResults.count
+        return suggestedPlaces.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -98,8 +96,8 @@ extension LocationSelectViewController: UITableViewDataSource {
                 LocationCandidateCell else {
             return UITableViewCell()
         }
-        cell.addressNameLabel?.text = placeResults[(indexPath as NSIndexPath).row].title
-        cell.addressLabel?.text = placeResults[(indexPath as NSIndexPath).row].subtitle
+        cell.locationNameLabel?.text = suggestedPlaces[(indexPath as NSIndexPath).row].title
+        cell.addressLabel?.text = suggestedPlaces[(indexPath as NSIndexPath).row].subtitle
 
         return cell
     }
@@ -107,7 +105,7 @@ extension LocationSelectViewController: UITableViewDataSource {
 
 // MARK: - KeyboardControl
 
-extension LocationSelectViewController {
+extension LocationSearchResultViewController {
     private func getKeyboardNotification() {
         NotificationCenter.default.addObserver(
             self,

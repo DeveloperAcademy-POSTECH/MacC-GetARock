@@ -42,8 +42,8 @@ class AddGatheringViewController: UIViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let addGatheringLocationViewController = segue.destination as? AddGatheringLocationViewController {
-            addGatheringLocationViewController.delegate = self
+        if let locationSearchViewController = segue.destination as? LocationSearchViewController {
+            locationSearchViewController.delegate = self
         }
     }
 
@@ -118,6 +118,7 @@ class AddGatheringViewController: UIViewController {
 
     private func setupNavigationBar() {
         navigationController?.navigationBar.shadowImage = UIImage()
+        title = ""
     }
 
     private func setupLayout() {
@@ -140,7 +141,7 @@ extension AddGatheringViewController: UITextViewDelegate {
 
 // MARK: - Location Delegate
 
-extension AddGatheringViewController: AddGatheringLocationViewControllerDelegate {
+extension AddGatheringViewController: LocationSearchViewControllerDelegate {
     func setLocation(name: String?, address: String?, additionalAddress: String?, coordinate: Coordinate) {
         gatheringLocation = Location(name: name, address: address, additionalAddress: additionalAddress, coordinate: coordinate)
         var gatheringAddress = address ?? ""

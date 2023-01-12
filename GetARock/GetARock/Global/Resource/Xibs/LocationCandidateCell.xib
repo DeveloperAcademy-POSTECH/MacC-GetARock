@@ -16,33 +16,43 @@
                 <rect key="frame" x="0.0" y="0.0" width="393" height="76"/>
                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="주소이름" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rx1-jY-JsT">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="장소명" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rx1-jY-JsT">
                         <rect key="frame" x="32" y="16" width="329" height="21"/>
                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="주소" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="us4-pi-foO">
-                        <rect key="frame" x="32" y="41" width="329" height="19"/>
+                        <rect key="frame" x="32" y="41" width="329" height="18"/>
                         <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gbg-0f-O7Q" userLabel="SeparatorView">
+                        <rect key="frame" x="16" y="75" width="361" height="1"/>
+                        <color key="backgroundColor" red="0.52941176469999995" green="0.5568627451" blue="0.68235294120000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="OcA-uS-CT3"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <color key="backgroundColor" red="0.35294118520000001" green="0.3686274886" blue="0.46274507050000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="us4-pi-foO" secondAttribute="trailing" constant="32" id="0xC-lZ-ZKT"/>
-                    <constraint firstAttribute="bottom" secondItem="us4-pi-foO" secondAttribute="bottom" constant="16" id="3RS-MF-DhG"/>
                     <constraint firstItem="Rx1-jY-JsT" firstAttribute="leading" secondItem="i1O-Is-zAA" secondAttribute="leading" constant="32" id="66r-UL-7RZ"/>
                     <constraint firstItem="us4-pi-foO" firstAttribute="leading" secondItem="i1O-Is-zAA" secondAttribute="leading" constant="32" id="Awa-dc-hyO"/>
+                    <constraint firstAttribute="bottom" secondItem="gbg-0f-O7Q" secondAttribute="bottom" id="CQV-Ni-MtP"/>
+                    <constraint firstItem="gbg-0f-O7Q" firstAttribute="top" secondItem="us4-pi-foO" secondAttribute="bottom" constant="16" id="O6e-hK-i30"/>
                     <constraint firstItem="Rx1-jY-JsT" firstAttribute="top" secondItem="i1O-Is-zAA" secondAttribute="top" constant="16" id="SRh-Pl-IrA"/>
+                    <constraint firstItem="gbg-0f-O7Q" firstAttribute="leading" secondItem="i1O-Is-zAA" secondAttribute="leading" constant="16" id="ZQb-hG-Q9T"/>
+                    <constraint firstAttribute="trailing" secondItem="gbg-0f-O7Q" secondAttribute="trailing" constant="16" id="pJX-po-BjN"/>
                     <constraint firstAttribute="trailing" secondItem="Rx1-jY-JsT" secondAttribute="trailing" constant="32" id="sM0-EN-fRM"/>
                     <constraint firstItem="us4-pi-foO" firstAttribute="top" secondItem="Rx1-jY-JsT" secondAttribute="bottom" constant="4" id="zdC-oi-d3G"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="addressLabel" destination="us4-pi-foO" id="azL-Bi-5kV"/>
-                <outlet property="addressNameLabel" destination="Rx1-jY-JsT" id="S36-fv-cyF"/>
+                <outlet property="locationNameLabel" destination="Rx1-jY-JsT" id="ft6-Oh-N94"/>
             </connections>
             <point key="canvasLocation" x="-402.29007633587787" y="22.535211267605636"/>
         </tableViewCell>
