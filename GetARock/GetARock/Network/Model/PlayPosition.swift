@@ -25,4 +25,15 @@ enum PlayPosition: Codable {
         case .etc: return "그 외"
         }
     }
+    
+    func imageName() -> String {
+        switch self {
+        case .vocal: return "Vocal"
+        case .guitar: return "Guitar"
+        case .keyboard: return "Keyboard"
+        case .drum: return "Drum"
+        case .bass: return "Bass"
+        case .etc: return "Etc"
+        }
+    }
 }
