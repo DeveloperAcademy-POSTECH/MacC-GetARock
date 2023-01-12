@@ -45,6 +45,9 @@ struct GatheringAPI {
         for document in snapShot.documents {
             let gatheringID = document.documentID
             guard let gatheringData = try? document.data(as: GatheringDTO.self) else { continue }
+        return gatheringInfos.sorted {
+            $0.gathering.date > $1.gathering.date
+        }
             // TODO: 밴드 정보를 가져오면서 생기는 지연현상 개선 필요
             guard let gathering = try? await gatheringData.toGathering() else { continue }
             let gatheringInfo = GatheringInfo(gatheringID: gatheringID, gathering: gathering)
