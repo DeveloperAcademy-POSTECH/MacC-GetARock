@@ -131,16 +131,20 @@ extension LocationSearchViewController {
 
     private func search(using searchRequest: MKLocalSearch.Request, isTapped: Bool) {
         self.localSearch = MKLocalSearch(request: searchRequest)
-        self.localSearch?.start { [unowned self] (response, error) in
+        self.localSearch?.start { [weak self] (response, error) in
+            guard let unwrappedself = self else {
+                print("LocationSearchViewController가 MKLocalSearch의 response가 오는 사이 해제되었습니다.")
+                return
+            }
             guard error == nil else {
-                self.displaySearchError(error)
+                unwrappedself.displaySearchError(error)
                 return
             }
 
-            self.places = response?.mapItems ?? []
+            unwrappedself.places = response?.mapItems ?? []
             if isTapped {
-                if self.places.count > 0 {
-                    setAddressInfos(indexPath: NSIndexPath(row: 0, section: 0))
+                if unwrappedself.places.count > 0 {
+                    unwrappedself.setAddressInfos(indexPath: NSIndexPath(row: 0, section: 0))
                 }
             }
         }
