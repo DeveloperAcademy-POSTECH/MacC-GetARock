@@ -42,8 +42,10 @@ final class MainMapViewController: UIViewController {
     private func setMapView() {
         mapView.delegate = self
         locationManager.delegate = self
-        mapView.register(BandAnnotationView.self, forAnnotationViewWithReuseIdentifier: BandAnnotationView.className)
-        mapView.register(GatheringAnnotationView.self, forAnnotationViewWithReuseIdentifier: GatheringAnnotationView.className)
+        mapView.register(BandAnnotationView.self,
+                         forAnnotationViewWithReuseIdentifier: BandAnnotationView.className)
+        mapView.register(GatheringAnnotationView.self,
+                         forAnnotationViewWithReuseIdentifier: GatheringAnnotationView.className)
     }
     
     private func addAnnotationOnMapView() {
@@ -177,25 +179,7 @@ extension MainMapViewController: MKMapViewDelegate {
         } else if annotation is BandAnnotation {
             return mapView.dequeueReusableAnnotationView(withIdentifier: BandAnnotationView.className)
         } else if annotation is GatheringAnnotation {
-            var gatheringAnnotation = self.mapView.dequeueReusableAnnotationView(withIdentifier: GatheringAnnotationView.className)
-            
-            if gatheringAnnotation == nil {
-                gatheringAnnotation = MKAnnotationView(annotation: annotation, reuseIdentifier: GatheringAnnotationView.className)
-                gatheringAnnotation?.canShowCallout = false
-                gatheringAnnotation?.contentMode = .scaleAspectFit
-                
-            } else {
-                gatheringAnnotation?.annotation = annotation
-            }
-            
-            let pinImage = UIImage(named: "GatheringLocation")
-            let size = CGSize(width: 62, height: 70)
-            UIGraphicsBeginImageContext(size)
-            
-            pinImage?.draw(in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
-            gatheringAnnotation?.image = UIGraphicsGetImageFromCurrentImageContext()
-            
-            return gatheringAnnotation
+            return mapView.dequeueReusableAnnotationView(withIdentifier: GatheringAnnotationView.className)
         } else {
             return nil
         }

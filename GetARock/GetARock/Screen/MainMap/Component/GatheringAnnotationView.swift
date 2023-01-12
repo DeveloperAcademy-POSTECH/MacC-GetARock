@@ -14,6 +14,7 @@ class GatheringAnnotationView: MKAnnotationView {
         super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
         frame = CGRect(x: 0, y: 0, width: 40, height: 50)
         centerOffset = CGPoint(x: 0, y: -frame.size.height / 2)
+        
         setupUI()
     }
     
@@ -23,6 +24,12 @@ class GatheringAnnotationView: MKAnnotationView {
     
     private func setupUI() {
         backgroundColor = .clear
+        
+        let pinImage = UIImage(named: "GatheringLocation")
+        let size = CGSize(width: 62, height: 70)
+        UIGraphicsBeginImageContext(size)
+        pinImage?.draw(in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
+        self.image = UIGraphicsGetImageFromCurrentImageContext()
     }
     
 }
