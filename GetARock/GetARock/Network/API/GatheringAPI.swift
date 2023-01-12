@@ -51,7 +51,7 @@ struct GatheringAPI {
             gatheringData = gatheringData.changeValue(
                 status: gatheringData.status.calculateStatus(date: gatheringData.date.dateValue())
             )
-            // TODO: 밴드 정보를 가져오면서 생기는 지연현상 개선 필요
+
             guard let gathering = try? await gatheringData.toGathering() else { continue }
             let gatheringInfo = GatheringInfo(gatheringID: gatheringID, gathering: gathering)
             gatheringInfos.append(gatheringInfo)
@@ -72,7 +72,7 @@ struct GatheringAPI {
             gatheringData = gatheringData.changeValue(
                 status: gatheringData.status.calculateStatus(date: gatheringData.date.dateValue())
             )
-            // TODO: 밴드 정보를 가져오면서 생기는 지연현상 개선 필요
+
             guard let gathering = try? await gatheringData.toGathering() else { continue }
             let gatheringInfo = GatheringInfo(gatheringID: gatheringID, gathering: gathering)
             gatheringInfos.append(gatheringInfo)
@@ -84,7 +84,7 @@ struct GatheringAPI {
     }
 
     func getAllJoinedGatheringInfos(participant bandID: String) async throws -> [GatheringInfo] {
-        // TODO: 동시성 개선
+
         let snapShot = try await database.collection("gatheringComment").whereField("authorID", isEqualTo: bandID).getDocuments()
         var gatheringIDs: [String] = []
         var gatheringInfos: [GatheringInfo] = []
@@ -124,7 +124,6 @@ struct GatheringAPI {
         let snapShot = try await database.collection("gatheringComment").whereField("gatheringID", isEqualTo: gatheringID).getDocuments()
         var commentInfos: [GatheringCommentInfo] = []
         
-        // TODO: 지연현상 개선 필요
         for document in snapShot.documents {
             let commentID = document.documentID
             guard let commentData = try? document.data(as: GatheringCommentDTO.self) else { continue }

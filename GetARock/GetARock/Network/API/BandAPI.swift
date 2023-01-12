@@ -62,7 +62,6 @@ struct BandAPI {
         let snapShot = try await database.collection("visitorComment").whereField("hostBandID", isEqualTo: bandID).getDocuments()
         var commentInfos: [VisitorCommentInfo] = []
         
-        // TODO: 지연현상 개선 필요
         for document in snapShot.documents {
             let commentID = document.documentID
             guard let commentData = try? document.data(as: VisitorCommentDTO.self) else { continue }
