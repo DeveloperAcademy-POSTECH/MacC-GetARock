@@ -248,7 +248,7 @@
         <!--Title-->
         <scene sceneID="tZe-x4-f5c">
             <objects>
-                <viewController id="JXE-kZ-dOE" customClass="AddGatheringLocationViewController" customModule="GetARock" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="JXE-kZ-dOE" customClass="LocationSearchViewController" customModule="GetARock" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XwN-hz-0Db">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="749"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -359,10 +359,10 @@
             </objects>
             <point key="canvasLocation" x="1704.5801526717557" y="-35.211267605633807"/>
         </scene>
-        <!--Location Select View Controller-->
+        <!--Location Search Result View Controller-->
         <scene sceneID="2Ed-2u-Rad">
             <objects>
-                <viewController storyboardIdentifier="LocationSelectViewController" id="GHN-Y3-Qc1" customClass="LocationSelectViewController" customModule="GetARock" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LocationSearchResultViewController" id="GHN-Y3-Qc1" customClass="LocationSearchResultViewController" customModule="GetARock" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XEc-P5-Ytc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

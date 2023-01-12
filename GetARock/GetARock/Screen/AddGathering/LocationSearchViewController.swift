@@ -1,5 +1,5 @@
 //
-//  AddGatheringLocationViewController.swift
+//  LocationSearchViewController.swift
 //  GetARock
 //
 //  Created by Hyorim Nam on 2022/12/02.
@@ -9,14 +9,14 @@ import Contacts
 import MapKit
 import UIKit
 
-class AddGatheringLocationViewController: UIViewController {
+class LocationSearchViewController: UIViewController {
 
     // MARK: - Property
 
     private var places: [MKMapItem]? {
         didSet {
             if places != nil {
-                selectViewController?.tableView.reloadData()
+                resultViewController?.tableView.reloadData()
             }
         }
     }
@@ -37,7 +37,7 @@ class AddGatheringLocationViewController: UIViewController {
     @IBOutlet weak var guideLabel: UILabel!
 
     private var searchController: UISearchController?
-    private var selectViewController: LocationSelectViewController?
+    private var resultViewController: LocationSearchResultViewController?
 
     // MARK: - Life Cycle
 
@@ -68,11 +68,11 @@ class AddGatheringLocationViewController: UIViewController {
     }
 
     private func setupSearchController() {
-        selectViewController = storyboard?.instantiateViewController(withIdentifier: LocationSelectViewController.className) as? LocationSelectViewController
-        searchController = UISearchController(searchResultsController: selectViewController)
+        resultViewController = storyboard?.instantiateViewController(withIdentifier: LocationSearchResultViewController.className) as? LocationSearchResultViewController
+        searchController = UISearchController(searchResultsController: resultViewController)
         searchController?.delegate = self
         searchController?.searchBar.delegate = self
-        searchController?.searchResultsUpdater = selectViewController
+        searchController?.searchResultsUpdater = resultViewController
     }
 
     private func setupSearchBar() {
@@ -97,27 +97,27 @@ class AddGatheringLocationViewController: UIViewController {
 
 // MARK: - Search Controller Delegate, Search Bar Delegate
 
-extension AddGatheringLocationViewController: UISearchControllerDelegate {
+extension LocationSearchViewController: UISearchControllerDelegate {
     func willPresentSearchController(_ searchController: UISearchController) {
-        selectViewController?.tableView.delegate = self
+        resultViewController?.tableView.delegate = self
     }
 }
 
-extension AddGatheringLocationViewController: UISearchBarDelegate {
+extension LocationSearchViewController: UISearchBarDelegate {
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        selectViewController?.tableView?.dataSource = selectViewController
+        resultViewController?.tableView?.dataSource = resultViewController
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
-        selectViewController?.tableView.dataSource = self
+        resultViewController?.tableView.dataSource = self
         searchFromString(for: searchBar.text)
     }
 }
 
 // MARK: - MK Local Search (맵킷 사용 주소 검색)
 
-extension AddGatheringLocationViewController {
+extension LocationSearchViewController {
     private func searchFromSuggestion(for suggestedCompletion: MKLocalSearchCompletion) {
         let searchRequest = MKLocalSearch.Request(completion: suggestedCompletion)
         search(using: searchRequest, isTapped: true)
@@ -164,11 +164,11 @@ extension AddGatheringLocationViewController {
 
 // MARK: - Table View Delegate, Table View Datasource
 
-extension AddGatheringLocationViewController: UITableViewDelegate {
+extension LocationSearchViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if selectViewController?.tableView.dataSource is LocationSelectViewController {
-            if let selectedSearchCompletion = selectViewController?
-                    .placeResults[(indexPath as NSIndexPath).row] as? MKLocalSearchCompletion {
+        if resultViewController?.tableView.dataSource is LocationSearchResultViewController {
+            if let selectedSearchCompletion = resultViewController?
+                    .suggestedPlaces[(indexPath as NSIndexPath).row] as? MKLocalSearchCompletion {
                 searchFromSuggestion(for: selectedSearchCompletion)
             }
         } else {
@@ -188,7 +188,7 @@ extension AddGatheringLocationViewController: UITableViewDelegate {
     }
 }
 
-extension AddGatheringLocationViewController: UITableViewDataSource {
+extension LocationSearchViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return places?.count ?? 0
     }

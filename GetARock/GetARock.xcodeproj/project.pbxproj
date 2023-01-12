@@ -70,8 +70,8 @@
 		B8BE496E292E14C800E8E774 /* AnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BE496D292E14C800E8E774 /* AnnotationView.swift */; };
 		C545AFC6293A403500C21E32 /* LocationCandidateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C545AFC5293A403500C21E32 /* LocationCandidateCell.swift */; };
 		C545AFC8293A405200C21E32 /* LocationCandidateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C545AFC7293A405200C21E32 /* LocationCandidateCell.xib */; };
-		C545AFCA293A413200C21E32 /* AddGatheringLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C545AFC9293A413200C21E32 /* AddGatheringLocationViewController.swift */; };
-		C545AFCC293A41CE00C21E32 /* LocationSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C545AFCB293A41CE00C21E32 /* LocationSelectViewController.swift */; };
+		C545AFCA293A413200C21E32 /* LocationSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C545AFC9293A413200C21E32 /* LocationSearchViewController.swift */; };
+		C545AFCC293A41CE00C21E32 /* LocationSearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C545AFCB293A41CE00C21E32 /* LocationSearchResultViewController.swift */; };
 		C5C7AC6B292A7F7C00698636 /* AddGathering.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5C7AC6A292A7F7C00698636 /* AddGathering.storyboard */; };
 		C5C7AC6D292A7FA200698636 /* AddGatheringViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C7AC6C292A7FA200698636 /* AddGatheringViewController.swift */; };
 /* End PBXBuildFile section */
@@ -162,8 +162,8 @@
 		B8BE496D292E14C800E8E774 /* AnnotationView.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = AnnotationView.swift; sourceTree = "<group>"; tabWidth = 4; };
 		C545AFC5293A403500C21E32 /* LocationCandidateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCandidateCell.swift; sourceTree = "<group>"; };
 		C545AFC7293A405200C21E32 /* LocationCandidateCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationCandidateCell.xib; sourceTree = "<group>"; };
-		C545AFC9293A413200C21E32 /* AddGatheringLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGatheringLocationViewController.swift; sourceTree = "<group>"; };
-		C545AFCB293A41CE00C21E32 /* LocationSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSelectViewController.swift; sourceTree = "<group>"; };
+		C545AFC9293A413200C21E32 /* LocationSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchViewController.swift; sourceTree = "<group>"; };
+		C545AFCB293A41CE00C21E32 /* LocationSearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchResultViewController.swift; sourceTree = "<group>"; };
 		C5C7AC6A292A7F7C00698636 /* AddGathering.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddGathering.storyboard; sourceTree = "<group>"; };
 		C5C7AC6C292A7FA200698636 /* AddGatheringViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGatheringViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -504,8 +504,8 @@
 			isa = PBXGroup;
 			children = (
 				C5C7AC6C292A7FA200698636 /* AddGatheringViewController.swift */,
-				C545AFC9293A413200C21E32 /* AddGatheringLocationViewController.swift */,
-				C545AFCB293A41CE00C21E32 /* LocationSelectViewController.swift */,
+				C545AFC9293A413200C21E32 /* LocationSearchViewController.swift */,
+				C545AFCB293A41CE00C21E32 /* LocationSearchResultViewController.swift */,
 				C545AFC5293A403500C21E32 /* LocationCandidateCell.swift */,
 			);
 			path = AddGathering;
@@ -683,7 +683,7 @@
 				84880526293B6C6D0085C718 /* GatheringListViewController.swift in Sources */,
 				6606F855292CB38B00A121BF /* ReportReasonListCell.swift in Sources */,
 				66E7420A292CA04D003C0B02 /* ReportReasonListController.swift in Sources */,
-				C545AFCA293A413200C21E32 /* AddGatheringLocationViewController.swift in Sources */,
+				C545AFCA293A413200C21E32 /* LocationSearchViewController.swift in Sources */,
 				07D7DA3C29108C9000479B6F /* SampleView.swift in Sources */,
 				3DF54FCB292A43EA001CD16B /* BandMemberCollectionViewCell.swift in Sources */,
 				3DF54FCF292B9223001CD16B /* RepertoireTableViewCell.swift in Sources */,
@@ -710,7 +710,7 @@
 				7BFDAA91292C94E5002FE744 /* CommentWritingPopupViewController.swift in Sources */,
 				07D7DA302910895000479B6F /* LandingViewController.swift in Sources */,
 				C5C7AC6D292A7FA200698636 /* AddGatheringViewController.swift in Sources */,
-				C545AFCC293A41CE00C21E32 /* LocationSelectViewController.swift in Sources */,
+				C545AFCC293A41CE00C21E32 /* LocationSearchResultViewController.swift in Sources */,
 				072DEDD429268F470046A4A0 /* PlayPosition.swift in Sources */,
 				07D7DA2D291088EC00479B6F /* NSObject+Extension.swift in Sources */,
 				07615093292907A900A0562F /* GatheringComment.swift in Sources */,
