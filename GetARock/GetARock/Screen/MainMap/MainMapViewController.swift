@@ -171,41 +171,33 @@ extension MainMapViewController: CLLocationManagerDelegate {
 
 extension MainMapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        
         if annotation is MKUserLocation {
             return MKUserLocationView()
-        }
-        
-        if annotation is BandAnnotation {
-            guard let marker = mapView.dequeueReusableAnnotationView(withIdentifier: BandAnnotationView.className) as? BandAnnotationView else {
-                return BandAnnotationView()
+        } else if annotation is BandAnnotation {
+            return mapView.dequeueReusableAnnotationView(withIdentifier: BandAnnotationView.className)
+        } else if annotation is GatheringAnnotation {
+            var gatheringAnnotation = self.mapView.dequeueReusableAnnotationView(withIdentifier: GatheringAnnotationView.className)
+            
+            if gatheringAnnotation == nil {
+                gatheringAnnotation = MKAnnotationView(annotation: annotation, reuseIdentifier: GatheringAnnotationView.className)
+                gatheringAnnotation?.canShowCallout = false
+                gatheringAnnotation?.contentMode = .scaleAspectFit
+                
+            } else {
+                gatheringAnnotation?.annotation = annotation
             }
             
-            return marker
-        }
-        
-        guard let annotation = annotation as? GatheringAnnotation else {
+            let pinImage = UIImage(named: "GatheringLocation")
+            let size = CGSize(width: 62, height: 70)
+            UIGraphicsBeginImageContext(size)
+            
+            pinImage?.draw(in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
+            gatheringAnnotation?.image = UIGraphicsGetImageFromCurrentImageContext()
+            
+            return gatheringAnnotation
+        } else {
             return nil
         }
-        
-        var annotationView = self.mapView.dequeueReusableAnnotationView(withIdentifier: GatheringAnnotationView.identifier)
-        
-        if annotationView == nil {
-            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: GatheringAnnotationView.identifier)
-            annotationView?.canShowCallout = false
-            annotationView?.contentMode = .scaleAspectFit
-            
-        } else {
-            annotationView?.annotation = annotation
-        }
-        
-        let pinImage = UIImage(named: "GatheringLocation")
-        let size = CGSize(width: 62, height: 70)
-        UIGraphicsBeginImageContext(size)
-        
-        pinImage?.draw(in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
-        annotationView?.image = UIGraphicsGetImageFromCurrentImageContext()
-        
-        return annotationView
-        
     }
 }

@@ -10,8 +10,6 @@ import UIKit
 
 class GatheringAnnotationView: MKAnnotationView {
     
-    static let identifier = "GatheringAnnotationView"
-    
     override init(annotation: MKAnnotation?, reuseIdentifier: String?) {
         super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
         frame = CGRect(x: 0, y: 0, width: 40, height: 50)
