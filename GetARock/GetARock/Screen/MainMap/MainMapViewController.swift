@@ -169,7 +169,7 @@ extension MainMapViewController: CLLocationManagerDelegate {
 
 }
 
-// MARK: - CLLocationManagerDelegate
+// MARK: - MKMapViewDelegate
 
 extension MainMapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
