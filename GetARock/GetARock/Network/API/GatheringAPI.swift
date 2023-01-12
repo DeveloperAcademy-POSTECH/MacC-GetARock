@@ -32,7 +32,10 @@ struct GatheringAPI {
     
     func getGatheringInfo(gatheringID: String) async throws -> GatheringInfo {
         let snapShot = try await database.collection("gathering").document(gatheringID).getDocument()
-        let gatheringData = try snapShot.data(as: GatheringDTO.self)
+        var gatheringData = try snapShot.data(as: GatheringDTO.self)
+        gatheringData = gatheringData.changeValue(
+            status: gatheringData.status.calculateStatus(date: gatheringData.date.dateValue())
+        )
         let gatheringInfo = try await gatheringData.toGathering()
 
         return GatheringInfo(gatheringID: gatheringID, gathering: gatheringInfo)
