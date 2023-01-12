@@ -26,6 +26,22 @@ enum GatheringStatus: String, Codable {
         case .canceled: return "취소됨"
         }
     }
+    
+    func calculateStatus(date: Date) -> Self {
+        print()
+        print(date)
+        print(Date())
+        print()
+        if date > Date() { return .recruiting }
+        if date <= Date() && Date() < Date(timeInterval: 3600*3, since: date) {
+            return .progressing
+        }
+        if Date() >= Date(timeInterval: 3600*3, since: date) {
+            return .finished
+        }
+        return .canceled
+    }
+    
 }
 
 /// 밴드팅 모임입니다.
