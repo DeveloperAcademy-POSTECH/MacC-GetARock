@@ -13,9 +13,9 @@ class LocationSearchViewController: UIViewController {
 
     // MARK: - Property
 
-    private var places: [MKMapItem]? {
+    private var places: [MKMapItem] = [] {
         didSet {
-            if places != nil {
+            if places.count != 0 {
                 resultViewController?.tableView.reloadData()
             }
         }
@@ -23,7 +23,7 @@ class LocationSearchViewController: UIViewController {
 
     private var localSearch: MKLocalSearch? {
         willSet {
-            places = nil
+            places = []
             localSearch?.cancel()
         }
     }
@@ -137,9 +137,9 @@ extension LocationSearchViewController {
                 return
             }
 
-            self.places = response?.mapItems
+            self.places = response?.mapItems ?? []
             if isTapped {
-                if self.places?.count ?? 0 > 0 {
+                if self.places.count > 0 {
                     setAddressInfos(indexPath: NSIndexPath(row: 0, section: 0))
                 }
             }
@@ -179,10 +179,10 @@ extension LocationSearchViewController: UITableViewDelegate {
 
     func setAddressInfos (indexPath: NSIndexPath) { // MapItem
         selectedAddressLabel.text = CNPostalAddressFormatter.string(
-            from: places?[(indexPath as NSIndexPath).row].placemark.postalAddress ?? CNPostalAddress(),
+            from: places[(indexPath as NSIndexPath).row].placemark.postalAddress ?? CNPostalAddress(),
             style: .mailingAddress
         ).replacingOccurrences(of: "\n", with: " ")
-        if let coordinate = places?[(indexPath as NSIndexPath).row].placemark.location?.coordinate {
+        if let coordinate = places[(indexPath as NSIndexPath).row].placemark.location?.coordinate {
             selectedCoordinate = Coordinate(latitude: coordinate.latitude, longitude: coordinate.longitude)
         }
     }
@@ -190,7 +190,7 @@ extension LocationSearchViewController: UITableViewDelegate {
 
 extension LocationSearchViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return places?.count ?? 0
+        return places.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -198,9 +198,9 @@ extension LocationSearchViewController: UITableViewDataSource {
             .dequeueReusableCell(withIdentifier: LocationCandidateCell.className, for: indexPath) as? LocationCandidateCell
         else { return UITableViewCell() }
 
-        cell.locationNameLabel?.text = places?[(indexPath as NSIndexPath).row].name ?? "이름없음"
+        cell.locationNameLabel?.text = places[(indexPath as NSIndexPath).row].name ?? "이름없음"
         cell.addressLabel?.text = CNPostalAddressFormatter.string(
-            from: places?[(indexPath as NSIndexPath).row].placemark.postalAddress ?? CNPostalAddress(),
+            from: places[(indexPath as NSIndexPath).row].placemark.postalAddress ?? CNPostalAddress(),
             style: .mailingAddress
         ).replacingOccurrences(of: "\n", with: " ")
 
