@@ -54,25 +54,25 @@ final class MainMapViewController: UIViewController {
     }
     
     private func addBandAnnotationOnMapView() {
-        for band in MockData.bands {
-            let point = BandAnnotation(
-                title: band.band.name,
-                coordinate: band.band.location.coordinate.toCLLocationCoordinate2D(),
-                bandInfo: band
+        let points = MockData.bands.map {
+            BandAnnotation(
+                title: $0.band.name,
+                coordinate: $0.band.location.coordinate.toCLLocationCoordinate2D(),
+                bandInfo: $0
             )
-            mapView.addAnnotation(point)
         }
+        mapView.addAnnotations(points)
     }
     
     private func addGatheringAnnotationOnMapView() {
-        for gathering in MockData.gatherings {
-            let point = GatheringAnnotation(
-                title: gathering.gathering.host.band.name,
-                coordinate: gathering.gathering.location.coordinate.toCLLocationCoordinate2D(),
-                gatheringInfo: gathering
+        let points = MockData.gatherings.map {
+            GatheringAnnotation(
+                title: $0.gathering.host.band.name,
+                coordinate: $0.gathering.location.coordinate.toCLLocationCoordinate2D(),
+                gatheringInfo: $0
             )
-            mapView.addAnnotation(point)
         }
+        mapView.addAnnotations(points)
     }
     
     private func setDefaultLocation() {
