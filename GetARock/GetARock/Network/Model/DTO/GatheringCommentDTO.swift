@@ -33,21 +33,17 @@ extension GatheringCommentDTO {
         
     }
     
-    func changeValue(authorID: String) -> Self {
+    func changeValue(
+        gatheringID: String? = nil,
+        authorID: String? = nil,
+        content: String? = nil,
+        createdAt: Timestamp? = nil
+    ) -> Self {
         GatheringCommentDTO(
-            gatheringID: self.gatheringID,
-            authorID: authorID,
-            content: self.content,
-            createdAt: self.createdAt
-        )
-    }
-    
-    func changeValue(createdAt: Timestamp) -> Self {
-        GatheringCommentDTO(
-            gatheringID: self.gatheringID,
-            authorID: self.authorID,
-            content: self.content,
-            createdAt: createdAt
+            gatheringID: gatheringID ?? self.gatheringID,
+            authorID: authorID ?? self.authorID,
+            content: content ?? self.content,
+            createdAt: createdAt ?? self.createdAt
         )
     }
     

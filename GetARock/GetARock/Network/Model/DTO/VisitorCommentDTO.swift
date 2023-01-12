@@ -33,21 +33,17 @@ extension VisitorCommentDTO {
         
     }
     
-    func changeValue(authorID: String) -> Self {
+    func changeValue(
+        hostBandID: String? = nil,
+        authorID: String? = nil,
+        content: String? = nil,
+        createdAt: Timestamp? = nil
+    ) -> Self {
         VisitorCommentDTO(
-            hostBandID: self.hostBandID,
-            authorID: authorID,
-            content: self.content,
-            createdAt: createdAt
-        )
-    }
-    
-    func changeValue(createdAt: Timestamp) -> Self {
-        VisitorCommentDTO(
-            hostBandID: self.hostBandID,
-            authorID: self.authorID,
-            content: self.content,
-            createdAt: createdAt
+            hostBandID: hostBandID ?? self.hostBandID,
+            authorID: authorID ?? self.authorID,
+            content: content ?? self.content,
+            createdAt: createdAt ?? self.createdAt
         )
     }
     

@@ -44,27 +44,23 @@ extension GatheringDTO {
         )
     }
     
-    func changeValue(hostBandID: String) -> Self {
+    func changeValue(
+        title: String? = nil,
+        hostBandID: String? = nil,
+        status: GatheringStatus? = nil,
+        date: Timestamp? = nil,
+        location: Location? = nil,
+        introduction: String? = nil,
+        createdAt: Timestamp? = nil
+    ) -> Self {
         GatheringDTO(
-            title: self.title,
-            hostBandID: hostBandID,
-            status: self.status,
-            date: self.date,
-            location: self.location,
-            introduction: self.introduction,
-            createdAt: self.createdAt
-        )
-    }
-    
-    func changeValue(createdAt: Timestamp) -> Self {
-        GatheringDTO(
-            title: self.title,
-            hostBandID: self.hostBandID,
-            status: self.status,
-            date: self.date,
-            location: self.location,
-            introduction: self.introduction,
-            createdAt: createdAt
+            title: title ?? self.title,
+            hostBandID: hostBandID ?? self.hostBandID,
+            status: status ?? self.status,
+            date: date ?? self.date,
+            location: location ?? self.location,
+            introduction: introduction ?? self.introduction,
+            createdAt: createdAt ?? self.createdAt
         )
     }
     

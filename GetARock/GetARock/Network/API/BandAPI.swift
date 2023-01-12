@@ -47,11 +47,12 @@ struct BandAPI {
     
     func saveComment(comment: VisitorComment) async throws -> VisitorCommentID {
         guard let email = AuthAPI().getCurrentUser()?.email else { throw AuthError.noEmailInfo }
-        var visitorCommentDTO = comment
+        let visitorCommentDTO = comment
             .toVisitorCommentDTO()
-            .changeValue(authorID: email)
-            .changeValue(createdAt: Timestamp())
-        
+            .changeValue(
+                authorID: email,
+                createdAt: Timestamp()
+            )
         let reference = database.collection("visitorComment")
         let result = try await reference.addDocument(from: visitorCommentDTO)
         return result.documentID

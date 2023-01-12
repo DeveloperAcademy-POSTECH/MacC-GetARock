@@ -20,9 +20,11 @@ struct GatheringAPI {
         guard let email = AuthAPI().getCurrentUser()?.email else { throw AuthError.noEmailInfo }
         let gatheringDTO = gathering
             .toGatheringDTO()
-            .changeValue(hostBandID: email)
-            .changeValue(createdAt: Timestamp())
-        
+            .changeValue(
+                hostBandID: email,
+                createdAt: Timestamp()
+            )
+            
         let reference = database.collection("gathering")
         let result = try await reference.addDocument(from: gatheringDTO)
         return result.documentID
@@ -54,11 +56,12 @@ struct GatheringAPI {
     
     func saveComment(comment: GatheringComment) async throws -> GatheringCommentID {
         guard let email = AuthAPI().getCurrentUser()?.email else { throw AuthError.noEmailInfo }
-        var gatheringCommentDTO = comment
+        let gatheringCommentDTO = comment
             .toGatheringCommentDTO()
-            .changeValue(authorID: email)
-            .changeValue(createdAt: Timestamp())
-        
+            .changeValue(
+                authorID: email,
+                createdAt: Timestamp()
+            )
         let reference = database.collection("gatheringComment")
         let result = try await reference.addDocument(from: gatheringCommentDTO)
         return result.documentID
