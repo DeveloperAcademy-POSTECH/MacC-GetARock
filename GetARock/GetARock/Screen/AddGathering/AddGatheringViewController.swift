@@ -80,21 +80,19 @@ class AddGatheringViewController: UIViewController {
             alert.addAction(confirm)
             self.present(alert, animated: true)
         } else {
+            guard let gatheringLocation = gatheringLocation else {
+                return // 위의 errorString에서 체크 완료한 부분입니다.
+            }
             let gathering = Gathering(
                 title: titleTextField.text ?? "이름없음",
-                host: MockData.bands[0], // 테스트용, 추후 변경
+                host: MockData.bands[0], // 테스트용 - 추후 변경
                 status: .recruiting,
                 date: dateTimePicker.date,
-                location: gatheringLocation ?? Location(
-                    name: "Default",
-                    address: "defaultAddress",
-                    additionalAddress: "defaultAdditionalAddress",
-                    coordinate: Coordinate(latitude: 36.01900, longitude: 129.34370)
-                ),
+                location: gatheringLocation,
                 introduction: introductionTextView.text,
                 createdAt: Date()
             )
-            MockData.gatherings.append(GatheringInfo(gatheringID: "testID", gathering: gathering)) // ID 추후 변경
+            MockData.gatherings.append(GatheringInfo(gatheringID: "testID", gathering: gathering)) // 테스트용 - ID 추후 변경
             dismiss(animated: true)
         }
     }
@@ -105,7 +103,7 @@ class AddGatheringViewController: UIViewController {
 
     private func attribute() {
         setupNavigationBar()
-        hostBandName = MockData.bands[0].band.name // 추후 변경: 유저디폴트 사용 예정
+        hostBandName = MockData.bands[0].band.name // 테스트용 - 추후 변경: 유저디폴트 사용 예정
         hostBandNameLabel.text = hostBandName
         dateTimePicker.minimumDate = Date()
         titleTextField.becomeFirstResponder()
