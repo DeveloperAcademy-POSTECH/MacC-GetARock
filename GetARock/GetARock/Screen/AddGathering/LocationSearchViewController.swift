@@ -138,10 +138,9 @@ extension LocationSearchViewController {
             }
 
             self?.places = response?.mapItems ?? []
-            if isTapped {
-                if !(self?.places.isEmpty ?? true) {
-                    self?.setAddressInfos(indexPath: NSIndexPath(row: 0, section: 0))
-                }
+
+            if isTapped && !(self?.places.isEmpty ?? true) {
+                self?.setAddressInfos(indexPath: NSIndexPath(row: 0, section: 0))
             }
         }
     }
