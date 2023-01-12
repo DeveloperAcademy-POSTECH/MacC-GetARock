@@ -54,7 +54,6 @@ struct GatheringAPI {
             gatheringInfos.append(gatheringInfo)
         }
         
-        return gatheringInfos
     }
     
     func saveComment(comment: GatheringComment) async throws -> GatheringCommentID {
