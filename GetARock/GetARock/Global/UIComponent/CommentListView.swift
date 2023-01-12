@@ -12,15 +12,16 @@ enum CommentMode {
     case gatheringComment
 }
 
-class CommentListView: UIView {
+class CommentListView: UIView, NotifyTapMoreButtonDelegate {
 
     // MARK: - Properties
 
     private var commentMode: CommentMode
+    weak var delegate: CheckCellIndexDelegate?
 
     // MARK: - View
 
-    private let totalListNumberLabel: UILabel = {
+    private let totalComentNumber: UILabel = {
         $0.textColor = .white
         $0.font = UIFont.systemFont(ofSize: 16, weight: .bold)
         return $0
@@ -30,7 +31,7 @@ class CommentListView: UIView {
         return $0
     }(CommentCreateButton())
 
-    private let tableView = {
+    let tableView = {
         $0.showsVerticalScrollIndicator = false
         $0.separatorInset.right = 16
         $0.separatorColor = .dividerBlue
@@ -44,7 +45,7 @@ class CommentListView: UIView {
         $0.axis = .vertical
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
-    }(UIStackView(arrangedSubviews: [commentWritingButton, totalListNumberLabel, tableView]))
+    }(UIStackView(arrangedSubviews: [commentWritingButton, totalComentNumber, tableView]))
 
     // MARK: - Init
 
@@ -54,7 +55,7 @@ class CommentListView: UIView {
         attribute()
         setupLayout()
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -63,8 +64,8 @@ class CommentListView: UIView {
 
     private func attribute() {
         self.backgroundColor = .modalBackgroundBlue
-        setupCommentList()
         setupTotalListNumberLabel()
+        setupCommentList()
         setupCommentWritingButton()
     }
 
@@ -89,12 +90,12 @@ class CommentListView: UIView {
 
     }
 
-    private func setupTotalListNumberLabel() {
+    func setupTotalListNumberLabel() {
         switch commentMode {
         case .visitorComment:
-            totalListNumberLabel.text = "총 \(MockData.visitorComments.count)개"
+            totalComentNumber.text = "총 \(MockData.visitorComments.count)개"
         case .gatheringComment:
-            totalListNumberLabel.text = "총 \(MockData.gatheringComments.count)개"
+            totalComentNumber.text = "총 \(MockData.gatheringComments.count)개"
         }
     }
 
@@ -105,6 +106,11 @@ class CommentListView: UIView {
         case .gatheringComment:
             commentWritingButton.setupButtonTitle(title: "댓글 작성")
         }
+    }
+
+    func notifyTapMoreButton(cell: UITableViewCell) {
+        guard let indexPath = tableView.indexPath(for: cell) else { return }
+        self.delegate?.checkCellIndex(indexPath: indexPath)
     }
 }
 
@@ -120,6 +126,9 @@ extension CommentListView: UITableViewDelegate {
 
 extension CommentListView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        tableView.indexPath(for: UITableViewCell())
+        
         switch commentMode {
         case .visitorComment :
             return MockData.visitorComments.count
@@ -136,7 +145,7 @@ extension CommentListView: UITableViewDataSource {
         else {
             return UITableViewCell()
         }
-
+        cell.delegate = self
         cell.selectionStyle = .none
 
         switch commentMode {
@@ -151,4 +160,10 @@ extension CommentListView: UITableViewDataSource {
         }
         return cell
     }
+}
+
+// MARK: - CheckCellIndexDelegate
+
+protocol CheckCellIndexDelegate: AnyObject {
+    func checkCellIndex(indexPath: IndexPath)
 }

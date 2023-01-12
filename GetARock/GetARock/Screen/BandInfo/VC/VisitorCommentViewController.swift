@@ -15,6 +15,8 @@ final class VisitorCommentViewController: UIViewController {
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
     }(CommentListView(commentMode: .visitorComment))
+    
+    var cellIndex: IndexPath = []
 
     // MARK: - Life Cycle
 
@@ -22,6 +24,7 @@ final class VisitorCommentViewController: UIViewController {
         super.viewDidLoad()
         attribute()
         setupLayout()
+        setDelegateForCommentList()
     }
 
     // MARK: - Method
@@ -39,16 +42,47 @@ final class VisitorCommentViewController: UIViewController {
             visitorCommentList.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
         setupWritingButton()
-        
     }
 
     private func setupWritingButton() {
         visitorCommentList.commentWritingButton.titleButton.addTarget(self, action: #selector(didTapVisitorCommentButton), for: .touchUpInside)
     }
 
+    private func setDelegateForCommentList() {
+        visitorCommentList.delegate = self
+    }
+    
     @objc func didTapVisitorCommentButton() {
-        let popupViewController = CommentWritingPopupViewController()
+        let popupViewController = CommentWritingPopupViewController(commentMode: .visitorComment)
         popupViewController.modalPresentationStyle = .overFullScreen
         self.present(popupViewController, animated: false)
+        popupViewController.delegate = self
     }
+}
+
+// MARK: - CommentListUpdateDelegate
+
+extension VisitorCommentViewController: CommentListUpdateDelegate {
+    
+    func refreshCommentList() {
+        visitorCommentList.tableView.reloadData()
+        visitorCommentList.setupTotalListNumberLabel()
+    }
+}
+
+// MARK: - CheckCellIndexDelegate, Reportable
+
+extension VisitorCommentViewController: CheckCellIndexDelegate, Reportable {
+    
+    func checkCellIndex(indexPath: IndexPath) {
+        cellIndex = indexPath
+        showActionSheet()
+    }
+
+    func alertActionButtonPressed() {
+        MockData.visitorComments.remove(at: cellIndex.row)
+        visitorCommentList.tableView.reloadData()
+        visitorCommentList.setupTotalListNumberLabel()
+    }
+
 }
