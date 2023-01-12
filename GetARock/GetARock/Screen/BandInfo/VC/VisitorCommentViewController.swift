@@ -15,6 +15,8 @@ final class VisitorCommentViewController: UIViewController {
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
     }(CommentListView(commentMode: .visitorComment))
+    
+    var cellIndex: IndexPath = []
 
     // MARK: - Life Cycle
 
@@ -22,6 +24,7 @@ final class VisitorCommentViewController: UIViewController {
         super.viewDidLoad()
         attribute()
         setupLayout()
+        setDelegateForCommentList()
     }
 
     // MARK: - Method
@@ -45,6 +48,10 @@ final class VisitorCommentViewController: UIViewController {
         visitorCommentList.commentWritingButton.titleButton.addTarget(self, action: #selector(didTapVisitorCommentButton), for: .touchUpInside)
     }
 
+    private func setDelegateForCommentList() {
+        visitorCommentList.delegate = self
+    }
+    
     @objc func didTapVisitorCommentButton() {
         let popupViewController = CommentWritingPopupViewController(commentMode: .visitorComment)
         popupViewController.modalPresentationStyle = .overFullScreen
@@ -58,6 +65,22 @@ final class VisitorCommentViewController: UIViewController {
 extension VisitorCommentViewController: CommentListUpdateDelegate {
     
     func refreshCommentList() {
+        visitorCommentList.tableView.reloadData()
+        visitorCommentList.setupTotalListNumberLabel()
+    }
+}
+
+// MARK: - CheckCellIndexDelegate, Reportable
+
+extension VisitorCommentViewController: CheckCellIndexDelegate, Reportable {
+    
+    func checkCellIndex(indexPath: IndexPath) {
+        cellIndex = indexPath
+        showActionSheet()
+    }
+
+    func alertActionButtonPressed() {
+        MockData.visitorComments.remove(at: cellIndex.row)
         visitorCommentList.tableView.reloadData()
         visitorCommentList.setupTotalListNumberLabel()
     }
