@@ -47,16 +47,42 @@ struct GatheringAPI {
         
         for document in snapShot.documents {
             let gatheringID = document.documentID
-            guard let gatheringData = try? document.data(as: GatheringDTO.self) else { continue }
-        return gatheringInfos.sorted {
-            $0.gathering.date > $1.gathering.date
-        }
+            guard var gatheringData = try? document.data(as: GatheringDTO.self) else { continue }
+            gatheringData = gatheringData.changeValue(
+                status: gatheringData.status.calculateStatus(date: gatheringData.date.dateValue())
+            )
             // TODO: 밴드 정보를 가져오면서 생기는 지연현상 개선 필요
             guard let gathering = try? await gatheringData.toGathering() else { continue }
             let gatheringInfo = GatheringInfo(gatheringID: gatheringID, gathering: gathering)
             gatheringInfos.append(gatheringInfo)
         }
         
+        return gatheringInfos.sorted {
+            $0.gathering.date > $1.gathering.date
+        }
+    }
+    
+    func getAllOwnedGatheringInfos(owner bandID: String) async throws -> [GatheringInfo] {
+        let snapShot = try await database.collection("gathering").whereField("hostBandID", isEqualTo: bandID).getDocuments()
+        var gatheringInfos: [GatheringInfo] = []
+        
+        for document in snapShot.documents {
+            let gatheringID = document.documentID
+            guard var gatheringData = try? document.data(as: GatheringDTO.self) else { continue }
+            gatheringData = gatheringData.changeValue(
+                status: gatheringData.status.calculateStatus(date: gatheringData.date.dateValue())
+            )
+            // TODO: 밴드 정보를 가져오면서 생기는 지연현상 개선 필요
+            guard let gathering = try? await gatheringData.toGathering() else { continue }
+            let gatheringInfo = GatheringInfo(gatheringID: gatheringID, gathering: gathering)
+            gatheringInfos.append(gatheringInfo)
+        }
+        
+        return gatheringInfos.sorted {
+            $0.gathering.date > $1.gathering.date
+        }
+    }
+
     func getAllJoinedGatheringInfos(participant bandID: String) async throws -> [GatheringInfo] {
         // TODO: 동시성 개선
         let snapShot = try await database.collection("gatheringComment").whereField("authorID", isEqualTo: bandID).getDocuments()
