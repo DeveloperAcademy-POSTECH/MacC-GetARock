@@ -54,6 +54,28 @@ struct GatheringAPI {
             gatheringInfos.append(gatheringInfo)
         }
         
+    func getAllJoinedGatheringInfos(participant bandID: String) async throws -> [GatheringInfo] {
+        // TODO: 동시성 개선
+        let snapShot = try await database.collection("gatheringComment").whereField("authorID", isEqualTo: bandID).getDocuments()
+        var gatheringIDs: [String] = []
+        var gatheringInfos: [GatheringInfo] = []
+
+        for document in snapShot.documents {
+            guard let commentData = try? document.data(as: GatheringCommentDTO.self) else { continue }
+            let gatheringID = commentData.gatheringID
+            if gatheringIDs.firstIndex(of: gatheringID) != nil {
+                continue
+            }
+            gatheringIDs.append(gatheringID)
+        }
+        for gatheringID in gatheringIDs {
+            guard let gathering = try? await GatheringAPI().getGatheringInfo(gatheringID: gatheringID) else { continue }
+            gatheringInfos.append(gathering)
+        }
+        
+        return gatheringInfos.sorted {
+            $0.gathering.date > $1.gathering.date
+        }
     }
     
     func saveComment(comment: GatheringComment) async throws -> GatheringCommentID {
