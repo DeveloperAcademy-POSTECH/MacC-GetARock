@@ -15,7 +15,7 @@ class LocationSearchViewController: UIViewController {
 
     private var places: [MKMapItem] = [] {
         didSet {
-            if places.count != 0 {
+            if !places.isEmpty {
                 resultViewController?.tableView.reloadData()
             }
         }
@@ -139,7 +139,7 @@ extension LocationSearchViewController {
 
             self?.places = response?.mapItems ?? []
             if isTapped {
-                if self?.places.count ?? 0 > 0 {
+                if !(self?.places.isEmpty ?? true) {
                     self?.setAddressInfos(indexPath: NSIndexPath(row: 0, section: 0))
                 }
             }
