@@ -21,10 +21,22 @@ final class GatheringInfoViewController: UIViewController {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var commentsView: UIView!
     
+    var gatheringCommentsListView = {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        return $0
+    }(CommentListView(commentMode: .gatheringComment))
+    
     // MARK: - View Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupLayout()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        gatheringCommentsListView.tableView.reloadData()
+        commentsView.heightAnchor.constraint(equalToConstant: 600).isActive = true
+        
     }
     
     // MARK: - Method
@@ -33,12 +45,40 @@ final class GatheringInfoViewController: UIViewController {
         showActionSheet()
     }
     
-}
+    private func setupLayout() {
+        commentsView.addSubview(gatheringCommentsListView)
+        gatheringCommentsListView.tableView.backgroundColor = .modalBackgroundBlue
+        NSLayoutConstraint.activate([
+            gatheringCommentsListView.topAnchor.constraint(equalTo: commentsView.topAnchor, constant: 20),
+            gatheringCommentsListView.leadingAnchor.constraint(equalTo: commentsView.leadingAnchor, constant: 16),
+            gatheringCommentsListView.trailingAnchor.constraint(equalTo: commentsView.trailingAnchor, constant: -16),
+            gatheringCommentsListView.bottomAnchor.constraint(equalTo: commentsView.bottomAnchor)
+        ])
+        setupWritingButton()
+    }
+    
+    private func setupWritingButton() {
+        gatheringCommentsListView.commentWritingButton.titleButton.addTarget(self, action: #selector(didTapGatheringCommentButton), for: .touchUpInside)
+    }
 
+}
 // MARK: - extension Reportable Method
 
 extension GatheringInfoViewController: Reportable {
     func alertActionButtonPressed() {
         print("삭제에 성공했습니다.")
+    }
+}
+
+// MARK: - extension CommentListUpdate deledgate
+extension GatheringInfoViewController: CommentListUpdateDelegate {
+    func refreshCommentList() {
+    }
+    
+    @objc func didTapGatheringCommentButton() {
+        let popupViewController = CommentWritingPopupViewController(commentMode: .gatheringComment)
+        popupViewController.delegate = self
+        popupViewController.modalPresentationStyle = .fullScreen
+        self.present(popupViewController, animated: false)
     }
 }
