@@ -75,7 +75,7 @@ class LocationSearchViewController: UIViewController {
                 self.present(alertController, animated: true)
             }
         } else {
-            print("AddgatheringLocationViewController에서 delgate가 nil이라 저장할 수 없음")
+            print("\(type(of: self).className)에서 delgate가 nil이라 저장할 수 없음")
         }
     }
     

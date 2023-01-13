@@ -133,7 +133,7 @@ class AddGatheringViewController: UIViewController {
 
 extension AddGatheringViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
-        self.placeHolderLabel.textColor = introductionTextView.text.count == 0 ? .lightGray : .clear
+        self.placeHolderLabel.textColor = introductionTextView.text.isEmpty ? .lightGray : .clear
     }
 }
 
@@ -146,7 +146,7 @@ extension AddGatheringViewController: LocationSearchViewControllerDelegate {
         if let detailAddress = additionalAddress {
             gatheringAddress += " " + detailAddress
         }
-        if gatheringAddress != "" {
+        if !gatheringAddress.isEmpty {
             locationLabel.text = gatheringAddress
             locationLabel.textColor = .white
         }
@@ -221,7 +221,7 @@ extension AddGatheringViewController {
 
     private func validateInputs() throws {
         var errors: [AddGatheringInputError] = []
-        if titleTextField.text == nil || (titleTextField.text ?? "").count <= 0 {
+        if titleTextField.text == nil || (titleTextField.text ?? "").filter({$0 != " "}).isEmpty {
             errors.append(.noTitle)
         }
         if gatheringLocation == nil {
