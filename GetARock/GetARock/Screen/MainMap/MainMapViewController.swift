@@ -209,4 +209,34 @@ extension MainMapViewController: MKMapViewDelegate {
             return nil
         }
     }
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        if view.annotation is GatheringAnnotation {
+            guard let selectedAnnotation = view.annotation as? GatheringAnnotation else { return }
+            _ = selectedAnnotation.title
+            
+            guard let gatheringViewController = UIStoryboard(name: "GatheringInfoPage", bundle: nil).instantiateViewController(withIdentifier: GatheringInfoViewController.className) as? GatheringInfoViewController else { return }
+            gatheringViewController.modalPresentationStyle = .pageSheet
+            if let sheet = gatheringViewController.sheetPresentationController {
+                sheet.detents = [.medium(), .large()]
+                sheet.prefersGrabberVisible = true
+                sheet.largestUndimmedDetentIdentifier = .medium
+            }
+            nextViewController = gatheringViewController
+            present(gatheringViewController, animated: true, completion: nil)
+        }else if view.annotation is BandAnnotation {
+            guard let selectedAnnotation = view.annotation as? BandAnnotation else { return }
+            _ = selectedAnnotation.title
+            
+            let bandViewController = BandPageViewController()
+            bandViewController.modalPresentationStyle = .pageSheet
+            if let sheet = bandViewController.sheetPresentationController {
+                sheet.detents = [.medium(), .large()]
+                sheet.prefersGrabberVisible = true
+                sheet.largestUndimmedDetentIdentifier = .medium
+            }
+            nextViewController = bandViewController
+            present(bandViewController, animated: true, completion: nil)
+        }
+    }
 }
