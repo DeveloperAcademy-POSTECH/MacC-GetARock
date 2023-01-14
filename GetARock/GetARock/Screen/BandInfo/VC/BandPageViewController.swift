@@ -35,11 +35,11 @@ class BandPageViewController: UIViewController {
         }
     }
     
-    private var bandinfo: BandInfo = MockData.bands[0]
+    private var bandInfo: BandInfo = MockData.bands[0]
     
     init(bandInfo: BandInfo) {
         super.init(nibName: nil, bundle: nil)
-        self.bandinfo = bandInfo
+        self.bandInfo = bandInfo
     }
     
     required init?(coder: NSCoder) {
@@ -48,8 +48,8 @@ class BandPageViewController: UIViewController {
     
     // MARK: - View
 
-    private lazy var topView = TopViewOfInfoView(bandName: self.bandinfo.band.name,
-                                                 bandLocation: self.bandinfo.band.location.address ?? "")
+    private lazy var topView = TopViewOfInfoView(bandName: self.bandInfo.band.name,
+                                                 bandLocation: self.bandInfo.band.location.address ?? "")
     private let segmentedControlButtons = SwitchingViewSegmentedControl(buttonTitles:
                                                                         [BandInfoViewList.bandInfo.toKorean(),
                                                                          BandInfoViewList.bandTimeLine.toKorean(),
