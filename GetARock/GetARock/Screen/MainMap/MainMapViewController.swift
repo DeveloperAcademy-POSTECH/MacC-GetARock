@@ -19,6 +19,8 @@ final class MainMapViewController: UIViewController {
     @IBOutlet weak var attendedEventListButton: UIButton!
     @IBOutlet weak var myPageButton: UIButton!
     
+    var nextViewController: UIViewController?
+    
     let coordinate = CLLocationCoordinate2D(
         latitude: 36.014,
         longitude: 129.32
@@ -125,6 +127,29 @@ final class MainMapViewController: UIViewController {
         default:
             break
         }
+    }
+    
+    @IBAction func addGatheringButtonClicked(_ sender: UIButton) {
+        let addGatheringViewController = UIStoryboard(name: "AddGathering", bundle: nil).instantiateViewController(withIdentifier: AddGatheringViewController.className)
+        addGatheringViewController.modalPresentationStyle = .pageSheet
+        if let sheet = addGatheringViewController.sheetPresentationController {
+            sheet.detents = [.large()]
+            sheet.prefersGrabberVisible = true
+        }
+        nextViewController = addGatheringViewController
+        present(addGatheringViewController, animated: true, completion: nil)
+    }
+    
+    @IBAction func gatheringListButtonClicked(_ sender: UIButton) {
+        let gatheringListViewController = GatheringListTapViewController()
+        gatheringListViewController.modalPresentationStyle = .pageSheet
+        if let sheet = gatheringListViewController.sheetPresentationController {
+            sheet.detents = [.medium(), .large()]
+            sheet.prefersGrabberVisible = true
+            sheet.largestUndimmedDetentIdentifier = .medium
+        }
+        nextViewController = gatheringListViewController
+        present(gatheringListViewController, animated: true, completion: nil)
     }
     
 }
