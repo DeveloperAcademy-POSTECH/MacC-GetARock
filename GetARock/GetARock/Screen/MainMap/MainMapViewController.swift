@@ -239,4 +239,9 @@ extension MainMapViewController: MKMapViewDelegate {
             present(bandViewController, animated: true, completion: nil)
         }
     }
+    
+    func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
+        nextViewController?.dismiss(animated: true)
+    }
+    
 }
