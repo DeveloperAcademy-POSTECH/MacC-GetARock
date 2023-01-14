@@ -28,8 +28,10 @@ class BandPageViewController: UIViewController {
     var currentPage: Int = 0 {
         didSet {
             let direction: UIPageViewController.NavigationDirection = oldValue <= self.currentPage ? .forward : .reverse
-            self.pageViewController.setViewControllers([viewControllerList[self.currentPage]],
-                                                       direction: direction, animated: true)
+            self.pageViewController.setViewControllers(
+                [viewControllerList[self.currentPage]],
+                direction: direction,
+                animated: true)
         }
     }
     
@@ -52,8 +54,12 @@ class BandPageViewController: UIViewController {
                                                                         [BandInfoViewList.bandInfo.toKorean(),
                                                                          BandInfoViewList.bandTimeLine.toKorean(),
                                                                          BandInfoViewList.visitorComment.toKorean()])
-    private lazy var bandInfoViewController = UIStoryboard(name: "BandInfo", bundle: nil).instantiateViewController(withIdentifier: BandInfoViewController.className)
-    private lazy var bandTimelineViewController = UIStoryboard(name: "BandTimeline", bundle: nil).instantiateViewController(withIdentifier: BandTimelineViewController.className)
+    private lazy var bandInfoViewController = UIStoryboard(
+        name: "BandInfo",
+        bundle: nil).instantiateViewController(withIdentifier: BandInfoViewController.className)
+    private lazy var bandTimelineViewController = UIStoryboard(
+        name: "BandTimeline",
+        bundle: nil).instantiateViewController(withIdentifier: BandTimelineViewController.className)
     private lazy var commentListViewController = VisitorCommentViewController()
     
     private lazy var pageViewController: UIPageViewController = {
