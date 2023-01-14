@@ -129,7 +129,7 @@ final class MainMapViewController: UIViewController {
         }
     }
     
-    @IBAction func addGatheringButtonClicked(_ sender: UIButton) {
+    @IBAction func createEventButtonClicked(_ sender: UIButton) {
         let addGatheringViewController = UIStoryboard(name: "AddGathering", bundle: nil).instantiateViewController(withIdentifier: AddGatheringViewController.className)
         addGatheringViewController.modalPresentationStyle = .pageSheet
         if let sheet = addGatheringViewController.sheetPresentationController {
@@ -140,7 +140,7 @@ final class MainMapViewController: UIViewController {
         present(addGatheringViewController, animated: true, completion: nil)
     }
     
-    @IBAction func gatheringListButtonClicked(_ sender: UIButton) {
+    @IBAction func attendedEventListButtonClicked(_ sender: UIButton) {
         let gatheringListViewController = GatheringListTapViewController()
         gatheringListViewController.modalPresentationStyle = .pageSheet
         if let sheet = gatheringListViewController.sheetPresentationController {
