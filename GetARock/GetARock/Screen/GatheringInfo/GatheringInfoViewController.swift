@@ -63,6 +63,7 @@ final class GatheringInfoViewController: UIViewController {
     }
     
 }
+
 // MARK: - extension Reportable Method
 
 extension GatheringInfoViewController: Reportable {
