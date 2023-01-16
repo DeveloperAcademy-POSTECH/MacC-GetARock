@@ -118,6 +118,16 @@ final class MainMapViewController: UIViewController {
         present(alertController, animated: true, completion: nil)
     }
     
+    func focusOnSelectedLocation(latitudeValue: CLLocationDegrees,
+                                 longitudeValue: CLLocationDegrees,
+                                 delta span: Double) {
+          let currentLocation = CLLocationCoordinate2DMake(latitudeValue, longitudeValue)
+          let spanValue = MKCoordinateSpan(latitudeDelta: focusOnRange,
+                                           longitudeDelta: focusOnRange)
+          let currentRegion = MKCoordinateRegion(center: currentLocation, span: spanValue)
+          mapView.setRegion(currentRegion, animated: true)
+      }
+    
     @IBAction func moveToUserLocation(_ sender: Any) {
         switch locationManager.authorizationStatus {
         case .authorizedAlways, .authorizedWhenInUse:
