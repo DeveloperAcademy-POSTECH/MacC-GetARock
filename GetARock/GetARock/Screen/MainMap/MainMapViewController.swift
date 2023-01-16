@@ -130,7 +130,10 @@ final class MainMapViewController: UIViewController {
     }
     
     @IBAction func createEventButtonClicked(_ sender: UIButton) {
-        let addGatheringViewController = UIStoryboard(name: "AddGathering", bundle: nil).instantiateViewController(withIdentifier: AddGatheringViewController.className)
+        let addGatheringViewController = UIStoryboard(
+            name: "AddGathering",
+            bundle: nil
+        ).instantiateViewController(withIdentifier: AddGatheringViewController.className)
         addGatheringViewController.modalPresentationStyle = .pageSheet
         if let sheet = addGatheringViewController.sheetPresentationController {
             sheet.detents = [.large()]
@@ -215,7 +218,13 @@ extension MainMapViewController: MKMapViewDelegate {
             guard let selectedAnnotation = view.annotation as? GatheringAnnotation else { return }
             _ = selectedAnnotation.title
             
-            guard let gatheringViewController = UIStoryboard(name: "GatheringInfoPage", bundle: nil).instantiateViewController(withIdentifier: GatheringInfoViewController.className) as? GatheringInfoViewController else { return }
+        if selectedAnnotation is GatheringAnnotation {
+            guard let gatheringViewController = UIStoryboard(
+                name: "GatheringInfoPage",
+                bundle: nil
+            ).instantiateViewController(
+                withIdentifier: GatheringInfoViewController.className
+            ) as? GatheringInfoViewController else { return }
             gatheringViewController.modalPresentationStyle = .pageSheet
             if let sheet = gatheringViewController.sheetPresentationController {
                 sheet.detents = [.medium(), .large()]
