@@ -28,6 +28,7 @@ final class MainMapViewController: UIViewController {
 
     let coordinateRange = 0.03
     let focusOnRange = 0.015
+    let focusOnLatitudeDistance = 0.005
     let locationManager = CLLocationManager()
     
     // MARK: - View Life Cycle
@@ -212,7 +213,6 @@ extension MainMapViewController: CLLocationManagerDelegate {
 
 extension MainMapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        
         if annotation is MKUserLocation {
             return MKUserLocationView()
         } else if annotation is BandAnnotation {
@@ -225,10 +225,13 @@ extension MainMapViewController: MKMapViewDelegate {
     }
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        if view.annotation is GatheringAnnotation {
-            guard let selectedAnnotation = view.annotation as? GatheringAnnotation else { return }
-            _ = selectedAnnotation.title
-            
+        guard let selectedAnnotation = view.annotation else { return }
+        
+        focusOnSelectedLocation(
+            latitudeValue: selectedAnnotation.coordinate.latitude - focusOnLatitudeDistance,
+            longitudeValue: selectedAnnotation.coordinate.longitude,
+            delta: focusOnRange)
+        
         if selectedAnnotation is GatheringAnnotation {
             guard let gatheringViewController = UIStoryboard(
                 name: "GatheringInfoPage",
@@ -244,10 +247,8 @@ extension MainMapViewController: MKMapViewDelegate {
             }
             nextViewController = gatheringViewController
             present(gatheringViewController, animated: true, completion: nil)
-        }else if view.annotation is BandAnnotation {
-            guard let selectedAnnotation = view.annotation as? BandAnnotation else { return }
-            _ = selectedAnnotation.title
             
+        } else if selectedAnnotation is BandAnnotation {
             let bandViewController = BandPageViewController()
             bandViewController.modalPresentationStyle = .pageSheet
             if let sheet = bandViewController.sheetPresentationController {
