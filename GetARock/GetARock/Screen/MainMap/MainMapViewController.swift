@@ -27,6 +27,7 @@ final class MainMapViewController: UIViewController {
     )
 
     let coordinateRange = 0.03
+    let focusOnRange = 0.015
     let locationManager = CLLocationManager()
     
     // MARK: - View Life Cycle
