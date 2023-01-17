@@ -13,6 +13,9 @@ struct GatheringInfo {
 }
 
 enum GatheringStatus: String, Codable {
+    
+    static let progressingTerm: TimeInterval = 3600*3
+    
     case recruiting
     case progressing
     case finished
@@ -29,10 +32,10 @@ enum GatheringStatus: String, Codable {
     
     func calculateStatus(date: Date) -> Self {
         if date > Date() { return .recruiting }
-        if date <= Date() && Date() < Date(timeInterval: 3600*3, since: date) {
+        if date <= Date() && Date() < Date(timeInterval: Self.progressingTerm, since: date) {
             return .progressing
         }
-        if Date() >= Date(timeInterval: 3600*3, since: date) {
+        if Date() >= Date(timeInterval: Self.progressingTerm, since: date) {
             return .finished
         }
         return .canceled
