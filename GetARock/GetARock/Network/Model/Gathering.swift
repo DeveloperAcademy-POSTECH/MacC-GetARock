@@ -28,10 +28,6 @@ enum GatheringStatus: String, Codable {
     }
     
     func calculateStatus(date: Date) -> Self {
-        print()
-        print(date)
-        print(Date())
-        print()
         if date > Date() { return .recruiting }
         if date <= Date() && Date() < Date(timeInterval: 3600*3, since: date) {
             return .progressing
