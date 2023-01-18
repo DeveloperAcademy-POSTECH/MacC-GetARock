@@ -22,11 +22,11 @@ extension VisitorCommentDTO {
         let bandAPI = BandAPI()
         
         async let hostBand = bandAPI.getBandInfo(bandID: self.hostBandID)
-        async let auther = bandAPI.getBandInfo(bandID: self.authorID)
+        async let author = bandAPI.getBandInfo(bandID: self.authorID)
         
         return VisitorComment(
             hostBand: try await hostBand,
-            author: try await auther,
+            author: try await author,
             content: self.content,
             createdAt: self.createdAt.dateValue()
         )

@@ -22,11 +22,11 @@ extension GatheringCommentDTO {
         let gatheringAPI = GatheringAPI()
         let bandAPI = BandAPI()
         async let gathering = gatheringAPI.getGatheringInfo(gatheringID: self.gatheringID)
-        async let auther = bandAPI.getBandInfo(bandID: self.authorID)
+        async let author = bandAPI.getBandInfo(bandID: self.authorID)
         
         return GatheringComment(
             gathering: try await gathering,
-            author: try await auther,
+            author: try await author,
             content: self.content,
             createdAt: self.createdAt.dateValue()
         )
