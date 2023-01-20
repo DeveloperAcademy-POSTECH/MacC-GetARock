@@ -31,11 +31,7 @@ final class GatheringInfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLayout()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        gatheringCommentsListView.tableView.reloadData()
-        refreshCommentList()
+        commentsView.heightAnchor.constraint(equalToConstant: CGFloat(MockData.gatheringComments.count * 170)).isActive = true
     }
     
     // MARK: - Method
@@ -59,7 +55,6 @@ final class GatheringInfoViewController: UIViewController {
     private func setupWritingButton() {
         gatheringCommentsListView.commentWritingButton.titleButton.addTarget(self, action: #selector(didTapGatheringCommentButton), for: .touchUpInside)
     }
-    
 }
 
 // MARK: - extension Reportable Method
@@ -74,7 +69,7 @@ extension GatheringInfoViewController: Reportable {
 extension GatheringInfoViewController: CommentListUpdateDelegate {
     func refreshCommentList() {
         gatheringCommentsListView.setupTotalListNumberLabel()
-        commentsView.heightAnchor.constraint(equalToConstant: CGFloat(MockData.gatheringComments.count * 170)).isActive = true
+        gatheringCommentsListView.tableView.reloadData()
     }
     
     @objc func didTapGatheringCommentButton() {
