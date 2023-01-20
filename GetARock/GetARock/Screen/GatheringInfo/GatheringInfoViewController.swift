@@ -21,7 +21,7 @@ final class GatheringInfoViewController: UIViewController {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var commentsView: UIView!
     
-    var gatheringCommentsListView = {
+    private var gatheringCommentsListView = {
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
     }(CommentListView(commentMode: .gatheringComment))
@@ -35,9 +35,7 @@ final class GatheringInfoViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         gatheringCommentsListView.tableView.reloadData()
-        
         refreshCommentList()
-        
     }
     
     // MARK: - Method
@@ -82,7 +80,7 @@ extension GatheringInfoViewController: CommentListUpdateDelegate {
     @objc func didTapGatheringCommentButton() {
         let popupViewController = CommentWritingPopupViewController(commentMode: .gatheringComment)
         popupViewController.delegate = self
-        popupViewController.modalPresentationStyle = .fullScreen
+        popupViewController.modalPresentationStyle = .overFullScreen
         self.present(popupViewController, animated: false)
     }
 }
