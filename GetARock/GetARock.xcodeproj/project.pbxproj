@@ -530,15 +530,39 @@
 			path = Component;
 			sourceTree = "<group>";
 		};
-		C5C7AC69292A7EC000698636 /* AddGathering */ = {
+		C591D90E297BD31D002C02A7 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				C591D90A2975034A002C02A7 /* AddGatheringViewController+ScrollAdaptToKeyboard.swift */,
+				C591D90C29750370002C02A7 /* LocationSearchResultViewController+ScrollAdaptToKeyboard.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		C591D90F297BD369002C02A7 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				C545AFC5293A403500C21E32 /* LocationCandidateCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		C591D910297BD382002C02A7 /* VC */ = {
 			isa = PBXGroup;
 			children = (
 				C5C7AC6C292A7FA200698636 /* AddGatheringViewController.swift */,
 				C545AFC9293A413200C21E32 /* LocationSearchViewController.swift */,
 				C545AFCB293A41CE00C21E32 /* LocationSearchResultViewController.swift */,
-				C545AFC5293A403500C21E32 /* LocationCandidateCell.swift */,
-				C591D90A2975034A002C02A7 /* AddGatheringViewController+ScrollAdaptToKeyboard.swift */,
-				C591D90C29750370002C02A7 /* LocationSearchResultViewController+ScrollAdaptToKeyboard.swift */,
+				C591D90E297BD31D002C02A7 /* Extension */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		C5C7AC69292A7EC000698636 /* AddGathering */ = {
+			isa = PBXGroup;
+			children = (
+				C591D910297BD382002C02A7 /* VC */,
+				C591D90F297BD369002C02A7 /* Cell */,
 			);
 			path = AddGathering;
 			sourceTree = "<group>";
