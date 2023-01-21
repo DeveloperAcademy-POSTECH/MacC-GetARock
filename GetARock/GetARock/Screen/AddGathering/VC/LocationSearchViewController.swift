@@ -51,41 +51,42 @@ class LocationSearchViewController: UIViewController {
     }
 
     // MARK: - Method
-    
+
     @IBAction func doneButtonAction(_ sender: Any) {
-        if delegate != nil {
-            if let coordinate = selectedCoordinate {
-                delegate?.setLocation(
-                    name: selectedLocationName,
-                    address: selectedAddressLabel.text,
-                    additionalAddress: addressDetailTextField.text,
-                    coordinate: coordinate
-                )
-                navigationController?.popViewController(animated: true)
-            } else {
-                let alertController = UIAlertController(
-                    title: nil,
-                    message: "주소가 올바르지 않습니다",
-                    preferredStyle: .alert
-                )
-                let confirm = UIAlertAction(title: "예", style: .default, handler: {_ in
-                    print("입력 주소(비어있을 수 있음: \"\(self.searchController?.searchBar.text ?? "(서치컨트롤러 못 찾음)")\"에 해당하는 좌표를 찾지 못함")
-                })
-                alertController.addAction(confirm)
-                self.present(alertController, animated: true)
-            }
-        } else {
+        guard let delegate = delegate else {
             print("\(type(of: self).className)에서 delgate가 nil이라 저장할 수 없음")
+            return
         }
+        guard let coordinate = selectedCoordinate else {
+            let alertController = UIAlertController(
+                title: nil,
+                message: "주소가 올바르지 않습니다",
+                preferredStyle: .alert
+            )
+            let confirm = UIAlertAction(title: "예", style: .default, handler: {_ in
+                print("입력 주소(비어있을 수 있음: \"\(self.searchController?.searchBar.text ?? "(서치컨트롤러 못 찾음)")\"에 해당하는 좌표를 찾지 못함")
+            })
+            alertController.addAction(confirm)
+            self.present(alertController, animated: true)
+            return
+        }
+
+        delegate.setLocation(
+            name: selectedLocationName,
+            address: selectedAddressLabel.text,
+            additionalAddress: addressDetailTextField.text,
+            coordinate: coordinate
+        )
+        navigationController?.popViewController(animated: true)
     }
-    
+
     private func attribute() {
         setupNavigationBarTitle()
         setupSearchController()
         setupSearchBar()
         addressStackView.isHidden = true
     }
-    
+
     private func setupNavigationBarTitle() {
         let titleLabel: UILabel = {
             $0.text = "장소 선택"

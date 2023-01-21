@@ -78,22 +78,23 @@ class AddGatheringViewController: UIViewController {
             let confirm = UIAlertAction(title: "확인", style: .default)
             alert.addAction(confirm)
             self.present(alert, animated: true)
-        } else {
-            guard let gatheringLocation = gatheringLocation else {
-                return // 위의 errorString에서 체크 완료한 부분입니다.
-            }
-            let gathering = Gathering(
-                title: titleTextField.text ?? "이름없음",
-                host: MockData.bands[0], // 테스트용 - 추후 변경
-                status: .recruiting,
-                date: dateTimePicker.date,
-                location: gatheringLocation,
-                introduction: introductionTextView.text,
-                createdAt: Date()
-            )
-            MockData.gatherings.append(GatheringInfo(gatheringID: "testID", gathering: gathering)) // 테스트용 - ID 추후 변경
-            dismiss(animated: true)
+            return
         }
+        guard let gatheringLocation = gatheringLocation else {
+            return // 위의 errorString에서 확인한 부분입니다.
+        }
+        let gathering = Gathering(
+            title: titleTextField.text ?? "이름없음",
+            host: MockData.bands[0], // 테스트용 - 추후 변경
+            status: .recruiting,
+            date: dateTimePicker.date,
+            location: gatheringLocation,
+            introduction: introductionTextView.text,
+            createdAt: Date()
+        )
+        MockData.gatherings.append(GatheringInfo(gatheringID: "testID", gathering: gathering)) // 테스트용 - ID 추후 변경
+        dump(MockData.gatherings.last)
+        dismiss(animated: true)
     }
 
     @IBAction func scrollViewTapRecognizer(_ sender: UITapGestureRecognizer) {
