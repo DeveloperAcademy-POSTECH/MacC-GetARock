@@ -169,7 +169,7 @@ extension LocationSearchViewController {
             self?.places = response?.mapItems ?? []
 
             if isTapped && !(self?.places.isEmpty ?? true) {
-                self?.setAddressInfos(indexPath: NSIndexPath(row: 0, section: 0))
+                self?.setAddressInfos(indexPath: IndexPath(row: 0, section: 0))
             }
         }
     }
@@ -196,22 +196,22 @@ extension LocationSearchViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if resultViewController?.tableView.dataSource is LocationSearchResultViewController {
             if let selectedSearchCompletion = resultViewController?
-                    .suggestedPlaces[(indexPath as NSIndexPath).row] as? MKLocalSearchCompletion {
+                    .suggestedPlaces[indexPath.row] as? MKLocalSearchCompletion {
                 searchFromSuggestion(for: selectedSearchCompletion)
             }
         } else {
-            setAddressInfos(indexPath: indexPath as NSIndexPath)
+            setAddressInfos(indexPath: indexPath)
         }
         dismiss(animated: true)
     }
 
-    func setAddressInfos (indexPath: NSIndexPath) { // MapItem
-        selectedLocationName = places[(indexPath as NSIndexPath).row].name
+    func setAddressInfos (indexPath: IndexPath) { // MapItem
+        selectedLocationName = places[indexPath.row].name
         selectedAddressLabel.text = CNPostalAddressFormatter.string(
-            from: places[(indexPath as NSIndexPath).row].placemark.postalAddress ?? CNPostalAddress(),
+            from: places[indexPath.row].placemark.postalAddress ?? CNPostalAddress(),
             style: .mailingAddress
         ).replacingOccurrences(of: "\n", with: " ")
-        if let coordinate = places[(indexPath as NSIndexPath).row].placemark.location?.coordinate {
+        if let coordinate = places[indexPath.row].placemark.location?.coordinate {
             selectedCoordinate = Coordinate(latitude: coordinate.latitude, longitude: coordinate.longitude)
         }
         addressStackView.isHidden = false
@@ -229,9 +229,9 @@ extension LocationSearchViewController: UITableViewDataSource {
             .dequeueReusableCell(withIdentifier: LocationCandidateCell.className, for: indexPath) as? LocationCandidateCell
         else { return UITableViewCell() }
 
-        cell.locationNameLabel?.text = places[(indexPath as NSIndexPath).row].name ?? "이름없음"
+        cell.locationNameLabel?.text = places[indexPath.row].name ?? "이름없음"
         cell.addressLabel?.text = CNPostalAddressFormatter.string(
-            from: places[(indexPath as NSIndexPath).row].placemark.postalAddress ?? CNPostalAddress(),
+            from: places[indexPath.row].placemark.postalAddress ?? CNPostalAddress(),
             style: .mailingAddress
         ).replacingOccurrences(of: "\n", with: " ")
 

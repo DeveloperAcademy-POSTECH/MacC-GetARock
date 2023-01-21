@@ -95,8 +95,8 @@ extension LocationSearchResultViewController: UITableViewDataSource {
                 LocationCandidateCell else {
             return UITableViewCell()
         }
-        cell.locationNameLabel?.text = suggestedPlaces[(indexPath as NSIndexPath).row].title
-        cell.addressLabel?.text = suggestedPlaces[(indexPath as NSIndexPath).row].subtitle
+        cell.locationNameLabel?.text = suggestedPlaces[indexPath.row].title
+        cell.addressLabel?.text = suggestedPlaces[indexPath.row].subtitle
 
         return cell
     }
