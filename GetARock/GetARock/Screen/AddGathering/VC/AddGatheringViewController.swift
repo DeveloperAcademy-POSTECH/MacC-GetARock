@@ -93,7 +93,6 @@ class AddGatheringViewController: UIViewController {
             createdAt: Date()
         )
         MockData.gatherings.append(GatheringInfo(gatheringID: "testID", gathering: gathering)) // 테스트용 - ID 추후 변경
-        dump(MockData.gatherings.last)
         dismiss(animated: true)
     }
 
