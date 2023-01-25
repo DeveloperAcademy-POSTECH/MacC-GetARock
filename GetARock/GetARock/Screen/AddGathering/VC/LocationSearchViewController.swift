@@ -27,10 +27,14 @@ class LocationSearchViewController: UIViewController {
             localSearch?.cancel()
         }
     }
+    private var selectedLocationName: String?
     private var selectedCoordinate: Coordinate?
+
+    weak var delegate: LocationSearchViewControllerDelegate?
 
     // MARK: - View
 
+    @IBOutlet weak var addressStackView: UIStackView!
     @IBOutlet weak var selectedAddressLabel: UILabel!
     @IBOutlet weak var addressDetailTextField: UITextField!
     
@@ -45,19 +49,44 @@ class LocationSearchViewController: UIViewController {
         super.viewDidLoad()
         attribute()
     }
-    
+
     // MARK: - Method
-    
+
     @IBAction func doneButtonAction(_ sender: Any) {
-        
+        guard let delegate = delegate else {
+            print("\(type(of: self).className)에서 delgate가 nil이라 저장할 수 없음")
+            return
+        }
+        guard let coordinate = selectedCoordinate else {
+            let alertController = UIAlertController(
+                title: nil,
+                message: "주소가 올바르지 않습니다",
+                preferredStyle: .alert
+            )
+            let confirm = UIAlertAction(title: "예", style: .default, handler: {_ in
+                print("입력 주소(비어있을 수 있음: \"\(self.searchController?.searchBar.text ?? "(서치컨트롤러 못 찾음)")\"에 해당하는 좌표를 찾지 못함")
+            })
+            alertController.addAction(confirm)
+            self.present(alertController, animated: true)
+            return
+        }
+
+        delegate.setLocation(
+            name: selectedLocationName,
+            address: selectedAddressLabel.text,
+            additionalAddress: addressDetailTextField.text,
+            coordinate: coordinate
+        )
+        navigationController?.popViewController(animated: true)
     }
-    
+
     private func attribute() {
         setupNavigationBarTitle()
         setupSearchController()
         setupSearchBar()
+        addressStackView.isHidden = true
     }
-    
+
     private func setupNavigationBarTitle() {
         let titleLabel: UILabel = {
             $0.text = "장소 선택"
@@ -140,7 +169,7 @@ extension LocationSearchViewController {
             self?.places = response?.mapItems ?? []
 
             if isTapped && !(self?.places.isEmpty ?? true) {
-                self?.setAddressInfos(indexPath: NSIndexPath(row: 0, section: 0))
+                self?.setAddressInfos(indexPath: IndexPath(row: 0, section: 0))
             }
         }
     }
@@ -167,23 +196,26 @@ extension LocationSearchViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if resultViewController?.tableView.dataSource is LocationSearchResultViewController {
             if let selectedSearchCompletion = resultViewController?
-                    .suggestedPlaces[(indexPath as NSIndexPath).row] as? MKLocalSearchCompletion {
+                    .suggestedPlaces[indexPath.row] as? MKLocalSearchCompletion {
                 searchFromSuggestion(for: selectedSearchCompletion)
             }
         } else {
-            setAddressInfos(indexPath: indexPath as NSIndexPath)
+            setAddressInfos(indexPath: indexPath)
         }
         dismiss(animated: true)
     }
 
-    func setAddressInfos (indexPath: NSIndexPath) { // MapItem
+    func setAddressInfos (indexPath: IndexPath) { // MapItem
+        selectedLocationName = places[indexPath.row].name
         selectedAddressLabel.text = CNPostalAddressFormatter.string(
-            from: places[(indexPath as NSIndexPath).row].placemark.postalAddress ?? CNPostalAddress(),
+            from: places[indexPath.row].placemark.postalAddress ?? CNPostalAddress(),
             style: .mailingAddress
         ).replacingOccurrences(of: "\n", with: " ")
-        if let coordinate = places[(indexPath as NSIndexPath).row].placemark.location?.coordinate {
+        if let coordinate = places[indexPath.row].placemark.location?.coordinate {
             selectedCoordinate = Coordinate(latitude: coordinate.latitude, longitude: coordinate.longitude)
         }
+        addressStackView.isHidden = false
+        guideLabel.isHidden = true
     }
 }
 
@@ -197,12 +229,18 @@ extension LocationSearchViewController: UITableViewDataSource {
             .dequeueReusableCell(withIdentifier: LocationCandidateCell.className, for: indexPath) as? LocationCandidateCell
         else { return UITableViewCell() }
 
-        cell.locationNameLabel?.text = places[(indexPath as NSIndexPath).row].name ?? "이름없음"
+        cell.locationNameLabel?.text = places[indexPath.row].name ?? "이름없음"
         cell.addressLabel?.text = CNPostalAddressFormatter.string(
-            from: places[(indexPath as NSIndexPath).row].placemark.postalAddress ?? CNPostalAddress(),
+            from: places[indexPath.row].placemark.postalAddress ?? CNPostalAddress(),
             style: .mailingAddress
         ).replacingOccurrences(of: "\n", with: " ")
 
         return cell
     }
+}
+
+// MARK: - Delegate Protocol to set location in parent view
+
+protocol LocationSearchViewControllerDelegate: AnyObject {
+    func setLocation(name: String?, address: String?, additionalAddress: String?, coordinate: Coordinate)
 }

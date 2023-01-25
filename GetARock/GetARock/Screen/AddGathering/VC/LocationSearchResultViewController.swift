@@ -27,9 +27,7 @@ class LocationSearchResultViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let nibName = UINib(nibName: LocationCandidateCell.className, bundle: nil)
-        tableView.register(nibName, forCellReuseIdentifier: LocationCandidateCell.className)
-        tableView.dataSource = self
+        attribute()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -41,8 +39,23 @@ class LocationSearchResultViewController: UIViewController {
         super.viewDidDisappear(animated)
         stopProvidingCompletions()
     }
+    
+    deinit {
+        removeObserversForKeyboardShow()
+    }
 
     // MARK: - Method
+
+    private func attribute() {
+        setupTableView()
+        addObeserversForKeyboardShow()
+    }
+
+    private func setupTableView() {
+        let nibName = UINib(nibName: LocationCandidateCell.className, bundle: nil)
+        tableView.register(nibName, forCellReuseIdentifier: LocationCandidateCell.className)
+        tableView.dataSource = self
+    }
 
     private func startProvidingCompletions() {
         searchCompleter = MKLocalSearchCompleter()
@@ -82,8 +95,8 @@ extension LocationSearchResultViewController: UITableViewDataSource {
                 LocationCandidateCell else {
             return UITableViewCell()
         }
-        cell.locationNameLabel?.text = suggestedPlaces[(indexPath as NSIndexPath).row].title
-        cell.addressLabel?.text = suggestedPlaces[(indexPath as NSIndexPath).row].subtitle
+        cell.locationNameLabel?.text = suggestedPlaces[indexPath.row].title
+        cell.addressLabel?.text = suggestedPlaces[indexPath.row].subtitle
 
         return cell
     }
