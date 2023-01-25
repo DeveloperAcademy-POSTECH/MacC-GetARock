@@ -154,6 +154,7 @@ class CommentWritingPopupViewController: UIViewController {
                             content: text,
                             createdAt: Date()))
                     MockData.gatheringComments.append(saveData)
+                    self.delegate?.refreshCommentList()
                     self.dismiss(animated: false, completion: nil)
                 }
             }
