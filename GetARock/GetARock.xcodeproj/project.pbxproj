@@ -73,13 +73,16 @@
 		AB58E007292CB61700868720 /* TopViewOfInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB58E006292CB61700868720 /* TopViewOfInfoView.swift */; };
 		AB58E00F292DEF2400868720 /* GatheringListTapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB58E00E292DEF2400868720 /* GatheringListTapViewController.swift */; };
 		ABCE15B7292A052F007D30E2 /* SwitchingViewSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCE15B6292A052F007D30E2 /* SwitchingViewSegmentedControl.swift */; };
+		B81733F229684E1B00BC6698 /* GatheringAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81733F129684E1B00BC6698 /* GatheringAnnotationView.swift */; };
 		B830849929263B780035DB2D /* MainMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B830849829263B780035DB2D /* MainMapViewController.swift */; };
 		B8B9971F29287D3700082462 /* MainMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8B9971E29287D3700082462 /* MainMap.storyboard */; };
-		B8BE496E292E14C800E8E774 /* AnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BE496D292E14C800E8E774 /* AnnotationView.swift */; };
+		B8BE496E292E14C800E8E774 /* BandAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BE496D292E14C800E8E774 /* BandAnnotationView.swift */; };
 		C545AFC6293A403500C21E32 /* LocationCandidateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C545AFC5293A403500C21E32 /* LocationCandidateCell.swift */; };
 		C545AFC8293A405200C21E32 /* LocationCandidateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C545AFC7293A405200C21E32 /* LocationCandidateCell.xib */; };
 		C545AFCA293A413200C21E32 /* LocationSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C545AFC9293A413200C21E32 /* LocationSearchViewController.swift */; };
 		C545AFCC293A41CE00C21E32 /* LocationSearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C545AFCB293A41CE00C21E32 /* LocationSearchResultViewController.swift */; };
+		C591D90B2975034A002C02A7 /* AddGatheringViewController+ScrollAdaptToKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C591D90A2975034A002C02A7 /* AddGatheringViewController+ScrollAdaptToKeyboard.swift */; };
+		C591D90D29750370002C02A7 /* LocationSearchResultViewController+ScrollAdaptToKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C591D90C29750370002C02A7 /* LocationSearchResultViewController+ScrollAdaptToKeyboard.swift */; };
 		C5C7AC6B292A7F7C00698636 /* AddGathering.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5C7AC6A292A7F7C00698636 /* AddGathering.storyboard */; };
 		C5C7AC6D292A7FA200698636 /* AddGatheringViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C7AC6C292A7FA200698636 /* AddGatheringViewController.swift */; };
 /* End PBXBuildFile section */
@@ -168,13 +171,16 @@
 		AB58E006292CB61700868720 /* TopViewOfInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopViewOfInfoView.swift; sourceTree = "<group>"; };
 		AB58E00E292DEF2400868720 /* GatheringListTapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatheringListTapViewController.swift; sourceTree = "<group>"; };
 		ABCE15B6292A052F007D30E2 /* SwitchingViewSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchingViewSegmentedControl.swift; sourceTree = "<group>"; };
+		B81733F129684E1B00BC6698 /* GatheringAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatheringAnnotationView.swift; sourceTree = "<group>"; };
 		B830849829263B780035DB2D /* MainMapViewController.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = MainMapViewController.swift; sourceTree = "<group>"; tabWidth = 4; };
 		B8B9971E29287D3700082462 /* MainMap.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainMap.storyboard; sourceTree = "<group>"; };
-		B8BE496D292E14C800E8E774 /* AnnotationView.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = AnnotationView.swift; sourceTree = "<group>"; tabWidth = 4; };
+		B8BE496D292E14C800E8E774 /* BandAnnotationView.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = BandAnnotationView.swift; sourceTree = "<group>"; tabWidth = 4; };
 		C545AFC5293A403500C21E32 /* LocationCandidateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCandidateCell.swift; sourceTree = "<group>"; };
 		C545AFC7293A405200C21E32 /* LocationCandidateCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationCandidateCell.xib; sourceTree = "<group>"; };
 		C545AFC9293A413200C21E32 /* LocationSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchViewController.swift; sourceTree = "<group>"; };
 		C545AFCB293A41CE00C21E32 /* LocationSearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchResultViewController.swift; sourceTree = "<group>"; };
+		C591D90A2975034A002C02A7 /* AddGatheringViewController+ScrollAdaptToKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddGatheringViewController+ScrollAdaptToKeyboard.swift"; sourceTree = "<group>"; };
+		C591D90C29750370002C02A7 /* LocationSearchResultViewController+ScrollAdaptToKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LocationSearchResultViewController+ScrollAdaptToKeyboard.swift"; sourceTree = "<group>"; };
 		C5C7AC6A292A7F7C00698636 /* AddGathering.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddGathering.storyboard; sourceTree = "<group>"; };
 		C5C7AC6C292A7FA200698636 /* AddGatheringViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGatheringViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -521,18 +527,45 @@
 		B88C73412938AFB9005F2350 /* Component */ = {
 			isa = PBXGroup;
 			children = (
-				B8BE496D292E14C800E8E774 /* AnnotationView.swift */,
+				B8BE496D292E14C800E8E774 /* BandAnnotationView.swift */,
+				B81733F129684E1B00BC6698 /* GatheringAnnotationView.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
 		};
-		C5C7AC69292A7EC000698636 /* AddGathering */ = {
+		C591D90E297BD31D002C02A7 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				C591D90A2975034A002C02A7 /* AddGatheringViewController+ScrollAdaptToKeyboard.swift */,
+				C591D90C29750370002C02A7 /* LocationSearchResultViewController+ScrollAdaptToKeyboard.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		C591D90F297BD369002C02A7 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				C545AFC5293A403500C21E32 /* LocationCandidateCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		C591D910297BD382002C02A7 /* VC */ = {
 			isa = PBXGroup;
 			children = (
 				C5C7AC6C292A7FA200698636 /* AddGatheringViewController.swift */,
 				C545AFC9293A413200C21E32 /* LocationSearchViewController.swift */,
 				C545AFCB293A41CE00C21E32 /* LocationSearchResultViewController.swift */,
-				C545AFC5293A403500C21E32 /* LocationCandidateCell.swift */,
+				C591D90E297BD31D002C02A7 /* Extension */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		C5C7AC69292A7EC000698636 /* AddGathering */ = {
+			isa = PBXGroup;
+			children = (
+				C591D910297BD382002C02A7 /* VC */,
+				C591D90F297BD369002C02A7 /* Cell */,
 			);
 			path = AddGathering;
 			sourceTree = "<group>";
@@ -716,15 +749,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				84880527293B6C750085C718 /* GatheringListCell.swift in Sources */,
+				C591D90D29750370002C02A7 /* LocationSearchResultViewController+ScrollAdaptToKeyboard.swift in Sources */,
 				84880526293B6C6D0085C718 /* GatheringListViewController.swift in Sources */,
 				6606F855292CB38B00A121BF /* ReportReasonListCell.swift in Sources */,
 				66E7420A292CA04D003C0B02 /* ReportReasonListController.swift in Sources */,
 				C545AFCA293A413200C21E32 /* LocationSearchViewController.swift in Sources */,
+				B81733F229684E1B00BC6698 /* GatheringAnnotationView.swift in Sources */,
 				07D7DA3C29108C9000479B6F /* SampleView.swift in Sources */,
 				3DF54FCB292A43EA001CD16B /* BandMemberCollectionViewCell.swift in Sources */,
 				3DF54FCF292B9223001CD16B /* RepertoireTableViewCell.swift in Sources */,
 				3D0ED2232928667900AE320C /* BandInfoViewController.swift in Sources */,
-				B8BE496E292E14C800E8E774 /* AnnotationView.swift in Sources */,
+				B8BE496E292E14C800E8E774 /* BandAnnotationView.swift in Sources */,
 				0761508D29277CBB00A0562F /* VisitorComment.swift in Sources */,
 				AB58E007292CB61700868720 /* TopViewOfInfoView.swift in Sources */,
 				072DEDD2292687A70046A4A0 /* Location.swift in Sources */,
@@ -755,6 +790,7 @@
 				7BB709972929164D0065136D /* CommentTableViewCell.swift in Sources */,
 				AB58E003292CB57100868720 /* BandPageViewController.swift in Sources */,
 				ABCE15B7292A052F007D30E2 /* SwitchingViewSegmentedControl.swift in Sources */,
+				C591D90B2975034A002C02A7 /* AddGatheringViewController+ScrollAdaptToKeyboard.swift in Sources */,
 				07D7DA3A29108C5B00479B6F /* BaseViewController.swift in Sources */,
 				07D7DA3429108A8300479B6F /* StringLiteral.swift in Sources */,
 				7B04C330292D0C1F00EA2590 /* VisitorCommentViewController.swift in Sources */,
