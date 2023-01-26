@@ -43,22 +43,22 @@ enum GatheringStatus: String, Codable {
     
 }
 
-/// 밴드팅 모임입니다.
+/// 모여락(밴드팅 모임)입니다.
 struct Gathering {
     
-    /// 모임의 제목입니다.
+    /// 모여락의 제목입니다.
     let title: String
-    /// 모임의 주최 밴드입니다.
+    /// 모여락의 주최 밴드입니다.
     let host: BandInfo
-    /// 모임의 진행 전/중/후 및 취소를 나타내는 상태정보입니다.
+    /// 모여락의 진행 전/중/후 및 취소를 나타내는 상태정보입니다.
     let status: GatheringStatus
-    /// 모임이  이루어지는 날짜 및 시간입니다.
+    /// 모여락이  이루어지는 날짜 및 시간입니다.
     let date: Date
-    /// 모임이 이루어지는 위치입니다.
+    /// 모여락이 이루어지는 위치입니다.
     let location: Location
-    /// 모임의 대한 소개글입니다.
+    /// 모여락에 대한 소개글입니다.
     let introduction: String
-    /// 모임 모집을 시작하는 시기 정보입니다.
+    /// 모여락 모집을 시작하는 시기 정보입니다.
     let createdAt: Date
     
 }
