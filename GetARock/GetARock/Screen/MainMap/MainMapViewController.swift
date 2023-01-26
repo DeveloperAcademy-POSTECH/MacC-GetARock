@@ -42,26 +42,37 @@ final class MainMapViewController: UIViewController {
     private func setMapView() {
         mapView.delegate = self
         locationManager.delegate = self
-        mapView.register(AnnotationView.self, forAnnotationViewWithReuseIdentifier: AnnotationView.className)
+        mapView.register(BandAnnotationView.self,
+                         forAnnotationViewWithReuseIdentifier: BandAnnotationView.className)
+        mapView.register(GatheringAnnotationView.self,
+                         forAnnotationViewWithReuseIdentifier: GatheringAnnotationView.className)
     }
     
     private func addAnnotationOnMapView() {
-        for band in MockData.bands {
-            let point = CustomAnnotation(
-                title: band.band.name,
-                coordinate: band.band.location.coordinate.toCLLocationCoordinate2D(),
-                category: .band
+        addBandAnnotationOnMapView()
+        addGatheringAnnotationOnMapView()
+    }
+    
+    private func addBandAnnotationOnMapView() {
+        let points = MockData.bands.map {
+            BandAnnotation(
+                title: $0.band.name,
+                coordinate: $0.band.location.coordinate.toCLLocationCoordinate2D(),
+                bandInfo: $0
             )
-            mapView.addAnnotation(point)
         }
-        for gathering in MockData.gatherings {
-            let point = CustomAnnotation(
-                title: gathering.gathering.host.band.name,
-                coordinate: gathering.gathering.location.coordinate.toCLLocationCoordinate2D(),
-                category: .gathering
+        mapView.addAnnotations(points)
+    }
+    
+    private func addGatheringAnnotationOnMapView() {
+        let points = MockData.gatherings.map {
+            GatheringAnnotation(
+                title: $0.gathering.host.band.name,
+                coordinate: $0.gathering.location.coordinate.toCLLocationCoordinate2D(),
+                gatheringInfo: $0
             )
-            mapView.addAnnotation(point)
         }
+        mapView.addAnnotations(points)
     }
     
     private func setDefaultLocation() {
@@ -158,18 +169,19 @@ extension MainMapViewController: CLLocationManagerDelegate {
 
 }
 
-// MARK: - CLLocationManagerDelegate
+// MARK: - MKMapViewDelegate
 
 extension MainMapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        
         if annotation is MKUserLocation {
             return MKUserLocationView()
+        } else if annotation is BandAnnotation {
+            return mapView.dequeueReusableAnnotationView(withIdentifier: BandAnnotationView.className)
+        } else if annotation is GatheringAnnotation {
+            return mapView.dequeueReusableAnnotationView(withIdentifier: GatheringAnnotationView.className)
+        } else {
+            return nil
         }
-        
-        guard let marker = mapView.dequeueReusableAnnotationView(withIdentifier: AnnotationView.className) as? AnnotationView else {
-            return AnnotationView()
-        }
-        
-        return marker
     }
 }

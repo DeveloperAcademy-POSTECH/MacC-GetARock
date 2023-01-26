@@ -19,6 +19,7 @@ class AddGatheringViewController: UIViewController {
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var hostBandNameLabel: UILabel!
     @IBOutlet weak var dateTimePicker: UIDatePicker!
+    @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var introductionTextView: UITextView!
     @IBOutlet weak var scrollView: UIScrollView!
 
@@ -38,12 +39,16 @@ class AddGatheringViewController: UIViewController {
         attribute()
         setDelegate()
         setupLayout()
-        setLocationToMockupData() // 위치 선택 구현 전 임시 위치 지정
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let locationSearchViewController = segue.destination as? LocationSearchViewController {
+            locationSearchViewController.delegate = self
+        }
     }
 
     deinit {
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+        removeObserversForKeyboardShow()
     }
 
     // MARK: - Method
@@ -73,24 +78,22 @@ class AddGatheringViewController: UIViewController {
             let confirm = UIAlertAction(title: "확인", style: .default)
             alert.addAction(confirm)
             self.present(alert, animated: true)
-        } else {
-            let gatheringAddTestGathering = Gathering(
-                title: titleTextField.text ?? "이름없음",
-                host: MockData.bands[0], // 테스트용, 추후 변경
-                status: .recruiting,
-                date: dateTimePicker.date,
-                location: gatheringLocation ?? Location(
-                    name: "Default",
-                    address: "defaultAddress",
-                    additionalAddress: "defaultAdditionalAddress",
-                    coordinate: Coordinate(latitude: 36.01900, longitude: 129.34370)
-                ),
-                introduction: introductionTextView.text,
-                createdAt: Date()
-            )
-            MockData.gatherings.append(GatheringInfo(gatheringID: "testID", gathering: gatheringAddTestGathering)) // 추후 변경
-            dismiss(animated: true)
+            return
         }
+        guard let gatheringLocation = gatheringLocation else {
+            return // 위의 errorString에서 확인한 부분입니다.
+        }
+        let gathering = Gathering(
+            title: titleTextField.text ?? "이름없음",
+            host: MockData.bands[0], // 테스트용 - 추후 변경
+            status: .recruiting,
+            date: dateTimePicker.date,
+            location: gatheringLocation,
+            introduction: introductionTextView.text,
+            createdAt: Date()
+        )
+        MockData.gatherings.append(GatheringInfo(gatheringID: "testID", gathering: gathering)) // 테스트용 - ID 추후 변경
+        dismiss(animated: true)
     }
 
     @IBAction func scrollViewTapRecognizer(_ sender: UITapGestureRecognizer) {
@@ -99,11 +102,11 @@ class AddGatheringViewController: UIViewController {
 
     private func attribute() {
         setupNavigationBar()
-        hostBandName = MockData.bands[0].band.name // 추후 변경: 유저디폴트 사용 예정
+        hostBandName = MockData.bands[0].band.name // 테스트용 - 추후 변경: 유저디폴트 사용 예정
         hostBandNameLabel.text = hostBandName
         dateTimePicker.minimumDate = Date()
         titleTextField.becomeFirstResponder()
-        getKeyboardNotification()
+        addObeserversForKeyboardShow()
     }
 
     private func setDelegate() {
@@ -129,53 +132,23 @@ class AddGatheringViewController: UIViewController {
 
 extension AddGatheringViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
-        self.placeHolderLabel.textColor = introductionTextView.text.count == 0 ? .lightGray : .clear
+        self.placeHolderLabel.textColor = introductionTextView.text.isEmpty ? .lightGray : .clear
     }
 }
 
-// MARK: - KeyboardControl
+// MARK: - Location Delegate
 
-extension AddGatheringViewController {
-    private func getKeyboardNotification() {
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(keyboardWillShow(_:)),
-            name: UIResponder.keyboardWillShowNotification,
-            object: nil
-        )
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(keyboardWillHide(_:)),
-            name: UIResponder.keyboardWillHideNotification,
-            object: nil
-        )
-    }
-
-    @objc func keyboardWillShow(_ sender: Notification) {
-        guard let userInfo: NSDictionary = sender.userInfo as NSDictionary?,
-              let keyboardFrame: NSValue = userInfo.value(forKey: UIResponder.keyboardFrameEndUserInfoKey) as? NSValue else {
-                  return
-              }
-        let keyboardRectangle = keyboardFrame.cgRectValue
-        let keyboardHeight = keyboardRectangle.height
-
-        let contentInset = UIEdgeInsets(
-            top: 0.0,
-            left: 0.0,
-            bottom: keyboardHeight,
-            right: 0.0)
-        scrollView.contentInset = contentInset
-        scrollView.scrollIndicatorInsets = contentInset
-    }
-
-    @objc func keyboardWillHide(_ sender: Notification) {
-        let contentInset = UIEdgeInsets(
-                top: 0.0,
-                left: 0.0,
-                bottom: 0.0,
-                right: 0.0)
-            scrollView.contentInset = contentInset
-            scrollView.scrollIndicatorInsets = contentInset
+extension AddGatheringViewController: LocationSearchViewControllerDelegate {
+    func setLocation(name: String?, address: String?, additionalAddress: String?, coordinate: Coordinate) {
+        gatheringLocation = Location(name: name, address: address, additionalAddress: additionalAddress, coordinate: coordinate)
+        var gatheringAddress = address ?? ""
+        if let detailAddress = additionalAddress {
+            gatheringAddress += " " + detailAddress
+        }
+        if !gatheringAddress.isEmpty {
+            locationLabel.text = gatheringAddress
+            locationLabel.textColor = .white
+        }
     }
 }
 
@@ -201,7 +174,7 @@ extension AddGatheringViewController {
 
     private func validateInputs() throws {
         var errors: [AddGatheringInputError] = []
-        if titleTextField.text == nil || (titleTextField.text ?? "").count <= 0 {
+        if titleTextField.text == nil || (titleTextField.text ?? "").filter({$0 != " "}).isEmpty {
             errors.append(.noTitle)
         }
         if gatheringLocation == nil {
@@ -225,13 +198,5 @@ extension AddGatheringViewController {
             return "입력을 확인하는 중 알 수 없는 문제가 발생했습니다"
         }
         return nil
-    }
-}
-
-// MARK: - Mock data set & test (위치 선택 구현 후 삭제 예정)
-
-extension AddGatheringViewController {
-    private func setLocationToMockupData() {
-        gatheringLocation = MockData.bands[1].band.location // 일부러 다른 밴드의 위치로 함
     }
 }
