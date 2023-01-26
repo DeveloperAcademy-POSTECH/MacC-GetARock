@@ -22,6 +22,16 @@
 		07D3B59C2939FFDF00C1F86F /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 07D3B59B2939FFDF00C1F86F /* FirebaseFirestore */; };
 		07D3B59E2939FFDF00C1F86F /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 07D3B59D2939FFDF00C1F86F /* FirebaseFirestoreSwift */; };
 		07D3B5A02939FFDF00C1F86F /* FirebaseFunctions in Frameworks */ = {isa = PBXBuildFile; productRef = 07D3B59F2939FFDF00C1F86F /* FirebaseFunctions */; };
+		07D3B5A3293B321C00C1F86F /* AuthAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D3B5A2293B321C00C1F86F /* AuthAPI.swift */; };
+		07D3B5A5293B695500C1F86F /* BandAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D3B5A4293B695500C1F86F /* BandAPI.swift */; };
+		07D3B5A9293B71A700C1F86F /* UserDefaultStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D3B5A8293B71A700C1F86F /* UserDefaultStorage.swift */; };
+		07D3B5AB293B71B700C1F86F /* UserDefaultHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D3B5AA293B71B700C1F86F /* UserDefaultHandler.swift */; };
+		07D3B5AD293BFB6800C1F86F /* Encodable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D3B5AC293BFB6800C1F86F /* Encodable+Extension.swift */; };
+		07D3B5AF293BFDE800C1F86F /* GatheringAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D3B5AE293BFDE800C1F86F /* GatheringAPI.swift */; };
+		07D3B5B2293BFE5D00C1F86F /* GatheringDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D3B5B1293BFE5D00C1F86F /* GatheringDTO.swift */; };
+		07D3B5B4293C134700C1F86F /* CollectionReference+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D3B5B3293C134700C1F86F /* CollectionReference+Extension.swift */; };
+		07D3B5B6293C57FC00C1F86F /* GatheringCommentDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D3B5B5293C57FC00C1F86F /* GatheringCommentDTO.swift */; };
+		07D3B5B8293C9EDB00C1F86F /* VisitorCommentDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D3B5B7293C9EDB00C1F86F /* VisitorCommentDTO.swift */; };
 		07D7D9E3290FB8C200479B6F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D7D9E2290FB8C200479B6F /* AppDelegate.swift */; };
 		07D7D9E5290FB8C200479B6F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D7D9E4290FB8C200479B6F /* SceneDelegate.swift */; };
 		07D7D9EA290FB8C200479B6F /* Landing.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07D7D9E8290FB8C200479B6F /* Landing.storyboard */; };
@@ -116,6 +126,16 @@
 		07854FCA292A9156005C8556 /* MockBandData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockBandData.swift; sourceTree = "<group>"; };
 		07C966B8292C463100A59CF5 /* Date+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+String.swift"; sourceTree = "<group>"; };
 		07D34F8F29391AF600B408E7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		07D3B5A2293B321C00C1F86F /* AuthAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAPI.swift; sourceTree = "<group>"; };
+		07D3B5A4293B695500C1F86F /* BandAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandAPI.swift; sourceTree = "<group>"; };
+		07D3B5A8293B71A700C1F86F /* UserDefaultStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultStorage.swift; sourceTree = "<group>"; };
+		07D3B5AA293B71B700C1F86F /* UserDefaultHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultHandler.swift; sourceTree = "<group>"; };
+		07D3B5AC293BFB6800C1F86F /* Encodable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Extension.swift"; sourceTree = "<group>"; };
+		07D3B5AE293BFDE800C1F86F /* GatheringAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatheringAPI.swift; sourceTree = "<group>"; };
+		07D3B5B1293BFE5D00C1F86F /* GatheringDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatheringDTO.swift; sourceTree = "<group>"; };
+		07D3B5B3293C134700C1F86F /* CollectionReference+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CollectionReference+Extension.swift"; sourceTree = "<group>"; };
+		07D3B5B5293C57FC00C1F86F /* GatheringCommentDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatheringCommentDTO.swift; sourceTree = "<group>"; };
+		07D3B5B7293C9EDB00C1F86F /* VisitorCommentDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitorCommentDTO.swift; sourceTree = "<group>"; };
 		07D7D9DF290FB8C200479B6F /* GetARock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GetARock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07D7D9E2290FB8C200479B6F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		07D7D9E4290FB8C200479B6F /* SceneDelegate.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; tabWidth = 4; };
@@ -217,8 +237,10 @@
 		072DEDCD292677090046A4A0 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				07D3B5A1293B320900C1F86F /* API */,
 				07854FC8292A913A005C8556 /* Mock */,
 				072DEDCE2926770F0046A4A0 /* Model */,
+				07D3B5A7293B716900C1F86F /* Storage */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -226,6 +248,7 @@
 		072DEDCE2926770F0046A4A0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				07D3B5B0293BFE5000C1F86F /* DTO */,
 				072DEDCF29267D9A0046A4A0 /* Band.swift */,
 				076150902928FB9400A0562F /* Gathering.swift */,
 				07615092292907A900A0562F /* GatheringComment.swift */,
@@ -259,6 +282,35 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		07D3B5A1293B320900C1F86F /* API */ = {
+			isa = PBXGroup;
+			children = (
+				07D3B5A2293B321C00C1F86F /* AuthAPI.swift */,
+				07D3B5A4293B695500C1F86F /* BandAPI.swift */,
+				07D3B5AE293BFDE800C1F86F /* GatheringAPI.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		07D3B5A7293B716900C1F86F /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				07D3B5A8293B71A700C1F86F /* UserDefaultStorage.swift */,
+				07D3B5AA293B71B700C1F86F /* UserDefaultHandler.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		07D3B5B0293BFE5000C1F86F /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				07D3B5B1293BFE5D00C1F86F /* GatheringDTO.swift */,
+				07D3B5B5293C57FC00C1F86F /* GatheringCommentDTO.swift */,
+				07D3B5B7293C9EDB00C1F86F /* VisitorCommentDTO.swift */,
+			);
+			path = DTO;
 			sourceTree = "<group>";
 		};
 		07D7D9D6290FB8C200479B6F = {
@@ -381,6 +433,8 @@
 				07D7DA2C291088EC00479B6F /* NSObject+Extension.swift */,
 				7BDA8F8A291284FE00BB2D34 /* UIColor+Extension.swift */,
 				3DDE7CA729384789002EECBB /* UIView+Extension.swift */,
+				07D3B5AC293BFB6800C1F86F /* Encodable+Extension.swift */,
+				07D3B5B3293C134700C1F86F /* CollectionReference+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -767,15 +821,21 @@
 				07854FCB292A9156005C8556 /* MockBandData.swift in Sources */,
 				07D7DA3F29108CF800479B6F /* MyPageViewController.swift in Sources */,
 				072DEDD029267D9A0046A4A0 /* Band.swift in Sources */,
+				07D3B5A3293B321C00C1F86F /* AuthAPI.swift in Sources */,
+				07D3B5B2293BFE5D00C1F86F /* GatheringDTO.swift in Sources */,
+				07D3B5A9293B71A700C1F86F /* UserDefaultStorage.swift in Sources */,
 				07D7D9E3290FB8C200479B6F /* AppDelegate.swift in Sources */,
+				07D3B5B6293C57FC00C1F86F /* GatheringCommentDTO.swift in Sources */,
 				07D7DA3629108AB400479B6F /* ImageLiteral.swift in Sources */,
 				AB58E00F292DEF2400868720 /* GatheringListTapViewController.swift in Sources */,
 				B830849929263B780035DB2D /* MainMapViewController.swift in Sources */,
+				07D3B5AB293B71B700C1F86F /* UserDefaultHandler.swift in Sources */,
 				076150912928FB9400A0562F /* Gathering.swift in Sources */,
 				66E74206292C82E8003C0B02 /* ActionSheet.swift in Sources */,
 				84002608292BC4BE0093648A /* BandTimelineCell.swift in Sources */,
 				3DDE7CA829384789002EECBB /* UIView+Extension.swift in Sources */,
 				84002602292BB3DB0093648A /* BandTimelineViewController.swift in Sources */,
+				07D3B5AF293BFDE800C1F86F /* GatheringAPI.swift in Sources */,
 				07D7D9E5290FB8C200479B6F /* SceneDelegate.swift in Sources */,
 				7BDA8F90291296B200BB2D34 /* UIView+Gradation.swift in Sources */,
 				0761508B29276D8200A0562F /* Coordinate.swift in Sources */,
@@ -784,6 +844,7 @@
 				07D7DA302910895000479B6F /* LandingViewController.swift in Sources */,
 				C5C7AC6D292A7FA200698636 /* AddGatheringViewController.swift in Sources */,
 				C545AFCC293A41CE00C21E32 /* LocationSearchResultViewController.swift in Sources */,
+				07D3B5A5293B695500C1F86F /* BandAPI.swift in Sources */,
 				072DEDD429268F470046A4A0 /* PlayPosition.swift in Sources */,
 				07D7DA2D291088EC00479B6F /* NSObject+Extension.swift in Sources */,
 				07615093292907A900A0562F /* GatheringComment.swift in Sources */,
@@ -791,12 +852,15 @@
 				AB58E003292CB57100868720 /* BandPageViewController.swift in Sources */,
 				ABCE15B7292A052F007D30E2 /* SwitchingViewSegmentedControl.swift in Sources */,
 				C591D90B2975034A002C02A7 /* AddGatheringViewController+ScrollAdaptToKeyboard.swift in Sources */,
+				07D3B5B4293C134700C1F86F /* CollectionReference+Extension.swift in Sources */,
 				07D7DA3A29108C5B00479B6F /* BaseViewController.swift in Sources */,
 				07D7DA3429108A8300479B6F /* StringLiteral.swift in Sources */,
 				7B04C330292D0C1F00EA2590 /* VisitorCommentViewController.swift in Sources */,
 				7BDA8F8B291284FE00BB2D34 /* UIColor+Extension.swift in Sources */,
 				072DEDD62926902D0046A4A0 /* AgeGroup.swift in Sources */,
 				662F6CB12967199200450E82 /* GatheringInfoViewController.swift in Sources */,
+				07D3B5AD293BFB6800C1F86F /* Encodable+Extension.swift in Sources */,
+				07D3B5B8293C9EDB00C1F86F /* VisitorCommentDTO.swift in Sources */,
 				7BB7099329290AE40065136D /* CommentListView.swift in Sources */,
 				7BB70999292A419B0065136D /* EmptyListView.swift in Sources */,
 				07C966B9292C463100A59CF5 /* Date+String.swift in Sources */,
