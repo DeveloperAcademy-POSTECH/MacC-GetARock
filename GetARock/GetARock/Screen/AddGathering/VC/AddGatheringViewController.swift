@@ -11,7 +11,6 @@ class AddGatheringViewController: UIViewController {
 
     // MARK: - Property
 
-    private var hostBandName: String?
     private var gatheringLocation: Location?
 
     // MARK: - View
@@ -80,19 +79,21 @@ class AddGatheringViewController: UIViewController {
             self.present(alert, animated: true)
             return
         }
-        guard let gatheringLocation = gatheringLocation else {
-            return // 위의 errorString에서 확인한 부분입니다.
+        guard let userBandInfo = UserDefaultStorage.userBandInfo, let gatheringLocation = gatheringLocation else {
+            return // userBandInfo는 attribute()에서, gatheringlocation은 위의 errorString에서 체크 완료한 부분입니다.
         }
-        let gathering = Gathering(
-            title: titleTextField.text ?? "이름없음",
-            host: MockData.bands[0], // 테스트용 - 추후 변경
-            status: .recruiting,
-            date: dateTimePicker.date,
-            location: gatheringLocation,
-            introduction: introductionTextView.text,
-            createdAt: Date()
-        )
-        MockData.gatherings.append(GatheringInfo(gatheringID: "testID", gathering: gathering)) // 테스트용 - ID 추후 변경
+        Task {
+            let gatheringAPI = GatheringAPI()
+            _ = try await gatheringAPI.saveGathering(gathering: Gathering(
+                title: titleTextField.text ?? "이름없음",
+                host: userBandInfo,
+                status: .recruiting,
+                date: dateTimePicker.date,
+                location: gatheringLocation,
+                introduction: introductionTextView.text,
+                createdAt: Date())
+            )
+        }
         dismiss(animated: true)
     }
 
@@ -102,20 +103,40 @@ class AddGatheringViewController: UIViewController {
 
     private func attribute() {
         setupNavigationBar()
-        hostBandName = MockData.bands[0].band.name // 테스트용 - 추후 변경: 유저디폴트 사용 예정
-        hostBandNameLabel.text = hostBandName
+        Task {
+            await fetchUserBandInfo()
+            hostBandNameLabel.text = UserDefaultStorage.userBandInfo?.band.name
+        }
         dateTimePicker.minimumDate = Date()
         titleTextField.becomeFirstResponder()
         addObeserversForKeyboardShow()
     }
 
-    private func setDelegate() {
-        introductionTextView.delegate = self
-    }
-
     private func setupNavigationBar() {
         navigationController?.navigationBar.shadowImage = UIImage()
         title = ""
+    }
+
+    private func fetchUserBandInfo() async {
+        guard let userBandInfo = try? await BandAPI().getBandInfo(bandID: UserDefaultStorage.userEmail) else {
+            let alertController = UIAlertController(
+                title: nil,
+                message: "유저 밴드 정보를 불러올 수 없어 모여락을 추가할 수 없습니다",
+                preferredStyle: .alert
+            )
+            let confirm = UIAlertAction(title: "확인", style: .default, handler: {_ in
+                print("UserDefaultStorage.userBandInfo: \(String(describing: UserDefaultStorage.userBandInfo))")
+                self.dismiss(animated: true)
+            })
+            alertController.addAction(confirm)
+            self.present(alertController, animated: true)
+            return
+        }
+        UserDefaultHandler.setUserBandInfo(bandInfo: userBandInfo)
+    }
+
+    private func setDelegate() {
+        introductionTextView.delegate = self
     }
 
     private func setupLayout() {
