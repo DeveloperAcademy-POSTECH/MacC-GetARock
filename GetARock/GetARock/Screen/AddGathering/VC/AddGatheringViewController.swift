@@ -109,13 +109,13 @@ class AddGatheringViewController: UIViewController {
         addObeserversForKeyboardShow()
     }
 
-    private func setDelegate() {
-        introductionTextView.delegate = self
-    }
-
     private func setupNavigationBar() {
         navigationController?.navigationBar.shadowImage = UIImage()
         title = ""
+    }
+
+    private func setDelegate() {
+        introductionTextView.delegate = self
     }
 
     private func setupLayout() {
