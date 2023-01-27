@@ -166,7 +166,7 @@ extension LocationSearchViewController {
                 return
             }
 
-            self?.places = response?.mapItems ?? []
+            self?.places = response?.mapItems.filter { $0.placemark.isoCountryCode == "KR"} ?? []
 
             if isTapped && !(self?.places.isEmpty ?? true) {
                 self?.setAddressInfos(indexPath: IndexPath(row: 0, section: 0))

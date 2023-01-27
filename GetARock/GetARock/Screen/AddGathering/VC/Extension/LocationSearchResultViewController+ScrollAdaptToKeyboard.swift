@@ -46,4 +46,3 @@ extension LocationSearchResultViewController {
         tableView.scrollIndicatorInsets = UIEdgeInsets.zero
     }
 }
-

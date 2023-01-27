@@ -71,7 +71,7 @@ class LocationSearchResultViewController: UIViewController {
 
 extension LocationSearchResultViewController: MKLocalSearchCompleterDelegate {
     func completerDidUpdateResults(_ completer: MKLocalSearchCompleter) {
-        suggestedPlaces = completer.results
+        suggestedPlaces = completer.results.filter { $0.subtitle.contains("대한민국") }
     }
 }
 
