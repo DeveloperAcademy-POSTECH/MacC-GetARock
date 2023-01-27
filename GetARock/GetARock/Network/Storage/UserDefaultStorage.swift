@@ -10,6 +10,7 @@ import Foundation
 enum DataKeys: String, CaseIterable {
     case userEmail
     case userPassword
+    case userBandInfo
 }
 
 struct UserDefaultStorage {
@@ -19,6 +20,13 @@ struct UserDefaultStorage {
     
     static var userPassword: String {
         return UserData<String>.getValue(forKey: .userPassword) ?? ""
+    }
+    
+    static var userBandInfo: BandInfo? {
+        if let bandInfoData = UserData<Data>.getValue(forKey: .userBandInfo) {
+            return try? JSONDecoder().decode(BandInfo.self, from: bandInfoData)
+        }
+        return nil
     }
 }
 

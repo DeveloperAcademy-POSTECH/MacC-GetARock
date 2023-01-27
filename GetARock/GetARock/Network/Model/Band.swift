@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct BandInfo {
+struct BandInfo: Codable {
     let bandID: String
     var band: Band
 }
